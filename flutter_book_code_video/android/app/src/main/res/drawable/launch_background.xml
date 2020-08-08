@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--   背景颜色-->
+    <item android:drawable="@android:color/white" />
+    <!--  背景图片-->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/app_icon" />
+    </item>
+</layer-list>

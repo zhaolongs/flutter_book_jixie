@@ -1,0 +1,125 @@
+name: flutterbookcode
+description: MaterialApp组件的精通使用分析
+
+#  * 可关注公众号：我的大前端生涯   获取最新技术分享
+#  * 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
+#  * 可关注博客：https://blog.csdn.net/zl18603543572
+#
+version: 1.0.0+2
+
+environment:
+  sdk: ">=2.6.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  #toast 消息提示小弹框
+  fluttertoast: ^7.0.1+1
+  #加载HTML组件
+  flutter_fai_webview: ^1.1.0
+  #加载图片的缓存组件
+  cached_network_image: ^2.2.0+1
+  #视频播放
+  video_player: ^0.10.11+2
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+  #最新版本可查看这里 https://pub.flutter-io.cn/packages/provider
+  #在这里的 ^号代表自动加载升级版的插件，如果需要使用固定版本，可以将^去掉，然后直接写上版本号就可以
+  provider: ^4.0.5
+  matrix4_transform: ^1.1.4
+  # Material motion 规范的预构建动画
+  animations: ^1.1.1
+  # 友盟统计
+  flutter_fai_umeng: ^0.0.2
+  # 过渡按钮
+  flutter_progress_button: ^0.6.4
+  #闪光动画
+  flash_animation: ^0.0.1
+  #Flutter抖动动画、颤抖动画、Flutter文字抖动效果
+  shake_animation_widget: ^1.0.0
+  #获取手机存储目录
+  path_provider: ^1.6.9
+  #用来加载网络数据
+  dio: 3.0.9
+  #MD5  base64之类 转码
+  crypto: ^2.0.6
+  image: ^2.1.13
+  # 权限请求框架
+  permission_handler: ^5.0.1+1
+  flutter_spinkit: ^4.1.2+1
+  # 数据存储
+  shared_preferences: ^0.5.6+3
+  #列表的加载动画
+  flutter_staggered_animations: ^0.1.2
+#  下拉刷新
+  pull_to_refresh: ^1.6.0
+#  fluttertextlayoutplugin:
+#    git:
+#      url: https://github.com/zhaolongs/flutter_text_layout.git
+#      ref: master
+  #搜索框
+  flutter_search_bars: ^0.0.2
+  #文本标签
+  flutter_tag_layout: ^0.0.3
+#  flutter_tag_layout :
+#    path: /Volumes/code/ico/Desktop/code/flutter_app/flutter_search_bars/flutter_tag_layout
+  #手势缩放图片组件
+  flutterdragscalewidget:
+    git:
+      url: https://github.com/zhaolongs/flutter_drag_scale_widget.git
+      ref: master
+
+  #抽屉
+  drag_container: ^0.0.1
+#  drag_container:
+#    git:
+#      url: https://github.com/zhaolongs/drag_container.git
+#      ref: master
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  uses-material-design: true
+
+
+#配置图片的目录结构
+  assets:
+    #一倍图目录
+    - assets/images/
+    #三倍图目录
+    - assets/images/3.0x/
+    #二倍图目录
+    - assets/images/2.0x/
+    - assets/obj/6.obj
+    - assets/voice/
+#配置字体的目录结构
+  fonts:
+    - family: Schyler
+      fonts:
+        - asset: assets/fonts/SourceHanSansCN-Bold.otf
+    - family: Medium
+      fonts:
+        - asset: assets/fonts/SourceHanSansCN-Medium.otf
+
+    - family: UniTortred
+      fonts:
+        - asset: assets/fonts/UniTortred.ttf
+
+    - family: Regular
+      fonts:
+        - asset: assets/fonts/FormalScript_Regular.ttf
+
+#FormalScript_Regular.ttf
+
