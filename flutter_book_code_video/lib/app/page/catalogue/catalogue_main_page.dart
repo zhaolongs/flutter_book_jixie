@@ -25,6 +25,7 @@ import 'package:flutterbookcode/code5/main_data75.dart';
 import 'package:flutterbookcode/code6/main_data_conainer.dart';
 import 'package:flutterbookcode/code7/main_data_button.dart';
 import 'package:flutterbookcode/code9/image_main_page.dart';
+import 'package:flutterbookcode/demo/future/main_data_other.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'package:flutterbookcode/utils/color_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
@@ -87,6 +88,9 @@ class _CatalogueMainPageState extends State<CatalogueMainPage>  with AutomaticKe
     new CatalogBean("第20章绘图", CanvasWidgetMainPage(), "绘图专题，涉及基本图形的绘制、Path构建各种自定义图形、贝塞尔曲线绘制绘制、绘制文本、绘制图片以及绘制动画的实现等。"),
     new CatalogBean("第21章动画", AnimationWidgetMainPage(), "动画专题，内容涉及Animated系列的动画组件、Tween系列的动画、自定义抖动动画组件ShakeAnimationWidget、自定义闪光过渡动画、 Hero切换过渡动画、Material motion 规范的预构建动画等"),
     new CatalogBean("第22章其他Widget", OtherWidgetMainPage(), "其他常用Widget，本章为其他常用组件的补充描述章节，内容涉及WidgetsBindingObserver、FittedBox、FutureBuilder、刷新圆圈组件等"),
+    new CatalogBean("异步编程", FutureWidgetMainPage(), "其他常用Widget，本章为其他常用组件的补充描述章节，内容涉及WidgetsBindingObserver、FittedBox、FutureBuilder、刷新圆圈组件等"),
+
+
   ];
 
   @override
