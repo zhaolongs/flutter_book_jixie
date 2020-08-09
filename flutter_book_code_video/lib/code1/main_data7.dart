@@ -54,7 +54,7 @@ class _FirstPageState extends State<FirstPage> {
       ),
       body: Column(children: <Widget>[
         FlatButton(
-          child: Text("点击跳转第二个页面"),
+          child: Text("点击跳转第二个页面 不接收回传的值"),
           onPressed: (){
             //跳转第二个页面
             Map<String,String> map = new Map();
@@ -66,7 +66,7 @@ class _FirstPageState extends State<FirstPage> {
           },
         ),
         FlatButton(
-          child: Text("点击跳转第二个页面"),
+          child: Text("点击跳转第二个页面 接收回传的值 "),
           onPressed: (){
             Map<String,String> map = new Map();
             map["title"]="ABCS321A";
@@ -79,6 +79,25 @@ class _FirstPageState extends State<FirstPage> {
 
 
           },
+        ),
+        FlatButton(
+          child: Text(" 动态路由 点击跳转第二个页面  "),
+          onPressed: (){
+
+            //跳转第二个页面
+            Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
+              ///直接通过构建函数来传参数
+              return new ScendPage(title:"这是传递的参数");
+            })).then((value){
+              if(value){
+                Map<String,String> resultMap = value;
+                print("页面二回传的数据是 ${resultMap['result']}");
+              }
+            });
+
+
+
+          },
         )
       ],),
     );
@@ -88,6 +107,8 @@ class _FirstPageState extends State<FirstPage> {
 //页面ScendPage
 //跳转到第二个页面ScendPage中，在ScendPage中获取上一个页面参数
 class ScendPage extends StatefulWidget {
+  final String title;
+  ScendPage({@required this.title});
   @override
   ScendPageState createState() => ScendPageState();
 }
@@ -101,17 +122,28 @@ class ScendPageState extends State<ScendPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    //获取路由信息
-    RouteSettings routeSettings = ModalRoute.of(context).settings;
-    //获取传递的参数
-    Map<String,String> arguments = routeSettings.arguments;
-    print("接收到参数 ${arguments["title"]}");
+
+    ///是否是路由栈中的第一个页面
+    bool isFirst = ModalRoute.of(context).isFirst;
+    ///当前手机屏幕上显示的是否是这个页面Widget
+    bool isCurrent = ModalRoute.of(context).isCurrent;
+    ///当前Widget是否是活跃可用的
+    ///当调用 pop 或者是关闭当前Widget时 isActive 为false
+    bool isActive = ModalRoute.of(context).isActive;
+
+    if(isActive){
+      //获取路由信息
+      RouteSettings routeSettings = ModalRoute.of(context).settings;
+      //获取传递的参数
+      Map<String,String> arguments = routeSettings.arguments;
+      print("接收到参数 ${arguments["title"]} isCurrent$isCurrent isFirst$isFirst  isActive$isActive");
+    }
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("第二个页面"),
+        title: Text("第二个页面 ${widget.title}"),
       ),
       body: Center(
         child: FlatButton(
@@ -120,6 +152,7 @@ class ScendPageState extends State<ScendPage> {
             //这里是向上一个页面回传的数据
             Map<String,String> resultMap = new Map();
             resultMap["result"]="AESC";
+            ///回传数据
             Navigator.of(context).pop(resultMap);
           },
         ),

@@ -12,8 +12,9 @@ import 'main_data17.dart';
 import 'main_data18.dart';
 import 'main_data19.dart';
 import 'main_data20.dart';
+import 'main_data3.dart';
 import 'main_data9.dart';
-
+import 'main_data7.dart' as d7;
 class MaterialAppMainPage extends StatefulWidget {
   @override
   _FirstPageState createState() => _FirstPageState();
@@ -48,6 +49,8 @@ class _FirstPageState extends State<MaterialAppMainPage> {
   bluldLeftWidget(BuildContext context){
     return [
 
+
+      buildContainerAndClick("路由页面之间的传值",(){NavigatorUtils.pushPage(context, d7.RoutesApp());}),
       buildContainerAndClick("国际化示例配置日期组件的显示语言1",(){NavigatorUtils.pushPage(context, DateLnaguageSelectPage());}),
       buildContainerAndClick("国际化示例配置日期组件的显示语言2",(){NavigatorUtils.pushPage(context, DateLnaguageSelectPage2());}),
 

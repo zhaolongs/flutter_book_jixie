@@ -10,17 +10,18 @@ import 'package:flutter/material.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///  计时操作
-class FutureLoopTestPage extends StatefulWidget {
+class FutureLoopTestPage2 extends StatefulWidget {
   @override
   _FutureLoopTestPageState createState() => _FutureLoopTestPageState();
 }
 
 //lib/code/main_data.dart
-class _FutureLoopTestPageState extends State<FutureLoopTestPage> {
+class _FutureLoopTestPageState extends State<FutureLoopTestPage2> {
   ///声明变量
   Timer _timer;
+  ///记录当前的时间
+  int curentTimer = 0;
 
-  int  curentTimer=0;
   @override
   void initState() {
     super.initState();
@@ -28,9 +29,13 @@ class _FutureLoopTestPageState extends State<FutureLoopTestPage> {
     ///循环执行
     ///间隔1秒
     _timer = Timer.periodic(Duration(milliseconds: 1000), (timer) {
-      setState(() {
-        curentTimer++;
-      });
+      ///自增
+      curentTimer++;
+      ///到5秒后停止
+      if (curentTimer == 5) {
+        _timer.cancel();
+      }
+      setState(() {});
     });
   }
 
@@ -45,19 +50,31 @@ class _FutureLoopTestPageState extends State<FutureLoopTestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(""),
+        title: Text("倒计时"),
       ),
       backgroundColor: Colors.white,
 
       ///填充布局
       body: Container(
+          padding: EdgeInsets.all(20),
           width: double.infinity,
           height: double.infinity,
           child: Column(
             children: [
-              Row(children: [
-                Text("当前计时  $curentTimer s"),
-              ],)
+              ///层叠布局将进度与文字叠在一起
+              Stack(
+                ///子Widget居中
+                alignment: Alignment.center,
+                children: [
+                  ///圆形进度
+                  CircularProgressIndicator(
+                    ///当前指示的进度 0.0 -1.0
+                    value: curentTimer / 5,
+                  ),
+                  ///显示的文本
+                  Text("${5-curentTimer}"),
+                ],
+              )
             ],
           )),
     );

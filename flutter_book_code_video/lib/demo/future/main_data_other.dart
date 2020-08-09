@@ -6,6 +6,9 @@ import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'future_delayed_page.dart';
+import 'future_loop2_page.dart';
+import 'future_loop3_page.dart';
+import 'future_loop_page.dart';
 
 
 
@@ -46,8 +49,12 @@ class _FirstPageState extends State<FutureWidgetMainPage> {
   bluldLeftWidget(BuildContext context){
     return [
 
+      buildContainerAndClick("计时操作",(){NavigatorUtils.pushPage(context, FutureLoopTestPage());}),
       buildContainerAndClick("延时操作",(){NavigatorUtils.pushPage(context, FutureDelayedTestPage());}),
 
+      buildContainerAndClick("倒计时进度",(){NavigatorUtils.pushPage(context, FutureLoopTestPage2());}),
+
+      buildContainerAndClick("倒计时进度 优化",(){NavigatorUtils.pushPage(context, FutureLoopTestPage3());}),
 
     ];
   }
