@@ -25,14 +25,17 @@ class _AnimatedOpacityPageState extends State<AnimatedOpacityPage> {
         title: Text("透明度动画"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             height: 120.0,
             width: 120.0,
+            ///背景
             color: Colors.blue[50],
             child: buildAnimatedOpacity(),
           ),
+
+
           RaisedButton(
             child: Text('修改透明度'),
             onPressed: () {
@@ -59,13 +62,11 @@ class _AnimatedOpacityPageState extends State<AnimatedOpacityPage> {
       ///动画插值器
       curve: Curves.linear,
       ///动画过渡完毕的回调
-      onEnd: (){},
+      onEnd: () {},
       ///子Widget
       child: Container(
         color: Colors.red,
       ),
     );
   }
-
-
 }

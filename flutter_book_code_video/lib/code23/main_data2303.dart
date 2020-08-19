@@ -50,23 +50,18 @@ class _FadeTransitionPageState extends State<FadeTransitionPage>
 
         ///duration 为正向执行动画的时间
         duration: Duration(seconds: 2),
-
         ///反向执行动画的时间
         reverseDuration: Duration(milliseconds: 3000),
-
         ///controller的变化的最小值
         lowerBound: 0.0,
-
         ///controller变化的最大值
         upperBound: 1.0,
-
         ///绑定页面的Ticker
         vsync: this);
 
     controller.addListener(() {
       ///获取AnimationController执行的值
       double offset = controller.value;
-
       ///获取当前动画的状态
       AnimationStatus status = controller.status;
     });
@@ -94,6 +89,7 @@ class _FadeTransitionPageState extends State<FadeTransitionPage>
   ///lib/code23/main_data2302.dart
   ///构建渐变动画[FadeTransition]
   Widget buildSlideTransition() {
+    ///实现透明渐变动画
     return FadeTransition(
       ///过渡
       opacity: controller,
