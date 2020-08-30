@@ -1,10 +1,4 @@
-import 'dart:async';
 
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-// base64库
 import 'dart:convert' as convert;
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/8/22.
@@ -29,6 +23,4 @@ class Base64Util {
     String result = convert.utf8.decode(bytes);
     return result;
   }
-
-
 }
