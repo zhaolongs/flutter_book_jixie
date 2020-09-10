@@ -8,7 +8,6 @@ import 'package:flutterbookcode/app/common/event_message.dart';
 import 'package:flutterbookcode/app/common/user_helper.dart';
 import 'package:flutterbookcode/app/config/home_notifier.dart';
 import 'package:flutterbookcode/app/page/catalogue/catalogue_main_page.dart';
-import 'package:flutterbookcode/app/page/mine/mine_login_page.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
@@ -139,24 +138,6 @@ class FirstThemState extends State<HomeMainPage>  {
       iconSize: 24.0,
       //点击事件
       onTap: (index) {
-        if (index == 2) {
-          ///未登录时跳转登录页面
-          if (UserHelper.getInstance.userBean == null) {
-            ///打开登录页面
-            openLoginPage(context,dismissCallback: (isSuccess){
-              ///如果登录成功了就打开我的页面
-              if(isSuccess){
-                setState(() {
-                  _tabIndex = 2;
-                  _pageController.jumpToPage(2);
-                });
-              }
-              ///如果没有成功就还停留在当前页面
-            });
-            return;
-          }
-        }
-
         ///切换PageView中的页面显示
         _pageController.jumpToPage(index);
         _tabIndex = index;
