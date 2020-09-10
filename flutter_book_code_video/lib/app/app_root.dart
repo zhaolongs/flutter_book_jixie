@@ -8,6 +8,8 @@ import 'config/local_notifier.dart';
 import 'config/observer_route.dart';
 import 'config/theme_notifier.dart';import 'package:provider/provider.dart';
 
+import 'package:flutter_life_state/flutter_life_state.dart';
+
 import 'index.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -87,7 +89,7 @@ class _AppRootPageState extends State<AppRootPage> {
         FallbackCupertinoLocalisationsDelegate.delegate,
       ],
       ///路由导航观察者配置
-      navigatorObservers: [routeObserver],
+      navigatorObservers: [lifeFouteObserver,routeObserver],
       ///用来监听当前设备语言设置的变化。
       ///在APP第一次启动的时候会被调用
       localeResolutionCallback: localeCallback,

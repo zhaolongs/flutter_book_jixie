@@ -54,6 +54,8 @@ dependencies:
   shared_preferences: ^0.5.6+3
   #列表的加载动画
   flutter_staggered_animations: ^0.1.2
+  #Flutter 生命周期兼听库、Flutter组件生命周期、Widget生命周期
+  flutter_life_state: ^1.0.1
 #  下拉刷新
   pull_to_refresh: ^1.6.0
 #  fluttertextlayoutplugin:
