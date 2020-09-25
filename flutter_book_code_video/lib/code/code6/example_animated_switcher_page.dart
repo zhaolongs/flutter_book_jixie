@@ -1,0 +1,85 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+/// 创建人： Created by zhaolong
+/// 创建时间：Created by  on 2020/9/25.
+///
+/// 可关注公众号：我的大前端生涯   获取最新技术分享
+/// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
+/// 可关注博客：https://blog.csdn.net/zl18603543572
+///
+///
+
+void main() {
+  ///启动根目录
+  runApp(MaterialApp(
+    home: AnimatedSwitcherPage(),
+  ));
+}
+
+/// 代码清单
+///代码清单
+class AnimatedSwitcherPage extends StatefulWidget {
+  @override
+  _AnimatedSwitcherPageState createState() => _AnimatedSwitcherPageState();
+}
+
+class _AnimatedSwitcherPageState extends State<AnimatedSwitcherPage> {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("AnimatedSwitcher 组件的基本使用"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: 22,),
+            buildAnimatedSwitcher(context),
+            SizedBox(height: 22,),
+            buildOutlineButton(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  ///构建一个有边框的按钮
+  OutlineButton buildOutlineButton() {
+    return OutlineButton(
+      child: const Text(
+        '数据递增',
+      ),
+      onPressed: () {
+        print(("count $_count"));
+        setState(() {
+          _count += 1;
+        });
+      },
+    );
+  }
+
+  ///AnimatedSwitcher 的基本使用
+  AnimatedSwitcher buildAnimatedSwitcher(BuildContext context) {
+    return AnimatedSwitcher(
+      ///动画执行切换时间
+      duration: const Duration(milliseconds: 600),
+      ///动画构建器 构建指定动画类型
+      transitionBuilder: (Widget child, Animation<double> animation) {
+        //执行缩放动画
+        return ScaleTransition(child: child, scale: animation);
+      },
+      ///执行动画的子 Widget
+      ///只有子 Widget 被切换时才会触发动画
+      child: Text(
+        '$_count',
+        //显示指定key，不同的key会被认为是不同的Text
+        key: ValueKey<int>(_count),
+        style: TextStyle(fontSize: 32),
+      ),
+    );
+  }
+}
