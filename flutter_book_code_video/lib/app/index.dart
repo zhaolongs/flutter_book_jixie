@@ -54,7 +54,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     ///为ture时输出日志
     const bool isLog = !inProduction;
     ///初始化友盟统计
-    await initUmeng(isLog: isLog);
+    // await initUmeng(isLog: isLog);
     ///初始化本地存储工具
     await SPUtil.init();
     ///初始化日志工具
