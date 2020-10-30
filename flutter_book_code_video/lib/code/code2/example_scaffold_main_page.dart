@@ -34,76 +34,39 @@ import 'example_scaffold_229_page.dart';
 import 'example_scaffold_231_page.dart';
 import 'example_scaffold_235_page.dart';
 import 'example_scaffold_237_page.dart';
+import 'example_scaffold_239_page.dart';
 
 ///Scaffold 组件使用目录
-//应用入口 
+//应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
     home: ExampleMain(),
   ));
 }
+
 class ExampleMain extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
+
 class _ExampleState extends State<ExampleMain> {
-
-  List<Map<String,dynamic>> list = [
-    {
-      "title":"Scaffold的基本使用",
-      "page" :Example216()
-    },
-    {
-      "title":"Scaffold的 常用页面 ",
-      "page" :Example217()
-    },
-    {
-      "title":"FAB 的基本使用 ",
-      "page" :Example219()
-    },
-    {
-      "title":"FAB mini 类型 ",
-      "page" :Example220()
-    },
-    {
-      "title":"FAB extended 类型 ",
-      "page" :Example222()
-    },
-    {
-      "title":"FAB 的常用属性 ",
-      "page" :Example224()
-    },
-    {
-      "title":"侧拉页面的配置使用 ",
-      "page" :Example225()
-    },    {
-      "title":"UserAccountsDrawerHeader组件",
-      "page" :Example228()
-    },
-
-    {
-      "title":"自定义该当触发侧拉页面",
-      "page" :Example229()
-    },
-
-    {
-      "title":"bottomNavigationBar配制底部导航栏菜单",
-      "page" :Example231()
-    },
-    {
-      "title":"底部导航栏 结合 List来切换页面",
-      "page" :Example235()
-    },
-
-    {
-      "title":"底部导航栏与 TabBarView 结合",
-      "page" :Example237()
-    },
-
-
+  List<Map<String, dynamic>> list = [
+    {"title": "Scaffold的基本使用", "page": Example216()},
+    {"title": "Scaffold的 常用页面 ", "page": Example217()},
+    {"title": "FAB 的基本使用 ", "page": Example219()},
+    {"title": "FAB mini 类型 ", "page": Example220()},
+    {"title": "FAB extended 类型 ", "page": Example222()},
+    {"title": "FAB 的常用属性 ", "page": Example224()},
+    {"title": "侧拉页面的配置使用 ", "page": Example225()},
+    {"title": "UserAccountsDrawerHeader组件", "page": Example228()},
+    {"title": "自定义该当触发侧拉页面", "page": Example229()},
+    {"title": "bottomNavigationBar配制底部导航栏菜单", "page": Example231()},
+    {"title": "底部导航栏 结合 List来切换页面", "page": Example235()},
+    {"title": "底部导航栏与 TabBarView 结合", "page": Example237()},
+    {"title": "底部导航栏与 类似闲鱼", "page": Example239()},
 
   ];
 
@@ -111,29 +74,48 @@ class _ExampleState extends State<ExampleMain> {
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
     return Scaffold(
-      appBar: AppBar(title: Text("Scaffold使用目录"),),
+      appBar: AppBar(
+        title: Text("Scaffold使用目录"),
+      ),
       //页面的主内容区
       //可以是单独的StatefulWidget 也可以是当前页面构建的如Text文本组件
-      body: Stack(children: [Image.asset(
-        "assets/images/3.0x/common_bg.png",
-        fit: BoxFit.fill,
-      ), buildCustomScrollView(context)]),);
+      body: Stack(children: [
+        Image.asset(
+          "assets/images/3.0x/common_bg2.png",
+          fit: BoxFit.fill,
+        ),
+        buildCustomScrollView(context)
+      ]),
+    );
   }
 
   CustomScrollView buildCustomScrollView(BuildContext context) {
-    List<Widget> childList=[];
+    List<Widget> childList = [];
     for (var i = 0; i < list.length; i++) {
-      Map<String,dynamic> item  = list[i];
-      childList.add( CommonListTile(
-        title: item["title"],
-        main:InkWell(child: Container(width: double.infinity,height: 44,),onTap: (){
-          NavigatorUtils.pushPage(context, item["page"]);
-        },),
-        icon: RoundedCornerIcon(
-          iconData: CupertinoIcons.battery_25_percent,
-          gradient: BrandColors.gradient2,
+      Map<String, dynamic> item = list[i];
+      childList.add(
+        CommonListTile(
+          title: item["title"],
+          main: InkWell(
+            child: Container(
+             alignment: Alignment.center,
+              width: double.infinity,
+              height: 44,
+              child: Text(
+                "点击查看详情",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            onTap: () {
+              NavigatorUtils.pushPage(context, item["page"]);
+            },
+          ),
+          icon: RoundedCornerIcon(
+            iconData: CupertinoIcons.battery_25_percent,
+            gradient: BrandColors.gradient2,
+          ),
         ),
-      ),);
+      );
     }
     return CustomScrollView(
       slivers: childList,

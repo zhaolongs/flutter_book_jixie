@@ -175,7 +175,7 @@ class _TodayListTileDelegate extends SliverPersistentHeaderDelegate {
           Text(
             widget.title,
             style: TextStyle(
-              color: Colors.white30,
+              color: Colors.white,
               fontWeight: FontWeight.w500,
               fontSize: 14,
             ),
