@@ -28,6 +28,12 @@ import 'example_scaffold_219_page.dart';
 import 'example_scaffold_220_page.dart';
 import 'example_scaffold_222_page.dart';
 import 'example_scaffold_224_page.dart';
+import 'example_scaffold_225_page.dart';
+import 'example_scaffold_228_page.dart';
+import 'example_scaffold_229_page.dart';
+import 'example_scaffold_231_page.dart';
+import 'example_scaffold_235_page.dart';
+import 'example_scaffold_237_page.dart';
 
 ///Scaffold 组件使用目录
 //应用入口 
@@ -70,7 +76,37 @@ class _ExampleState extends State<ExampleMain> {
       "title":"FAB 的常用属性 ",
       "page" :Example224()
     },
+    {
+      "title":"侧拉页面的配置使用 ",
+      "page" :Example225()
+    },    {
+      "title":"UserAccountsDrawerHeader组件",
+      "page" :Example228()
+    },
+
+    {
+      "title":"自定义该当触发侧拉页面",
+      "page" :Example229()
+    },
+
+    {
+      "title":"bottomNavigationBar配制底部导航栏菜单",
+      "page" :Example231()
+    },
+    {
+      "title":"底部导航栏 结合 List来切换页面",
+      "page" :Example235()
+    },
+
+    {
+      "title":"底部导航栏与 TabBarView 结合",
+      "page" :Example237()
+    },
+
+
+
   ];
+
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -78,7 +114,10 @@ class _ExampleState extends State<ExampleMain> {
       appBar: AppBar(title: Text("Scaffold使用目录"),),
       //页面的主内容区
       //可以是单独的StatefulWidget 也可以是当前页面构建的如Text文本组件
-      body:buildCustomScrollView(context),);
+      body: Stack(children: [Image.asset(
+        "assets/images/3.0x/common_bg.png",
+        fit: BoxFit.fill,
+      ), buildCustomScrollView(context)]),);
   }
 
   CustomScrollView buildCustomScrollView(BuildContext context) {
