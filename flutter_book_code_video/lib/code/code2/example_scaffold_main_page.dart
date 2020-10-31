@@ -22,6 +22,7 @@ import 'package:flutterbookcode/base/list/header_icon.dart';
 import 'package:flutterbookcode/base/list/list_title.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
+import 'example_appbar_247_page.dart';
 import 'example_scaffold_216_page.dart';
 import 'example_scaffold_217_page.dart';
 import 'example_scaffold_219_page.dart';
@@ -69,6 +70,8 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "Scaffold 底部导航栏与 TabBarView 结合", "page": Example237()},
     {"title": "Scaffold 底部导航栏与 类似闲鱼", "page": Example239()},
     {"title": "AppBar 的基本使用", "page": Example245()},
+    {"title": "AppBar 可滑动的标签栏", "page": Example247()},
+
 
   ];
 
