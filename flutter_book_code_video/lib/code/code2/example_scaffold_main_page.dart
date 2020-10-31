@@ -24,6 +24,7 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'example_appbar_247_page.dart';
 import 'example_appbar_250_page.dart';
+import 'example_appbar_252_page.dart';
 import 'example_scaffold_216_page.dart';
 import 'example_scaffold_217_page.dart';
 import 'example_scaffold_219_page.dart';
@@ -73,6 +74,7 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "AppBar 的基本使用", "page": Example245()},
     {"title": "AppBar 可滑动的标签栏", "page": Example247()},
     {"title": "AppBar 常用左右切换", "page": Example250()},
+    {"title": "AppBar bottom配置任意的Widget", "page": Example252()},
 
 
   ];
