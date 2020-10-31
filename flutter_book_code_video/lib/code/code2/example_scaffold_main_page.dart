@@ -35,6 +35,7 @@ import 'example_scaffold_231_page.dart';
 import 'example_scaffold_235_page.dart';
 import 'example_scaffold_237_page.dart';
 import 'example_scaffold_239_page.dart';
+import 'example_appbar_245_page.dart';
 
 ///Scaffold 组件使用目录
 //应用入口
@@ -54,19 +55,20 @@ class ExampleMain extends StatefulWidget {
 
 class _ExampleState extends State<ExampleMain> {
   List<Map<String, dynamic>> list = [
-    {"title": "Scaffold的基本使用", "page": Example216()},
-    {"title": "Scaffold的 常用页面 ", "page": Example217()},
-    {"title": "FAB 的基本使用 ", "page": Example219()},
-    {"title": "FAB mini 类型 ", "page": Example220()},
-    {"title": "FAB extended 类型 ", "page": Example222()},
-    {"title": "FAB 的常用属性 ", "page": Example224()},
-    {"title": "侧拉页面的配置使用 ", "page": Example225()},
-    {"title": "UserAccountsDrawerHeader组件", "page": Example228()},
-    {"title": "自定义该当触发侧拉页面", "page": Example229()},
-    {"title": "bottomNavigationBar配制底部导航栏菜单", "page": Example231()},
-    {"title": "底部导航栏 结合 List来切换页面", "page": Example235()},
-    {"title": "底部导航栏与 TabBarView 结合", "page": Example237()},
-    {"title": "底部导航栏与 类似闲鱼", "page": Example239()},
+    {"title": "Scaffold 的基本使用", "page": Example216()},
+    {"title": "Scaffold 的 常用页面 ", "page": Example217()},
+    {"title": "Scaffold  FAB 的基本使用 ", "page": Example219()},
+    {"title": "Scaffold FAB mini 类型 ", "page": Example220()},
+    {"title": "Scaffold FAB extended 类型 ", "page": Example222()},
+    {"title": "Scaffold FAB 的常用属性 ", "page": Example224()},
+    {"title": "Scaffold 侧拉页面的配置使用 ", "page": Example225()},
+    {"title": "Scaffold UserAccountsDrawerHeader组件", "page": Example228()},
+    {"title": "Scaffold 自定义该当触发侧拉页面", "page": Example229()},
+    {"title": "Scaffold bottomNavigationBar配制底部导航栏菜单", "page": Example231()},
+    {"title": "Scaffold 底部导航栏 结合 List来切换页面", "page": Example235()},
+    {"title": "Scaffold 底部导航栏与 TabBarView 结合", "page": Example237()},
+    {"title": "Scaffold 底部导航栏与 类似闲鱼", "page": Example239()},
+    {"title": "AppBar 的基本使用", "page": Example245()},
 
   ];
 
