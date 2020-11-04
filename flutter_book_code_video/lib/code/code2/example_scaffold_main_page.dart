@@ -39,6 +39,14 @@ import 'example_scaffold_235_page.dart';
 import 'example_scaffold_237_page.dart';
 import 'example_scaffold_239_page.dart';
 import 'example_appbar_245_page.dart';
+import 'example_text_255_page.dart';
+import 'example_text_262_page.dart';
+import 'example_text_264_page.dart';
+import 'example_text_270_page.dart';
+import 'example_text_273_page.dart';
+import 'example_text_275_page.dart';
+import 'example_text_277_page.dart';
+import 'example_textfield_279_page.dart';
 
 ///Scaffold 组件使用目录
 //应用入口
@@ -58,24 +66,33 @@ class ExampleMain extends StatefulWidget {
 
 class _ExampleState extends State<ExampleMain> {
   List<Map<String, dynamic>> list = [
-    {"title": "Scaffold 的基本使用", "page": Example216()},
-    {"title": "Scaffold 的 常用页面 ", "page": Example217()},
-    {"title": "Scaffold  FAB 的基本使用 ", "page": Example219()},
-    {"title": "Scaffold FAB mini 类型 ", "page": Example220()},
-    {"title": "Scaffold FAB extended 类型 ", "page": Example222()},
-    {"title": "Scaffold FAB 的常用属性 ", "page": Example224()},
-    {"title": "Scaffold 侧拉页面的配置使用 ", "page": Example225()},
-    {"title": "Scaffold UserAccountsDrawerHeader组件", "page": Example228()},
-    {"title": "Scaffold 自定义该当触发侧拉页面", "page": Example229()},
-    {"title": "Scaffold bottomNavigationBar配制底部导航栏菜单", "page": Example231()},
-    {"title": "Scaffold 底部导航栏 结合 List来切换页面", "page": Example235()},
-    {"title": "Scaffold 底部导航栏与 TabBarView 结合", "page": Example237()},
-    {"title": "Scaffold 底部导航栏与 类似闲鱼", "page": Example239()},
-    {"title": "AppBar 的基本使用", "page": Example245()},
-    {"title": "AppBar 可滑动的标签栏", "page": Example247()},
-    {"title": "AppBar 常用左右切换", "page": Example250()},
-    {"title": "AppBar bottom配置任意的Widget", "page": Example252()},
+    {"title": "Scaffold 的基本使用", "page": Example216(),"type":1},
+    {"title": "Scaffold 的 常用页面 ", "page": Example217(),"type":1},
+    {"title": "Scaffold  FAB 的基本使用 ", "page": Example219(),"type":1},
+    {"title": "Scaffold FAB mini 类型 ", "page": Example220(),"type":1},
+    {"title": "Scaffold FAB extended 类型 ", "page": Example222(),"type":1},
+    {"title": "Scaffold FAB 的常用属性 ", "page": Example224(),"type":1},
+    {"title": "Scaffold 侧拉页面的配置使用 ", "page": Example225(),"type":1},
+    {"title": "Scaffold UserAccountsDrawerHeader组件", "page": Example228(),"type":1},
+    {"title": "Scaffold 自定义该当触发侧拉页面", "page": Example229(),"type":1},
+    {"title": "Scaffold bottomNavigationBar配制底部导航栏菜单", "page": Example231(),"type":1},
+    {"title": "Scaffold 底部导航栏 结合 List来切换页面", "page": Example235(),"type":1},
+    {"title": "Scaffold 底部导航栏与 TabBarView 结合", "page": Example237(),"type":1},
+    {"title": "Scaffold 底部导航栏与 类似闲鱼", "page": Example239(),"type":1},
+    {"title": "AppBar 的基本使用", "page": Example245(),"type":2},
+    {"title": "AppBar 可滑动的标签栏", "page": Example247(),"type":2},
+    {"title": "AppBar 常用左右切换", "page": Example250(),"type":2},
+    {"title": "AppBar bottom配置任意的Widget", "page": Example252(),"type":2},
+    {"title": "Text 文本对齐", "page": Example255(),"type":3},
 
+    {"title": "Text TextStyle的基本使用代码如下", "page": Example262(),"type":3},
+    {"title": "Text TextStyle的 下划线", "page": Example264(),"type":3},
+    {"title": "Text 自定义字体", "page": Example270(),"type":3},
+    {"title": "Text AnimatedDefaultTextStyle", "page": Example273(),"type":3},
+
+    {"title": "Text RichText", "page": Example275(),"type":3},
+    {"title": "Text RichTextTag 搜索内容高亮", "page": Example277(),"type":3},
+    {"title": "TextField 文本输入框的基本使用", "page": Example279(),"type":4},
 
   ];
 
@@ -84,7 +101,7 @@ class _ExampleState extends State<ExampleMain> {
     //Scaffold 用来搭建页面的主体结构
     return Scaffold(
       appBar: AppBar(
-        title: Text("Scaffold使用目录"),
+        title: Text("第二章节基础组件"),
       ),
       //页面的主内容区
       //可以是单独的StatefulWidget 也可以是当前页面构建的如Text文本组件
