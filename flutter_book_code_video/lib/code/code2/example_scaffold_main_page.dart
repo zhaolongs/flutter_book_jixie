@@ -47,6 +47,7 @@ import 'example_text_273_page.dart';
 import 'example_text_275_page.dart';
 import 'example_text_277_page.dart';
 import 'example_textfield_279_page.dart';
+import 'example_textfield_281_page.dart';
 
 ///Scaffold 组件使用目录
 //应用入口
@@ -93,6 +94,7 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "Text RichText", "page": Example275(),"type":3},
     {"title": "Text RichTextTag 搜索内容高亮", "page": Example277(),"type":3},
     {"title": "TextField 文本输入框的基本使用", "page": Example279(),"type":4},
+    {"title": "TextField 文本输入框 的边框样式设置", "page": Example281(),"type":4},
 
   ];
 
