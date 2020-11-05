@@ -50,6 +50,8 @@ import 'example_textfield_279_page.dart';
 import 'example_textfield_281_page.dart';
 import 'example_textfield_291_page.dart';
 import 'example_textfield_292_page.dart';
+import 'example_textfield_294_page.dart';
+import 'example_textfield_296_page.dart';
 
 ///Scaffold 组件使用目录
 //应用入口
@@ -99,6 +101,8 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "TextField 文本输入框 的边框样式设置", "page": Example281(),"type":4},
     {"title": "TextField 文本输入框 的提示文本设置", "page": Example291(),"type":4},
     {"title": "TextField 文本输入框 登录提示", "page": Example292(),"type":4},
+    {"title": "TextField 文本输入框 控制器", "page": Example294(),"type":4},
+    {"title": "TextField 文本输入框 焦点控制", "page": Example296(),"type":4},
 
   ];
 
