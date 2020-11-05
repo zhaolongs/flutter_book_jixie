@@ -25,6 +25,10 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'example_appbar_247_page.dart';
 import 'example_appbar_250_page.dart';
 import 'example_appbar_252_page.dart';
+import 'example_container_2100_page.dart';
+import 'example_container_2115_page.dart';
+import 'example_container_2117_page.dart';
+import 'example_container_298_page.dart';
 import 'example_scaffold_216_page.dart';
 import 'example_scaffold_217_page.dart';
 import 'example_scaffold_219_page.dart';
@@ -103,6 +107,12 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "TextField 文本输入框 登录提示", "page": Example292(),"type":4},
     {"title": "TextField 文本输入框 控制器", "page": Example294(),"type":4},
     {"title": "TextField 文本输入框 焦点控制", "page": Example296(),"type":4},
+
+    {"title": "Container 基本使用", "page": Example298(),"type":5},
+
+    {"title": "Container BoxDecoration ", "page": Example2100(),"type":5},
+    {"title": "Container ShapeDecoration ", "page": Example2115(),"type":5},
+    {"title": "Container 自定义ShapeBorder ", "page": Example2117(),"type":5},
 
   ];
 
