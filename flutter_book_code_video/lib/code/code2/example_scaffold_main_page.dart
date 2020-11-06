@@ -25,6 +25,7 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'example_appbar_247_page.dart';
 import 'example_appbar_250_page.dart';
 import 'example_appbar_252_page.dart';
+import 'example_button_2134_page.dart';
 import 'example_container_2100_page.dart';
 import 'example_container_2115_page.dart';
 import 'example_container_2117_page.dart';
@@ -113,6 +114,8 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "Container BoxDecoration ", "page": Example2100(),"type":5},
     {"title": "Container ShapeDecoration ", "page": Example2115(),"type":5},
     {"title": "Container 自定义ShapeBorder ", "page": Example2117(),"type":5},
+    {"title": "Button的基本使用 ", "page": Example2134(),"type":6},
+
 
   ];
 
