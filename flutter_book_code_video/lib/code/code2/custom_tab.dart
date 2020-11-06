@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 /// 代码清单
-///代码清单 2-43
+///代码清单 2-31
 ///lib/code/code2/custom_tab.dart
 class CustomTab extends StatefulWidget {
   final Function() clickCallBack;

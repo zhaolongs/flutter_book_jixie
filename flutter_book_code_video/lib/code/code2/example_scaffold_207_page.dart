@@ -10,37 +10,30 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_scaffold_216_page.dart
+///代码清单 2-13
+///lib/code/code2/example_scaffold_207_page.dart
 ///Scaffold的基本使用 内容主体页面
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 //应用入口 
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example217(),
+    home: Example207(),
   ));
 }
-
-///代码清单 2-17
-///lib/code/code2/example_scaffold_217_page.dart
-class Example217 extends StatefulWidget {
+class Example207 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
-class _ExampleState extends State<Example217> {
+class _ExampleState extends State<Example207> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
     return Scaffold(
-      //页面的头部
-      appBar: AppBar(title: Text("标题"),),
       //页面的主内容区
       //可以是单独的StatefulWidget 也可以是当前页面构建的如Text文本组件
-      body: Center(child: Text("显示日期"),),);
+      body: Center(child: Text("启动页面"),),);
   }
 }

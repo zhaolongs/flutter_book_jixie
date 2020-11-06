@@ -10,31 +10,24 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_scaffold_207_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 //应用入口 
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example225(),
+    home: Example210(),
   ));
 }
 
-
-
-///代码清单 2-25
-///lib/code/code2/example_scaffold_225_page.dart
-class Example225 extends StatefulWidget {
+///代码清单 2-18
+///lib/code/code2/example_scaffold_210_page.dart
+class Example210 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
-class _ExampleState extends State<Example225> {
+class _ExampleState extends State<Example210> {
 
 
   @override
@@ -77,4 +70,5 @@ class _ExampleState extends State<Example225> {
     );
   }
 }
+
 

@@ -10,31 +10,25 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_scaffold_216_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example229(),
+    home: Example211(),
   ));
 }
 
-///代码清单 2-29
-///lib/code/code2/example_scaffold_229_page.dart
-class Example229 extends StatefulWidget {
+///代码清单 2-19
+///lib/code/code2/example_scaffold_211_page.dart
+class Example211 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example229> {
+class _ExampleState extends State<Example211> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -66,8 +60,9 @@ class _ExampleState extends State<Example229> {
       ),
     );
   }
-  ///代码清单 2-30
-  ///lib/code/code2/example_scaffold_229_page.dart
+
+  ///代码清单 2-20
+  ///lib/code/code2/example_scaffold_211_page.dart
   AppBar buildAppBar2() {
     return AppBar(
       title: Text("测试"),
@@ -90,7 +85,8 @@ class _ExampleState extends State<Example229> {
       ),
     );
   }
-
+  ///代码清单 2-21
+  ///lib/code/code2/example_scaffold_211_page.dart
   UserAccountsDrawerHeader buildDrawerHeader() {
     ///通用用户信息组件
     return UserAccountsDrawerHeader(

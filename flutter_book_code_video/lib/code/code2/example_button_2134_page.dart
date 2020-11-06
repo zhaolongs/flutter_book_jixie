@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 ///
 
 ///代码清单 2-16
-///lib/code/code2/example_scaffold_216_page.dart
+///lib/code/code2/example_scaffold_207_page.dart
 ///Scaffold的基本使用 内容主体页面
 import 'package:flutter/painting.dart';
 
@@ -48,7 +48,14 @@ class _ExampleState extends State<Example2134> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-
+              dividerPopMenu(),
+              SizedBox(
+                height: 44,
+              ),
+              buildOutlinedButton(),
+              SizedBox(
+                height: 44,
+              ),
               buildElevatedButton(),
               SizedBox(
                 height: 44,
@@ -264,7 +271,6 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-
   ///代码清单 2-151
   ///lib/code/code2/example_button_2134_page.dart
   Widget buildOutlineButton() {
@@ -274,18 +280,20 @@ class _ExampleState extends State<Example2134> {
       onPressed: () {},
     );
   }
+
   ///代码清单 2-152
   ///lib/code/code2/example_button_2134_page.dart
-  Widget buildTextButton(){
+  Widget buildTextButton() {
     return TextButton(
       child: Text("TextButton按钮"),
       //点击事件
       onPressed: () {},
     );
   }
+
   ///代码清单 2-152
   ///lib/code/code2/example_button_2134_page.dart
-  Widget buildElevatedButton(){
+  Widget buildElevatedButton() {
     return ElevatedButton(
       child: Text("ElevatedButton 按钮"),
       //点击事件
@@ -293,4 +301,47 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
+  Widget buildOutlinedButton() {
+    return OutlinedButton(
+      child: Text("OutlinedButton 按钮"),
+      //点击事件
+      onPressed: () {},
+    );
+  }
+
+  Widget buildBackButton() {
+    return BackButton(
+      //配置按钮返回箭头的颜色
+      color: Colors.blue,
+      //返回按钮的点击事件
+      onPressed: () {},
+    );
+  }
+  ///代码清单 2-158
+  ///lib/code/code2/example_button_2134_page.dart
+  Widget dividerPopMenu() {
+    return new PopupMenuButton<String>(
+        //设置小弹框的偏移量
+        //在这里是x轴方向的偏移量为0
+        //y轴方向的偏移量为向下偏移为100
+        offset: Offset(0, 100),
+        itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                child: Text("文本一"),
+                value: "value1",
+              ),
+              new PopupMenuDivider(height: 1.0),
+              PopupMenuItem<String>(
+                child: Text("文本二"),
+                value: "value2",
+              ),
+              new PopupMenuDivider(height: 1.0),
+              PopupMenuItem<String>(
+                child: Text("文本三"),
+                value: "value3",
+              ),
+            ],
+        //点击子菜单的回调
+        onSelected: (String value) {});
+  }
 }
