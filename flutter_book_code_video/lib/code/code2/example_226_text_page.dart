@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbookcode/demo/rich_text_tag.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/9/25.
@@ -10,29 +11,25 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/painting.dart';
-import 'package:flutterbookcode/demo/rich_text_tag.dart';
+
 
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example277(),
+    home: Example226(),
   ));
 }
 
-class Example277 extends StatefulWidget {
+class Example226 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example277> {
+class _ExampleState extends State<Example226> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -49,8 +46,8 @@ class _ExampleState extends State<Example277> {
     );
   }
 
-  ///代码清单 2-77
-  ///lib/code/code2/example_appbar_277_page.dart
+  ///代码清单 2-44
+  ///lib/code/code2/example_226_text_page.dart
   Widget buildRichText() {
     //参数一为显示的文本段落
     //参数二为筛选的关键词

@@ -38,11 +38,11 @@ import 'example_215_scaffold_page.dart';
 import 'example_216_appbar_page.dart';
 import 'example_220_text_page.dart';
 import 'example_221_text_page.dart';
-import 'example_text_264_page.dart';
-import 'example_text_270_page.dart';
-import 'example_text_273_page.dart';
-import 'example_text_275_page.dart';
-import 'example_text_277_page.dart';
+import 'example_222_text_page.dart';
+import 'example_223_text_page.dart';
+import 'example_224_text_page.dart';
+import 'example_225_text_page.dart';
+import 'example_226_text_page.dart';
 import 'example_textfield_279_page.dart';
 import 'example_textfield_281_page.dart';
 import 'example_textfield_291_page.dart';
@@ -83,13 +83,13 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "AppBar bottom配置任意的Widget", "page": Example219(),"type":2},
     {"title": "Text 文本对齐", "page": Example220(),"type":3},
 
-    {"title": "Text TextStyle的基本使用代码如下", "page": Example262(),"type":3},
-    {"title": "Text TextStyle的 下划线", "page": Example264(),"type":3},
-    {"title": "Text 自定义字体", "page": Example270(),"type":3},
-    {"title": "Text AnimatedDefaultTextStyle", "page": Example273(),"type":3},
+    {"title": "Text TextStyle的基本使用代码如下", "page": Example221(),"type":3},
+    {"title": "Text TextStyle的 下划线", "page": Example222(),"type":3},
+    {"title": "Text 自定义字体", "page": Example223(),"type":3},
+    {"title": "Text AnimatedDefaultTextStyle", "page": Example224(),"type":3},
 
-    {"title": "Text RichText", "page": Example275(),"type":3},
-    {"title": "Text RichTextTag 搜索内容高亮", "page": Example277(),"type":3},
+    {"title": "Text RichText", "page": Example225(),"type":3},
+    {"title": "Text RichTextTag 搜索内容高亮", "page": Example226(),"type":3},
     {"title": "TextField 文本输入框的基本使用", "page": Example279(),"type":4},
     {"title": "TextField 文本输入框 的边框样式设置", "page": Example281(),"type":4},
     {"title": "TextField 文本输入框 的提示文本设置", "page": Example291(),"type":4},

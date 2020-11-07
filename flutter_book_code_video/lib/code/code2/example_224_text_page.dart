@@ -10,31 +10,24 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
-import 'custom_tab.dart';
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example273(),
+    home: Example224(),
   ));
 }
 
-class Example273 extends StatefulWidget {
+class Example224 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example273> {
+class _ExampleState extends State<Example224> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -59,8 +52,8 @@ class _ExampleState extends State<Example273> {
     );
   }
 
-  ///代码清单 2-73
-  ///lib/code/code2/example_appbar_273_page.dart
+  ///代码清单 2-42
+  ///lib/code/code2/example_224_text_page.dart
   bool isSelected = false;
 
   //构建动画样式组件
