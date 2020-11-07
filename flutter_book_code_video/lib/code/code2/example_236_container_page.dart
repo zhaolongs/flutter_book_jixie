@@ -10,12 +10,6 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterbookcode/demo/rich_text_tag.dart';
 
 import 'coupon_shape_border.dart';
 
@@ -23,20 +17,20 @@ import 'coupon_shape_border.dart';
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example2117(),
+    home: Example236(),
   ));
 }
 
 ///代码清单 2-117
-///lib/code/code2/example_appbar_2117_page.dart
-class Example2117 extends StatefulWidget {
+///lib/code/code2/example_236_container_page.dart
+class Example236 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example2117> {
+class _ExampleState extends State<Example236> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -66,8 +60,8 @@ class _ExampleState extends State<Example2117> {
     );
   }
 
-  ///代码清单 2-119
-  ///lib/code/code2/example_appbar_2117_page.dart
+  ///代码清单 2-62
+  ///lib/code/code2/example_236_container_page.dart
   Widget buildBorder() {
     return Material(
       //背景颜色
@@ -143,8 +137,9 @@ class _ExampleState extends State<Example2117> {
     );
   }
 
-  ///代码清单 2-123
-  ///lib/code/code2/example_appbar_2117_page.dart
+  ///代码清单 2-64
+  ///lib/code/code2/example_236_container_page.dart
+
   ///构建手撕优惠券的Shape
   CouponShapeBorder couponShapeBorder() {
     return CouponShapeBorder(
@@ -169,7 +164,7 @@ class _ExampleState extends State<Example2117> {
 }
 
 ///代码清单 2-117
-///lib/code/code2/example_appbar_2117_page.dart
+///lib/code/code2/example_236_container_page.dart
 class SimpleShapeBoder extends ShapeBorder {
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
@@ -219,8 +214,8 @@ class SimpleShapeBoder extends ShapeBorder {
   }
 }
 
-///代码清单 2-118
-///lib/code/code2/example_appbar_2117_page.dart
+///代码清单 2-61
+///lib/code/code2/example_236_container_page.dart
 class SimpleShapeBoder2 extends ShapeBorder {
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
@@ -263,8 +258,10 @@ class SimpleShapeBoder2 extends ShapeBorder {
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
     return null;
   }
-  ///代码清单 2-120
-  ///lib/code/code2/example_appbar_2117_page.dart
+
+  ///代码清单 2-63
+  ///lib/code/code2/example_236_container_page.dart
+
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
     Path path = Path();

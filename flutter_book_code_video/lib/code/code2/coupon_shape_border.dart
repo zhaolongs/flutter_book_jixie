@@ -52,7 +52,7 @@ class CouponShapeBorder extends ShapeBorder {
   ShapeBorder scale(double t) {
     return null;
   }
-  ///代码清单 2-126
+  ///代码清单 2-66
   ///lib/code/code2/shape/coupon_shape_border.dart
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
@@ -78,7 +78,7 @@ class CouponShapeBorder extends ShapeBorder {
     return path;
   }
 
-  ///代码清单 2-130
+  ///代码清单 2-68
   ///lib/code/code2/shape/coupon_shape_border.dart
   ///构建底部的小圆圈
   void buildBottomHole(Path path, Rect rect) {
@@ -105,7 +105,7 @@ class CouponShapeBorder extends ShapeBorder {
         pi);
   }
 
-  ///代码清单 2-128
+  ///代码清单 2-67
   ///lib/code/code2/shape/coupon_shape_border.dart
   ///构建左侧的小圆圈
   buildLeftHole(Path path, double diameter) {
@@ -136,7 +136,7 @@ class CouponShapeBorder extends ShapeBorder {
   }
 
 
-  ///代码清单 2-124
+  ///代码清单 2-65
   ///lib/code/code2/shape/coupon_shape_border.dart
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {

@@ -10,31 +10,24 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterbookcode/demo/rich_text_tag.dart';
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example2100(),
+    home: Example234(),
   ));
 }
 
-///代码清单 2-100
-///lib/code/code2/example_appbar_2100_page.dart
-class Example2100 extends StatefulWidget {
+
+class Example234 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example2100> {
+class _ExampleState extends State<Example234> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -57,8 +50,8 @@ class _ExampleState extends State<Example2100> {
     );
   }
 
-  ///代码清单 2-100
-  ///lib/code/code2/example_appbar_2100_page.dart
+  ///代码清单 2-55
+  ///lib/code/code2/example_234_container_page.dart
   ///  Container BoxDecoration配置边框与填充色样式
   Container buildBorderAndColor() {
     return Container(
@@ -80,8 +73,8 @@ class _ExampleState extends State<Example2100> {
     );
   }
 
-  ///代码清单 2-104
-  ///lib/code/code2/example_appbar_2100_page.dart
+  ///代码清单 2-56
+  ///lib/code/code2/example_234_container_page.dart
   ///  Container BoxDecoration boxShadow 阴影
   Container buildBoxShadow() {
     return Container(
@@ -110,8 +103,8 @@ class _ExampleState extends State<Example2100> {
     );
   }
 
-  ///代码清单 2-108
-  ///lib/code/code2/example_appbar_2100_page.dart
+  ///代码清单 2-57
+  ///lib/code/code2/example_234_container_page.dart
   ///  Container  gradient 线性渐变颜色过渡
   Container buildBorder5() {
     return Container(
@@ -134,8 +127,8 @@ class _ExampleState extends State<Example2100> {
     );
   }
 
-  ///代码清单 2-110
-  ///lib/code/code2/example_appbar_2100_page.dart
+  ///代码清单 2-58
+  ///lib/code/code2/example_234_container_page.dart
   ///   Sweep 扫描渐变颜色过渡
   Container buildSweep() {
     return Container(
@@ -162,8 +155,8 @@ class _ExampleState extends State<Example2100> {
     );
   }
 
-  ///代码清单 2-113
-  ///lib/code/code2/example_appbar_2100_page.dart
+  ///代码清单 2-59
+  ///lib/code/code2/example_234_container_page.dart
   /// Container BoxDecoration  Radial 环形渐变颜色过渡
   Container buildRadial() {
     return Container(

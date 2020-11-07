@@ -22,10 +22,10 @@ import 'example_217_appbar_page.dart';
 import 'example_218_appbar_page.dart';
 import 'example_219_appbar_page.dart';
 import 'example_button_2134_page.dart';
-import 'example_container_2100_page.dart';
-import 'example_container_2115_page.dart';
-import 'example_container_2117_page.dart';
-import 'example_container_298_page.dart';
+import 'example_234_container_page.dart';
+import 'example_235_container_page.dart';
+import 'example_236_container_page.dart';
+import 'example_233_container_page.dart';
 import 'example_207_scaffold_page.dart';
 import 'example_208_scaffold_page.dart';
 import 'example_209_scaffold_page.dart';
@@ -97,11 +97,11 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "TextField 文本输入框 控制器", "page": Example294(),"type":4},
     {"title": "TextField 文本输入框 焦点控制", "page": Example232(),"type":4},
 
-    {"title": "Container 基本使用", "page": Example298(),"type":5},
+    {"title": "Container 基本使用", "page": Example233(),"type":5},
 
-    {"title": "Container BoxDecoration ", "page": Example2100(),"type":5},
-    {"title": "Container ShapeDecoration ", "page": Example2115(),"type":5},
-    {"title": "Container 自定义ShapeBorder ", "page": Example2117(),"type":5},
+    {"title": "Container BoxDecoration ", "page": Example234(),"type":5},
+    {"title": "Container ShapeDecoration ", "page": Example235(),"type":5},
+    {"title": "Container 自定义ShapeBorder ", "page": Example236(),"type":5},
     {"title": "Button的基本使用 ", "page": Example2134(),"type":6},
 
 

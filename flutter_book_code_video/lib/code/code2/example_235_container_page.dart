@@ -10,31 +10,25 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterbookcode/demo/rich_text_tag.dart';
+
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example2115(),
+    home: Example235(),
   ));
 }
 
-///代码清单 2-100
-///lib/code/code2/example_appbar_2115_page.dart
-class Example2115 extends StatefulWidget {
+
+class Example235 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example2115> {
+class _ExampleState extends State<Example235> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -57,8 +51,8 @@ class _ExampleState extends State<Example2115> {
     );
   }
 
-  ///代码清单 2-115
-  ///lib/code/code2/example_appbar_2115_page.dart
+  ///代码清单 2-60
+  ///lib/code/code2/example_235_container_page.dart
   ///  Container ShapeDecoration 的基本使用
   ///  通过Border来创建边框样式
   Container buildBorder() {
