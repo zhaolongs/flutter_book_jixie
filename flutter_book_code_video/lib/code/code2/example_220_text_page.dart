@@ -8,36 +8,27 @@ import 'package:flutter/material.dart';
 /// 可关注公众号：我的大前端生涯   获取最新技术分享
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
-///
-///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
-import 'custom_tab.dart';
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example255(),
+    home: Example220(),
   ));
 }
 
-///代码清单 2-55
-///lib/code/code2/example_appbar_255_page.dart
-class Example255 extends StatefulWidget {
+///代码清单 2-38
+///lib/code/code2/example_220_text_page.dart
+class Example220 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example255> {
+class _ExampleState extends State<Example220> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构

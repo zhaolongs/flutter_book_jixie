@@ -36,8 +36,8 @@ import 'example_213_scaffold_page.dart';
 import 'example_214_scaffold_page.dart';
 import 'example_215_scaffold_page.dart';
 import 'example_216_appbar_page.dart';
-import 'example_text_255_page.dart';
-import 'example_text_262_page.dart';
+import 'example_220_text_page.dart';
+import 'example_221_text_page.dart';
 import 'example_text_264_page.dart';
 import 'example_text_270_page.dart';
 import 'example_text_273_page.dart';
@@ -81,7 +81,7 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "AppBar 可滑动的标签栏", "page": Example217(),"type":2},
     {"title": "AppBar 常用左右切换", "page": Example218(),"type":2},
     {"title": "AppBar bottom配置任意的Widget", "page": Example219(),"type":2},
-    {"title": "Text 文本对齐", "page": Example255(),"type":3},
+    {"title": "Text 文本对齐", "page": Example220(),"type":3},
 
     {"title": "Text TextStyle的基本使用代码如下", "page": Example262(),"type":3},
     {"title": "Text TextStyle的 下划线", "page": Example264(),"type":3},

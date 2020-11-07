@@ -10,14 +10,6 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-
-import 'custom_tab.dart';
 
 //应用入口
 void main() {
@@ -27,8 +19,7 @@ void main() {
   ));
 }
 
-///代码清单 2-62
-///lib/code/code2/example_appbar_262_page.dart
+
 class Example262 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -57,7 +48,8 @@ class _ExampleState extends State<Example262> {
       ),
     );
   }
-
+  ///代码清单 2-39  常用文本样式配置描述
+  ///lib/code/code2/example_221_text_page.dart
   Widget buildText() {
     return Container(
       child: Text(
