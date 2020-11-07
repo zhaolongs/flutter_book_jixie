@@ -12,7 +12,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 ///
 
 ///代码清单 2-12
-///lib/code/code2/example_MaterialApp_206_page.dart
+///lib/code/code2/example_206_MaterialApp_page.dart
 //应用入口
 main() => runApp(themDataFunction());
 

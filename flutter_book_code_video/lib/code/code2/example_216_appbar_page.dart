@@ -21,7 +21,7 @@ void main() {
 
 
 ///代码清单 2-32 AppBar的基本使用
-///lib/code/code2/example_appbar_216_page.dart
+///lib/code/code2/example_216_appbar_page.dart
 class Example216 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

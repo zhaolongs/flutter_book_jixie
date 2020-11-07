@@ -11,12 +11,12 @@ import 'package:flutter/material.dart';
 ///
 
 ///代码清单 2-16
-///lib/code/code2/example_scaffold_207_page.dart
+///lib/code/code2/example_207_scaffold_page.dart
 ///Scaffold的基本使用 内容主体页面
 import 'package:flutter/painting.dart';
 
 ///代码清单2-1
-///lib/code/code2/example_MaterialApp_201_page.dart
+///lib/code/code2/example_201_MaterialApp_page.dart
 //应用入口
 void main() {
   ///启动根目录

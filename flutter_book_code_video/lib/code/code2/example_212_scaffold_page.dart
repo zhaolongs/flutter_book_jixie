@@ -21,7 +21,7 @@ void main() {
 }
 
 ///代码清单 2-22
-///lib/code/code2/example_scaffold_212_page.dart
+///lib/code/code2/example_212_scaffold_page.dart
 class Example212 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -49,7 +49,7 @@ class _ExampleState extends State<Example212> {
   }
 
   ///代码清单 2-23
-  ///lib/code/code2/example_scaffold_212_page.dart
+  ///lib/code/code2/example_212_scaffold_page.dart
   //选中的当前的标签的索引
   int _tabIndex = 0;
 

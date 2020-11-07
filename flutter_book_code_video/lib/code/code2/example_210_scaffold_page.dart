@@ -20,7 +20,7 @@ void main() {
 }
 
 ///代码清单 2-18
-///lib/code/code2/example_scaffold_210_page.dart
+///lib/code/code2/example_210_scaffold_page.dart
 class Example210 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

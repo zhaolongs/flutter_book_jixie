@@ -18,24 +18,24 @@ import 'package:flutterbookcode/base/list/header_icon.dart';
 import 'package:flutterbookcode/base/list/list_title.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
-import 'example_appbar_247_page.dart';
-import 'example_appbar_250_page.dart';
-import 'example_appbar_252_page.dart';
+import 'example_217_appbar_page.dart';
+import 'example_218_appbar_page.dart';
+import 'example_219_appbar_page.dart';
 import 'example_button_2134_page.dart';
 import 'example_container_2100_page.dart';
 import 'example_container_2115_page.dart';
 import 'example_container_2117_page.dart';
 import 'example_container_298_page.dart';
-import 'example_scaffold_207_page.dart';
-import 'example_scaffold_208_page.dart';
-import 'example_scaffold_209_page.dart';
-import 'example_scaffold_210_page.dart';
-import 'example_scaffold_211_page.dart';
-import 'example_scaffold_212_page.dart';
-import 'example_scaffold_213_page.dart';
-import 'example_scaffold_214_page.dart';
-import 'example_scaffold_215_page.dart';
-import 'example_appbar_216_page.dart';
+import 'example_207_scaffold_page.dart';
+import 'example_208_scaffold_page.dart';
+import 'example_209_scaffold_page.dart';
+import 'example_210_scaffold_page.dart';
+import 'example_211_scaffold_page.dart';
+import 'example_212_scaffold_page.dart';
+import 'example_213_scaffold_page.dart';
+import 'example_214_scaffold_page.dart';
+import 'example_215_scaffold_page.dart';
+import 'example_216_appbar_page.dart';
 import 'example_text_255_page.dart';
 import 'example_text_262_page.dart';
 import 'example_text_264_page.dart';
@@ -78,9 +78,9 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "Scaffold 底部导航栏与 TabBarView 结合", "page": Example214(),"type":1},
     {"title": "Scaffold 底部导航栏与 类似闲鱼", "page": Example215(),"type":1},
     {"title": "AppBar 的基本使用", "page": Example216(),"type":2},
-    {"title": "AppBar 可滑动的标签栏", "page": Example247(),"type":2},
-    {"title": "AppBar 常用左右切换", "page": Example250(),"type":2},
-    {"title": "AppBar bottom配置任意的Widget", "page": Example252(),"type":2},
+    {"title": "AppBar 可滑动的标签栏", "page": Example217(),"type":2},
+    {"title": "AppBar 常用左右切换", "page": Example218(),"type":2},
+    {"title": "AppBar bottom配置任意的Widget", "page": Example219(),"type":2},
     {"title": "Text 文本对齐", "page": Example255(),"type":3},
 
     {"title": "Text TextStyle的基本使用代码如下", "page": Example262(),"type":3},

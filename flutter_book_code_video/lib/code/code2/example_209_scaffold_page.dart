@@ -20,7 +20,7 @@ void main() {
 }
 
 ///代码清单 2-15
-///lib/code/code2/example_scaffold_209_page.dart
+///lib/code/code2/example_209_scaffold_page.dart
 class Example209 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -46,7 +46,7 @@ class _ExampleState extends State<Example209> {
   }
 
   ///代码清单 2-16
-  ///lib/code/code2/example_scaffold_209_page.dart
+  ///lib/code/code2/example_209_scaffold_page.dart
   ///FloatingActionButton的类型 extended类型
   ///通过 FloatingActionButton.extended方式来创建悬浮按钮
   FloatingActionButton buildFAB() {
@@ -59,7 +59,7 @@ class _ExampleState extends State<Example209> {
       label: Text("测试文本"),);
   }
   ///代码清单 2-17
-  ///lib/code/code2/example_scaffold_209_page.dart
+  ///lib/code/code2/example_209_scaffold_page.dart
   FloatingActionButton buildFAB2() {
     return FloatingActionButton(
       //通过child来配制显示的图标

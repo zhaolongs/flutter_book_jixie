@@ -11,12 +11,12 @@ import 'package:flutter/material.dart';
 ///
 
 ///代码清单 2-16
-///lib/code/code2/example_scaffold_207_page.dart
+///lib/code/code2/example_207_scaffold_page.dart
 ///Scaffold的基本使用 内容主体页面
 import 'package:flutter/painting.dart';
 
 ///代码清单2-3
-///lib/code/code2/example_MaterialApp_203_page.dart
+///lib/code/code2/example_203_MaterialApp_page.dart
 ///启动函数配置
 void main() => runApp(MyApp2());
 
@@ -36,7 +36,7 @@ class MyApp2 extends StatelessWidget {
 }
 
 ///代码清单2-4 A页面的定义
-///lib/code/code2/example_MaterialApp_203_page.dart
+///lib/code/code2/example_203_MaterialApp_page.dart
 class Example202A extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -121,7 +121,7 @@ class _ExampleAState extends State<Example202A> {
 }
 
 ///代码清单2-4 B页面的定义
-///lib/code/code2/example_MaterialApp_203_page.dart
+///lib/code/code2/example_203_MaterialApp_page.dart
 class Example202B extends StatefulWidget {
   final String title;
 
@@ -144,7 +144,7 @@ class _ExampleBState extends State<Example202B> {
   }
 
   ///代码清单2-5
-  ///lib/code/code2/example_MaterialApp_203_page.dart
+  ///lib/code/code2/example_203_MaterialApp_page.dart
   ///页面创建执行的第二个方法
   ///页面 State、Context已绑定
   @override
@@ -175,7 +175,7 @@ class _ExampleBState extends State<Example202B> {
   }
 
   ///代码清单2-6
-  ///lib/code/code2/example_MaterialApp_203_page.dart
+  ///lib/code/code2/example_203_MaterialApp_page.dart
   @override
   Widget build(BuildContext context) {
     return Scaffold(
