@@ -13,10 +13,6 @@ import 'package:flutter/material.dart';
 ///代码清单 2-16
 ///lib/code/code2/example_scaffold_Main_page.dart
 ///Scaffold的基本使用 内容主体页面
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterbookcode/base/list/brand_table.dart';
 import 'package:flutterbookcode/base/list/colors.dart';
 import 'package:flutterbookcode/base/list/header_icon.dart';
 import 'package:flutterbookcode/base/list/list_title.dart';
@@ -33,17 +29,13 @@ import 'example_container_298_page.dart';
 import 'example_scaffold_207_page.dart';
 import 'example_scaffold_208_page.dart';
 import 'example_scaffold_209_page.dart';
-import 'example_scaffold_220_page.dart';
-import 'example_scaffold_222_page.dart';
-import 'example_scaffold_224_page.dart';
-import 'example_scaffold_225_page.dart';
-import 'example_scaffold_228_page.dart';
+import 'example_scaffold_210_page.dart';
 import 'example_scaffold_211_page.dart';
 import 'example_scaffold_212_page.dart';
 import 'example_scaffold_213_page.dart';
 import 'example_scaffold_214_page.dart';
 import 'example_scaffold_215_page.dart';
-import 'example_appbar_245_page.dart';
+import 'example_appbar_216_page.dart';
 import 'example_text_255_page.dart';
 import 'example_text_262_page.dart';
 import 'example_text_264_page.dart';
@@ -79,17 +71,13 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "Scaffold 的基本使用", "page": Example207(),"type":1},
     {"title": "Scaffold 的 常用页面 ", "page": Example208(),"type":1},
     {"title": "Scaffold  FAB 的基本使用 ", "page": Example209(),"type":1},
-    {"title": "Scaffold FAB mini 类型 ", "page": Example220(),"type":1},
-    {"title": "Scaffold FAB extended 类型 ", "page": Example222(),"type":1},
-    {"title": "Scaffold FAB 的常用属性 ", "page": Example224(),"type":1},
-    {"title": "Scaffold 侧拉页面的配置使用 ", "page": Example225(),"type":1},
-    {"title": "Scaffold UserAccountsDrawerHeader组件", "page": Example228(),"type":1},
+    {"title": "Scaffold FAB mini 类型 ", "page": Example210(),"type":1},
     {"title": "Scaffold 自定义该当触发侧拉页面", "page": Example211(),"type":1},
     {"title": "Scaffold bottomNavigationBar配制底部导航栏菜单", "page": Example212(),"type":1},
     {"title": "Scaffold 底部导航栏 结合 List来切换页面", "page": Example213(),"type":1},
     {"title": "Scaffold 底部导航栏与 TabBarView 结合", "page": Example214(),"type":1},
     {"title": "Scaffold 底部导航栏与 类似闲鱼", "page": Example215(),"type":1},
-    {"title": "AppBar 的基本使用", "page": Example245(),"type":2},
+    {"title": "AppBar 的基本使用", "page": Example216(),"type":2},
     {"title": "AppBar 可滑动的标签栏", "page": Example247(),"type":2},
     {"title": "AppBar 常用左右切换", "page": Example250(),"type":2},
     {"title": "AppBar bottom配置任意的Widget", "page": Example252(),"type":2},
