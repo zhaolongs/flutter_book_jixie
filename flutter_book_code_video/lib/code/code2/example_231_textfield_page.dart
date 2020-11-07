@@ -10,12 +10,6 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterbookcode/demo/rich_text_tag.dart';
 
 //应用入口
 void main() {
@@ -33,9 +27,7 @@ class Example294 extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example294> {
-  ///代码清单 2-94
-  ///lib/code/code2/example_appbar_294_page.dart
-  ///
+
   //创建文本控制器实例
   //创建方式一
   TextEditingController _editingController = new TextEditingController();
@@ -61,8 +53,8 @@ class _ExampleState extends State<Example294> {
     );
   }
 
-  ///代码清单 2-94
-  ///lib/code/code2/example_appbar_294_page.dart
+  ///代码清单 2-51
+  ///lib/code/code2/example_231_textfield_page.dart
   // 设置TextField中显示的内容并保持输入光标在文本最后面
   void setEditeInputTextAndSelectionFunction(String flagText) {
     //控制 初始化的时候鼠标保持在文字最后
@@ -83,8 +75,8 @@ class _ExampleState extends State<Example294> {
     );
   }
 
-  ///代码清单 2-95
-  ///lib/code/code2/example_appbar_294_page.dart
+  ///代码清单 2-52
+  ///lib/code/code2/example_231_textfield_page.dart
   ///在页面初始化时调用
   @override
   void initState() {

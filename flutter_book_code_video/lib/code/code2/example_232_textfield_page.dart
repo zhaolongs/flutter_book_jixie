@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/9/25.
@@ -10,31 +11,26 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterbookcode/demo/rich_text_tag.dart';
+
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example296(),
+    home: Example232(),
   ));
 }
 
-class Example296 extends StatefulWidget {
+class Example232 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example296> {
-  ///代码清单 2-96
-  ///lib/code/code2/example_appbar_296_page.dart
+class _ExampleState extends State<Example232> {
+  ///代码清单 2-53
+  ///lib/code/code2/example_232_textfield_page.dart
   // 第一步 创建FocusNode对象实例
   FocusNode focusNode = FocusNode();
   // 输入框焦点事件的捕捉与监听
@@ -52,8 +48,7 @@ class _ExampleState extends State<Example296> {
       }
     });
   }
-  ///代码清单 2-97
-  ///lib/code/code2/example_appbar_296_page.dart
+
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构

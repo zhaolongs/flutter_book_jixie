@@ -10,29 +10,24 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterbookcode/demo/rich_text_tag.dart';
+
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example291(),
+    home: Example229(),
   ));
 }
 
-class Example291 extends StatefulWidget {
+class Example229 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example291> {
+class _ExampleState extends State<Example229> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -50,8 +45,8 @@ class _ExampleState extends State<Example291> {
     );
   }
 
-  ///代码清单 2-91
-  ///lib/code/code2/example_appbar_291_page.dart
+  ///代码清单 2-49
+  ///lib/code/code2/example_229_textfield_page.dart
   ///
   Widget buildTextField() {
     return TextField(

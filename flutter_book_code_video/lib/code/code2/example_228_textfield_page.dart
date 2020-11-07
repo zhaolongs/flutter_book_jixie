@@ -10,29 +10,23 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterbookcode/demo/rich_text_tag.dart';
 
 //应用入口
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example281(),
+    home: Example228(),
   ));
 }
 
-class Example281 extends StatefulWidget {
+class Example228 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example281> {
+class _ExampleState extends State<Example228> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -50,8 +44,8 @@ class _ExampleState extends State<Example281> {
     );
   }
 
-  ///代码清单 2-81
-  ///lib/code/code2/example_appbar_281_page.dart
+  ///代码清单 2-46
+  ///lib/code/code2/example_228_textfield_page.dart
   ///
   ///设置无边框
   Widget buildTextField() {
@@ -64,7 +58,9 @@ class _ExampleState extends State<Example281> {
     );
   }
 
-  // 设置上下左右 都有边框
+  ///代码清单 2-47
+  ///lib/code/code2/example_228_textfield_page.dart
+  /// 设置上下左右 都有边框
   Widget buildTextField2() {
     return new TextField(
       //边框样式设置
@@ -79,8 +75,8 @@ class _ExampleState extends State<Example281> {
     );
   }
 
-  ///代码清单 2-86
-  ///lib/code/code2/example_appbar_281_page.dart
+  ///代码清单 2-48 文本输入框
+  ///lib/code/code2/example_228_textfield_page.dart
   // 只有下边框  配置自定义的边框颜色
   Widget buildTextField3() {
     return new TextField(
