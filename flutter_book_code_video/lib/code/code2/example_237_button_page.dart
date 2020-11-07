@@ -10,8 +10,7 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_207_scaffold_page.dart
+
 ///Scaffold的基本使用 内容主体页面
 import 'package:flutter/painting.dart';
 
@@ -19,20 +18,20 @@ import 'package:flutter/painting.dart';
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example2134(),
+    home: Example237(),
   ));
 }
 
-///代码清单 2-134
-///lib/code/code2/example_button_2134_page.dart
-class Example2134 extends StatefulWidget {
+///代码清单 2-69
+///lib/code/code2/example_237_button_page.dart
+class Example237 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _ExampleState();
   }
 }
 
-class _ExampleState extends State<Example2134> {
+class _ExampleState extends State<Example237> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -96,8 +95,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-134
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-69
+  ///lib/code/code2/example_237_button_page.dart
   ///Material Design风格按钮的基本使用
   Widget buildMaterialButton() {
     return MaterialButton(
@@ -110,8 +109,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-135
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-70
+  ///lib/code/code2/example_237_button_page.dart
   ///Material Design风格按钮的基本使用
   Widget buildMaterialButton2() {
     return MaterialButton(
@@ -140,8 +139,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-136
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-71
+  ///lib/code/code2/example_237_button_page.dart
   ///按钮的事件回调
   Widget buildMaterialButton3() {
     return MaterialButton(
@@ -163,8 +162,8 @@ class _ExampleState extends State<Example2134> {
         });
   }
 
-  ///代码清单 2-137
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-72
+  ///lib/code/code2/example_237_button_page.dart
   /// shape使用分析
   Widget buildMaterialButton4() {
     return MaterialButton(
@@ -186,8 +185,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-139
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-73
+  ///lib/code/code2/example_237_button_page.dart
   /// shape使用分析 RoundedRectangleBorder 创建圆角矩形边框
   Widget buildMaterialButton7() {
     return MaterialButton(
@@ -205,10 +204,10 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-141
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-74
+  ///lib/code/code2/example_237_button_page.dart
   /// shape使用分析 CircleBorder 用来设置圆形边框
-  buildMaterialButton8() {
+  Widget  buildMaterialButton8() {
     return MaterialButton(
       //按钮上显示的文字
       child: Text('登录'),
@@ -221,8 +220,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-143
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-75
+  ///lib/code/code2/example_237_button_page.dart
   Widget buildMaterialButton9() {
     return MaterialButton(
       //按钮上显示的文字
@@ -236,8 +235,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-145
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-76
+  ///lib/code/code2/example_237_button_page.dart
   /// shape使用分析  BeveledRectangleBorder设置 多边形
   Widget buildMaterialButton10() {
     return MaterialButton(
@@ -251,8 +250,8 @@ class _ExampleState extends State<Example2134> {
             borderRadius: BorderRadius.all(Radius.circular(10))));
   }
 
-  ///代码清单 2-147
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-77
+  ///lib/code/code2/example_237_button_page.dart
   Widget buildRaisedButton() {
     return RaisedButton(
       child: Text("RaisedButton按钮"),
@@ -261,8 +260,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-150
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-78
+  ///lib/code/code2/example_237_button_page.dart
   Widget buildFlatButton() {
     return FlatButton(
       child: Text("FlatButton按钮"),
@@ -271,8 +270,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-151
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-79
+  ///lib/code/code2/example_237_button_page.dart
   Widget buildOutlineButton() {
     return RaisedButton(
       child: Text("OutlineButton按钮"),
@@ -281,8 +280,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-152
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-80
+  ///lib/code/code2/example_237_button_page.dart
   Widget buildTextButton() {
     return TextButton(
       child: Text("TextButton按钮"),
@@ -291,8 +290,8 @@ class _ExampleState extends State<Example2134> {
     );
   }
 
-  ///代码清单 2-152
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-81
+  ///lib/code/code2/example_237_button_page.dart
   Widget buildElevatedButton() {
     return ElevatedButton(
       child: Text("ElevatedButton 按钮"),
@@ -300,7 +299,7 @@ class _ExampleState extends State<Example2134> {
       onPressed: () {},
     );
   }
-
+  ///代码清单 2-82
   Widget buildOutlinedButton() {
     return OutlinedButton(
       child: Text("OutlinedButton 按钮"),
@@ -308,7 +307,7 @@ class _ExampleState extends State<Example2134> {
       onPressed: () {},
     );
   }
-
+  ///代码清单 2-83
   Widget buildBackButton() {
     return BackButton(
       //配置按钮返回箭头的颜色
@@ -317,8 +316,8 @@ class _ExampleState extends State<Example2134> {
       onPressed: () {},
     );
   }
-  ///代码清单 2-158
-  ///lib/code/code2/example_button_2134_page.dart
+  ///代码清单 2-84
+  ///lib/code/code2/example_237_button_page.dart
   Widget dividerPopMenu() {
     return new PopupMenuButton<String>(
         //设置小弹框的偏移量
