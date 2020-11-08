@@ -54,6 +54,7 @@ import 'example_230_textfield_page.dart';
 import 'example_231_textfield_page.dart';
 import 'example_232_textfield_page.dart';
 import 'example_238_button_page.dart';
+import 'example_239_button_page.dart';
 
 ///Scaffold 组件使用目录
 //应用入口
@@ -109,6 +110,7 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "Container 自定义ShapeBorder ", "page": Example236(),"type":5},
     {"title": "Button的基本使用 ", "page": Example237(),"type":6},
     {"title": "Button  ", "page": Example238(),"type":6},
+    {"title": "Button 加载进度的按钮", "page": Example239(),"type":6},
 
 
   ];
