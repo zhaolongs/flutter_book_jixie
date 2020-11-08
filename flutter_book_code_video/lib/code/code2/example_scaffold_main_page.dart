@@ -56,6 +56,7 @@ import 'example_232_textfield_page.dart';
 import 'example_238_button_page.dart';
 import 'example_239_button_page.dart';
 import 'example_240_button_page.dart';
+import 'example_241_image_page.dart';
 
 ///Scaffold 组件使用目录
 //应用入口
@@ -113,6 +114,7 @@ class _ExampleState extends State<ExampleMain> {
     {"title": "Button  ", "page": Example238(),"type":6},
     {"title": "Button 加载进度的按钮", "page": Example239(),"type":6},
     {"title": "Button AnimatedButton", "page": Example240(),"type":6},
+    {"title": "Image 加载网络图片 ", "page": Example241(),"type":7},
 
 
   ];
