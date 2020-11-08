@@ -39,8 +39,10 @@ dependencies:
   #闪光动画
   flash_animation: ^0.0.1
   #Flutter抖动动画、颤抖动画、Flutter文字抖动效果
-  shake_animation_widget: ^2.0.0
-#    path: /Volumes/code/ico/Desktop/code/flutter_app/shake_animation_widget/shake_animation_widget
+#  shake_animation_widget: ^2.0.0
+
+  shake_animation_widget :
+    path: /Volumes/code/ico/Desktop/code/flutter_app/shake_animation_widget/shake_animation_widget
   #获取手机存储目录
   path_provider: ^1.6.9
   #用来加载网络数据
