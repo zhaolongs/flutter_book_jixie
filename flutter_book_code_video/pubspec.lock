@@ -397,10 +397,10 @@ packages:
   shake_animation_widget:
     dependency: "direct main"
     description:
-      name: shake_animation_widget
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.1"
+      path: "/Volumes/code/ico/Desktop/code/flutter_app/shake_animation_widget/shake_animation_widget"
+      relative: false
+    source: path
+    version: "2.0.0"
   shared_preferences:
     dependency: "direct main"
     description:

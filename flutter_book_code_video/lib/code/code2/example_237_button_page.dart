@@ -15,7 +15,6 @@ import 'package:flutter/material.dart';
 ///
 
 
-///Scaffold的基本使用 内容主体页面
 import 'package:flutter/painting.dart';
 
 //应用入口
