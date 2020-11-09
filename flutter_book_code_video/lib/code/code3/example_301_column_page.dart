@@ -20,7 +20,7 @@ void main() {
   ));
 }
 
-///代码清单 2-88 Column 的基本使用
+///代码清单 3-1 Column 的基本使用
 ///lib/code/code3/example_301_column_page.dart
 class Example301 extends StatefulWidget {
   @override
@@ -37,13 +37,29 @@ class _ExampleState extends State<Example301> {
         title: Text("线性布局"),
       ),
       //垂直排列
-      body: Column(
-        children: [
-          Text("从你的点滴积累开始"),
-          Text("所及之处"),
-          Text("必精益求精"),
-        ],
-      ),
+      body: buildColumn1(),
+    );
+  }
+
+  Column buildColumn() {
+    return Column(
+      children: [
+        Text("从你的点滴积累开始"),
+        Text("所及之处"),
+        Text("必精益求精"),
+      ],
+    );
+  }
+
+  Column buildColumn1() {
+    return Column(
+      //主轴内容包裹
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text("从你的点滴积累开始"),
+        Text("所及之处"),
+        Text("必精益求精"),
+      ],
     );
   }
 }
