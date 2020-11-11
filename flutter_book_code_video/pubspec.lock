@@ -400,7 +400,7 @@ packages:
       path: "/Volumes/code/ico/Desktop/code/flutter_app/shake_animation_widget/shake_animation_widget"
       relative: false
     source: path
-    version: "2.1.0"
+    version: "2.1.2"
   shared_preferences:
     dependency: "direct main"
     description:
