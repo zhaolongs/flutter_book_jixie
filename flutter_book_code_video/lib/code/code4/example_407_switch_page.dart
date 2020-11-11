@@ -48,8 +48,8 @@ class _ExampleState extends State<Example407> {
           SizedBox(
             height: 60,
           ),
-          // buildSwitchWidget(),
-          // buildCupertinoSwitch()
+          buildSwitchWidget(),
+          buildCupertinoSwitch()
         ],
       ),
     );

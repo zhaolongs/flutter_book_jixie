@@ -76,9 +76,10 @@ dependencies:
 #    path: /Volumes/code/ico/Desktop/code/flutter_app/flutter_search_bars/flutter_tag_layout
   #手势缩放图片组件
   flutterdragscalewidget:
-    git:
-      url: https://github.com/zhaolongs/flutter_drag_scale_widget.git
-      ref: master
+    path: /Volumes/code/mo_flutter_stu/flutter_drag_scale/flutter_drag_scale_widget
+#    git:
+#      url: https://github.com/zhaolongs/flutter_drag_scale_widget.git
+#      ref: master
 
   #抽屉
   drag_container: ^0.0.1

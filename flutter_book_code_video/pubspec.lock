@@ -213,11 +213,9 @@ packages:
   flutterdragscalewidget:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: "086aae983f8ac70b72703dda851ec38316c48256"
-      url: "https://github.com/zhaolongs/flutter_drag_scale_widget.git"
-    source: git
+      path: "/Volumes/code/mo_flutter_stu/flutter_drag_scale/flutter_drag_scale_widget"
+      relative: false
+    source: path
     version: "0.0.1"
   fluttertoast:
     dependency: "direct main"
