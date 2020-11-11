@@ -40,6 +40,8 @@ class _ExampleState extends State<Example402> {
       body: RefreshIndicator(
         //圆圈进度颜色
         color: Colors.blue,
+        //下拉停止的距离
+        displacement: 44.0,
         //背景颜色
         backgroundColor: Colors.grey[200],
         onRefresh: () async{
