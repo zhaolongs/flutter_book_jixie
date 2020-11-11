@@ -38,7 +38,7 @@ class _ExampleState extends State<Example405> {
     );
   }
 
-  ///代码清单 4-7  复选框CheckBox的基本使用
+  ///代码清单 4-8  复选框CheckBox的基本使用
   ///lib/code/code4/example_405_checkbox_page.dart
   //默认选中的单选框的值
   bool checkIsSelect = false;
