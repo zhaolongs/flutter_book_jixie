@@ -10,9 +10,9 @@ import 'package:flutter/material.dart';
  * 可关注博客：https://blog.csdn.net/zl18603543572
  */
 
-
+///代码清单 5-6 ScrollController滚动控制器操作工具类
 ///lib/utils/scrollcontroller_utils.dart
-///ScrollController滚动控制器操作工具类
+
 class ScrollControllerUtils{
 
   ///滚动到顶部
@@ -22,7 +22,7 @@ class ScrollControllerUtils{
 
   ///滚动到底部
   static void scrollToBottom(ScrollController scrollController){
-    ///获取scrollController最大的可滑动距离
+    //获取scrollController最大的可滑动距离
     double maxScroll =scrollController.position.maxScrollExtent;
     scrollOffset(maxScroll,scrollController);
   }
@@ -34,13 +34,13 @@ class ScrollControllerUtils{
     if(stackContext!=null){
       RenderBox renderBox = stackContext.findRenderObject();
       if(renderBox!=null){
-        ///获取指定的Widget的位置信息
-        ///相对于全局的位置
+        //获取指定的Widget的位置信息
+        //相对于全局的位置
         Offset offset = renderBox.localToGlobal(Offset.zero);
-        ///获取指定的Widget的大小 信息
+        //获取指定的Widget的大小 信息
         Size size =renderBox.paintBounds.size;
         print("获取指定的Widget的位置信息 $offset  获取指定的Widget的大小 $size");
-        ///滑动到这个Widget的位置
+        //滑动到这个Widget的位置
         scrollOffset(offset.dy,scrollController);
       }
     }
@@ -53,7 +53,7 @@ class ScrollControllerUtils{
     scrollController.animateTo(offset,
       // 返回顶部的过程中执行一个滚动动画，动画时间是200毫秒，
       duration: Duration(milliseconds: 200),
-      ///动画曲线是Curves.ease
+      //动画曲线是Curves.ease
       curve: Curves.ease,
     );
   }
