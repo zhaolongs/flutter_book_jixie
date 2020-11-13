@@ -41,6 +41,7 @@ class _ExampleState extends State<Example508>
     with SingleTickerProviderStateMixin {
   /// 初始化控制器
   PageController pageController;
+
   //PageView当前显示页面索引
   int currentPage = 0;
 
@@ -112,5 +113,33 @@ class _ExampleState extends State<Example508>
         },
       ),
     );
+  }
+
+  ///代码清单 5-35 PageView 控制器的常用方法描述
+  ///lib/code/code5/example_508_PageView.dart
+  void pageViewController() {
+    //动画的方式滚动到指定的页面
+    pageController.animateToPage(
+      //子Widget的索引
+      0,
+      //动画曲线
+      curve: Curves.ease,
+      //滚动时间
+      duration: Duration(milliseconds: 200),
+    );
+
+    //动画的方式滚动到指定的位置
+    pageController.animateTo(
+      100,
+      //动画曲线
+      curve: Curves.ease,
+      //滚动时间
+      duration: Duration(milliseconds: 200),
+    );
+
+    //无动画切换到指定的页面
+    pageController.jumpToPage(0);
+    //无动画 切换到指定的位置
+    pageController.jumpTo(100);
   }
 }
