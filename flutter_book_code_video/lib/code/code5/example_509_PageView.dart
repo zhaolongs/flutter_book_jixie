@@ -28,7 +28,7 @@ void main() {
   ));
 }
 
-///代码清单 5-37 ListView 的基本使用
+///代码清单 5-36 PageView 的切换动画
 ///lib/code/code5/example_509_PageView.dart
 class Example509 extends StatefulWidget {
   @override
@@ -38,124 +38,98 @@ class Example509 extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example509> {
+  /// 初始化控制器
+  PageController pageController;
+
+  //PageView当前显示页面索引
+  double currentPage = 0;
+
+  //图片数据
+  List<String> imageList = [
+    "assets/images/2.0x/banner1.webp",
+    "assets/images/2.0x/banner2.webp",
+    "assets/images/2.0x/banner3.webp",
+    "assets/images/2.0x/banner4.webp",
+    "assets/images/2.0x/banner5.webp",
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+
+    //创建控制器的实例
+    pageController = new PageController(
+      //用来配置PageView中默认显示的页面 从0开始
+      initialPage: 0,
+      //为true是保持加载的每个页面的状态
+      keepPage: true,
+    );
+
+    ///PageView设置滑动监听
+    pageController.addListener(() {
+      //PageView滑动的距离
+      setState(() {
+        currentPage = pageController.page;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: Text("ListView "),
+        title: Text("PageView "),
       ),
-      body: buildListView(),
+      body:buildPageView(),
     );
   }
 
-  //通过构造函数来创建
-  Widget buildListView() {
-    return ListView(
-      //可滚动widget公共参数
-      //滚动方向
-      //    Axis.vertical 竖直方向滚动
-      //    Axis.horizontal 水平方向滚动
-      scrollDirection: Axis.vertical,
-      //设置为 true 时 列表数据是滚动到底部的
-      //    默认为false，列表数据在开始位置
-      reverse: false,
-      //滚动到列表边界时的回弹效果
-      physics: BouncingScrollPhysics(),
-      //子Item
-      children: [
-        Text("测试数据1"),
-        Text("测试数据2"),
-        Text("测试数据3"),
-        Text("测试数据4"),
-      ],
+  buildPageView() {
+    return Container(
+      height: 200,
+      child: PageView.custom(
+        //控制器
+        controller: pageController,
+        //子Item的构建器 当前显示的 即将显示的子Item 都会回调
+        childrenDelegate:
+            SliverChildBuilderDelegate((BuildContext context, int index) {
+          //计算
+          if (index == currentPage.floor()) {
+            //出去的item
+            return Transform(
+                alignment: Alignment.center,
+                transform: Matrix4.identity()
+                  ..rotateX(currentPage - index)
+                  ..scale(0.98, 0.98),
+                child: buildItem(index));
+          } else if (index == currentPage.floor() + 1) {
+            //进来的item
+            return Transform(
+                alignment: Alignment.center,
+                transform: Matrix4.identity()
+                  ..rotateX(currentPage - index)
+                  ..scale(0.9, 0.9),
+                child: buildItem(index));
+          } else {
+            print("当前显示 $index");
+            return buildItem(index);
+          }
+        }, childCount: imageList.length),
+      ),
     );
   }
 
-  ///代码清单 5-38 ListView 通过builder来构建
-  ///lib/code/code5/example_509_PageView.dart
-  Widget buildListView1() {
-    return ListView.builder(
-      //列表子Item个数
-      itemCount: 10000,
-      //每个列表子Item的高度
-      itemExtent: 100,
-      //构建每个ListView的Item
-      itemBuilder: (BuildContext context, int index) {
-        //子Item可单独封装成一个StatefulWidget
-        //也可以是一个 Widget
-        return buildListViewItemWidget(index);
-      },
-    );
-  }
-
-  ///代码清单 5-39  创建ListView使用的子布局
-  ///lib/code/code5/example_509_PageView.dart
-  Widget buildListViewItemWidget(int index) {
-    return new Container(
-      //列表子Item的高度
-      height: 84,
-      //内容剧中
-      alignment: Alignment.center,
-      //根据索引来动态计算生成不同的背景颜色
-      color: Colors.cyan[100 * (index % 9)],
-      child: new Text('grid item $index'),
-    );
-  }
-
-  ///代码清单 5-40  通过separated来构建
-  ///lib/code/code5/example_509_PageView.dart
-  Widget buildListView2() {
-    return ListView.separated(
-      //列表子Item个数
-      itemCount: 10000,
-      //构建每个ListView的Item
-      itemBuilder: (BuildContext context, int index) {
-        //ListView的子Item
-        return buildListViewItemWidget(index);
-      },
-      //构建每个子Item之间的间隔Widget
-      separatorBuilder: (BuildContext context, int index) {
-        //这里构建的时不同颜色的分隔线
-        return new Container(
-          height: 4,
-          //根据索引来动态计算生成不同的背景颜色
-          color: Colors.cyan[100 * (index % 9)],
-        );
-      },
-    );
-  }
-
-  ///代码清单 5-41  通过custom来构建
-  /// 与通过构造函数 代码清单 5-37 中的原理一致
-  ///lib/code/code5/example_509_PageView.dart
-  Widget buildListView3() {
-    return ListView.custom(
-      //一次性构建所有的列表子Item
-      //适用于少量数据
-      childrenDelegate: SliverChildListDelegate([
-        Text("测试数据1"),
-        Text("测试数据2"),
-        Text("测试数据3"),
-        Text("测试数据4"),
-      ]),
-    );
-  }
-
-  ///代码清单 5-42  适用于构建大量数据
-  ///lib/code/code5/example_509_PageView.dart
-  Widget buildListView4() {
-    return ListView.custom(
-      childrenDelegate:
-          SliverChildBuilderDelegate((BuildContext context, int index) {
-        return new Container(
-          height: 40,
-          //根据索引来动态计算生成不同的背景颜色
-          color: Colors.cyan[100 * (index % 9)],
-        );
-      },
-              //子Item的个数
-              childCount: 20),
+  ///PageView中Item显示使用Widget
+  ///可以是一个Widget如这里的图片
+  ///也可以是单独的一个 StatefulWidget
+  buildItem(int index) {
+    print("index $index");
+    return Container(
+      child: Image.asset(
+        "${imageList[index]}",
+        fit: BoxFit.fill,
+      ),
     );
   }
 }
