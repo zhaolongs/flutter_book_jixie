@@ -37,8 +37,7 @@ class Example508 extends StatefulWidget {
   }
 }
 
-class _ExampleState extends State<Example508>
-    with SingleTickerProviderStateMixin {
+class _ExampleState extends State<Example508> {
   /// 初始化控制器
   PageController pageController;
 
@@ -61,7 +60,9 @@ class _ExampleState extends State<Example508>
     pageController.addListener(() {
       //PageView滑动的距离
       double offset = pageController.offset;
-      print("pageView 滑动的距离 $offset");
+      //当前显示的页面的索引
+      double page = pageController.page;
+      print("pageView 滑动的距离 $offset  索引 $page");
     });
   }
 
@@ -71,32 +72,35 @@ class _ExampleState extends State<Example508>
       appBar: AppBar(
         title: Text("PageView "),
       ),
-      body: PageView.builder(
-        //当页面选中后回调此方法
-        //参数[index]是当前滑动到的页面角标索引 从0开始
-        onPageChanged: (int index) {
-          print("当前的页面是 $index");
-          currentPage = index;
-        },
-        //值为flase时 显示第一个页面 然后从左向右开始滑动
-        //值为true时 显示最后一个页面 然后从右向左开始滑动
-        reverse: false,
-        //滑动到页面底部无回弹效果
-        physics: BouncingScrollPhysics(),
-        //纵向滑动切换
-        scrollDirection: Axis.vertical,
-        //页面控制器
-        controller: pageController,
-        //所有的子Widget
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            //缩放的图片
-            width: MediaQuery.of(context).size.width,
-            child: Image.asset(
-              "assets/images/2.0x/banner3.webp",
-            ),
-          );
-        },
+      body: Container(
+        height: 200,
+        child: PageView.builder(
+          //当页面选中后回调此方法
+          //参数[index]是当前滑动到的页面角标索引 从0开始
+          onPageChanged: (int index) {
+            print("当前的页面是 $index");
+            currentPage = index;
+          },
+          //值为flase时 显示第一个页面 然后从左向右开始滑动
+          //值为true时 显示最后一个页面 然后从右向左开始滑动
+          reverse: false,
+          //滑动到页面底部无回弹效果
+          physics: BouncingScrollPhysics(),
+          //纵向滑动切换
+          scrollDirection: Axis.vertical,
+          //页面控制器
+          controller: pageController,
+          //所有的子Widget
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              //缩放的图片
+              width: MediaQuery.of(context).size.width,
+              child: Image.asset(
+                "assets/images/2.0x/banner3.webp",
+              ),
+            );
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.arrow_upward),
