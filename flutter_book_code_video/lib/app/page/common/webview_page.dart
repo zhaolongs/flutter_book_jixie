@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fai_webview/flutter_fai_webview.dart';
-import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
+import 'package:flutterbookcode/utils/navigator_utils.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/21.

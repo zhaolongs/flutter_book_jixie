@@ -5,7 +5,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/utils/route/circle/circle_path.dart';
-
+///lib/utils/navigator_utils.dart
+///路由工具类
 class NavigatorUtils {
   //关闭当前页面
   //[context]当前页面的Context
@@ -68,26 +69,32 @@ class NavigatorUtils {
     });
   }
 
-  ///lib/utils/code1/navigator_utils.dart
+  ///lib/utils/navigator_utils.dart
   ///以透明过渡的方式打开新的页面
   ///[opaque] 是否以背景透明的方式打开新的页面
   ///[isReplace] 是否替换当前路由中的页面
   static void openPageByFade(BuildContext context, Widget page,
       {bool isReplace = false,
-        bool opaque = true,
-        Function(dynamic value) dismissCallBack}) {
+      bool opaque = true,
+      Function(dynamic value) dismissCallBack}) {
+    //创建自定义路由 PageRouteBuilder
     PageRouteBuilder pageRouteBuilder = new PageRouteBuilder(
+        //值为true时以透明背景方式打开
         opaque: opaque,
         pageBuilder: (BuildContext context, Animation<double> animation,
             Animation<double> secondaryAnimation) {
           //目标页面
           return page;
         },
+        //动画时间
         transitionDuration: Duration(milliseconds: 800),
-        transitionsBuilder: (BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,) {
+        //过渡动画
+        transitionsBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child,
+        ) {
           //渐变过渡动画
           return FadeTransition(
             // 透明度从 0.0-1.0
@@ -101,6 +108,7 @@ class NavigatorUtils {
             child: child,
           );
         });
+    //是否替换当前显示的Page
     if (isReplace) {
       Navigator.of(context).pushReplacement(pageRouteBuilder);
     } else {
@@ -125,10 +133,10 @@ class NavigatorUtils {
   ///[callback]目标页面关闭时的回调函数
   static void pushPageAboutCircle(BuildContext context, Widget page,
       {Offset centerOffset,
-        GlobalKey key,
-        String routeName,
-        paramtes,
-        Function callback}) {
+      GlobalKey key,
+      String routeName,
+      paramtes,
+      Function callback}) {
     ///通过PageRouteBuilder来自定义Rout
     PageRouteBuilder pageRouteBuilder = PageRouteBuilder(
         settings: RouteSettings(name: routeName, arguments: paramtes),
@@ -145,7 +153,6 @@ class NavigatorUtils {
             builder: (context, child) {
               ///创建裁剪路径
               return ClipPath(
-
                 ///自定义的裁剪路径
                 clipper: CirclePath(animation.value,
                     centerOffset: centerOffset, key: key),
@@ -170,8 +177,8 @@ class NavigatorUtils {
   ///从下向上打开页面
   static void openPageFromBottom(BuildContext context, Widget page,
       {bool isReplace = false,
-        bool opaque = true,
-        Function(dynamic value) dismissCallBack}) {
+      bool opaque = true,
+      Function(dynamic value) dismissCallBack}) {
     PageRouteBuilder pageRouteBuilder = new PageRouteBuilder(
         opaque: opaque,
         pageBuilder: (BuildContext context, Animation<double> animation,
@@ -180,19 +187,22 @@ class NavigatorUtils {
           return page;
         },
         transitionDuration: Duration(milliseconds: 600),
-        transitionsBuilder: (BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,) {
+        transitionsBuilder: (
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child,
+        ) {
           //渐变过渡动画
           return SlideTransition(
             // 从位置(-1.0, 0.0) 平移到 (0.0, 0.0)
-            position: Tween(begin: Offset(0.0, 1.0), end: Offset(0.0, 0.0))
-                .animate(
+            position:
+                Tween(begin: Offset(0.0, 1.0), end: Offset(0.0, 0.0)).animate(
               CurvedAnimation(
                 parent: animation,
                 curve: Curves.easeInOut,
-              ),),
+              ),
+            ),
             child: child,
           );
         });
@@ -206,5 +216,4 @@ class NavigatorUtils {
       });
     }
   }
-
 }

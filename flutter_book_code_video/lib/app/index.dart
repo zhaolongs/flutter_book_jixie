@@ -10,7 +10,7 @@ import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/app/splash.dart';
 import 'package:flutterbookcode/app/welcome_page.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_text.dart';
-import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
+import 'package:flutterbookcode/utils/navigator_utils.dart';
 import 'package:flutterbookcode/utils/code1/sp_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:permission_handler/permission_handler.dart';

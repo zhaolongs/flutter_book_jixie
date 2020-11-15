@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
-import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
+import 'package:flutterbookcode/utils/navigator_utils.dart';
 
 import '../../config/theme_notifier.dart';
 

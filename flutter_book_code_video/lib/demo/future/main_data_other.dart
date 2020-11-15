@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/painting.dart';
-import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
+import 'package:flutterbookcode/utils/navigator_utils.dart';
 
 import 'future_delayed_page.dart';
 import 'future_loop2_page.dart';

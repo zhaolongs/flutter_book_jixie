@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/base/pop_base_state.dart';
-import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
+import 'package:flutterbookcode/utils/navigator_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 
 import 'base/pop_base_state.dart';
