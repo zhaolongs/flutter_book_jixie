@@ -79,7 +79,7 @@ class NavigatorUtils {
       Function(dynamic value) dismissCallBack}) {
     //创建自定义路由 PageRouteBuilder
     PageRouteBuilder pageRouteBuilder = new PageRouteBuilder(
-        //值为true时以透明背景方式打开
+        //值为false时以透明背景方式打开
         opaque: opaque,
         pageBuilder: (BuildContext context, Animation<double> animation,
             Animation<double> secondaryAnimation) {
