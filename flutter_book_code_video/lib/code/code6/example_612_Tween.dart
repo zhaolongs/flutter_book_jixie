@@ -11,8 +11,8 @@ import 'package:flutterbookcode/utils/navigator_utils.dart';
 /// 创建时间：Created by  on 2020/9/25.
 ///
 /// gongzhonghao biglead
-/// https://study.163.com/instructor/1021406138.htm
-/// https://blog.csdn.net/zl18613543572
+/// https://study.163.com/instructor/1021406128.htm
+/// https://blog.csdn.net/zl18612543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 ///
 ///
@@ -20,22 +20,22 @@ import 'package:flutterbookcode/utils/navigator_utils.dart';
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example613(),
+    home: Example612(),
   ));
 }
 
-/// 代码清单 6-16 [DecorationTween] 的基本使用
-///lib/code/code6/example_613_DecorationTween.dart
-class Example613 extends StatefulWidget {
+/// 代码清单 6-15 [BoxConstraintsTween] 的基本使用
+///lib/code/code6/example_612_Tween.dart
+class Example612 extends StatefulWidget {
   @override
-  _Example613State createState() => _Example613State();
+  _Example612State createState() => _Example612State();
 }
 
-class _Example613State extends State<Example613>
+class _Example612State extends State<Example612>
     with SingleTickerProviderStateMixin {
   //动画控制器
   AnimationController _animationController;
-  Animation<Decoration> _animation;
+  Animation<BoxConstraints> _animation;
 
   @override
   void initState() {
@@ -50,31 +50,23 @@ class _Example613State extends State<Example613>
     _animationController.addListener(() {
       setState(() {});
     });
-
-    // 创建一个 Tween，装饰样式的变化
-    _animation = DecorationTween(
-      begin: BoxDecoration(
-        //当然 BoxDecoration中可使用的样式也非常多
-        //读者可以灵活应用
-        //线性渐变
-        gradient: LinearGradient(
-            colors: [Colors.blue, Colors.greenAccent, Colors.deepOrange]),
-      ),
-      end: BoxDecoration(
-        //线性渐变
-        gradient: LinearGradient(
-            colors: [Colors.deepOrange, Colors.deepPurple, Colors.blue]),
-      ),
-    ).animate(_animationController);
+    // 创建一个 Tween，值类型为 BoxConstraints
+    _animation = BoxConstraintsTween(
+            begin: BoxConstraints(minHeight: 100, maxHeight: 100),
+            end: BoxConstraints(minHeight: 50, maxHeight: 50))
+        .animate(_animationController);
   }
 
-  //动态修改容器的装饰样式
+  //动态修改容器的约束
   Widget buildContainer() {
-    return Container(
-      decoration: _animation.value,
-      margin: EdgeInsets.symmetric(vertical: 10.0),
-      width: 200,
-      height: 100,
+    return ConstrainedBox(
+      constraints: _animation.value,
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 10.0),
+        color: Colors.blue,
+        width: 200,
+        height: 10,
+      ),
     );
   }
 

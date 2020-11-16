@@ -11,8 +11,8 @@ import 'package:flutterbookcode/utils/navigator_utils.dart';
 /// 创建时间：Created by  on 2020/9/25.
 ///
 /// gongzhonghao biglead
-/// https://study.163.com/instructor/1021406138.htm
-/// https://blog.csdn.net/zl18613543572
+/// https://study.163.com/instructor/1021406168.htm
+/// https://blog.csdn.net/zl18616543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 ///
 ///
@@ -20,22 +20,25 @@ import 'package:flutterbookcode/utils/navigator_utils.dart';
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example613(),
+    home: Example616(),
   ));
 }
 
-/// 代码清单 6-16 [DecorationTween] 的基本使用
-///lib/code/code6/example_613_DecorationTween.dart
-class Example613 extends StatefulWidget {
+/// 代码清单 6-18 [BorderTween] 的基本使用
+///lib/code/code6/example_616_BorderTween.dart
+class Example616 extends StatefulWidget {
   @override
-  _Example613State createState() => _Example613State();
+  _Example616State createState() => _Example616State();
 }
 
-class _Example613State extends State<Example613>
+class _Example616State extends State<Example616>
     with SingleTickerProviderStateMixin {
+
   //动画控制器
   AnimationController _animationController;
-  Animation<Decoration> _animation;
+
+  //边框样式动画
+  Animation<Border> _animation;
 
   @override
   void initState() {
@@ -47,33 +50,27 @@ class _Example613State extends State<Example613>
       //正向执行 执行时间
       duration: Duration(milliseconds: 3000),
     );
+    //添加动画监听
     _animationController.addListener(() {
       setState(() {});
     });
 
-    // 创建一个 Tween，装饰样式的变化
-    _animation = DecorationTween(
-      begin: BoxDecoration(
-        //当然 BoxDecoration中可使用的样式也非常多
-        //读者可以灵活应用
-        //线性渐变
-        gradient: LinearGradient(
-            colors: [Colors.blue, Colors.greenAccent, Colors.deepOrange]),
-      ),
-      end: BoxDecoration(
-        //线性渐变
-        gradient: LinearGradient(
-            colors: [Colors.deepOrange, Colors.deepPurple, Colors.blue]),
-      ),
+    // 创建一个 Tween，边框
+    _animation = BorderTween(
+      begin: Border.all(color: Colors.blue, width: 1.0),
+      end: Border.all(color: Colors.red, width: 5.0),
     ).animate(_animationController);
   }
 
-  //动态修改容器的装饰样式
+  //动态修改容器的边框样式
   Widget buildContainer() {
     return Container(
-      decoration: _animation.value,
-      margin: EdgeInsets.symmetric(vertical: 10.0),
-      width: 200,
+      decoration: BoxDecoration(
+          //背景颜色
+          color: Colors.grey[200],
+          //边框样式
+          border: _animation.value),
+      width: 100,
       height: 100,
     );
   }

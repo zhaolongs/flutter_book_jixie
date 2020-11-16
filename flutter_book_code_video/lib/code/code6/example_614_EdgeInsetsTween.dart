@@ -11,8 +11,8 @@ import 'package:flutterbookcode/utils/navigator_utils.dart';
 /// 创建时间：Created by  on 2020/9/25.
 ///
 /// gongzhonghao biglead
-/// https://study.163.com/instructor/1021406138.htm
-/// https://blog.csdn.net/zl18613543572
+/// https://study.163.com/instructor/1021406148.htm
+/// https://blog.csdn.net/zl18614543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 ///
 ///
@@ -20,22 +20,22 @@ import 'package:flutterbookcode/utils/navigator_utils.dart';
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example613(),
+    home: Example614(),
   ));
 }
 
-/// 代码清单 6-16 [DecorationTween] 的基本使用
-///lib/code/code6/example_613_DecorationTween.dart
-class Example613 extends StatefulWidget {
+/// 代码清单 6-17 [EdgeInsetsTween] 的基本使用
+///lib/code/code6/example_614_EdgeInsetsTween.dart
+class Example614 extends StatefulWidget {
   @override
-  _Example613State createState() => _Example613State();
+  _Example614State createState() => _Example614State();
 }
 
-class _Example613State extends State<Example613>
+class _Example614State extends State<Example614>
     with SingleTickerProviderStateMixin {
   //动画控制器
   AnimationController _animationController;
-  Animation<Decoration> _animation;
+  Animation<EdgeInsets> _animation;
 
   @override
   void initState() {
@@ -47,34 +47,30 @@ class _Example613State extends State<Example613>
       //正向执行 执行时间
       duration: Duration(milliseconds: 3000),
     );
+    //添加动画监听
     _animationController.addListener(() {
       setState(() {});
     });
 
-    // 创建一个 Tween，装饰样式的变化
-    _animation = DecorationTween(
-      begin: BoxDecoration(
-        //当然 BoxDecoration中可使用的样式也非常多
-        //读者可以灵活应用
-        //线性渐变
-        gradient: LinearGradient(
-            colors: [Colors.blue, Colors.greenAccent, Colors.deepOrange]),
-      ),
-      end: BoxDecoration(
-        //线性渐变
-        gradient: LinearGradient(
-            colors: [Colors.deepOrange, Colors.deepPurple, Colors.blue]),
-      ),
+    // 创建一个 Tween，边距
+    _animation = EdgeInsetsTween(
+      begin: EdgeInsets.all(1),
+      end: EdgeInsets.all(30),
     ).animate(_animationController);
   }
 
-  //动态修改容器的装饰样式
+  //动态修改容器的边框
   Widget buildContainer() {
     return Container(
-      decoration: _animation.value,
-      margin: EdgeInsets.symmetric(vertical: 10.0),
+      //引用
+      padding: _animation.value,
       width: 200,
       height: 100,
+      color: Colors.grey[200],
+      //子Widget
+      child: Container(
+        color: Colors.orange,
+      ),
     );
   }
 
