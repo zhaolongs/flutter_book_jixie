@@ -36,7 +36,7 @@ class _Example601State extends State<Example601> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("基本动画"),
       ),
