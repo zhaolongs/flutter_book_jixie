@@ -86,11 +86,11 @@ class _Example608State extends State<Example608>
                 //当前动画的执行进度
                 double progress = _animationController.value;
                 if (progress == 1.0) {
-                  //在这里是缩小的效果
+                  //在这里是向左平移 移出的效果
                   _animationController.reverse();
                 } else {
                   //通过控制器正向执行动画 值 0.0 -1.0
-                  //在这里是放大的效果
+                  //在这里是向右平移 移进的效果
                   _animationController.forward(from: 0);
                 }
               },
