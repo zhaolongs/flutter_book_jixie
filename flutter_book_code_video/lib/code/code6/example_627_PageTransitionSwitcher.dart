@@ -56,7 +56,7 @@ class _PageState extends State with TickerProviderStateMixin {
 
 
 
-  /// 代码清单 6-37 谈入动画
+  /// 代码清单 6-37 淡入动画
   /// lib/code/code6/example_627_PageTransitionSwitcher.dart
   /// 切换页面显示标识
   bool isSelect = false;
