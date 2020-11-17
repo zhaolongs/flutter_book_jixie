@@ -28,7 +28,7 @@ void main() {
 
 /// 代码清单 6-27 Path 动画
 /// 动态画线动画方式绘制矩形
-///lib/code/code6/example_622_Hero.dart
+///lib/code/code6/example_623_Path.dart
 class Example623 extends StatefulWidget {
   @override
   _PageState createState() => _PageState();
@@ -70,7 +70,7 @@ class _PageState extends State with TickerProviderStateMixin {
   }
 
   /// 代码清单 6-28
-  ///lib/code/code6/example_622_Hero.dart
+  ///lib/code/code6/example_623_Path.dart
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +98,7 @@ class _PageState extends State with TickerProviderStateMixin {
     );
   }
   /// 代码清单 6-29
-  ///lib/code/code6/example_622_Hero.dart
+  ///lib/code/code6/example_623_Path.dart
   Container buildContainer() {
     return Container(
       child: Row(
@@ -129,7 +129,7 @@ class _PageState extends State with TickerProviderStateMixin {
 }
 
 /// 代码清单 6-30
-///lib/code/code6/example_622_Hero.dart
+///lib/code/code6/example_623_Path.dart
 class PathAnimationPainter extends CustomPainter {
   //[定义画笔]
   Paint _paint = Paint()
@@ -155,7 +155,7 @@ class PathAnimationPainter extends CustomPainter {
   }
 
   /// 代码清单 6-31
-  ///lib/code/code6/example_622_Hero.dart
+  ///lib/code/code6/example_623_Path.dart
   void canvasFunction(Canvas canvas) {
     //创建一个路径
     Path startPath = new Path();
