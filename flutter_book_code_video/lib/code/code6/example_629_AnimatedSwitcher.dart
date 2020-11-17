@@ -114,8 +114,9 @@ class _PageState extends State with TickerProviderStateMixin {
       ),
     );
   }
+  ///代码清单 6-45 按钮区域 组合多个基本动画
+  ///lib/code/code6/example_629_AnimatedSwitcher.dart
 
-  ///组合多个基本动画
   SlideTransition buildMultAnimation(
       Animation<double> animation, Widget child) {
     //Text移进的平移动画
