@@ -62,6 +62,8 @@ class LinePainter extends CustomPainter {
     ..color = Colors.blue
     //画笔笔触类型
     ..strokeCap = StrokeCap.round
+    //拐角类型
+    ..strokeJoin=StrokeJoin.round
     //是否启动抗锯齿
     ..isAntiAlias = true
     //颜色混合模式
