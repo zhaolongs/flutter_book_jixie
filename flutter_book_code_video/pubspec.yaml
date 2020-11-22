@@ -65,6 +65,7 @@ dependencies:
 #  下拉刷新
   pull_to_refresh: ^1.6.0
 
+  simple_animations: ^2.3.0
 
 
 #  fluttertextlayoutplugin:

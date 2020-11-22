@@ -97,26 +97,4 @@ class ImagePainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
   }
-
-  //通过ImageProvider读取Image
-  Future<ui.Image> loadAssetImageImage() async {
-    ImageProvider provider = AssetImage("assets/images/2.0/head1.png");
-    //完成的回调
-    Completer<ui.Image> completer = Completer<ui.Image>();
-    ImageStreamListener listener;
-    //获取图片流
-    ImageStream stream = provider.resolve(ImageConfiguration.empty);
-    //创建一个图片流监听
-    listener = ImageStreamListener((ImageInfo frame, bool sync) {
-      //图片加载完获取这一帧图片
-      final ui.Image image = frame.image;
-      //触发回调方法
-      completer.complete(image);
-      //移除监听
-      stream.removeListener(listener);
-    });
-    //为图片流添加监听
-    stream.addListener(listener); //添加监听
-    return completer.future; //返回
-  }
 }
