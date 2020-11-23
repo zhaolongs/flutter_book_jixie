@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/common/sp_key.dart';
-import 'package:flutterbookcode/utils/code1/sp_utils.dart';
+import 'package:flutterbookcode/utils/sp_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 
 /// 创建人： Created by zhaolong

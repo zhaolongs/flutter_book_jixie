@@ -1,6 +1,6 @@
 import 'package:flutterbookcode/app/bean/bean_user.dart';
 import 'package:flutterbookcode/app/common/sp_key.dart';
-import 'package:flutterbookcode/utils/code1/sp_utils.dart';
+import 'package:flutterbookcode/utils/sp_utils.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/24.

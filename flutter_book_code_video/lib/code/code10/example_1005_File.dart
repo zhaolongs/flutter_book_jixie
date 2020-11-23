@@ -1,9 +1,7 @@
-import 'dart:async';
+
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:async' show Async;
-
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 

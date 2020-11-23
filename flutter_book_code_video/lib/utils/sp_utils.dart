@@ -1,20 +1,21 @@
-import 'dart:convert';
 
-/// /lib/utils/code1/sp_utils.dart
-//保存用户对应用程序语言环境的偏好设置shared_preferences插件的操作工具类
+///lib/utils/sp_utils.dart
+import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+
 
 class SPUtil {
   ///静态实例
   static SharedPreferences _sharedPreferences;
 
+  ///应用启动时需要调用
   ///初始化
   static Future init() async {
     _sharedPreferences = await SharedPreferences.getInstance();
     return Future.value(true);
   }
 
-  // 异步保存
+  // 异步保存基本数据类型
   static Future save(String key, dynamic value) async {
     if (value is String) {
       _sharedPreferences.setString(key, value);
@@ -74,6 +75,4 @@ class SPUtil {
       return _dataMap;
     })?.toList();
   }
-
-
 }

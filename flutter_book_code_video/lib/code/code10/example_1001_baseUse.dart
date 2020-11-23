@@ -26,6 +26,9 @@ void main() {
 }
 
 class Example1001 extends StatelessWidget {
+
+  int timNumber =0  ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,9 +50,9 @@ class Example1001 extends StatelessWidget {
             TextButton(
               child: Text("两个耗时任务"),
               onPressed: () {
-                getData2();
+
               },
-            )
+            ),
           ],
         ),
       ),
@@ -143,6 +146,9 @@ class Example1001 extends StatelessWidget {
       return Future.value(result);
     }
   }
+
+
+
 
 
 }
