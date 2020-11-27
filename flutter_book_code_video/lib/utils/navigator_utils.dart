@@ -8,9 +8,9 @@ import 'package:flutterbookcode/utils/route/circle/circle_path.dart';
 ///lib/utils/navigator_utils.dart
 ///路由工具类
 class NavigatorUtils {
-  //关闭当前页面
-  //[context]当前页面的Context
-  //[parameters]回传上一个页面的参数
+  ///关闭当前页面
+  ///[context]当前页面的Context
+  ///[parameters]回传上一个页面的参数
   static pop(BuildContext context, {parameters}) {
     if (Navigator.canPop(context)) {
       Navigator.of(context).pop(parameters);
@@ -19,10 +19,10 @@ class NavigatorUtils {
     }
   }
 
-  //[context]当前页面的Context
-  //[routeName]目标页面的路由名称
-  //[paramtes]向目标页面传的参数
-  //[callback]目标页面关闭时的回调函数
+  ///[context]当前页面的Context
+  ///[routeName]目标页面的路由名称
+  ///[paramtes]向目标页面传的参数
+  ///[callback]目标页面关闭时的回调函数
   static pushName(BuildContext context, String routeName,
       {paramtes, Function callback}) {
     Navigator.of(context)
@@ -34,11 +34,11 @@ class NavigatorUtils {
     });
   }
 
-  //动态路由方法封装
-  //[context]当前页面的Context
-  //[routeName]目标页面的路由名称
-  //[paramtes]向目标页面传的参数
-  //[callback]目标页面关闭时的回调函数
+  ///动态路由方法封装
+  ///[context]当前页面的Context
+  ///[routeName]目标页面的路由名称
+  ///[paramtes]向目标页面传的参数
+  ///[callback]目标页面关闭时的回调函数
   static pushPage(BuildContext context, Widget page,
       {String routeName, paramtes, Function callback}) {
     PageRoute pageRoute;

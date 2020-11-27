@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
  * 可关注博客：https://blog.csdn.net/zl18603543572
  */
 
-///lib/utils/global_key_utils.dart:14
+///[GlobalKey]操作工具类
+///lib/utils/global_key_utils.dart
 class GlobalKeyUtils {
   ///根据[GlobalKey]
   ///获取在全局中的大小信息

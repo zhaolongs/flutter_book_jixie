@@ -37,6 +37,9 @@ class _ExampleState extends State {
 
   @override
   Widget build(BuildContext context) {
+    print("测试数据");
+    debugPrint("测试数据");
+
     return Scaffold(
       appBar: AppBar(
         title: Text(" Dio 网络 请求 "),

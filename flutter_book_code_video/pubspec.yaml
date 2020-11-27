@@ -1,15 +1,8 @@
 name: flutterbookcode
-description: MaterialApp组件的精通使用分析
-
-#  * 可关注公众号：我的大前端生涯   获取最新技术分享
-#  * 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
-#  * 可关注博客：https://blog.csdn.net/zl18603543572
-#
+description: Flutter 精通使用分析
 version: 1.0.0+2
-
 environment:
   sdk: ">=2.6.0 <3.0.0"
-
 dependencies:
   flutter:
     sdk: flutter
@@ -44,6 +37,7 @@ dependencies:
 #    git:
 #      url: https://github.com/zhaolongs/flutter_shake_animation_widget.git
 #      ref: master
+#  抖动动画依赖库
   shake_animation_widget :
     path: /Volumes/code/ico/Desktop/code/flutter_app/shake_animation_widget/shake_animation_widget
   #获取手机存储目录

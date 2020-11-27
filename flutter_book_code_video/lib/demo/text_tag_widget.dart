@@ -44,7 +44,7 @@ class TextTagWidget extends StatefulWidget {
         this.borderColor = this.backgroundColor;
       } else {
         ///当背景颜色没有指定时 取随机生成颜色
-        this.borderColor = getRandomColor();
+        this.borderColor = ColorUtils.getRandomColor();
       }
     }
     ///当没有指定文本样式时

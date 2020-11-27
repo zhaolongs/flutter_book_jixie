@@ -56,9 +56,9 @@ class _TestPageState extends State<TestPage> {
 
               Container(margin: EdgeInsets.only(top: 50),child: FlatButton(child: Text("切换"),onPressed: (){
                 setState(() {
-                  randColor =getRandomColor();
+                  randColor =ColorUtils.getRandomColor();
 
-                  lightRandColor= getLightColor(randColor);
+                  lightRandColor= ColorUtils.getLightColor(randColor);
                 });
               },),)
 
