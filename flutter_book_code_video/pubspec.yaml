@@ -31,6 +31,12 @@ dependencies:
   flutter_progress_button: ^0.6.4
   #闪光动画
   flash_animation: ^0.0.1
+  #  APP升级安装组件 Android中调用自动安装 apk的程序
+  #ios 调用打开APPStore
+  install_plugin_custom:
+    git:
+      url: https://github.com/zhaolongs/install_plugin_custom.git
+      ref: master
   #Flutter抖动动画、颤抖动画、Flutter文字抖动效果
 #  shake_animation_widget: ^2.0.0
 #  shake_animation_widget:
