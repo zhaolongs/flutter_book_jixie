@@ -9,7 +9,7 @@ class LogUtil {
   static const String _defaultLogTag = "flutter_log";
   //是否是debug模式,true: log  不输出.
   static bool _debugMode=false;
-  ///log日志的撒谎
+  ///log日志的长度
   static int _maxLogLength=130;
   ///当前的logTag的值
   static String _tagValue=_defaultLogTag;

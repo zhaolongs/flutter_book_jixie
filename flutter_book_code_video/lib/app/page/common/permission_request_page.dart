@@ -3,13 +3,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterbookcode/app/res/string/strings.dart';
-import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/navigator_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-import '../../base/pop_base_state.dart';
 import 'common_dialog.dart';
 
 /// 创建人： Created by zhaolong
@@ -78,8 +74,6 @@ class PermissionRequestPage extends StatefulWidget {
 
 class _PermissionRequestState extends State<PermissionRequestPage>
     with WidgetsBindingObserver {
-
-
   ///lib/app/page/common/permission_request_page.dart
   @override
   void initState() {
@@ -99,7 +93,6 @@ class _PermissionRequestState extends State<PermissionRequestPage>
 
   ///是否打开发设置中心
   bool isOpenSetting = false;
-
   ///生命周期变化时回调
   //  resumed:应用可见并可响应用户操作
   //  inactive:用户可见，但不可响应用户操作
@@ -117,7 +110,6 @@ class _PermissionRequestState extends State<PermissionRequestPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-
       ///填充布局
       body: new Material(
           type: MaterialType.transparency,
@@ -148,8 +140,8 @@ class _PermissionRequestState extends State<PermissionRequestPage>
         ///以前从未请求过
         showCommonAlertDialog(
             contentMessag: widget.permissionMessageList[0],
-            cancleText: StringLanguages.of(context).get(StringKey.buttonExit),
-            selectText:StringLanguages.of(context).get(StringKey.buttonConsent),
+            cancleText: "退出",
+            selectText: "同意",
             selectCallBack: () {
               ///请求权限
               requestStoragePermisson();
@@ -161,8 +153,8 @@ class _PermissionRequestState extends State<PermissionRequestPage>
         ///用户拒绝
         showCommonAlertDialog(
             contentMessag: widget.permissionMessageList[1],
-            cancleText: StringLanguages.of(context).get(StringKey.buttonExit),
-            selectText: StringLanguages.of(context).get(StringKey.buttonTautology),
+            cancleText: "退出",
+            selectText: "重试",
             selectCallBack: () {
               ///请求权限
               requestStoragePermisson();
@@ -175,8 +167,8 @@ class _PermissionRequestState extends State<PermissionRequestPage>
         ///用户拒绝
         showCommonAlertDialog(
             contentMessag: widget.permissionMessageList[2],
-            cancleText: StringLanguages.of(context).get(StringKey.buttonExit),
-            selectText: StringLanguages.of(context).get(StringKey.buttonGoSetting),
+            cancleText: "退出",
+            selectText: "去设置中心",
             selectCallBack: () async {
               ///请求权限
               isOpenSetting = await openAppSettings();
@@ -203,8 +195,8 @@ class _PermissionRequestState extends State<PermissionRequestPage>
 
   void openSettingFaile() {
     showCommonAlertDialog(
-        contentMessag: StringLanguages.of(context).get(StringKey.storePermisson4),
-        cancleText:  StringLanguages.of(context).get(StringKey.buttonExit),
+        contentMessag: "暂时无法打开设置中心，请您打开手机设置->应用管理-同意权限",
+        cancleText:  "退出",
         cancleCallBack: () {
           closeApp();
         }, context: context);
@@ -219,10 +211,14 @@ class _PermissionRequestState extends State<PermissionRequestPage>
   }
 
 
-  ///关闭应用程序
+  ///关闭应用程序或者权限请求功能
   Future<void> closeApp() async {
     if(widget.isColseApp){
       await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+    }else{
+      if(Navigator.of(context).canPop()){
+        Navigator.of(context).pop(false);
+      }
     }
   }
 }
