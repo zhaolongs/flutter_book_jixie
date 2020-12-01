@@ -1,9 +1,11 @@
 
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 
 
-//Toast工具类
+///lib/utils/toast_utils.dart
+///Toast工具类
 class ToastUtils {
   static void showToast(String message){
     // 根据消息长度决定自动消失时间
@@ -13,6 +15,7 @@ class ToastUtils {
     Fluttertoast.cancel();
     //显示Toast
     Fluttertoast.showToast(
+      backgroundColor: Colors.black54,
       msg: message,
       //显示的位置
       gravity: ToastGravity.CENTER,
