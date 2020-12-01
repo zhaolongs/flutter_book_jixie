@@ -11,7 +11,7 @@ dependencies:
   #toast 消息提示小弹框
   fluttertoast: ^7.0.1+1
   #加载HTML组件
-  flutter_fai_webview: ^1.1.4
+  flutter_fai_webview: ^1.1.6
   #加载图片的缓存组件
   cached_network_image: ^2.2.0+1
   #视频播放

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_life_state/flutter_life_state.dart';
 import 'package:flutterbookcode/app/common/global.dart';
 import 'package:flutterbookcode/app/page/common/app_upgrade.dart';
+import 'package:flutterbookcode/app/page/common/user_protocol_page.dart';
 import 'package:flutterbookcode/utils/flutter_toast_utils.dart';
 import 'package:flutterbookcode/utils/toast_utils.dart';
 
@@ -68,12 +69,9 @@ class _TestToastPageState extends BaseLifeState<TestToastPage> {
                 },
               ),
               ElevatedButton(
-                child: Text("显示 升级弹框"),
+                child: Text("显示 用户隐私协议"),
                 onPressed: () {
-                  showAppUpgradeDialog(
-                    upgradText: "1.优化首页面列表显示功能 \n2.优化用户体验功能",
-                    context: context,
-                  );
+                  showUserProtocolPage(context: context);
                 },
               ),
             ],

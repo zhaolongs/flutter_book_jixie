@@ -16,27 +16,33 @@ import 'package:flutterbookcode/utils/navigator_utils.dart';
 ///
 
 ///lib/app/page/common/webview_page.dart
+///便捷打开Html页面的方法
 showWebViewPage(
     {@required BuildContext context,
-      ///标题
+    //加载H5对应的链接
+    @required String pageUrl,
+    //标题
     String pageTitle,
-      ///加载H5对应的链接
-    String pageUrl,
+    //页面关闭回调
     Function(dynamic value) dismissCallback}) {
-  ///打开用WebView页面
+  //打开用WebView页面
   NavigatorUtils.openPageByFade(
-      context,
-      WebViewPage(
-        pageTitle: pageTitle,
-        pageUrl: pageUrl,
-      ),
-      dismissCallBack: dismissCallback);
+    context,
+    WebViewPage(
+      pageTitle: pageTitle,
+      pageUrl: pageUrl,
+    ),
+    dismissCallBack: dismissCallback,
+  );
 }
 
 ///lib/app/page/common/webview_page.dart
 ///通用根据 Url来加载 H5页面功能的WebView
 class WebViewPage extends StatefulWidget {
+  //标题
   final String pageTitle;
+
+  //页面URL
   final String pageUrl;
 
   WebViewPage({this.pageTitle, this.pageUrl});
@@ -47,21 +53,26 @@ class WebViewPage extends StatefulWidget {
 
 ///lib/app/page/common/webview_page.dart
 class _WebViewPageState extends State<WebViewPage> {
-  ///[FaiWebViewWidget]控制器
+  //[FaiWebViewWidget]控制器
   FaiWebViewController _faiWebViewController = new FaiWebViewController();
-  ///浏览器是否可向前
+
+  //浏览器是否可向前
   bool isForward = false;
-  ///浏览器是否可向后
+
+  //浏览器是否可向后
   bool isBack = false;
-  ///控制栏的透明度
+
+  //控制栏的透明度
   double opacity = 1.0;
-  ///控制栏的透明度是否执行完毕
+
+  //控制栏的透明度是否执行完毕
   bool isOpacity = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("${widget.pageTitle}"),
       ),
       body: Container(
@@ -70,30 +81,36 @@ class _WebViewPageState extends State<WebViewPage> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            ///加载Html页面
-            FaiWebViewWidget(
-              //webview控制器
-              controller: _faiWebViewController,
-              //webview 加载网页链接
-              url: widget.pageUrl,
-              //webview 加载信息回调
-              callback: callBack,
-              //输出日志
-              isLog: true,
-            ),
-            ///操作栏
+            //第一层加载Html页面
+            buildWebViewWidget(),
+            //第二层操作栏
             buildControllerPositioned(context)
           ],
         ),
       ),
     );
   }
-  ///lib/app/page/common/webview_page.dart
-  ///操作栏
+
+  //第一层加载Html页面
+  FaiWebViewWidget buildWebViewWidget() {
+    return FaiWebViewWidget(
+      //webview控制器
+      controller: _faiWebViewController,
+      //webview 加载网页链接
+      url: widget.pageUrl,
+      //webview 加载信息回调
+      callback: callBack,
+      //输出日志
+      isLog: true,
+    );
+  }
+
+  //lib/app/page/common/webview_page.dart
+  //第二层操作栏
   buildControllerPositioned(BuildContext context) {
     return Positioned(
       bottom: 24,
-      ///操作栏的透明度动画过渡
+      //操作栏的透明度动画过渡
       child: AnimatedOpacity(
         duration: Duration(milliseconds: 400),
         opacity: opacity,
@@ -102,22 +119,22 @@ class _WebViewPageState extends State<WebViewPage> {
         },
         child: Container(
           alignment: Alignment.center,
-          ///操作栏的灰色圆角背景
+          //操作栏的灰色圆角背景
           decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.all(Radius.circular(4))
-          ),
-          ///操作栏区域的大小
-          height: 40, width: 120,
+              color: Colors.grey,
+              borderRadius: BorderRadius.all(Radius.circular(4))),
+          //操作栏区域的大小
+          height: 40,
+          width: 120,
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              ///左侧的后退按钮
+              //左侧的后退按钮
               buildIconLeftBackButton(context),
               SizedBox(
                 width: 10,
               ),
-              ///右侧的向前按钮
+              //右侧的向前按钮
               buildIconRightButton()
             ],
           ),
@@ -125,8 +142,9 @@ class _WebViewPageState extends State<WebViewPage> {
       ),
     );
   }
-  ///lib/app/page/common/webview_page.dart
-  ///左侧的后退按钮
+
+  //lib/app/page/common/webview_page.dart
+  //左侧的后退按钮
   buildIconRightButton() {
     return IconButton(
       icon: Icon(
@@ -134,16 +152,17 @@ class _WebViewPageState extends State<WebViewPage> {
         color: isForward ? Colors.blue : Colors.white,
       ),
       onPressed: () async {
-        ///判断一下是否有向前的浏览记录
+        //判断一下是否有向前的浏览记录
         bool forword = await _faiWebViewController.canForword();
         if (forword) {
-          ///如果有就执行向前的操作
+          //如果有就执行向前的操作
           _faiWebViewController.forword();
         }
       },
     );
   }
-  ///右侧的向前按钮
+
+  //右侧的向前按钮
   buildIconLeftBackButton(BuildContext context) {
     return IconButton(
       icon: Icon(
@@ -151,26 +170,27 @@ class _WebViewPageState extends State<WebViewPage> {
         color: isBack ? Colors.blue : Colors.white,
       ),
       onPressed: () async {
-        ///判断一下是否有可后退的浏览记录
+        //判断一下是否有可后退的浏览记录
         bool back = await _faiWebViewController.canBack();
         if (back) {
           //有就向后退浏览器
           _faiWebViewController.back();
         } else {
-          ///无就退出当前页面
+          //无就退出当前页面
           Navigator.pop(context);
         }
       },
     );
   }
-  ///lib/app/page/common/webview_page.dart
-  ///加载 Html 的回调
-  ///[code]消息类型标识
-  ///[msg] 消息内容
-  ///[content] 回传的参数
+
+  //lib/app/page/common/webview_page.dart
+  //加载 Html 的回调
+  //[code]消息类型标识
+  //[msg] 消息内容
+  //[content] 回传的参数
   void callBack(int code, String msg, content) async {
     if (code == 201) {
-      ///WebView中Html页面加载完毕的回调
+      //WebView中Html页面加载完毕的回调
       //页面加载完成后 测量的 WebView 高度
       double webViewHeight = content;
       print("webViewHeight " + webViewHeight.toString());
@@ -178,7 +198,7 @@ class _WebViewPageState extends State<WebViewPage> {
       isForward = await _faiWebViewController.canForword();
       setState(() {});
     } else if (code == 302) {
-      ///向下滑动的回调
+      //向下滑动的回调
       if (!isOpacity && opacity != 0.2) {
         isOpacity = !isOpacity;
         setState(() {
@@ -186,7 +206,7 @@ class _WebViewPageState extends State<WebViewPage> {
         });
       }
     } else if (code == 303) {
-      ///向上滑动的回调
+      //向上滑动的回调
       if (!isOpacity && opacity != 0.8) {
         isOpacity = !isOpacity;
         setState(() {
