@@ -178,7 +178,6 @@ class DioUtils {
 
 class ResponseInfo {
   bool success;
-
   int code;
   dynamic data;
 

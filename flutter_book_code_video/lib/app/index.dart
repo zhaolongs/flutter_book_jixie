@@ -1,24 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fai_umeng/flutter_fai_umeng.dart';
+import 'package:flutterbookcode/app/app_root.dart';
 import 'package:flutterbookcode/app/base/pop_base_state.dart';
 import 'package:flutterbookcode/app/common/user_helper.dart';
 import 'package:flutterbookcode/app/page/common/permission_request_page.dart';
 import 'package:flutterbookcode/app/page/common/user_protocol_page.dart';
-import 'package:flutterbookcode/app/res/string/strings.dart';
-import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/app/splash.dart';
 import 'package:flutterbookcode/app/welcome_page.dart';
-import 'package:flutterbookcode/demo/shake/shake_animation_text.dart';
+import 'package:flutterbookcode/net/DioUtils.dart';
+import 'package:flutterbookcode/net/http_helper.dart';
+import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:flutterbookcode/utils/navigator_utils.dart';
 import 'package:flutterbookcode/utils/sp_utils.dart';
-import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:provider/provider.dart';
 
+import 'bean/bean_app_setting.dart';
 import 'common/sp_key.dart';
-import 'config/local_notifier.dart';
-import 'config/theme_notifier.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/20.
@@ -38,15 +36,18 @@ class IndexPage extends StatefulWidget {
 class _IndexPageState extends PopBaseState<IndexPage> {
   ///用户是否第一次使用
   bool _userFirst = false;
+
   @override
   void initState() {
     super.initState();
+
     ///Widget渲染完成的回调
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ///检查权限
       checkPermissonFunction();
     });
   }
+
   ///lib/app/index.dart
   ///常用的第三方的初始功能 如友盟统计
   ///获取保存的用户偏好设置
@@ -55,43 +56,34 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     ///当App运行在Release环境时，inProduction为true；
     ///当App运行在Debug和Profile环境时，inProduction为false。
     const bool inProduction = const bool.fromEnvironment("dart.vm.product");
+
     ///为ture时输出日志
     const bool isLog = !inProduction;
+
     ///初始化友盟统计
     // await initUmeng(isLog: isLog);
     ///初始化本地存储工具
     await SPUtil.init();
+
     ///初始化日志工具
     LogUtil.init(tag: "flutter_log", isDebug: isLog);
 
-    ///获取用户保存偏好设置
-    ///国际化
-    String _languageCode = await SPUtil.getString(spUserLocalLanguageKey);
-    ///如果用户有选择过语言环境设置在这里根据用户的选择再重置一下App的语言环境
-    if (_languageCode != null && _languageCode.length > 0) {
-      LocaleNotifier localeState=LocaleNotifier.zh();
-      if(_languageCode==LocaleNotifier.en().toString()){
-        localeState=LocaleNotifier.en();
-      }
-      ///更新语言环境
-      Provider.of<LocaleNotifier>(context, listen: false)
-          .changeLocaleState(localeState);
-    }
-
-    ///获取缓存的应用主题
-    int themIndex = await SPUtil.getInt(spUserThemeKey);
-    Provider.of<ThemeNotifier>(context, listen: false).setThem(themIndex);
     ///获取用户是否第一次登录
     _userFirst = await SPUtil.getBool(spUserIsFirstKey);
+
     ///获取用户隐私协议的状态
     bool _userProtocol = await SPUtil.getBool(spUserProtocolKey);
+
     ///记录
-    UserHelper.getInstance.userProtocol=_userProtocol;
+    UserHelper.getInstance.userProtocol = _userProtocol;
+
     ///初始化用户的登录信息
     UserHelper.getInstance.init();
+
     ///下一步
     openUserProtocol();
   }
+
   ///lib/app/index.dart
   ///构建[IndexPage]中的友盟统计
   Future<bool> initUmeng({bool isLog = false}) async {
@@ -99,6 +91,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     FlutterFaiUmeng.receiveMessage((message) {
       LogUtil.e(message.toString());
     });
+
     ///友盟的初始化
     ///参数一 appkey
     ///参数二 推送使用的pushSecret
@@ -118,51 +111,47 @@ class _IndexPageState extends PopBaseState<IndexPage> {
         children: [
           ///构建背景
           Positioned(
-            left: 0, right: 0, top: 0, bottom: 0,
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
             child: Image.asset(
               "assets/images/3.0x/welcome.png",
               fit: BoxFit.fill,
             ),
           ),
-          Container(
-            color: Color.fromARGB(155, 100, 100, 100,
-            ),
-          ),
-          Center(
-            ///抖动动画
-            child: ShakeTextAnimationWidget(
-              animationString: "HELLO WORLD",
-              textStyle: TextStyle(
-                  color: Colors.white,
-                  ///文字的大小
-                  fontSize: 25,
-                  ///引用圆滑的自定义字体
-                  fontFamily: "UniTortred"),
-            ),
-          )
         ],
       ),
     );
   }
+
   ///lib/app/index.dart
   ///构建[IndexPage]中的异步的
   ///权限请求判断
   void checkPermissonFunction() {
-    ///根据语言环境加载的文案
+    //定义弹框提示语
+    // 第一句是第一次申请权限时的提示说明
+    // 第二句是用户第一次拒绝后的提示说明
+    // 第三句是用户第二次拒绝后的提示说明
+    // 第四名是当前的应用程序打开设置中心失败的提示
     List<String> messageList = [
-      StringLanguages.of(context).get(StringKey.storePermisson1),
-      StringLanguages.of(context).get(StringKey.storePermisson2),
-      StringLanguages.of(context).get(StringKey.storePermisson3),
+      "为您更好的体验应用，所以需要获取您的手机文件存储权限，以保存您的一些偏好设置",
+      "您以拒绝权限，所以无法保存您的一些偏好设置，将无法使用APP",
+      "您以拒绝权限，为您更好的体验应用，所以需要获取您的手机文件存储权限，以保存您的一些偏好设置，请在设置中同意App的权限请求",
+      "暂时无法打开设置中心，请您打开手机设置->应用管理-同意权限",
     ];
 
     ///权限请求封装功能
     ///如果当前配制的权限通过就直接回调dismissCallback方法
     showPermissionRequestPage(
         context: context,
+
         ///在这里请求的是文件读写权限
         permission: Permission.storage,
+
         ///对应的弹框提示语
         permissionMessageList: messageList,
+
         ///权限请求完成后的回调
         dismissCallback: (value) {
           ///权限请求结束获取权限后进行初始化操作
@@ -170,6 +159,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
           initData();
         });
   }
+
   ///lib/app/index.dart
   ///判断用户隐私协议
   void openUserProtocol() {
@@ -178,13 +168,27 @@ class _IndexPageState extends PopBaseState<IndexPage> {
       openNext();
     } else {
       ///未同意用户协议 弹框显示
-      showUserProtocolPage(context: context, dismissCallback: (value) {
-        openNext();
-      });
+      showUserProtocolPage(
+          context: context,
+          dismissCallback: (value) {
+            openNext();
+          });
     }
   }
+
   ///进入首页面或者是引导页面
-  void openNext() {
+  void openNext() async {
+    //网络请求获取APP的配置信息
+    ResponseInfo responseInfo =
+        await DioUtils.instance.getRequest(url: HttpHelper.SETTING_URL);
+    //解析数据
+    AppSettingBean settingBean = AppSettingBean.fromMap(responseInfo.data);
+    //配置APP主题
+    if(settingBean.appThemFlag==1){
+      //将APP设置成灰色主题
+      rootStreamController.add(GlobalBean(100,Colors.grey));
+    }
+    //获取配置信息
     if (_userFirst == null || _userFirst == false) {
       ///第一次 隐藏logo 显示左右滑动的引导
       NavigatorUtils.openPageByFade(context, SplashPage(), isReplace: true);
