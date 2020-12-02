@@ -71,6 +71,7 @@ class _TestToastPageState extends BaseLifeState<TestToastPage> {
               ElevatedButton(
                 child: Text("显示 用户隐私协议"),
                 onPressed: () {
+                  //便捷弹出 用户协议 与 隐私协议 弹框
                   showUserProtocolPage(context: context);
                 },
               ),
