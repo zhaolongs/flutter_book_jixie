@@ -8,6 +8,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  #饼图
+  flutter_echart: ^1.0.1
   #toast 消息提示小弹框
   fluttertoast: ^7.0.1+1
   #加载HTML组件

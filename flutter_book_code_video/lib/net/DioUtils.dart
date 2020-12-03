@@ -35,8 +35,12 @@ class DioUtils {
   String proxyPort = "";
 
   DioUtils._internal() {
+    BaseOptions options = new BaseOptions();
+    options.connectTimeout = 2000;
+    options.receiveTimeout = 2 * 60 * 1000;
+    options.sendTimeout = 2 * 60 * 1000;
     // 初始化
-    _dio = new Dio();
+    _dio = new Dio(options);
     //当App运行在Release环境时，inProduction为true；
     // 当App运行在Debug和Profile环境时，inProduction为false。
     bool inProduction = bool.fromEnvironment("dart.vm.product");
@@ -104,7 +108,7 @@ class DioUtils {
         }
       }
     } catch (e, s) {
-      errorController(e, s);
+      return errorController(e, s);
     }
   }
 
@@ -146,42 +150,52 @@ class DioUtils {
     }
   }
 
-  void errorController(e, StackTrace s) {
+  Future<ResponseInfo> errorController(e, StackTrace s) {
+    ResponseInfo responseInfo = ResponseInfo();
+    responseInfo.success = false;
+
     //网络处理错误
     if (e is DioError) {
       DioError dioError = e;
       switch (dioError.type) {
         case DioErrorType.CONNECT_TIMEOUT:
-          //超时
+          responseInfo.message = "连接超时";
           break;
         case DioErrorType.SEND_TIMEOUT:
-          //请求超时
+          responseInfo.message = "请求超时";
           break;
         case DioErrorType.RECEIVE_TIMEOUT:
-          //响应超时
+          responseInfo.message = "响应超时";
           break;
         case DioErrorType.RESPONSE:
           // 响应错误
+          responseInfo.message = "响应错误";
           break;
         case DioErrorType.CANCEL:
           // 取消操作
+          responseInfo.message = "已取消";
           break;
         case DioErrorType.DEFAULT:
           // 默认自定义其他异常
+          responseInfo.message = dioError.message;
           break;
       }
     } else {
       //其他错误
+      responseInfo.message = "未知错误";
     }
+    return Future.value(responseInfo);
   }
 }
 
 class ResponseInfo {
   bool success;
   int code;
+  String message;
   dynamic data;
 
-  ResponseInfo({this.success = true, this.code = 200, this.data});
+  ResponseInfo(
+      {this.success = true, this.code = 200, this.data, this.message = "请求成功"});
 
   ResponseInfo.error({this.success = false, this.code = 201});
 }

@@ -172,7 +172,6 @@ class _IndexPageState extends State<SplashPage> {
           onTap: () {
             ///保存标识
             SPUtil.save(spUserIsFirstKey, true);
-
             ///跳转首页
             NavigatorUtils.openPageByFade(context, HomeMainPage(),
                 isReplace: true);
@@ -245,5 +244,18 @@ class _IndexPageState extends State<SplashPage> {
       topRadius = 2;
     }
     setState(() {});
+  }
+
+  Widget _indicator(bool isActive) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 150),
+      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      height: 8.0,
+      width: isActive ? 24.0 : 16.0,
+      decoration: BoxDecoration(
+        color: isActive ? Colors.white : Color(0xFF7B51D3),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+    );
   }
 }

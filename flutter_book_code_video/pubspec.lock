@@ -139,6 +139,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.4.1"
+  flutter_echart:
+    dependency: "direct main"
+    description:
+      name: flutter_echart
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   flutter_fai_umeng:
     dependency: "direct main"
     description:
