@@ -108,9 +108,7 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
           BubbleWidget(),
           //第三部分 高斯模糊
           buildBlureWidget(),
-          //第四部分 顶部的文字
-          buildTopText(),
-          //第五部分 logo 的Hero动画
+          //第四部分 顶部的文字logo 的Hero动画
           buildHeroLogo(context),
           //第六部分 输入框与按钮
           FadeTransition(
@@ -136,7 +134,7 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
     return Positioned(
       top: 120,
       left: 45,
-      child: Stack(
+      child: Row(
         children: [
           Hero(
             tag: "loginTag",
@@ -157,29 +155,22 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
               ),
             ),
           ),
+          SizedBox(width: 16,),
+          Text(
+            'Holl World',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.blue,
+              fontSize: 40.0,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
         ],
       ),
     );
   }
 
-//第四部分 顶部的文字
-  Positioned buildTopText() {
-    //顶部对齐
-    return Positioned(
-      top: 120,
-      left: 0,
-      right: 0,
-      child: Text(
-        'Holl World',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.blue,
-          fontSize: 40.0,
-          fontWeight: FontWeight.w900,
-        ),
-      ),
-    );
-  }
+
 
   //第一部分 第一层 渐变背景
   Container buildBackground() {
