@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/app_root.dart';
+import 'package:flutterbookcode/app/bean/bean_global.dart';
 import 'package:flutterbookcode/app/page/catalogue/catalogue_main_page.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 

@@ -1,8 +1,6 @@
-
 ///lib/utils/sp_utils.dart
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class SPUtil {
   ///静态实例
@@ -13,6 +11,13 @@ class SPUtil {
   static Future init() async {
     _sharedPreferences = await SharedPreferences.getInstance();
     return Future.value(true);
+  }
+
+  //清除数据
+  static void remove(String key) async {
+    if (_sharedPreferences.containsKey(key)) {
+      _sharedPreferences.remove(key);
+    }
   }
 
   // 异步保存基本数据类型
@@ -34,12 +39,15 @@ class SPUtil {
   static Future<String> getString(String key) async {
     return _sharedPreferences.getString(key);
   }
+
   static Future<int> getInt(String key) async {
     return _sharedPreferences.getInt(key);
   }
+
   static Future<bool> getBool(String key) async {
     return _sharedPreferences.getBool(key);
   }
+
   static Future<double> getDouble(String key) async {
     return _sharedPreferences.getDouble(key);
   }
@@ -47,12 +55,13 @@ class SPUtil {
   ///保存自定义对象
   static Future saveObject(String key, dynamic value) async {
     ///通过 json 将Object对象编译成String类型保存
-      _sharedPreferences.setString(key, json.encode(value));
+    _sharedPreferences.setString(key, json.encode(value));
   }
+
   ///获取自定义对象
   ///返回的是 Map<String,dynamic> 类型数据
-  static dynamic getObject(String key){
-    String _data =_sharedPreferences.getString(key) ;
+  static dynamic getObject(String key) {
+    String _data = _sharedPreferences.getString(key);
     return (_data == null || _data.isEmpty) ? null : json.decode(_data);
   }
 

@@ -4,6 +4,14 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutterbookcode/app/bean/bean_user.dart';
+import 'package:flutterbookcode/app/common/user_helper.dart';
+import 'package:flutterbookcode/net/DioUtils.dart';
+import 'package:flutterbookcode/utils/toast_utils.dart';
+
+import '../mine/oval_transit_rect_widget.dart';
+import 'bg/bubble_widget.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/11/22.
@@ -23,127 +31,121 @@ void main() => runApp(
       ),
     );
 
-///获取随机颜色
-Color getRandonColor(Random random) {
-  var a = random.nextInt(255);
-  var r = random.nextInt(255);
-  var g = random.nextInt(255);
-  var b = random.nextInt(255);
-  return Color.fromARGB(a, r, g, b);
-}
-
-///获取随机透明的白色
-Color getRandonWhightColor(Random random) {
-  //0~255 0为完全透明 255 为不透明
-  //这里生成的透明度取值范围为 10~200
-  int a = random.nextInt(190) + 10;
-  return Color.fromARGB(a, 255, 255, 255);
-}
-
-///计算坐标
-Offset calculateXY(double speed, double theta) {
-  return Offset(speed * cos(theta), speed * sin(theta));
-}
-
 class BobbleLoginPage extends StatefulWidget {
   @override
   _BobbleLoginPageState createState() => _BobbleLoginPageState();
 }
 
 class _BobbleLoginPageState extends State<BobbleLoginPage>
-    with TickerProviderStateMixin {
-  //创建的气泡保存集合
-  List<BobbleBean> _list = [];
-
-  //随机数据
-  Random _random = new Random(DateTime.now().microsecondsSinceEpoch);
-
-  //气泡的最大半径
-  double maxRadius = 100;
-
-  //气泡动画的最大速度
-  double maxSpeed = 0.7;
-
-  //气泡计算使用的最大弧度（360度）
-  double maxTheta = 2.0 * pi;
-
-  //动画控制器
-  AnimationController _animationController;
-
-  //流控制器
-  StreamController<double> _streamController = new StreamController();
-
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   AnimationController _fadeAnimationController;
 
   @override
   void initState() {
     super.initState();
 
-    for (var i = 0; i < 20; i++) {
-      BobbleBean particle = new BobbleBean();
-      //获取随机透明度的白色颜色
-      particle.color = getRandonWhightColor(_random);
-      //指定一个位置 每次绘制时还会修改
-      particle.postion = Offset(-1, -1);
-      //气泡运动速度
-      particle.speed = _random.nextDouble() * maxSpeed;
-      //随机角度
-      particle.theta = _random.nextDouble() * maxTheta;
-      //随机半径
-      particle.radius = _random.nextDouble() * maxRadius;
-      //集合保存
-      _list.add(particle);
-    }
-
-    //动画控制器
-    _animationController = new AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000));
-    //刷新监听
-    _animationController.addListener(() {
-      //流更新
-      _streamController.add(0.0);
-    });
-
+    //添加监听
+    WidgetsBinding.instance.addObserver(this);
     _fadeAnimationController = new AnimationController(
         vsync: this, duration: Duration(milliseconds: 500));
 
-    _fadeAnimationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        //重复执行动画
-        _animationController.repeat();
-      }
-    });
+    _fadeAnimationController.addStatusListener((status) {});
     //重复执行动画
     _fadeAnimationController.forward();
   }
 
   @override
   void dispose() {
-    //销毁
-    _animationController.dispose();
+    //解绑
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+  }
+
+  bool _showInputBg = false;
+
+  //应用尺寸改变时回调
+  @override
+  void didChangeMetrics() {
+    super.didChangeMetrics();
+    /*
+     *Frame是一次绘制过程，称其为一帧，
+     * Flutter engine受显示器垂直同步信号"VSync"的驱使不断的触发绘制，
+     *Flutter可以实现60fps（Frame Per-Second），
+     * 就是指一秒钟可以触发60次重绘，FPS值越大，界面就越流畅。
+     */
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      //注意，不要在此类回调中再触发新的Frame，这可以会导致循环刷新。
+      setState(() {
+        ///获取底部遮挡区域的高度
+        double keyboderFlexHeight = MediaQuery.of(context).viewInsets.bottom;
+        print("键盘的高度 keyboderFlexHeight $keyboderFlexHeight");
+        if (MediaQuery.of(context).viewInsets.bottom == 0) {
+          //关闭键盘 启动logo动画反向执行 0.0 -1.0
+          // logo 布局区域显示出来
+          setState(() {
+            _showInputBg = false;
+          });
+        } else {
+          //显示键盘 启动logo动画正向执行 1.0-0.0
+          // logo布局区域缩放隐藏
+          setState(() {
+            _showInputBg = true;
+          });
+        }
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-
       ///填充布局
       body: Stack(
         children: [
           //第一部分 第一层 渐变背景
           buildBackground(),
           //第二部分 第二层 气泡
-          buildBubble(context),
+          BubbleWidget(),
           //第三部分 高斯模糊
           buildBlureWidget(),
           //第四部分 顶部的文字
           buildTopText(),
-          //第五部分 输入框与按钮
+          //第五部分 logo 的Hero动画
+          buildHeroLogo(context),
+          //第六部分 输入框与按钮
           FadeTransition(
             opacity: _fadeAnimationController,
             child: buildColumn(context),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Positioned buildHeroLogo(BuildContext context) {
+    return Positioned(
+      top: 120,
+      left: 45,
+      child: Stack(
+        children: [
+          Hero(
+            tag: "loginTag",
+            child: Material(
+              color: Colors.transparent,
+              child: ClipOval(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Image.asset(
+                    "assets/images/2.0x/app_icon.png",
+                    fit: BoxFit.fill,
+                    width: 44,
+                    height: 44,
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -166,27 +168,6 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
           fontWeight: FontWeight.w900,
         ),
       ),
-    );
-  }
-
-  //第二部分 第二层 气泡
-  Widget buildBubble(BuildContext context) {
-    //使用Stream流实现局部更新
-    return StreamBuilder<double>(
-      stream: _streamController.stream,
-      builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
-        //自定义画板
-        return CustomPaint(
-          //自定义画布
-          painter: CustomMyPainter(
-            list: _list,
-            random: _random,
-          ),
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-          ),
-        );
-      },
     );
   }
 
@@ -229,161 +210,178 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
       ),
     );
   }
+
+  TextEditingController _userNameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  FocusNode _userNameFocusNode = new FocusNode();
+  FocusNode _passwordFocusNode = new FocusNode();
+
   //第五部分 输入框与按钮
   Widget buildColumn(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(44),
-      child: Column(
-        //子Widget 底部对齐
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          TextFieldWidget(
-            hintText: '邮箱',
-            obscureText: false,
-            prefixIconData: Icons.mail_outline,
-            onChanged: (value) {},
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              TextFieldWidget(
-                hintText: '密码',
-                obscureText: true,
-                prefixIconData: Icons.lock_outline,
-                suffixIconData: Icons.visibility,
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Text(
-                '忘记密码?',
-                style: TextStyle(
-                  color: Theme.of(context).accentColor,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          ButtonWidget(
-            buttonLabel: '登录',
-            onTap: () {},
-            hasBorder: false,
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          ButtonWidget(
-            buttonLabel: '跳过',
-            onTap: () {},
-            hasBorder: true,
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        hidenKeyBoard();
+      },
+      child: Container(
+        color:
+            _showInputBg ? Colors.white.withOpacity(0.9) : Colors.transparent,
+        padding: EdgeInsets.all(44),
+        child: buildInputColumn(context),
       ),
     );
   }
-}
 
-class CustomMyPainter extends CustomPainter {
-  //创建画笔
-  Paint _paint = Paint();
-
-  //保存气泡的集合
-  List<BobbleBean> list;
-
-  //随机数变量
-  Random random;
-
-  CustomMyPainter({this.list, this.random});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    //每次绘制都重新计算位置
-    list.forEach((element) {
-      //计算偏移
-      var velocity = calculateXY(element.speed, element.theta);
-      //新的坐标 微偏移
-      var dx = element.postion.dx + velocity.dx;
-      var dy = element.postion.dy + velocity.dy;
-      //x轴边界计算
-      if (element.postion.dx < 0 || element.postion.dx > size.width) {
-        dx = random.nextDouble() * size.width;
-      }
-      //y轴边界计算
-      if (element.postion.dy < 0 || element.postion.dy > size.height) {
-        dy = random.nextDouble() * size.height;
-      }
-      //新的位置
-      element.postion = Offset(dx, dy);
-
-      print("dx $dx dy $dy  ${element.postion}");
-    });
-
-    //循环绘制所有的气泡
-    list.forEach((element) {
-      //画笔颜色
-      _paint.color = element.color;
-      //绘制圆
-      canvas.drawCircle(element.postion, element.radius, _paint);
-    });
+  Column buildInputColumn(BuildContext context) {
+    return Column(
+      //子Widget 底部对齐
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        TextFieldWidget(
+          hintText: '邮箱',
+          focusNode: _userNameFocusNode,
+          controller: _userNameController,
+          obscureText: false,
+          prefixIconData: Icons.mail_outline,
+          submit: (String value) {
+            checkUserName(value);
+            //焦点切换
+            _userNameFocusNode.unfocus();
+            FocusScope.of(context).requestFocus(_passwordFocusNode);
+          },
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            TextFieldWidget(
+              hintText: '密码',
+              controller: _passwordController,
+              focusNode: _passwordFocusNode,
+              obscureText: true,
+              prefixIconData: Icons.lock_outline,
+              suffixIconData: Icons.visibility,
+              submit: (String value) {
+                checkPassword(value);
+                submitLoginFunction();
+              },
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              '忘记密码?',
+              style: TextStyle(
+                color: Theme.of(context).accentColor,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 20.0,
+        ),
+        ButtonWidget(
+          buttonLabel: '登录',
+          onTap: () {
+            submitLoginFunction();
+          },
+          hasBorder: false,
+        ),
+      ],
+    );
   }
 
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+  void submitLoginFunction() async {
+    //隐藏
+    hidenKeyBoard();
+
+    String userName = _userNameController.text.trim();
+    String password = _passwordController.text.trim();
+
+    checkUserName(userName);
+    checkPassword(password);
+
+    Map<String, String> map = new Map();
+    map["mobile"] = userName;
+    map["password"] = password;
+    ResponseInfo responseInfo = await DioUtils.instance.postRequest(
+      url: HttpHelper.UWER_LOGIN_URL,
+      formDataMap: map,
+    );
+    if (responseInfo.success) {
+      UserBean userBean = UserBean.fromJson(responseInfo.data);
+      UserHelper.getInstance.userBean = userBean;
+      Navigator.of(context).pop(userBean);
+    } else {
+      ToastUtils.showToast(responseInfo.message);
+    }
   }
-}
 
-///气泡属性配置
-class BobbleBean {
-  //位置
-  Offset postion;
+  void checkPassword(String value) {
+    if (value.trim().length == 0) {
+      ToastUtils.showToast("请输入密码");
+      return;
+    }
+  }
 
-  //颜色
-  Color color;
+  void checkUserName(String value) {
+    if (value.trim().length == 0) {
+      ToastUtils.showToast("请输入用户账号");
+      return;
+    }
+  }
 
-  //运动的速度
-  double speed;
-
-  //角度
-  double theta;
-
-  //半径
-  double radius;
+  void hidenKeyBoard() {
+    //隐藏键盘
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
+    _passwordFocusNode.unfocus();
+    _userNameFocusNode.unfocus();
+  }
 }
 
 ///自定义文本输入框
 class TextFieldWidget extends StatelessWidget {
   //占位提示文本
   final String hintText;
+
   //输入框前置图标
   final IconData prefixIconData;
+
   //输入框后置图标
   final IconData suffixIconData;
+
   //是否隐藏文本
   final bool obscureText;
+
   //输入实时回调
   final Function onChanged;
+
+  final TextEditingController controller;
+  final FocusNode focusNode;
+  final Function(String value) submit;
 
   TextFieldWidget({
     Key key,
     this.hintText,
+    this.submit,
+    this.focusNode,
     this.prefixIconData,
     this.suffixIconData,
     this.obscureText,
     this.onChanged,
+    this.controller,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     //构建输入框
     return TextField(
+      focusNode: focusNode,
+      controller: controller,
       //实时输入回调
       onChanged: onChanged,
+      onSubmitted: submit,
       //是否隐藏文本
       obscureText: obscureText,
       //隐藏文本小圆点的颜色
@@ -438,8 +436,10 @@ class TextFieldWidget extends StatelessWidget {
 class ButtonWidget extends StatelessWidget {
   //按钮上的文字
   final String buttonLabel;
+
   //是否填充背景
   final bool hasBorder;
+
   //点击事件回调
   final GestureTapCallback onTap;
 

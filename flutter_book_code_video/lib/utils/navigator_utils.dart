@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/utils/route/circle/circle_path.dart';
+
 ///lib/utils/navigator_utils.dart
 ///路由工具类
 class NavigatorUtils {
@@ -40,7 +41,7 @@ class NavigatorUtils {
   ///[paramtes]向目标页面传的参数
   ///[callback]目标页面关闭时的回调函数
   static pushPage(BuildContext context, Widget page,
-      {String routeName, paramtes, Function callback}) {
+      {String routeName, paramtes, Function callback,bool isReplace = false,}) {
     PageRoute pageRoute;
     //是导入io包
     if (Platform.isIOS) {
@@ -60,6 +61,15 @@ class NavigatorUtils {
         settings: RouteSettings(name: routeName, arguments: paramtes),
       );
     }
+    if(isReplace){
+      Navigator.of(context).pushReplacement(pageRoute).then((value) {
+        //目标页面关闭时回调函数与回传参数
+        if (callback != null) {
+          callback(value);
+        }
+      });
+      return;
+    }
     //压栈
     Navigator.of(context).push(pageRoute).then((value) {
       //目标页面关闭时回调函数与回传参数
@@ -76,47 +86,27 @@ class NavigatorUtils {
   static void openPageByFade(BuildContext context, Widget page,
       {bool isReplace = false,
       bool opaque = true,
+      int mills = 800,
+      int endMills = 400,
+      bool isBuilder = false,
       Function(dynamic value) dismissCallBack}) {
     //创建自定义路由 PageRouteBuilder
-    PageRouteBuilder pageRouteBuilder = new PageRouteBuilder(
-        //值为false时以透明背景方式打开
-        opaque: opaque,
-        pageBuilder: (BuildContext context, Animation<double> animation,
-            Animation<double> secondaryAnimation) {
-          //目标页面
-          return page;
-        },
-        //动画时间
-        transitionDuration: Duration(milliseconds: 800),
-        //过渡动画
-        transitionsBuilder: (
-          BuildContext context,
-          Animation<double> animation,
-          Animation<double> secondaryAnimation,
-          Widget child,
-        ) {
-          //渐变过渡动画
-          return FadeTransition(
-            // 透明度从 0.0-1.0
-            opacity: Tween(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                parent: animation,
-                //动画曲线规则，这里使用的是先快后慢
-                curve: Curves.fastOutSlowIn,
-              ),
-            ),
-            child: child,
-          );
-        });
+    PageRouteBuilder pageRouteBuilder =
+        buildRoute1(mills, endMills, page, opaque);
+    if (isBuilder) {
+      pageRouteBuilder = buildRoute2(mills, endMills, page, opaque);
+    }
     //是否替换当前显示的Page
     if (isReplace) {
       Navigator.of(context).pushReplacement(pageRouteBuilder);
     } else {
-      Navigator.of(context).push(pageRouteBuilder).then((value) {
-        if (dismissCallBack != null) {
-          dismissCallBack(value);
-        }
-      });
+      Navigator.of(context).push(pageRouteBuilder).then(
+        (value) {
+          if (dismissCallBack != null) {
+            dismissCallBack(value);
+          }
+        },
+      );
     }
   }
 
@@ -215,5 +205,67 @@ class NavigatorUtils {
         }
       });
     }
+  }
+
+  static PageRouteBuilder buildRoute1(
+      int mills, int endMills, Widget page, bool opaque) {
+    return new PageRouteBuilder(
+      //值为false时以透明背景方式打开
+      opaque: opaque,
+      pageBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation) {
+        //目标页面
+        return page;
+      },
+      //动画时间
+      transitionDuration: Duration(milliseconds: mills),
+      reverseTransitionDuration: Duration(milliseconds: endMills),
+      //过渡动画
+      transitionsBuilder: (
+        BuildContext context,
+        Animation<double> animation,
+        Animation<double> secondaryAnimation,
+        Widget child,
+      ) {
+        //渐变过渡动画
+        return FadeTransition(
+          // 透明度从 0.0-1.0
+          opacity: Tween(begin: 0.0, end: 1.0).animate(
+            CurvedAnimation(
+              parent: animation,
+              //动画曲线规则，这里使用的是先快后慢
+              curve: Curves.fastOutSlowIn,
+            ),
+          ),
+          child: child,
+        );
+      },
+    );
+  }
+
+  static PageRouteBuilder buildRoute2(
+      int mills, int endMills, Widget page, bool opaque) {
+    return PageRouteBuilder<void>(
+      //背景透明方式打开
+      opaque: false,
+      //打开页面的过渡时间
+      transitionDuration: Duration(milliseconds: mills),
+      //退出页面的过渡时间
+      reverseTransitionDuration: Duration(milliseconds: endMills),
+      //页面构建
+      pageBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation) {
+        return AnimatedBuilder(
+          animation: animation,
+          builder: (BuildContext context, Widget child) {
+            return Opacity(
+              opacity: Interval(0.0, 0.75, curve: Curves.fastOutSlowIn)
+                  .transform(animation.value),
+              child: page,
+            );
+          },
+        );
+      },
+    );
   }
 }

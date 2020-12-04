@@ -16,6 +16,7 @@ import 'package:flutterbookcode/utils/sp_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'bean/bean_app_setting.dart';
+import 'bean/bean_global.dart';
 import 'common/sp_key.dart';
 
 /// 创建人： Created by zhaolong
@@ -40,10 +41,9 @@ class _IndexPageState extends PopBaseState<IndexPage> {
   @override
   void initState() {
     super.initState();
-
-    ///Widget渲染完成的回调
+    //Widget渲染完成的回调
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ///检查权限
+      //检查权限
       checkPermissonFunction();
     });
   }
@@ -52,35 +52,33 @@ class _IndexPageState extends PopBaseState<IndexPage> {
   ///常用的第三方的初始功能 如友盟统计
   ///获取保存的用户偏好设置
   void initData() async {
-    ///获取当前的运行环境
-    ///当App运行在Release环境时，inProduction为true；
-    ///当App运行在Debug和Profile环境时，inProduction为false。
+    //获取当前的运行环境
+    //当App运行在Release环境时，inProduction为true；
+    //当App运行在Debug和Profile环境时，inProduction为false。
     const bool inProduction = const bool.fromEnvironment("dart.vm.product");
 
-    ///为ture时输出日志
+    //为ture时输出日志
     const bool isLog = !inProduction;
 
-    ///初始化友盟统计
+    //初始化友盟统计
     // await initUmeng(isLog: isLog);
-    ///初始化本地存储工具
+    //初始化本地存储工具
     await SPUtil.init();
 
-    ///初始化日志工具
+    //初始化日志工具
     LogUtil.init(tag: "flutter_log", isDebug: isLog);
 
-    ///获取用户是否第一次登录
+    //获取用户是否第一次登录
     _userFirst = await SPUtil.getBool(spUserIsFirstKey);
 
-    ///获取用户隐私协议的状态
+    //获取用户隐私协议的状态
     bool _userProtocol = await SPUtil.getBool(spUserProtocolKey);
 
-    ///记录
+    //记录
     UserHelper.getInstance.userProtocol = _userProtocol;
-
-    ///初始化用户的登录信息
+    //初始化用户的登录信息
     UserHelper.getInstance.init();
-
-    ///下一步
+    //下一步
     openUserProtocol();
   }
 
@@ -141,15 +139,13 @@ class _IndexPageState extends PopBaseState<IndexPage> {
       "暂时无法打开设置中心，请您打开手机设置->应用管理-同意权限",
     ];
 
-    ///权限请求封装功能
-    ///如果当前配制的权限通过就直接回调dismissCallback方法
+    //权限请求封装功能
+    //如果当前配制的权限通过就直接回调dismissCallback方法
     showPermissionRequestPage(
         context: context,
-
-        ///在这里请求的是文件读写权限
+        //在这里请求的是文件读写权限
         permission: Permission.storage,
-
-        ///对应的弹框提示语
+        //对应的弹框提示语
         permissionMessageList: messageList,
 
         ///权限请求完成后的回调
@@ -163,11 +159,11 @@ class _IndexPageState extends PopBaseState<IndexPage> {
   ///lib/app/index.dart
   ///判断用户隐私协议
   void openUserProtocol() {
-    ///已同意用户隐私协议 下一步
+    //已同意用户隐私协议 下一步
     if (UserHelper.getInstance.isUserProtocol) {
       openNext();
     } else {
-      ///未同意用户协议 弹框显示
+      //未同意用户协议 弹框显示
       showUserProtocolPage(
         context: context,
         dismissCallback: (value) {

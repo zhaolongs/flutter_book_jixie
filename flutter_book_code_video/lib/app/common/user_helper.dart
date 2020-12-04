@@ -57,4 +57,10 @@ class  UserHelper{
    }
    return Future.value(true);
   }
+
+  //退出登录 清除数据
+  void exitLogin() {
+    _userBean = null;
+    SPUtil.remove(spUserBeanKey);
+  }
 }

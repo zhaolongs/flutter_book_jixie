@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/app/page/bubble_login_page.dart';
+import 'package:flutterbookcode/app/page/login/bubble_login_page.dart';
 import 'package:flutterbookcode/app/page/mine/settings_page.dart';
 import 'package:flutterbookcode/utils/navigator_utils.dart';
+
+import 'oval_transit_rect_widget.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/12/4.
@@ -28,6 +30,19 @@ class _NoLoginPersonState extends State<MineNoLoginPersonPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
+        decoration: BoxDecoration(
+          //线性渐变
+          gradient: LinearGradient(
+            //渐变角度
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            //渐变颜色组
+            colors: [
+              Colors.lightBlue.withOpacity(0.3),
+              Colors.lightBlueAccent.withOpacity(0.3),
+              Colors.blue.withOpacity(0.3),
+            ],
+          ), ),
         child: Stack(
           children: [
             buildSettings(context),
@@ -61,49 +76,61 @@ class _NoLoginPersonState extends State<MineNoLoginPersonPage> {
               _down = false;
             },
           );
-          NavigatorUtils.openPageByFade(context, BobbleLoginPage());
+          NavigatorUtils.openPageByFade(
+            context,
+            BobbleLoginPage(),
+            mills: 1800,
+            endMills: 1800,
+            isBuilder: true,
+          );
         },
         child: buildAnimatedContainer(),
       ),
     );
   }
 
-  AnimatedContainer buildAnimatedContainer() {
-    return AnimatedContainer(
-      alignment: Alignment.center,
-      width: 88,
-      height: 88,
-      duration: Duration(milliseconds: 100),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(
-          50,
-        )),
-        gradient: LinearGradient(
-          colors: [
-            Colors.deepOrange[400],
-            Colors.redAccent,
-            Colors.deepOrange[400],
-          ],
+  Widget buildAnimatedContainer() {
+    return Hero(
+      tag: "loginTag",
+      child: Material(
+        color: Colors.transparent,
+        child: AnimatedContainer(
+          alignment: Alignment.center,
+          width: 88,
+          height: 88,
+          duration: Duration(milliseconds: 100),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(
+              50,
+            )),
+            gradient: LinearGradient(
+              colors: [
+                Colors.deepOrange[400],
+                Colors.redAccent,
+                Colors.deepOrange[400],
+              ],
+            ),
+            boxShadow: _down
+                ? [
+                    BoxShadow(
+                        color: Colors.black54,
+                        offset: Offset(2, 2),
+                        blurRadius: 2,
+                        spreadRadius: 1),
+                    BoxShadow(
+                        color: Colors.black54,
+                        offset: Offset(-2, 2),
+                        blurRadius: 2),
+                  ]
+                : null,
+          ),
+          child: Text(
+            "登录",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+          ),
         ),
-        boxShadow: _down
-            ? [
-                BoxShadow(
-                    color: Colors.black54,
-                    offset: Offset(2, 2),
-                    blurRadius: 2,
-                    spreadRadius: 1),
-                BoxShadow(
-                    color: Colors.black54,
-                    offset: Offset(-2, 2),
-                    blurRadius: 2),
-              ]
-            : null,
-      ),
-      child: Text(
-        "登录",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
       ),
     );
   }

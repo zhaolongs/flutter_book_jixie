@@ -23,4 +23,8 @@ class UserBean{
    this.userFlag = map["userFlag"];
   }
 
+  @override
+  String toString() {
+    return 'UserBean{userName: $userName, userFlag: $userFlag}';
+  }
 }

@@ -145,7 +145,7 @@ class DioUtils {
           return ResponseInfo(data: data);
         } else {
           //业务代码异常
-          return ResponseInfo.error(code: responseMap["code"]);
+          return ResponseInfo.error(code: responseMap["code"],message:responseMap["message"]);
         }
       }
     } catch (e, s) {
@@ -200,5 +200,5 @@ class ResponseInfo {
   ResponseInfo(
       {this.success = true, this.code = 200, this.data, this.message = "请求成功"});
 
-  ResponseInfo.error({this.success = false, this.code = 201});
+  ResponseInfo.error({this.success = false, this.code = 201,this.message="请求异常"});
 }

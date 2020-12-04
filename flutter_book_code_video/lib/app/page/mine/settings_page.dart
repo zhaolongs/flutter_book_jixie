@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbookcode/app/common/user_helper.dart';
+import 'package:flutterbookcode/app/page/login/bubble_login_page.dart';
+import 'package:flutterbookcode/utils/navigator_utils.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/12/3.
@@ -30,12 +33,33 @@ class _SettingsPageState extends State<SettingsPage> {
           ListTile(
             leading: Icon(Icons.person),
             title: Text("用户协议"),
-            trailing:Icon(Icons.arrow_forward_ios) ,
+            trailing: Icon(Icons.arrow_forward_ios),
           ),
           ListTile(
             leading: Icon(Icons.web_sharp),
             title: Text("检查更新"),
-            trailing:Icon(Icons.arrow_forward_ios) ,
+            trailing: Icon(Icons.arrow_forward_ios),
+          ),
+          ListTile(
+            leading: Hero(
+              tag: "loginTag",
+              child: Material(
+                child: Icon(Icons.exit_to_app),
+                color: Colors.transparent,
+              ),
+            ),
+            title: Text("退出登录"),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              UserHelper.getInstance.exitLogin();
+              NavigatorUtils.openPageByFade(
+                context,
+                BobbleLoginPage(),
+                mills: 1000,
+                endMills: 800,
+                isReplace: true,
+              );
+            },
           ),
         ],
       ),

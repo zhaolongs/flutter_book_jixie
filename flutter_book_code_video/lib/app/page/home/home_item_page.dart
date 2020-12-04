@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_echart/flutter_echart.dart';
 
 ///lib/app/page/home/home_item_page.dart
@@ -21,9 +22,21 @@ class MainFindPage3State extends State
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      child: buildScafflod(),
+      value: SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          //有Appbar时，会被覆盖
+          statusBarIconBrightness: Brightness.dark,
+          //底部navigationBar背景颜色
+          systemNavigationBarColor: Colors.white),
+    );
+  }
+
+  Widget buildScafflod(){
     return Scaffold(
       backgroundColor: Colors.white,
-//页面的主内容 先来个居中
+      //页面的主内容 先来个居中
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,

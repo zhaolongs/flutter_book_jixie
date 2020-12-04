@@ -25,15 +25,15 @@ void main() {
       //不显示debug标签
       debugShowCheckedModeBanner: false,
       //默认显示的首页面
-      home: TestPage(),
+      home: SnowWidget(),
     ),
   );
 }
 
 /// 雪花背景
-class TestPage extends StatefulWidget {
+class SnowWidget extends StatefulWidget {
   @override
-  _TestPageState createState() => _TestPageState();
+  _SnowWidgetState createState() => _SnowWidgetState();
 }
 
 //全局定义获取颜色的方法
@@ -43,7 +43,7 @@ Color getRandomWhiteColor(Random random) {
   return Color.fromARGB(a, 255, 255, 255);
 }
 
-class _TestPageState extends State<TestPage> with TickerProviderStateMixin {
+class _SnowWidgetState extends State<SnowWidget> with TickerProviderStateMixin {
   //创建一个集合用来保存气泡
   List<BobbleBean> _list = [];
 

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_life_state/flutter_life_state.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'bean/bean_global.dart';
 import 'config/cupertino_delegate.dart';
 import 'config/observer_route.dart';
 import 'index.dart';
@@ -26,17 +27,13 @@ class AppRootPage extends StatefulWidget {
 }
 
 //全局数据更新流控制器
+//多订阅流
 StreamController<GlobalBean> rootStreamController =  StreamController.broadcast();
 
-class GlobalBean {
-  int code;
-  dynamic data;
-  GlobalBean(this.code, this.data);
-}
 
 class _AppRootPageState extends State<AppRootPage> {
-  //过滤的颜色
-  Color _filterColor = Colors.transparent;
+  //默认过滤的颜色
+  Color _defaultFilterColor = Colors.transparent;
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +43,12 @@ class _AppRootPageState extends State<AppRootPage> {
       builder: (BuildContext context, AsyncSnapshot<GlobalBean> snapshot) {
         //获取数据
         if(snapshot.data.code==100){
-          _filterColor = snapshot.data.data;
+          _defaultFilterColor = snapshot.data.data;
         }
         return ColorFiltered(
           colorFilter: ColorFilter.mode(
               //动态生成过滤颜色
-              _filterColor,
+              _defaultFilterColor,
               //过滤模式
               BlendMode.color),
           //构建MaterialApp根组件
@@ -67,7 +64,7 @@ class _AppRootPageState extends State<AppRootPage> {
     return MaterialApp(
       //应用的主题
       theme: ThemeData(
-        brightness: Brightness.light,
+        // brightness: Brightness.light,
         //主背景色
         primaryColor: Colors.blue,
         //Scaffold脚手架的背景色
@@ -75,6 +72,7 @@ class _AppRootPageState extends State<AppRootPage> {
       ),
       //应用程序默认显示的页面
       home: IndexPage(),
+      //dubug模式下不显示debug标签
       debugShowCheckedModeBanner: false,
       //国际化语言环境
       localizationsDelegates: [
@@ -94,6 +92,7 @@ class _AppRootPageState extends State<AppRootPage> {
 
   @override
   void dispose() {
+    //注销全局流订阅
     rootStreamController.close();
     super.dispose();
   }
