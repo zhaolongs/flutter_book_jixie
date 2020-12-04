@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 
 import 'log_interceptor.dart';
 
+export 'http_helper.dart';
+export 'loading_statues.dart';
+
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/11/10.
 ///
@@ -36,7 +39,7 @@ class DioUtils {
 
   DioUtils._internal() {
     BaseOptions options = new BaseOptions();
-    options.connectTimeout = 2000;
+    options.connectTimeout = 20000;
     options.receiveTimeout = 2 * 60 * 1000;
     options.sendTimeout = 2 * 60 * 1000;
     // 初始化

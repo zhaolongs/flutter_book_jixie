@@ -51,7 +51,7 @@ class MainFindPage3State extends State
     );
   }
 
-  bool isShow=false;
+  bool isShow=true;
 
   List<EChartPieBean> _dataList = [
     EChartPieBean(title: "生活费", number: 200, color: Colors.lightBlueAccent),

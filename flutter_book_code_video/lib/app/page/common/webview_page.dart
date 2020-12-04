@@ -22,7 +22,8 @@ showWebViewPage(
     //加载H5对应的链接
     @required String pageUrl,
     //标题
-    String pageTitle,
+    String pageTitle = "详情",
+    bool showController = false,
     //页面关闭回调
     Function(dynamic value) dismissCallback}) {
   //打开用WebView页面
@@ -31,6 +32,7 @@ showWebViewPage(
     WebViewPage(
       pageTitle: pageTitle,
       pageUrl: pageUrl,
+      showController: showController,
     ),
     dismissCallBack: dismissCallback,
   );
@@ -44,8 +46,9 @@ class WebViewPage extends StatefulWidget {
 
   //页面URL
   final String pageUrl;
+  final bool showController;
 
-  WebViewPage({this.pageTitle, this.pageUrl});
+  WebViewPage({this.pageTitle, this.pageUrl, this.showController = true});
 
   @override
   _WebViewPageState createState() => _WebViewPageState();
@@ -92,22 +95,28 @@ class _WebViewPageState extends State<WebViewPage> {
   }
 
   //第一层加载Html页面
-  FaiWebViewWidget buildWebViewWidget() {
-    return FaiWebViewWidget(
-      //webview控制器
-      controller: _faiWebViewController,
-      //webview 加载网页链接
-      url: widget.pageUrl,
-      //webview 加载信息回调
-      callback: callBack,
-      //输出日志
-      isLog: true,
+  Widget buildWebViewWidget() {
+    return Positioned.fill(
+      child: FaiWebViewWidget(
+        webViewHeight: MediaQuery.of(context).size.height,
+        //webview控制器
+        controller: _faiWebViewController,
+        //webview 加载网页链接
+        url: widget.pageUrl,
+        //webview 加载信息回调
+        callback: callBack,
+        //输出日志
+        isLog: true,
+      ),
     );
   }
 
   //lib/app/page/common/webview_page.dart
   //第二层操作栏
   buildControllerPositioned(BuildContext context) {
+    if(!widget.showController){
+      return Container();
+    }
     return Positioned(
       bottom: 24,
       //操作栏的透明度动画过渡

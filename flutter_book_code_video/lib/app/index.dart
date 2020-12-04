@@ -169,10 +169,12 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     } else {
       ///未同意用户协议 弹框显示
       showUserProtocolPage(
-          context: context,
-          dismissCallback: (value) {
-            openNext();
-          });
+        context: context,
+        dismissCallback: (value) {
+          UserHelper.getInstance.userProtocol = true;
+          openNext();
+        },
+      );
     }
   }
 
@@ -181,7 +183,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     //网络请求获取APP的配置信息
     ResponseInfo responseInfo =
         await DioUtils.instance.getRequest(url: HttpHelper.SETTING_URL);
-    if(responseInfo.success) {
+    if (responseInfo.success) {
       //解析数据
       AppSettingBean settingBean = AppSettingBean.fromMap(responseInfo.data);
       //配置APP主题

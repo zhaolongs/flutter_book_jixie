@@ -10,9 +10,11 @@ import 'package:flutter/material.dart';
 ///
 /// 代码清单
 ///代码清单
-class HttpHelper {
-  static const String BASE_HOST = "http://192.168.40.167:8080/";
 
-  static const String SETTING_URL = BASE_HOST+"setting";
-  static const String ARTICLE_LIST_URL = BASE_HOST+"article/list";
+enum LoadingStatues {
+  success,
+  noData,
+  faile,
+  none,
+  loading,
 }
