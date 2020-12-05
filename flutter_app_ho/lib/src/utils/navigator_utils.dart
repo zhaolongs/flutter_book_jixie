@@ -20,12 +20,24 @@ class NavigatorUtils {
     }
   }
 
+  ///静态路由
   ///[context]当前页面的Context
   ///[routeName]目标页面的路由名称
   ///[paramtes]向目标页面传的参数
   ///[callback]目标页面关闭时的回调函数
+  ///[isReplace]是否替换当前页面路由
   static pushName(BuildContext context, String routeName,
-      {paramtes, Function callback}) {
+      {paramtes, bool isReplace = false, Function callback}) {
+    if (isReplace) {
+      Navigator.of(context)
+          .pushReplacementNamed(routeName, arguments: paramtes)
+          .then((value) {
+        if (callback != null) {
+          callback(value);
+        }
+      });
+      return;
+    }
     Navigator.of(context)
         .pushNamed(routeName, arguments: paramtes)
         .then((value) {
@@ -40,8 +52,15 @@ class NavigatorUtils {
   ///[routeName]目标页面的路由名称
   ///[paramtes]向目标页面传的参数
   ///[callback]目标页面关闭时的回调函数
-  static pushPage(BuildContext context, Widget page,
-      {String routeName, paramtes, Function callback,bool isReplace = false,}) {
+  ///[isReplace]是否替换当前的路由
+  static pushPage(
+    BuildContext context,
+    Widget page, {
+    String routeName,
+    paramtes,
+    Function callback,
+    bool isReplace = false,
+  }) {
     PageRoute pageRoute;
     //是导入io包
     if (Platform.isIOS) {
@@ -61,7 +80,7 @@ class NavigatorUtils {
         settings: RouteSettings(name: routeName, arguments: paramtes),
       );
     }
-    if(isReplace){
+    if (isReplace) {
       Navigator.of(context).pushReplacement(pageRoute).then((value) {
         //目标页面关闭时回调函数与回传参数
         if (callback != null) {
@@ -79,10 +98,12 @@ class NavigatorUtils {
     });
   }
 
-  ///lib/utils/navigator_utils.dart
   ///以透明过渡的方式打开新的页面
   ///[opaque] 是否以背景透明的方式打开新的页面
   ///[isReplace] 是否替换当前路由中的页面
+  ///[mills]透明过度页面打开的时间
+  ///[endMills]页面关闭的时间
+  ///[isBuilder]透明过渡动画的构建模式
   static void openPageByFade(BuildContext context, Widget page,
       {bool isReplace = false,
       bool opaque = true,
@@ -93,12 +114,19 @@ class NavigatorUtils {
     //创建自定义路由 PageRouteBuilder
     PageRouteBuilder pageRouteBuilder =
         buildRoute1(mills, endMills, page, opaque);
+    //使用模式二
     if (isBuilder) {
       pageRouteBuilder = buildRoute2(mills, endMills, page, opaque);
     }
     //是否替换当前显示的Page
     if (isReplace) {
-      Navigator.of(context).pushReplacement(pageRouteBuilder);
+      Navigator.of(context).pushReplacement(pageRouteBuilder).then(
+        (value) {
+          if (dismissCallBack != null) {
+            dismissCallBack(value);
+          }
+        },
+      );
     } else {
       Navigator.of(context).push(pageRouteBuilder).then(
         (value) {
@@ -183,7 +211,7 @@ class NavigatorUtils {
           Animation<double> secondaryAnimation,
           Widget child,
         ) {
-          //渐变过渡动画
+          //平移过渡动画
           return SlideTransition(
             // 从位置(-1.0, 0.0) 平移到 (0.0, 0.0)
             position:
@@ -207,6 +235,8 @@ class NavigatorUtils {
     }
   }
 
+  ///自定义路由构建方式一
+ ///透明渐变
   static PageRouteBuilder buildRoute1(
       int mills, int endMills, Widget page, bool opaque) {
     return new PageRouteBuilder(
@@ -243,6 +273,8 @@ class NavigatorUtils {
     );
   }
 
+  //自定义路由构建方式二
+  //透明渐变
   static PageRouteBuilder buildRoute2(
       int mills, int endMills, Widget page, bool opaque) {
     return PageRouteBuilder<void>(
