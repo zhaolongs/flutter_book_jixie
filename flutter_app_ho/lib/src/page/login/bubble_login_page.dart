@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_ho/src/bean/bean_user.dart';
 import 'package:flutter_app_ho/src/common/user_helper.dart';
-import 'package:flutter_app_ho/src/net/DioUtils.dart';
+import 'package:flutter_app_ho/src/net/dio_utils.dart';
 import 'package:flutter_app_ho/src/utils/toast_utils.dart';
 
 import '../mine/oval_transit_rect_widget.dart';

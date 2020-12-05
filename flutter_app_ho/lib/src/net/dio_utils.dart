@@ -21,24 +21,21 @@ export 'loading_statues.dart';
 ///代码清单
 class DioUtils {
   Dio _dio;
-
   // 工厂模式
   factory DioUtils() => _getInstance();
-
   static DioUtils get instance => _getInstance();
   static DioUtils _instance;
 
   //配置代理标识 false 不配置
   bool isProxy = false;
-
   //网络代理地址
   String proxyIp = "";
-
   //网络代理端口
   String proxyPort = "";
 
   DioUtils._internal() {
     BaseOptions options = new BaseOptions();
+    //请求时间
     options.connectTimeout = 20000;
     options.receiveTimeout = 2 * 60 * 1000;
     options.sendTimeout = 2 * 60 * 1000;
@@ -50,6 +47,13 @@ class DioUtils {
     if (!inProduction) {
       debugFunction();
     }
+  }
+
+  static DioUtils _getInstance() {
+    if (_instance == null) {
+      _instance = new DioUtils._internal();
+    }
+    return _instance;
   }
 
   void debugFunction() {
@@ -66,6 +70,7 @@ class DioUtils {
     (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
         (HttpClient client) {
       client.findProxy = (uri) {
+        //proxyIp 地址  proxyPort 端口
         return 'PROXY $proxyIp : $proxyPort';
       };
       client.badCertificateCallback =
@@ -76,12 +81,6 @@ class DioUtils {
     };
   }
 
-  static DioUtils _getInstance() {
-    if (_instance == null) {
-      _instance = new DioUtils._internal();
-    }
-    return _instance;
-  }
 
   /// get 请求
   ///[url]请求链接
@@ -97,8 +96,11 @@ class DioUtils {
           queryParameters: queryParameters, cancelToken: cancelTag);
       //响应数据
       dynamic responseData = response.data;
+      //数据解析
       if (responseData is Map<String, dynamic>) {
+        //转换
         Map<String, dynamic> responseMap = responseData;
+        //
         int code = responseMap["code"];
         if (code == 200) {
           //业务代码处理正常
@@ -111,6 +113,7 @@ class DioUtils {
         }
       }
     } catch (e, s) {
+      //异常
       return errorController(e, s);
     }
   }
@@ -132,7 +135,8 @@ class DioUtils {
     //发起post请求
     try {
       Response response = await _dio.post(url,
-          data: form == null ? jsonMap : form, cancelToken: cancelTag);
+          data: form == null ? jsonMap : form,
+          cancelToken: cancelTag);
       //响应数据
       dynamic responseData = response.data;
       if (responseData is Map<String, dynamic>) {
@@ -145,7 +149,9 @@ class DioUtils {
           return ResponseInfo(data: data);
         } else {
           //业务代码异常
-          return ResponseInfo.error(code: responseMap["code"],message:responseMap["message"]);
+          return ResponseInfo.error(
+              code: responseMap["code"],
+              message:responseMap["message"]);
         }
       }
     } catch (e, s) {
@@ -198,7 +204,13 @@ class ResponseInfo {
   dynamic data;
 
   ResponseInfo(
-      {this.success = true, this.code = 200, this.data, this.message = "请求成功"});
+      {this.success = true,
+        this.code = 200,
+        this.data,
+        this.message = "请求成功"});
 
-  ResponseInfo.error({this.success = false, this.code = 201,this.message="请求异常"});
+  ResponseInfo.error(
+      {this.success = false,
+        this.code = 201,
+        this.message = "请求异常"});
 }

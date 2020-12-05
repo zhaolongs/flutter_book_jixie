@@ -12,9 +12,9 @@ import 'package:flutter/material.dart';
 ///代码清单
 
 enum LoadingStatues {
-  success,
-  noData,
-  faile,
-  none,
-  loading,
+  success,//加载成功有数据
+  noData,//加载成功无数据
+  faile,//加载失败
+  none,//默认无状态
+  loading,//加载中
 }

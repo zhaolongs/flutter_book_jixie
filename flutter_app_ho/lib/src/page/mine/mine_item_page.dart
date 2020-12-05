@@ -5,7 +5,7 @@ import 'package:flutter_app_ho/src/page/common/common_err_loading_widget.dart';
 import 'package:flutter_app_ho/src/page/common/common_loading_dialog.dart';
 import 'package:flutter_app_ho/src/page/common/common_nodata_widget.dart';
 import 'package:flutter_app_ho/src/page/common/webview_page.dart';
-import 'package:flutter_app_ho/src/net/DioUtils.dart';
+import 'package:flutter_app_ho/src/net/dio_utils.dart';
 import 'package:flutter_app_ho/src/net/loading_statues.dart';
 
 

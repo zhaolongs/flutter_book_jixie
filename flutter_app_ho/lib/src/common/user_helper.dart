@@ -13,7 +13,7 @@ import 'package:flutter_app_ho/src/utils/sp_utils.dart';
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 
-///lib/app/common/user_helper.dart
+///lib/src/common/user_helper.dart
 ///用户信息辅助操作类
 class  UserHelper{
   // 私有构造函数

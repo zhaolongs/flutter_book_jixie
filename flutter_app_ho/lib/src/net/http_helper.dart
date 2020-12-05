@@ -13,7 +13,10 @@ import 'package:flutter/material.dart';
 class HttpHelper {
   static const String BASE_HOST = "http://192.168.40.167:8080/";
 
+  //获取应用的基本配制信息
   static const String SETTING_URL = BASE_HOST+"setting";
+  //获取文章列表
   static const String ARTICLE_LIST_URL = BASE_HOST+"article/list";
+  //用户登录
   static const String UWER_LOGIN_URL = BASE_HOST+"user/login";
 }

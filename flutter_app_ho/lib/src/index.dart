@@ -13,9 +13,10 @@ import 'app_root.dart';
 import 'base/pop_base_state.dart';
 import 'bean/bean_app_setting.dart';
 import 'bean/bean_global.dart';
+import 'common/global.dart';
 import 'common/sp_key.dart';
 import 'common/user_helper.dart';
-import 'net/DioUtils.dart';
+import 'net/dio_utils.dart';
 import 'utils/log_util.dart';
 
 /// 创建人： Created by zhaolong
@@ -28,6 +29,9 @@ import 'utils/log_util.dart';
 /// https://study.163.com/instructor/1021406098.htm
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
+
+///lib/src/index.dart
+///启动页面
 class IndexPage extends StatefulWidget {
   @override
   _IndexPageState createState() => _IndexPageState();
@@ -41,7 +45,11 @@ class _IndexPageState extends PopBaseState<IndexPage> {
   void initState() {
     super.initState();
     //Widget渲染完成的回调
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   //检查权限
+    //   checkPermissonFunction();
+    // });
+    Future.delayed(Duration.zero, () {
       //检查权限
       checkPermissonFunction();
     });
@@ -146,7 +154,6 @@ class _IndexPageState extends PopBaseState<IndexPage> {
         permission: Permission.storage,
         //对应的弹框提示语
         permissionMessageList: messageList,
-
         ///权限请求完成后的回调
         dismissCallback: (value) {
           ///权限请求结束获取权限后进行初始化操作

@@ -6,8 +6,8 @@ import 'package:flutter_life_state/flutter_life_state.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'bean/bean_global.dart';
+import 'common/global.dart';
 import 'config/cupertino_delegate.dart';
-import 'config/observer_route.dart';
 import 'index.dart';
 
 /// 创建人： Created by zhaolong
@@ -26,15 +26,9 @@ class AppRootPage extends StatefulWidget {
   _AppRootPageState createState() => _AppRootPageState();
 }
 
-//全局数据更新流控制器
-//多订阅流
-StreamController<GlobalBean> rootStreamController =  StreamController.broadcast();
-
-
 class _AppRootPageState extends State<AppRootPage> {
   //默认过滤的颜色
   Color _defaultFilterColor = Colors.transparent;
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -83,6 +77,7 @@ class _AppRootPageState extends State<AppRootPage> {
         //支持使用 CupertinoAlertDialog 的代理
         FallbackCupertinoLocalisationsDelegate.delegate,
       ],
+      navigatorKey: globalNavigatorKey,
       //路由导航观察者配置
       navigatorObservers: [lifeFouteObserver, routeObserver],
       //配置程序语言环境

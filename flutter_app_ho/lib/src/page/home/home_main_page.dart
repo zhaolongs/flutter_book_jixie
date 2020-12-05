@@ -4,8 +4,8 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_ho/src/app_root.dart';
 import 'package:flutter_app_ho/src/bean/bean_global.dart';
+import 'package:flutter_app_ho/src/common/global.dart';
 import 'package:flutter_app_ho/src/page/catalogue/catalogue_main_page.dart';
 import 'package:flutter_app_ho/src/utils/log_util.dart';
 

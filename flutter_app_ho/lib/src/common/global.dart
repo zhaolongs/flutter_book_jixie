@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_ho/src/bean/bean_global.dart';
 
 
 /// 创建人： Created by zhaolong
@@ -12,6 +15,10 @@ import 'package:flutter/material.dart';
 /// 代码清单 
 ///代码清单
 
-
-
+//全局数据更新流控制器
+//多订阅流
+StreamController<GlobalBean> rootStreamController =  StreamController.broadcast();
+//全局路由导航Key
 GlobalKey<NavigatorState> globalNavigatorKey = new GlobalKey();
+// 注册 RouteObserver  作为 navigation observer.
+final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
