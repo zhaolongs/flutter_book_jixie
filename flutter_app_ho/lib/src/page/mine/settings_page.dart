@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_ho/src/common/user_helper.dart';
+import 'package:flutter_app_ho/src/page/common/app_upgrade.dart';
 import 'package:flutter_app_ho/src/page/login/bubble_login_page.dart';
 import 'package:flutter_app_ho/src/utils/navigator_utils.dart';
 
@@ -39,6 +40,12 @@ class _SettingsPageState extends State<SettingsPage> {
             leading: Icon(Icons.web_sharp),
             title: Text("检查更新"),
             trailing: Icon(Icons.arrow_forward_ios),
+            onTap: (){
+              showAppUpgradeDialog(
+                upgradText: "1.优化首页面列表显示功能 \n2.优化用户体验功能",
+                context: context,
+              );
+            },
           ),
           ListTile(
             leading: Hero(

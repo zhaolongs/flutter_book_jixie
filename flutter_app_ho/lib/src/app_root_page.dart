@@ -8,7 +8,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'bean/bean_global.dart';
 import 'common/global.dart';
 import 'config/cupertino_delegate.dart';
-import 'index.dart';
+import 'index_page.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/25.
@@ -20,7 +20,7 @@ import 'index.dart';
 /// https://study.163.com/instructor/1021406098.htm
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
-/// lib/app/app_root.dart
+/// lib/app/app_root_page.dart
 class AppRootPage extends StatefulWidget {
   @override
   _AppRootPageState createState() => _AppRootPageState();

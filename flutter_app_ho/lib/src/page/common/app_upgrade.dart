@@ -161,7 +161,7 @@ class _AppUpgradeState extends State<AppUpgradePage> {
   StreamBuilder<double> buildBottomButton() {
     return StreamBuilder<double>(
       stream: _streamController.stream,
-      initialData: 0.45,
+      initialData: 0.0,
       builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
         return Container(
           child: Stack(

@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_ho/src/page/common/user_protocol_page.dart';
 import 'package:flutter_app_ho/src/page/common/permission_request_page.dart';
-import 'package:flutter_app_ho/src/splash.dart';
+import 'package:flutter_app_ho/src/splash_page.dart';
 import 'package:flutter_app_ho/src/utils/navigator_utils.dart';
 import 'package:flutter_app_ho/src/utils/sp_utils.dart';
 import 'package:flutter_app_ho/src/welcome_page.dart';
 import 'package:flutter_fai_umeng/flutter_fai_umeng.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'app_root.dart';
+import 'app_root_page.dart';
 import 'base/pop_base_state.dart';
 import 'bean/bean_app_setting.dart';
 import 'bean/bean_global.dart';
@@ -30,7 +30,7 @@ import 'utils/log_util.dart';
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 
-///lib/src/index.dart
+///lib/src/index_page.dart
 ///启动页面
 class IndexPage extends StatefulWidget {
   @override
@@ -55,7 +55,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     });
   }
 
-  ///lib/app/index.dart
+  ///lib/app/index_page.dart
   ///常用的第三方的初始功能 如友盟统计
   ///获取保存的用户偏好设置
   void initData() async {
@@ -89,7 +89,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     openUserProtocol();
   }
 
-  ///lib/app/index.dart
+  ///lib/app/index_page.dart
   ///构建[IndexPage]中的友盟统计
   Future<bool> initUmeng({bool isLog = false}) async {
     /// 监听原生消息
@@ -106,7 +106,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     return Future.value(true);
   }
 
-  ///lib/app/index.dart
+  ///lib/app/index_page.dart
   ///构建[IndexPage]中的显示内容
   @override
   Widget build(BuildContext context) {
@@ -130,7 +130,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     );
   }
 
-  ///lib/app/index.dart
+  ///lib/app/index_page.dart
   ///构建[IndexPage]中的异步的
   ///权限请求判断
   void checkPermissonFunction() {
@@ -162,7 +162,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
         });
   }
 
-  ///lib/app/index.dart
+  ///lib/app/index_page.dart
   ///判断用户隐私协议
   void openUserProtocol() {
     //已同意用户隐私协议 下一步

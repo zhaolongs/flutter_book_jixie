@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_ho/src/app_root.dart';
+import 'package:flutter_app_ho/src/app_root_page.dart';
 
 ///lib/main.dart
 ///程序的入口

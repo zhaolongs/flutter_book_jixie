@@ -18,7 +18,7 @@ import 'page/home/home_main_page.dart';
 /// https://study.163.com/instructor/1021406098.htm
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
-/// lib/app/splash.dart
+/// lib/app/splash_page.dart
 /// 第一次 新手引导页面
 class SplashPage extends StatefulWidget {
   @override
@@ -63,7 +63,7 @@ class _IndexPageState extends State<SplashPage> {
     );
   }
 
-  /// lib/app/splash.dart
+  /// lib/app/splash_page.dart
   /// 底部可滑动的图片
   buildPageView() {
     ///PageView用于整屏切换效果
@@ -90,7 +90,7 @@ class _IndexPageState extends State<SplashPage> {
     );
   }
 
-  /// lib/app/splash.dart
+  /// lib/app/splash_page.dart
   ///构建的右上角显示的计数
   buildTopDate() {
     return Positioned(
@@ -203,7 +203,7 @@ class _IndexPageState extends State<SplashPage> {
     }
   }
 
-  /// lib/app/splash.dart
+  /// lib/app/splash_page.dart
   ///构建的右上角显示的计数数据
   String text1 = "1";
   String text2 = "";
