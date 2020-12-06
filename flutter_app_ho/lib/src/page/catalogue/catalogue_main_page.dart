@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 
-///lib/app/page/catalogue/catalogue_main_page.dart
+///lib/page/catalogue/catalogue_main_page.dart
 ///目录主页面
 class CatalogueMainPage extends StatefulWidget {
   @override
@@ -21,16 +21,15 @@ class CatalogueMainPage extends StatefulWidget {
   }
 }
 
-class _CatalogueMainPageState extends State<CatalogueMainPage>  with AutomaticKeepAliveClientMixin{
+class _CatalogueMainPageState extends State<CatalogueMainPage>
+    with AutomaticKeepAliveClientMixin {
   ///页面保持状态
   @override
   bool get wantKeepAlive => true;
 
-
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -38,7 +37,6 @@ class _CatalogueMainPageState extends State<CatalogueMainPage>  with AutomaticKe
     super.build(context);
     return Scaffold(
       backgroundColor: Color(0XffCDDEEC),
-
     );
   }
 }

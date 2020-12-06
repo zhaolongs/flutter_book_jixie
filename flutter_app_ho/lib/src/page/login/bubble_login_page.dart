@@ -38,12 +38,12 @@ class BobbleLoginPage extends StatefulWidget {
 
 class _BobbleLoginPageState extends State<BobbleLoginPage>
     with TickerProviderStateMixin, WidgetsBindingObserver {
+  //渐变动画
   AnimationController _fadeAnimationController;
 
   @override
   void initState() {
     super.initState();
-
     //添加监听
     WidgetsBinding.instance.addObserver(this);
     _fadeAnimationController = new AnimationController(
@@ -58,11 +58,11 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
   void dispose() {
     //解绑
     WidgetsBinding.instance.removeObserver(this);
+    _fadeAnimationController.dispose();
     super.dispose();
   }
 
   bool _showInputBg = false;
-
   //应用尺寸改变时回调
   @override
   void didChangeMetrics() {
@@ -108,14 +108,14 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
           BubbleWidget(),
           //第三部分 高斯模糊
           buildBlureWidget(),
-          //第四部分 顶部的文字logo 的Hero动画
+          //第四部分 顶部的文字 logo 的Hero动画
           buildHeroLogo(context),
-          //第六部分 输入框与按钮
+          //第五部分 输入框与按钮
           FadeTransition(
             opacity: _fadeAnimationController,
             child: buildColumn(context),
           ),
-          //第七部分 左上角的关闭按钮
+          //第六部分 左上角的关闭按钮
           Positioned(
             top: 44,
             left: 10,
@@ -192,18 +192,8 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
     );
   }
 
-  //第一部分 图片背景
-  buildImage() {
-    return Positioned.fill(
-      child: Image.asset(
-        "assets/images/welcome_bg.jpeg",
-        fit: BoxFit.fill,
-      ),
-    );
-  }
-
   //第三部分 高斯模糊
-  buildBlureWidget() {
+  Widget buildBlureWidget() {
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 0.3, sigmaY: 0.3),
       child: Container(
@@ -212,8 +202,11 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
     );
   }
 
+  //文本输入框控制器
   TextEditingController _userNameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+
+  //焦点控制器
   FocusNode _userNameFocusNode = new FocusNode();
   FocusNode _passwordFocusNode = new FocusNode();
 
@@ -282,39 +275,51 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
         SizedBox(
           height: 20.0,
         ),
-        ButtonWidget(
-          buttonLabel: '登录',
-          onTap: () {
-            submitLoginFunction();
-          },
-          hasBorder: false,
+        Container(
+          width: double.infinity,
+          height: 60,
+          child: ElevatedButton(
+            onPressed: () {
+              submitLoginFunction();
+            },
+            child: Text("登录"),
+          ),
         ),
       ],
     );
   }
 
+  ///登录
   void submitLoginFunction() async {
-    //隐藏
+    //隐藏键盘
     hidenKeyBoard();
 
+    //获取用户输入的内容
     String userName = _userNameController.text.trim();
     String password = _passwordController.text.trim();
-
+    //校验
     checkUserName(userName);
     checkPassword(password);
 
+    //参数封装
     Map<String, String> map = new Map();
     map["mobile"] = userName;
     map["password"] = password;
+    //post请求发送
     ResponseInfo responseInfo = await DioUtils.instance.postRequest(
       url: HttpHelper.UWER_LOGIN_URL,
       formDataMap: map,
     );
+    //登录成功
     if (responseInfo.success) {
+      //解析用户数据
       UserBean userBean = UserBean.fromJson(responseInfo.data);
+      //保存本地标识
       UserHelper.getInstance.userBean = userBean;
+      //关闭登录页面
       Navigator.of(context).pop(userBean);
     } else {
+      //登录失败
       ToastUtils.showToast(responseInfo.message);
     }
   }
@@ -345,23 +350,17 @@ class _BobbleLoginPageState extends State<BobbleLoginPage>
 class TextFieldWidget extends StatelessWidget {
   //占位提示文本
   final String hintText;
-
   //输入框前置图标
   final IconData prefixIconData;
-
   //输入框后置图标
   final IconData suffixIconData;
-
   //是否隐藏文本
   final bool obscureText;
-
   //输入实时回调
   final Function onChanged;
-
   final TextEditingController controller;
   final FocusNode focusNode;
   final Function(String value) submit;
-
   TextFieldWidget({
     Key key,
     this.hintText,

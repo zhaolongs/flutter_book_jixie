@@ -12,31 +12,28 @@ import 'package:flutter_app_ho/src/utils/log_util.dart';
 import '../mine/mine_main_page.dart';
 import 'home_item_page.dart';
 
-///lib/app/page/home/home_main_page.dart
-///主页面的根布局
+//lib/src/page/home/home_main_page.dart
+//主页面的根布局
 class HomeMainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return FirstThemState();
+    return _HomeMainState();
   }
 }
 
-class FirstThemState extends State<HomeMainPage> {
+class _HomeMainState extends State<HomeMainPage> {
   //当前显示页面的标签
   int _tabIndex = 0;
-
-  ///[PageView]使用的控制器
+  //[PageView]使用的控制器
   PageController _pageController = PageController();
-
   //底部导航栏使用到的图标
-  List<Icon> normalIcon = [
+  List<Icon> _normalIcon = [
     Icon(Icons.home),
     Icon(Icons.message),
     Icon(Icons.people)
   ];
-
   //底部导航栏使用到的标题文字
-  List<String> normalTitle = [
+  List<String> _normalTitle = [
     "首页",
     "消息",
     "我的",
@@ -86,15 +83,15 @@ class FirstThemState extends State<HomeMainPage> {
     );
   }
 
-  ///lib/app/page/home/home_main_page.dart
+  //lib/src/page/home/home_main_page.dart
   //构建底部导航栏
   BottomNavigationBar buildBottomNavigation() {
     //创建一个 BottomNavigationBar
     return new BottomNavigationBar(
       items: <BottomNavigationBarItem>[
-        new BottomNavigationBarItem(label: normalTitle[0], icon: normalIcon[0]),
-        new BottomNavigationBarItem(icon: normalIcon[1], label: normalTitle[1]),
-        new BottomNavigationBarItem(icon: normalIcon[2], label: normalTitle[2]),
+        new BottomNavigationBarItem(label: _normalTitle[0], icon: _normalIcon[0]),
+        new BottomNavigationBarItem(icon: _normalIcon[1], label: _normalTitle[1]),
+        new BottomNavigationBarItem(icon: _normalIcon[2], label: _normalTitle[2]),
       ],
       //显示效果
       type: BottomNavigationBarType.fixed,

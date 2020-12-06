@@ -20,7 +20,7 @@ import 'page/home/home_main_page.dart';
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 ///
-///lib/app/welcome_page.dart
+///lib/src/welcome_page.dart
 ///广告倒计时欢迎页面
 class WelcomePage extends StatefulWidget {
   @override
@@ -57,6 +57,7 @@ class _WelcomePageState extends PopBaseState<WelcomePage> {
       }
      //计时完成后进入首页面
       if (progress >= totalProgress) {
+        //完成计时后 取消计时 进入首页面
         _timer.cancel();
         goHome();
       }
@@ -93,12 +94,13 @@ class _WelcomePageState extends PopBaseState<WelcomePage> {
     );
   }
 
- //lib/app/welcome_page.dart
+ //lib/src/welcome_page.dart
  //可点击的 倒计时进度圆圈
   Positioned buildTimerProgress() {
     return Positioned(
-      right: 20,
-      top: 60,
+      //右上角对齐
+      right: 20, top: 60,
+      //点击事件回调
       child: InkWell(
         onTap: () {
           goHome();
@@ -107,7 +109,7 @@ class _WelcomePageState extends PopBaseState<WelcomePage> {
       ),
     );
   }
- //lib/app/welcome_page.dart
+ //lib/src/welcome_page.dart
  //白色阴影变化的 进度圆圈
   AnimatedContainer buildAnimatedContainer() {
     return AnimatedContainer(
@@ -143,11 +145,11 @@ class _WelcomePageState extends PopBaseState<WelcomePage> {
     );
   }
 
- //lib/app/welcome_page.dart
+ ///lib/src/welcome_page.dart
  //倒计时页面的背景图
   Positioned buildBackgroundImage() {
-    return Positioned(
-      right: 0, bottom: 0, left: 0, top: 0,
+    //填充
+    return Positioned.fill(
       child: Image.asset(
         "assets/images/3.0x/welcome.png",
         fit: BoxFit.fill,

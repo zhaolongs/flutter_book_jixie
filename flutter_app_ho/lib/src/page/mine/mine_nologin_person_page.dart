@@ -21,7 +21,6 @@ class MineNoLoginPersonPage extends StatefulWidget {
 }
 
 class _NoLoginPersonState extends State<MineNoLoginPersonPage> {
-  bool _down = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +41,13 @@ class _NoLoginPersonState extends State<MineNoLoginPersonPage> {
               Colors.lightBlueAccent.withOpacity(0.3),
               Colors.blue.withOpacity(0.3),
             ],
-          ), ),
+          ),
+        ),
         child: Stack(
           children: [
+            //右上角的设置按钮
             buildSettings(context),
+            //中间的登录按钮
             buildLoginButton(context),
           ],
         ),
@@ -53,29 +55,22 @@ class _NoLoginPersonState extends State<MineNoLoginPersonPage> {
     );
   }
 
+  ///手指按下的标识
+  bool _down = false;
   Center buildLoginButton(BuildContext context) {
     return Center(
       child: GestureDetector(
+        //手指按下
         onTapDown: (TapDownDetails details) {
-          setState(
-            () {
-              _down = true;
-            },
-          );
+          setState(() {_down = true;},);
         },
+        //手指移出
         onTapCancel: () {
-          setState(
-            () {
-              _down = false;
-            },
-          );
+          setState(() {_down = false;},);
         },
+        //手指抬起
         onTap: () {
-          setState(
-            () {
-              _down = false;
-            },
-          );
+          setState(() {_down = false;},);
           NavigatorUtils.openPageByFade(
             context,
             BobbleLoginPage(),
@@ -84,61 +79,79 @@ class _NoLoginPersonState extends State<MineNoLoginPersonPage> {
             isBuilder: true,
           );
         },
+        child: buildHero(),
+      ),
+    );
+  }
+
+  Widget buildHero() {
+    return Hero(
+      tag: "loginTag",
+      child: Material(
+        color: Colors.transparent,
+        //阴影提高的动画
         child: buildAnimatedContainer(),
       ),
     );
   }
 
-  Widget buildAnimatedContainer() {
-    return Hero(
-      tag: "loginTag",
-      child: Material(
-        color: Colors.transparent,
-        child: AnimatedContainer(
-          alignment: Alignment.center,
-          width: 88,
-          height: 88,
-          duration: Duration(milliseconds: 100),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(
-              50,
-            )),
-            gradient: LinearGradient(
-              colors: [
-                Colors.deepOrange[400],
-                Colors.redAccent,
-                Colors.deepOrange[400],
-              ],
-            ),
-            boxShadow: _down
-                ? [
-                    BoxShadow(
-                        color: Colors.black54,
-                        offset: Offset(2, 2),
-                        blurRadius: 2,
-                        spreadRadius: 1),
-                    BoxShadow(
-                        color: Colors.black54,
-                        offset: Offset(-2, 2),
-                        blurRadius: 2),
-                  ]
-                : null,
-          ),
-          child: Text(
-            "登录",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
-          ),
-        ),
+  //按下登录按钮时使用到的阴影
+  List<BoxShadow> _shadowList = [
+    BoxShadow(
+        //阴影颜色
+        color: Colors.black54,
+        //阴影偏移量
+        offset: Offset(2, 2),
+        //阴影的模糊度
+        blurRadius: 2,
+        //模糊半径
+        spreadRadius: 1),
+    BoxShadow(
+        color: Colors.black54,
+        offset: Offset(-2, 2),
+        blurRadius: 2),
+  ];
+
+  //登录按钮使用到的渐变样式
+  LinearGradient _gradient = LinearGradient(
+    colors: [
+      Colors.deepOrange[400],
+      Colors.redAccent,
+      Colors.deepOrange[400],
+    ],
+  );
+
+  //登录按钮的文字样式
+  TextStyle _loginStyle = TextStyle(
+      color: Colors.white, fontSize: 16,
+      fontWeight: FontWeight.w500);
+
+  AnimatedContainer buildAnimatedContainer() {
+    return AnimatedContainer(
+      alignment: Alignment.center,
+      width: 88,
+      height: 88,
+      duration: Duration(milliseconds: 100),
+      decoration: BoxDecoration(
+        //圆角
+        borderRadius: BorderRadius.all(Radius.circular(50,)),
+        //渐变背景
+        gradient: _gradient,
+        //阴影
+        boxShadow: _down ?_shadowList : null,
+      ),
+      child: Text(
+        "登录",
+        textAlign: TextAlign.center,
+        style:_loginStyle,
       ),
     );
   }
 
+  ///右上角的设置按钮
   Positioned buildSettings(BuildContext context) {
     return Positioned(
-      top: 44,
-      right: 0,
+      top: 44, right: 0,
       child: InkWell(
         onTap: () {
           NavigatorUtils.pushPage(

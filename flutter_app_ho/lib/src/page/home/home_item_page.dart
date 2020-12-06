@@ -3,37 +3,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_echart/flutter_echart.dart';
 
-///lib/app/page/home/home_item_page.dart
-///首页面显示的视频列表播放页面
+//lib/src/page/home/home_item_page.dart
+//首页面显示的视频列表播放页面
 class HomeItemMainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MainFindPage3State();
+    return _HomeItemState();
   }
 }
-///使用到[TabBar] 所以要绑定一个Ticker
-///当前页面被装载在[PageView]中，使用KeepAlive使用页面保持状态
-class MainFindPage3State extends State
-    with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
-  ///页面保持状态
+
+//当前页面被装载在[PageView]中，使用KeepAlive使用页面保持状态
+class _HomeItemState extends State with AutomaticKeepAliveClientMixin {
+  //页面保持状态
   @override
   bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    //设置状态栏的颜色 有AppBar时，会被覆盖
     return AnnotatedRegion<SystemUiOverlayStyle>(
       child: buildScafflod(),
       value: SystemUiOverlayStyle(
+          //状态栏的背景
           statusBarColor: Colors.white,
-          //有Appbar时，会被覆盖
+          //状态栏文字颜色为黑色
           statusBarIconBrightness: Brightness.dark,
           //底部navigationBar背景颜色
           systemNavigationBarColor: Colors.white),
     );
   }
 
-  Widget buildScafflod(){
+  ///第二部分
+  ///是否显示饼状图
+  bool _isShow = true;
+
+  Widget buildScafflod() {
     return Scaffold(
       backgroundColor: Colors.white,
       //页面的主内容 先来个居中
@@ -51,21 +56,23 @@ class MainFindPage3State extends State
               //设置一下背景
               // color: mainColor,
               //封装一个方法构建左右排列的
-              child: isShow?buildPieChatWidget():Container(),
+              child: _isShow ? buildPieChatWidget() : Container(),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.add),onPressed: (){
-        setState(() {
-          isShow=!isShow;
-        });
-      },),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          setState(() {
+            _isShow = !_isShow;
+          });
+        },
+      ),
     );
   }
 
-  bool isShow=true;
-
+  //第三部分 饼状图构建
   List<EChartPieBean> _dataList = [
     EChartPieBean(title: "生活费", number: 200, color: Colors.lightBlueAccent),
     EChartPieBean(title: "游玩费", number: 200, color: Colors.deepOrangeAccent),
@@ -73,7 +80,7 @@ class MainFindPage3State extends State
     EChartPieBean(title: "贷款费", number: 300, color: Colors.amber),
     EChartPieBean(title: "电话费", number: 200, color: Colors.orange),
   ];
-
+  //详细使用读者可查看文档
   PieChatWidget buildPieChatWidget() {
     return PieChatWidget(
       dataList: _dataList,
