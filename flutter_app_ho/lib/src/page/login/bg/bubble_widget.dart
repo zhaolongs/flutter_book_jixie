@@ -18,6 +18,7 @@ import 'bubble_painter.dart';
 ///
 /// 代码清单
 ///代码清单
+///气泡动画背景
 class BubbleWidget extends StatefulWidget {
   @override
   _BubbleWidgetState createState() => _BubbleWidgetState();
@@ -27,19 +28,14 @@ class _BubbleWidgetState extends BaseLifeState<BubbleWidget>
     with SingleTickerProviderStateMixin {
   //创建的气泡保存集合
   List<BobbleBean> _list = [];
-
   //随机数据
   Random _random = new Random(DateTime.now().microsecondsSinceEpoch);
-
   //气泡的最大半径
   double maxRadius = 100;
-
   //气泡动画的最大速度
   double maxSpeed = 0.7;
-
   //气泡计算使用的最大弧度（360度）
   double maxTheta = 2.0 * pi;
-
   //动画控制器
   AnimationController _animationController;
 

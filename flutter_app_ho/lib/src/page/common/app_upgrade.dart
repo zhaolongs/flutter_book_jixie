@@ -28,7 +28,8 @@ void showAppUpgradeDialog({
   //点击背景是否消失
   bool isBackDismiss = false,
   //升级提示内容
-  String upgradText ="",
+  String upgradText = "",
+  String apkUrl = "",
 }) {
   //通过透明的方式来打开弹框
   NavigatorUtils.openPageByFade(
@@ -37,7 +38,8 @@ void showAppUpgradeDialog({
       AppUpgradePage(
         isBackDismiss: isBackDismiss,
         isForce: isForce,
-          upgradText:upgradText,
+        upgradText: upgradText,
+        apkUrl: apkUrl,
       ),
       opaque: false);
 }
@@ -52,10 +54,13 @@ class AppUpgradePage extends StatefulWidget {
 
   final String upgradText;
 
-  AppUpgradePage({
-    this.isForce = false,
-    this.upgradText="",
-    this.isBackDismiss = false});
+  final String apkUrl;
+
+  AppUpgradePage(
+      {this.isForce = false,
+      this.upgradText = "",
+      this.apkUrl,
+      this.isBackDismiss = false});
 
   @override
   _AppUpgradeState createState() => _AppUpgradeState();
@@ -95,7 +100,6 @@ class _AppUpgradeState extends State<AppUpgradePage> {
     );
   }
 
-  
   Container buildBodyContainer(BuildContext context) {
     //充满屏幕的透明容器
     return Container(
@@ -138,7 +142,9 @@ class _AppUpgradeState extends State<AppUpgradePage> {
       children: [
         //显示标题
         buildHeaderWidget(context),
-        SizedBox(height: 12,),
+        SizedBox(
+          height: 12,
+        ),
         //中间显示的更新内容 可滑动
         Expanded(
           child: SingleChildScrollView(
@@ -151,7 +157,7 @@ class _AppUpgradeState extends State<AppUpgradePage> {
             ),
           ),
         ),
-        //底部的按钮区域 
+        //底部的按钮区域
         buildBottomButton()
       ],
     );
@@ -258,15 +264,19 @@ class _AppUpgradeState extends State<AppUpgradePage> {
   }
 
   StreamController<double> _streamController = new StreamController();
+
   //当前状态
   InstallStatues _installStatues = InstallStatues.none;
+
   //apk保存的路径
   String appLocalPath;
+
   ///下载文件的网络路径
   String apkUrl =
       "http://jbsc-1.oss-cn-beijing.aliyuncs.com/96b282d9-f82c-46fb-8767-754bd6288775.apk";
 
-  String apkUrl2="https://zl-t.oss-cn-hangzhou.aliyuncs.com/upload/serverPlatform_appManage/2020/11/27/1606456070508/app_driver_1.5.4.apk";
+  String apkUrl2 =
+      "https://zl-t.oss-cn-hangzhou.aliyuncs.com/upload/serverPlatform_appManage/2020/11/27/1606456070508/app_driver_1.5.4.apk";
   CancelToken _cancelToken;
 
   ///使用dio 下载文件
@@ -290,7 +300,7 @@ class _AppUpgradeState extends State<AppUpgradePage> {
       //参数二 下载的本地目录文件
       //参数三 取消标识
       //参数四 下载监听
-      Response response = await dio.download(apkUrl, appLocalPath,
+      Response response = await dio.download(widget.apkUrl, appLocalPath,
           cancelToken: _cancelToken, onReceiveProgress: (received, total) {
         if (total != -1) {
           ///当前下载的百分比例

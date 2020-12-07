@@ -174,11 +174,10 @@ class SnowCustomMyPainter extends CustomPainter {
   }
 }
 
-///定义 雪花模型 用来保存雪花的基本属性信息
+///气泡模型 基本属性信息
 class BobbleBean {
   //位置
   Offset postion;
-
   //初始位置
   Offset origin;
   //颜色

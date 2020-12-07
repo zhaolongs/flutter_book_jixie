@@ -15,6 +15,8 @@ dependencies:
     sdk: flutter
   #Flutter 生命周期兼听库、Flutter组件生命周期、Widget生命周期
   flutter_life_state: ^1.0.1
+  #App版本信息
+  package_info: ^0.4.3+2
   # 权限请求框架
   permission_handler: ^5.0.1+1
   #用来加载网络数据

@@ -16,6 +16,8 @@ PODS:
   - FMDB/standard (2.7.5)
   - install_plugin_custom (0.0.1):
     - Flutter
+  - package_info (0.0.1):
+    - Flutter
   - path_provider (0.0.1):
     - Flutter
   - "permission_handler (5.0.1+1)":
@@ -39,6 +41,7 @@ DEPENDENCIES:
   - flutter_fai_webview (from `.symlinks/plugins/flutter_fai_webview/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - install_plugin_custom (from `.symlinks/plugins/install_plugin_custom/ios`)
+  - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
@@ -64,6 +67,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/fluttertoast/ios"
   install_plugin_custom:
     :path: ".symlinks/plugins/install_plugin_custom/ios"
+  package_info:
+    :path: ".symlinks/plugins/package_info/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   permission_handler:
@@ -80,6 +85,7 @@ SPEC CHECKSUMS:
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   install_plugin_custom: cf04211b6d2f57b1d77a8eaf5c0c4073744f4028
+  package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   permission_handler: eac8e15b4a1a3fba55b761d19f3f4e6b005d15b6
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d

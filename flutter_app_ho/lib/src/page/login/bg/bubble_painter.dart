@@ -12,17 +12,15 @@ import 'bubble_bean.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 /// 
 /// 代码清单 
-///代码清单
+///绘制气泡的画布
+///lib/src/page/login/bg/bubble_painter.dart
 class CustomMyPainter extends CustomPainter {
   //创建画笔
   Paint _paint = Paint();
-
   //保存气泡的集合
   List<BobbleBean> list;
-
   //随机数变量
   Random random;
-
   CustomMyPainter({this.list, this.random});
   ///计算坐标
   Offset calculateXY(double speed, double theta) {
