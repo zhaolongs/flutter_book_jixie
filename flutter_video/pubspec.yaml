@@ -1,0 +1,83 @@
+name: flutter_video
+description: 短视频应用
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  #Flutter 生命周期兼听库、Flutter组件生命周期、Widget生命周期
+  flutter_life_state: ^1.0.1
+  #App版本信息
+  package_info: ^0.4.3+2
+  # 权限请求框架
+  permission_handler: ^5.0.1+1
+  #用来加载网络数据
+  dio: 3.0.9
+  flutter_spinkit: ^4.1.2+1
+  #获取手机存储目录
+  path_provider: ^1.6.9
+  #MD5  base64之类 转码
+  crypto: ^2.0.6
+  # 数据存储
+  shared_preferences: ^0.5.6+3
+  #饼图
+  flutter_echart: ^1.0.1
+  #toast 消息提示小弹框
+  fluttertoast: ^7.0.1+1
+  #加载HTML组件
+  flutter_fai_webview: ^1.1.6
+  #加载图片的缓存组件
+  cached_network_image: ^2.2.0+1
+  # 友盟统计
+  flutter_fai_umeng: ^0.0.2
+  # 视频播放
+  video_player: ^1.0.1
+  #  APP升级安装组件 Android中调用自动安装 apk的程序
+  #ios 调用打开APPStore
+  install_plugin_custom:
+    git:
+      url: https://github.com/zhaolongs/install_plugin_custom.git
+      ref: master
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+
+  uses-material-design: true
+  #配置资源文件、图片的目录结构
+  assets:
+    #一倍图目录
+    - assets/images/
+    #三倍图目录
+    - assets/images/3.0x/
+    #二倍图目录
+    - assets/images/2.0x/
+    - assets/obj/6.obj
+    - assets/voice/
+    - assets/json/
+    - assets/js/
+  #配置字体的目录结构
+  fonts:
+    - family: Schyler
+      fonts:
+        - asset: assets/fonts/SourceHanSansCN-Bold.otf
+    - family: Medium
+      fonts:
+        - asset: assets/fonts/SourceHanSansCN-Medium.otf
+
+    - family: UniTortred
+      fonts:
+        - asset: assets/fonts/UniTortred.ttf
+
+    - family: Regular
+      fonts:
+        - asset: assets/fonts/FormalScript_Regular.ttf
