@@ -65,6 +65,7 @@ flutter:
     - assets/voice/
     - assets/json/
     - assets/js/
+    - assets/video/
   #配置字体的目录结构
   fonts:
     - family: Schyler

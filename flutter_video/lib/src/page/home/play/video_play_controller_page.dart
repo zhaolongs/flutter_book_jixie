@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_video/src/utils/toast_utils.dart';
 import 'package:video_player/video_player.dart';
+
 // 创建人： Created by zhaolong
 // 创建时间：Created by  on 2020/7/27.
 //
@@ -12,7 +13,9 @@ import 'package:video_player/video_player.dart';
 class VideoPlayControllerPage extends StatefulWidget {
   //创建视频播放控制 器
   final VideoPlayerController videoPlayerController;
+
   VideoPlayControllerPage({@required this.videoPlayerController});
+
   @override
   _PlayControllerState createState() => _PlayControllerState();
 }
@@ -27,29 +30,31 @@ class _PlayControllerState extends State<VideoPlayControllerPage> {
     //同时隐藏这个控制区域，在点击视频时再触发暂停再显示这个控制区域
     if (widget.videoPlayerController.value.initialized &&
         !widget.videoPlayerController.value.isPlaying) {
-      itemWidget = InkWell(
+      itemWidget = GestureDetector(
         onTap: () {
           if (!widget.videoPlayerController.value.isPlaying) {
             //重新播放
             widget.videoPlayerController.play();
             setState(() {});
-          }else{
+          } else {
             ToastUtils.showToast("已暂停");
           }
         },
         //白色的圆角边框装饰
         child: Container(
-          width: 44,
-          height: 44,
-          decoration: BoxDecoration(
-              color: Colors.white60,
-              borderRadius: BorderRadius.all(Radius.circular(22))),
-          child: Icon(Icons.play_arrow),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.width /
+              widget.videoPlayerController.value.aspectRatio,
+          color: Colors.blueGrey.withOpacity(0.5),
+          child: Icon(
+            Icons.play_circle_fill_rounded,
+            size: 44,
+          ),
         ),
       );
     }
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Stack(
+      alignment: Alignment.center,
       children: [itemWidget],
     );
   }

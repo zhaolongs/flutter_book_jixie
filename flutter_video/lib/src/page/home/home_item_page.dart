@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_echart/flutter_echart.dart';
-import 'package:flutter_video/src/bean/bean_video.dart';
-import 'package:flutter_video/src/net/dio_utils.dart';
 
 import 'play/play_list_page.dart';
 
@@ -25,20 +22,14 @@ class MainFindPage3State extends State
   @override
   bool get wantKeepAlive => true;
 
-  //[TabBar]使用的文本
+  ///[TabBar]使用的文本
   List<String> tabTextList = ["关注", "推荐"];
 
-  //[TabBar]使用的[Tab]集合
+  ///[TabBar]使用的[Tab]集合
   List<Tab> tabWidgetList = [];
 
-  //[TabBar]的控制器
+  ///[TabBar]的控制器
   TabController tabController;
-
-  //推荐模拟数据
-  List<VideoModel> videoList = [];
-
-  //关注模拟数据
-  List<VideoModel> videoList2 = [];
 
   @override
   void initState() {
@@ -50,36 +41,39 @@ class MainFindPage3State extends State
         text: "$value",
       ));
     }
-
     //创建TabBar使用的控制器
     tabController = new TabController(length: tabTextList.length, vsync: this);
-
-    loadingData();
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    //设置状态栏的颜色 有AppBar时，会被覆盖
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      child: buildScaffold(),
+      value: SystemUiOverlayStyle(
+          //状态栏的背景黑色
+          statusBarColor: Colors.black87,
+          //状态栏文字颜色为白色
+          statusBarIconBrightness: Brightness.light,
+          //底部navigationBar背景颜色
+          systemNavigationBarColor: Colors.white),
+    );
+  }
+
+  Scaffold buildScaffold() {
     return Scaffold(
       //层叠布局
       body: Stack(
         children: <Widget>[
           //视频列表
-          Positioned(
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            child: buildTableViewWidget(),
+          Positioned.fill(
+            child: buildTabBarView(),
           ),
-
           //顶部选项卡
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
+          Positioned.fill(
             top: 54,
-            child: buildTabBarWidget(),
+            child: buildTabBar(),
           ),
         ],
       ),
@@ -88,24 +82,22 @@ class MainFindPage3State extends State
 
   //视频列表
   //构建 TabBarView
-  buildTableViewWidget() {
-    if(videoList.length==0){
-      return Container();
-    }
-    return TabBarView(controller: tabController, children: [
-      PlayListPage(
-        list: videoList,
-        initIndex: 0,
-      ),
-      PlayListPage(
-        list: videoList2,
-        initIndex: 0,
-      )
-    ]);
+  Widget buildTabBarView() {
+    return TabBarView(
+      controller: tabController,
+      children: [
+        PlayListPage(
+          pageIndex: 0,
+        ),
+        PlayListPage(
+          pageIndex: 0,
+        )
+      ],
+    );
   }
 
   //构建顶部标签部分
-  buildTabBarWidget() {
+  Widget buildTabBar() {
     return Container(
       //对齐在顶部中间
       alignment: Alignment.topCenter,
@@ -116,48 +108,11 @@ class MainFindPage3State extends State
         indicatorColor: Colors.white,
         //指示器的高度
         indicatorWeight: 2.0,
+        //可滑动
         isScrollable: true,
-
         //指示器的宽度与文字对齐
         indicatorSize: TabBarIndicatorSize.label,
       ),
     );
-  }
-
-  int pageIndex = 1;
-
-  void loadingData() async {
-    ResponseInfo responseInfo = await DioUtils.instance
-        .getRequest(url: HttpHelper.Video_LIST_URL, queryParameters: {
-      "pageIndex": pageIndex,
-      "pageSize": 30,
-    });
-
-    if (responseInfo.success) {
-      List data = responseInfo.data;
-      if (data.length == 0) {
-
-        setState(() {});
-      } else {
-        List<VideoModel> itemList = [];
-        data.forEach((element) {
-          VideoModel bean = VideoModel.fromMap(element);
-          itemList.add(bean);
-        });
-
-        if (pageIndex == 1) {
-          videoList = itemList;
-          videoList2 = itemList;
-        } else {
-          videoList.addAll(itemList);
-          videoList2.addAll(itemList);
-        }
-        setState(() {});
-      }
-    } else {
-      setState(() {
-
-      });
-    }
   }
 }

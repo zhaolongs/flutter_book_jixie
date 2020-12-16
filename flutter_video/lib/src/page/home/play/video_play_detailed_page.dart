@@ -4,6 +4,7 @@ import 'package:flutter_life_state/flutter_life_state.dart';
 import 'package:flutter_video/src/bean/bean_video.dart';
 import 'package:flutter_video/src/page/home/play/video_play_controller_page.dart';
 import 'package:flutter_video/src/utils/log_util.dart';
+import 'package:flutter_video/src/utils/toast_utils.dart';
 import 'package:video_player/video_player.dart';
 
 // 创建人： Created by zhaolong
@@ -26,7 +27,7 @@ class VideoPlayDetailed extends StatefulWidget {
 
 class _VideoPlayDetailedState extends BaseLifeState<VideoPlayDetailed> {
   //创建视频播放控制 器
-  VideoPlayerController videoPlayerController;
+  VideoPlayerController _videoPlayerController;
 
   //控制更新视频加载初始化完成状态更新
   Future videoPlayFuture;
@@ -35,12 +36,25 @@ class _VideoPlayDetailedState extends BaseLifeState<VideoPlayDetailed> {
   void initState() {
     super.initState();
     //初始化视频播放相关功能
-    initVideoPlayer();
+    //网络链接
+    //VideoPlayerController.network(url);
+    //本地链接
+    _videoPlayerController =
+        VideoPlayerController.asset(widget.videoModel.videoUrl);
+    //File形式的视频
+    // VideoPlayerController.file(File(url));
+
+    videoPlayFuture = _videoPlayerController.initialize().then((_) {
+      //视频初始完成后
+      //调用播放
+      // videoPlayerController.play();
+      setState(() {});
+    });
   }
 
   @override
   void dispose() {
-    videoPlayerController.dispose();
+    _videoPlayerController.dispose();
     super.dispose();
   }
 
@@ -65,7 +79,7 @@ class _VideoPlayDetailedState extends BaseLifeState<VideoPlayDetailed> {
           top: 0,
           bottom: 0,
           child: VideoPlayControllerPage(
-            videoPlayerController: videoPlayerController,
+            videoPlayerController: _videoPlayerController,
           ),
         ),
       ]),
@@ -90,20 +104,21 @@ class _VideoPlayDetailedState extends BaseLifeState<VideoPlayDetailed> {
          * 比如我们可以通过snapshot.connectionState获取异步任务的状态信息、
          * 通过snapshot.hasError判断异步任务是否有错误等等
          */
-        return VideoPlayFutureBuilder(snapshot);
+        return videoPlayFutureBuilder(snapshot);
       },
     );
   }
 
   // lib/app/page/play/video_play_detailed_page.dart
-  Widget VideoPlayFutureBuilder(AsyncSnapshot snapshot) {
+  Widget videoPlayFutureBuilder(AsyncSnapshot snapshot) {
     if (snapshot.connectionState == ConnectionState.done) {
-      LogUtil.e("${videoPlayerController.value.aspectRatio}");
-
+      LogUtil.e("${_videoPlayerController.value.aspectRatio}");
       //点击事件
-      return InkWell(
+      return GestureDetector(
         onTap: () {
-          videoPlayerClickFunction();
+          //暂停视频
+          _videoPlayerController.pause();
+          setState(() {});
         },
         //居中
         child: Center(
@@ -112,9 +127,9 @@ class _VideoPlayDetailedState extends BaseLifeState<VideoPlayDetailed> {
             width: MediaQuery.of(context).size.width,
             child: AspectRatio(
               //设置视频的大小 宽高比。长宽比表示为宽高比。例如，16:9宽高比的值为16.0/9.0
-              aspectRatio: videoPlayerController.value.aspectRatio,
+              aspectRatio: _videoPlayerController.value.aspectRatio,
               //播放视频的组件
-              child: VideoPlayer(videoPlayerController),
+              child: VideoPlayer(_videoPlayerController),
             ),
           ),
         ),
@@ -128,11 +143,26 @@ class _VideoPlayDetailedState extends BaseLifeState<VideoPlayDetailed> {
     }
   }
 
+  void playFunction() {
+    //获取当前视频播放的信息
+    VideoPlayerValue videoPlayerValue = _videoPlayerController.value;
+    //是否初始化完成
+    bool initialized = videoPlayerValue.initialized;
+    if (initialized) {
+      _videoPlayerController.play();
+      setState(() {});
+    } else {
+      ToastUtils.showToast("视频加载失败");
+      //再次重新加载
+      _videoPlayerController.initialize();
+    }
+  }
+
   // lib/app/page/play/video_play_detailed_page.dart
   // 视频组件的点击事件实现逻辑
   void videoPlayerClickFunction() {
     //获取当前视频播放的信息
-    VideoPlayerValue videoPlayerValue = videoPlayerController.value;
+    VideoPlayerValue videoPlayerValue = _videoPlayerController.value;
 
     //是否初始化完成
     bool initialized = videoPlayerValue.initialized;
@@ -152,16 +182,16 @@ class _VideoPlayDetailedState extends BaseLifeState<VideoPlayDetailed> {
       // 视频已初始化
       if (isPlaying) {
         // 正播放 --- 暂停
-        videoPlayerController.pause();
+        _videoPlayerController.pause();
       } else {
         //暂停 ----播放
-        videoPlayerController.play();
+        _videoPlayerController.play();
       }
 
       setState(() {});
     } else {
       //未初始化
-      videoPlayerController.initialize().then((_) {
+      _videoPlayerController.initialize().then((_) {
         // videoPlayerController.play();
         // setState(() {});
       });
@@ -173,30 +203,12 @@ class _VideoPlayDetailedState extends BaseLifeState<VideoPlayDetailed> {
   @override
   void onPause() {
     super.onPause();
-    videoPlayerController.pause();
+    _videoPlayerController.pause();
   }
 
   //当前视频播放页面获取焦点时的回调生命周期
   @override
   void onResumed() {
     super.onResumed();
-  }
-
-  void initVideoPlayer() {
-    //网络链接
-    videoPlayerController =
-        VideoPlayerController.network(widget.videoModel.videoUrl);
-
-    //本地链接
-//    VideoPlayerController videoPlayerController2 = VideoPlayerController.asset(widget.videoModel.videoUrl);
-    //File形式的视频
-//    VideoPlayerController videoPlayerController3 = VideoPlayerController.file(File(widget.videoModel.videoUrl));
-
-    videoPlayFuture = videoPlayerController.initialize().then((_) {
-      //视频初始完成后
-      //调用播放
-      // videoPlayerController.play();
-      // setState(() {});
-    });
   }
 }
