@@ -34,7 +34,10 @@ class _FindVideoItemPageState extends State<FindVideoItemPage> {
           right: 0,
           top: 0,
           bottom: 0,
-          child: VideoPlayDetailed(videoModel: widget.videoModel),
+          child: VideoPlayDetailed(
+            videoModel: widget.videoModel,
+            isAutoPlay: true,
+          ),
         ),
 
         //底部区域的视频介绍

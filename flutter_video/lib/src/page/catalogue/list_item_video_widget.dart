@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_video/src/bean/bean_video.dart';
 import 'package:flutter_video/src/page/home/play/find_video_page.dart';
 import 'package:flutter_video/src/page/home/play/video_play_detailed_page.dart';
+import 'package:flutter_video/src/utils/log_util.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/12/8.
@@ -16,8 +19,12 @@ import 'package:flutter_video/src/page/home/play/video_play_detailed_page.dart';
 ///代码清单
 class ListItemVideoWidget extends StatefulWidget {
   final VideoModel videoModel;
+  final StreamController streamController;
+  final bool isScroll;
 
-  ListItemVideoWidget(this.videoModel);
+  ListItemVideoWidget(this.videoModel,
+      {this.streamController, Key key, this.isScroll = false})
+      : super(key: key);
 
   @override
   _ListItemVideoWidgetState createState() => _ListItemVideoWidgetState();
@@ -33,20 +40,31 @@ class _ListItemVideoWidgetState extends State<ListItemVideoWidget> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            padding: EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
+            padding: EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ClipOval(
                   child: Container(
-                    width: 44,
-                    height: 44,
+                    width: 24,
+                    height: 24,
                     color: Colors.grey,
                     //加载头像
                     child: CachedNetworkImage(
                       imageUrl: widget.videoModel.videoImag,
-                      placeholder: (context, url) =>
-                          CircularProgressIndicator(),
+                      placeholder: (context, url) {
+                        return CircularProgressIndicator();
+                      },
+                      errorWidget: (
+                        BuildContext context,
+                        String url,
+                        dynamic error,
+                      ) {
+                        return Image.asset(
+                          "assets/images/2.0x/app_icon.png",
+                          fit: BoxFit.fill,
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -54,28 +72,26 @@ class _ListItemVideoWidgetState extends State<ListItemVideoWidget> {
                   width: 8,
                 ),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "早起的年轻人",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      ),
-                      Text(
-                        widget.videoModel.createTime,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
-                      ),
-                    ],
+                  child: Text(
+                    "早起的年轻人",
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(fontSize: 14, color: Colors.black),
                   ),
-                )
+                ),
+                GestureDetector(
+                  child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Icon(Icons.more_horiz_outlined)),
+                  onTap: () {
+                    LogUtil.e("点击了查看更多");
+                  },
+                ),
               ],
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 12,right: 12,bottom: 16),
+            margin: EdgeInsets.only(left: 12, right: 12, bottom: 0),
             child: Text(
               widget.videoModel.videoName,
               style: TextStyle(fontSize: 14, color: Color(0xff666666)),
@@ -84,9 +100,11 @@ class _ListItemVideoWidgetState extends State<ListItemVideoWidget> {
           Container(
             margin: EdgeInsets.only(bottom: 16),
             width: MediaQuery.of(context).size.width,
-            height: 240,
+            height: 200,
             child: VideoPlayDetailed(
+              streamController: widget.streamController,
               videoModel: widget.videoModel,
+              isScroll: widget.isScroll,
             ),
           )
         ],
