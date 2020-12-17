@@ -86,6 +86,16 @@ class _VideoPlayRightPageState extends State<VideoPlayRightPage> {
                 child: CachedNetworkImage(
                   imageUrl: widget.videoModel.videoImag,
                   placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (
+                      BuildContext context,
+                      String url,
+                      dynamic error,
+                      ) {
+                    return Image.asset(
+                      "assets/images/2.0x/app_icon.png",
+                      fit: BoxFit.fill,
+                    );
+                  },
                 ),
               ),
             ),

@@ -34,8 +34,9 @@ class _FindVideoItemPageState extends State<FindVideoItemPage> {
           right: 0,
           top: 0,
           bottom: 0,
-          child: VideoPlayDetailed(
+          child: VideoPlayDetailedWidget(
             videoModel: widget.videoModel,
+            isInitialize: true,
             isAutoPlay: true,
           ),
         ),

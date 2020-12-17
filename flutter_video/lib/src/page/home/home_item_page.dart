@@ -48,6 +48,8 @@ class MainFindPage3State extends State
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    //黑色
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     //设置状态栏的颜色 有AppBar时，会被覆盖
     return AnnotatedRegion<SystemUiOverlayStyle>(
       child: buildScaffold(),

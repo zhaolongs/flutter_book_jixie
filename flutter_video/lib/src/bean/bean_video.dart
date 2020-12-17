@@ -1,5 +1,5 @@
 
-//lib/app/bean/bean_video.dart
+//lib/src/bean/bean_video.dart
 //视频数据模型
 class VideoModel {
   //视频名称

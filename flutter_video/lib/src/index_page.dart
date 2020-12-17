@@ -183,17 +183,17 @@ class _IndexPageState extends PopBaseState<IndexPage> {
   ///进入首页面或者是引导页面
   void openNext() async {
     //网络请求获取APP的配置信息
-    ResponseInfo responseInfo =
-        await DioUtils.instance.getRequest(url: HttpHelper.SETTING_URL);
-    if (responseInfo.success) {
-      //解析数据
-      AppSettingBean settingBean = AppSettingBean.fromMap(responseInfo.data);
-      //配置APP主题
-      if (settingBean.appThemFlag == 1) {
-        //将APP设置成灰色主题
-        rootStreamController.add(GlobalBean(100, Colors.grey));
-      }
-    }
+    // ResponseInfo responseInfo =
+    //     await DioUtils.instance.getRequest(url: HttpHelper.SETTING_URL);
+    // if (responseInfo.success) {
+    //   //解析数据
+    //   AppSettingBean settingBean = AppSettingBean.fromMap(responseInfo.data);
+    //   //配置APP主题
+    //   if (settingBean.appThemFlag == 1) {
+    //     //将APP设置成灰色主题
+    //     rootStreamController.add(GlobalBean(100, Colors.grey));
+    //   }
+    // }
     //获取配置信息
     if (_userFirst == null || _userFirst == false) {
       ///第一次 隐藏logo 显示左右滑动的引导
