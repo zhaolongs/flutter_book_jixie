@@ -16,17 +16,20 @@ import 'package:video_player/video_player.dart';
 // 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 // 可关注博客：https://blog.csdn.net/zl18603543572
 
+///代码清单 12-11
 /// 播放视频功能
 /// lib/src/page/home/play/video_play_detailed_page.dart
 class VideoPlayDetailedWidget extends StatefulWidget {
   ///视频数据
   final VideoModel videoModel;
+
+  ///用于全局唯一视频播放控制器通信
   final StreamController streamController;
-  
+
   ///[isInitialize] 预加载视频
   final bool isInitialize;
-  
-  ///[isInitialize]为true时才起作用 
+
+  ///[isInitialize]为true时才起作用
   ///[isAutoPlay] 为true 时 加载完成自动 播放
   final bool isAutoPlay;
 
@@ -39,17 +42,23 @@ class VideoPlayDetailedWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _VideoPlayDetailedWidgetState createState() => _VideoPlayDetailedWidgetState();
+  _VideoPlayDetailedWidgetState createState() =>
+      _VideoPlayDetailedWidgetState();
 }
 
-class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget>{
+class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
+  ///代码清单 12-12
+  /// 初始化设置功能
+  /// lib/src/page/home/play/video_play_detailed_page.dart
   //创建视频播放控制 器
   VideoPlayerController _videoPlayerController;
 
   //控制更新视频加载初始化完成状态更新
   Future _videoPlayFuture;
+
   //是否正在播放中
   bool _isPlaying = false;
+
   //是否需要初始化
   bool _isInitialize = false;
 
@@ -62,7 +71,7 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget>{
         //添加一个焦点监听
         FocusScope.of(context).addListener(() {
           //判断当前是否有焦点
-          // 当被dialog挡住时，虽然可见，但是不可操作 为 flase 
+          // 当被dialog挡住时，虽然可见，但是不可操作 为 flase
           // 为 false时需要停止播放视频
           bool isFirstFocus = FocusScope.of(context).isFirstFocus;
           LogUtil.e("home isFirstFocus $isFirstFocus  ");
@@ -84,25 +93,37 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget>{
     //本地链接
     _videoPlayerController =
         VideoPlayerController.asset(widget.videoModel.videoUrl);
+    //添加一个视频监听，视频播放会实时回调这个监听
     _videoPlayerController.addListener(() {
-      if (_isPlaying && !_videoPlayerController.value.isPlaying && mounted) {
+      //当前视频播放的状态
+      bool isPlaying = _videoPlayerController.value.isPlaying;
+      //主要用于视频停止播放后 暂停按钮再次显示出来
+      if (_isPlaying && !isPlaying) {
+        //更新本地变量标识
         _isPlaying = false;
-        setState(() {});
+        //当前视图不可用时 mounted 为 false
+        if (mounted) {
+          setState(() {});
+        }
       }
     });
 
+    //对视频进行初始化操作
     if (widget.isInitialize) {
       //File形式的视频
       // VideoPlayerController.file(File(url));
       _videoPlayFuture = _videoPlayerController.initialize().then((value) {
-        //视频初始完成后
+        //视频初始完成后的回调 报错时不会回调
         //调用播放
         if (widget.isAutoPlay) {
           startPlaying();
         }
       }).whenComplete(() {
+        //视频加载完成后的回调 任何情况都会回调
         LogUtil.e("视频加载加载回调");
-        setState(() {});
+        if (mounted) {
+          setState(() {});
+        }
       });
     }
   }
@@ -171,9 +192,10 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget>{
     );
   }
 
-  // lib/app/page/play/video_play_detailed_page.dart
-  // 视频组件的点击事件实现逻辑
-  void videoPlayerClickFunction() {
+  ///代码清单 12-13
+  /// 视频控制器的常用方法
+  /// lib/src/page/home/play/video_play_detailed_page.dart
+  void videoContterFunction() {
     //获取当前视频播放的信息
     VideoPlayerValue videoPlayerValue = _videoPlayerController.value;
 
@@ -191,23 +213,26 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget>{
     Duration totalDuration = videoPlayerValue.duration;
     //当前播放视频的位置
     Duration currentDuration = videoPlayerValue.position;
-    if (initialized) {
-      // 视频已初始化
-      if (isPlaying) {
-        // 正播放 --- 暂停
-        _videoPlayerController.pause();
-      } else {
-        //暂停 ----播放
-        _videoPlayerController.play();
-      }
-      setState(() {});
-    } else {
-      //未初始化
-      _videoPlayerController.initialize().then((_) {
-        // videoPlayerController.play();
-        // setState(() {});
-      });
-    }
+    //当前视频是否循环 自动轮播
+    bool isLooping = videoPlayerValue.isLooping;
+
+    //暂停
+    _videoPlayerController.pause();
+    //播放
+    _videoPlayerController.play();
+    //未初始化 调用初始化
+    _videoPlayerController.initialize().then((_) {
+      // videoPlayerController.play();
+      // setState(() {});
+    });
+     //视频从指定的位置开始播放
+    _videoPlayerController.seekTo(Duration(milliseconds: 1200));
+    //设置视频不自动轮播
+    _videoPlayerController.setLooping(false);
+    //设置播放速度的倍数
+    _videoPlayerController.setPlaybackSpeed(1);
+    //设置音量 0.0~1.0
+    _videoPlayerController.setVolume(1.0);
   }
 
   buildController() {
