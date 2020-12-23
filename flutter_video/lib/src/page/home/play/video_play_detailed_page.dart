@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_video/src/bean/bean_video.dart';
+import 'package:flutter_video/src/page/common/common_loading_dialog.dart';
 import 'package:flutter_video/src/utils/log_util.dart';
 import 'package:flutter_video/src/utils/string_utils.dart';
 import 'package:flutter_video/src/utils/toast_utils.dart';
@@ -59,8 +60,7 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
   //是否正在播放中
   bool _isPlaying = false;
 
-  //是否需要初始化
-  bool _isInitialize = false;
+
 
   @override
   void initState() {
@@ -134,46 +134,58 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
     LogUtil.e("移除");
     super.dispose();
   }
-
+  ///代码清单 12-14
+  /// 播放视图构建
+  /// lib/src/page/home/play/video_play_detailed_page.dart
   @override
   Widget build(BuildContext context) {
-    //FutureBuilder会依赖一个Future
+    //容器用来限制大小
     return Container(
       width: MediaQuery.of(context).size.width,
+      //层叠布局
       child: Stack(children: [
-        //构建视频播放
+        //第一部分 构建视频播放
         Positioned.fill(
           child: buildvideoPlay(),
         ),
-        //构建表层的控制播放与暂停的按钮区域
+        //第二部分 构建表层的控制播放与暂停的按钮区域
         Positioned.fill(
           child: buildController(),
         ),
       ]),
     );
   }
-
+  ///代码清单 12-15
+  /// 第一部分 视频播放与占位图选择
+  /// lib/src/page/home/play/video_play_detailed_page.dart
   Widget buildvideoPlay() {
+    //未设置加载视频 未在播放中 显示占位图
     if (!widget.isInitialize && !_isPlaying) {
+      //占位图片为null 显示一个加载中
       if (StringUtils.isEmpty(widget.videoModel.videoImag)) {
-        return Container();
+        return LoadingWidget();
       } else {
+        //显示占位图 一般是网络图片 这里使用的是asset资源
         return Image.asset(
           widget.videoModel.videoImag,
           fit: BoxFit.fill,
         );
       }
     } else {
-      return videoPlayFutureBuilder();
+      //构建视频播放
+      return videoVideoPlayer();
     }
   }
 
-  // lib/app/page/play/video_play_detailed_page.dart
-  Widget videoPlayFutureBuilder() {
+  ///代码清单 12-16
+  /// 第一部分 手势识别与 构建视频播放
+  /// lib/src/page/home/play/video_play_detailed_page.dart
+  Widget videoVideoPlayer() {
     return GestureDetector(
       onTap: () {
         //暂停视频
         _videoPlayerController.pause();
+        //刷新
         setState(() {});
       },
       //居中
@@ -234,15 +246,18 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
     //设置音量 0.0~1.0
     _videoPlayerController.setVolume(1.0);
   }
-
-  buildController() {
+  ///代码清单 12-17
+  /// 第二部分
+  /// lib/src/page/home/play/video_play_detailed_page.dart
+  ///是否需要初始化
+  bool _isClickInitialize = false;
+  Widget buildController() {
     Widget itemWidget = Container();
-
     //当视频暂停时显示按钮
     //当前视频不在播放时显示一个三角图标
     //点击三角图标再次触发播放视频功能
     //同时隐藏这个控制区域，在点击视频时再触发暂停再显示这个控制区域
-    if (_isInitialize) {
+    if (_isClickInitialize) {
       itemWidget = CupertinoActivityIndicator();
     } else if (!_videoPlayerController.value.isPlaying) {
       itemWidget = GestureDetector(
@@ -267,7 +282,9 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
       children: [itemWidget],
     );
   }
-
+  ///代码清单 12-18
+  /// 第二部分  点击播放视频的功能
+  /// lib/src/page/home/play/video_play_detailed_page.dart
   void startPlaying() {
     //重复点击时
     if (_isPlaying) {
@@ -277,14 +294,14 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
     _isPlaying = true;
     if (!_videoPlayerController.value.initialized) {
       //如果视频没有初始化 点击先初始化 页面显示一个小进度圆圈
-      _isInitialize = true;
+      _isClickInitialize = true;
       setState(() {});
       //调用初始化方法
       _videoPlayerController.initialize()
         //异步执行完的回调
         ..whenComplete(() {
           //初始化完成
-          _isInitialize = false;
+          _isClickInitialize = false;
           //需要再次校验
           if (_videoPlayerController.value.initialized) {
             //成功则开始播放当前的视频 同时需要停止之前的播放器
@@ -301,6 +318,14 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
       //如果已初始化完成 直接调用播放
       if (widget.streamController != null) {
         widget.streamController.add(_videoPlayerController);
+      }
+      //视频当前的播放进度
+      Duration position = _videoPlayerController.value.position;
+      //视频的总时长
+      Duration duration = _videoPlayerController.value.duration;
+      if(position==duration){
+        //视频已播放完 需要重新设置进度
+        _videoPlayerController.seekTo(Duration.zero);
       }
       //重新播放
       _videoPlayerController.play();
