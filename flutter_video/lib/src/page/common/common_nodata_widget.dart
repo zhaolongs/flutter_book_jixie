@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,11 +12,16 @@ import 'package:flutter/material.dart';
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 
-
-
+///加载无数据显示组件
+///lib/src/page/common/common_nodata_widget.dart
 class NoDataWidget extends StatelessWidget {
   final Function clickCallBack;
-  NoDataWidget({this.clickCallBack});
+  final Color textColor;
+
+  NoDataWidget({
+    this.clickCallBack,
+    this.textColor = Colors.black,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class NoDataWidget extends StatelessWidget {
       children: [
         //圆角背景
         InkWell(
-          onTap:clickCallBack,
+          onTap: clickCallBack,
           child: Container(
             //大小
             //内边距
@@ -36,17 +40,19 @@ class NoDataWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  width:  22 ,
-                  height:  22 ,
-                  //苹果风格的一个小进度圆圈
-                  child: Icon(Icons.mood,color: Colors.amber,),
+                  width: 22,
+                  height: 22,
+                  child: Icon(
+                    Icons.mood,
+                    color: Colors.amber,
+                  ),
                 ),
                 SizedBox(
                   width: 16,
                 ),
                 Text(
                   '暂无数据 点击刷新',
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: 14,color: textColor),
                 ),
               ],
             ),
@@ -56,4 +62,3 @@ class NoDataWidget extends StatelessWidget {
     );
   }
 }
-
