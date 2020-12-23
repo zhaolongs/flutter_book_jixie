@@ -38,9 +38,10 @@ class LoadingWidget extends StatefulWidget {
 
   // true 为内嵌模式
   final bool isInner;
+  final Color textColor;
 
   LoadingWidget({this.isShowShadow = false,
-    this.isBackShadow = false,this.isInner=true});
+    this.isBackShadow = false,this.isInner=true,this.textColor=Colors.black});
 
   @override
   State<StatefulWidget> createState() {
@@ -147,7 +148,7 @@ class _LoadingState extends State<LoadingWidget>
                 ),
                 Text(
                   '$_loadingMessage',
-                  style: TextStyle(fontSize: widget.isShowShadow ? 18 : 14),
+                  style: TextStyle(fontSize: widget.isShowShadow ? 18 : 14,color: widget.textColor),
                 ),
               ],
             ),
