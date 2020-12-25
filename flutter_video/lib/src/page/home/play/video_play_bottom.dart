@@ -8,25 +8,29 @@ import 'package:flutter_video/src/bean/bean_video.dart';
 /// 可关注公众号：我的大前端生涯   获取最新技术分享
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
-class VideoPlayBottomPage extends StatefulWidget {
+///代码清单 12-29
+///底部的视频说明区域
+///lib/src/page/home/play/video_play_bottom.dart
+class VideoPlayBottomPage extends StatelessWidget {
   final VideoModel videoModel;
 
-  const VideoPlayBottomPage({Key key, this.videoModel}) : super(key: key);
+  const VideoPlayBottomPage({
+    Key key,
+    this.videoModel,
+  }) : super(key: key);
 
-  @override
-  _VideoPlayBottomPageState createState() => _VideoPlayBottomPageState();
-}
-
-//lib/code/main_data.dart
-class _VideoPlayBottomPageState extends State<VideoPlayBottomPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 180,
+      //内边距
       padding: EdgeInsets.only(top: 20, left: 16, right: 16, bottom: 16),
+      //透明度背景
       color: Color(0x20666666),
       child: Column(
+        //子Widget包裹
         mainAxisSize: MainAxisSize.min,
+        //左对齐
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(

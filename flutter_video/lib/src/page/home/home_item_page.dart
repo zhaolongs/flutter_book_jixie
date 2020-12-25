@@ -3,25 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'play/play_list_page.dart';
-
-//lib/src/page/home/home_item_page.dart
-//首页面显示的视频列表播放页面
-//首页面显示的视频列表播放页面
+///代码清单 12-19
+///首页面视频播放页面
+///lib/src/page/home/home_item_page.dart
 class HomeItemMainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MainFindPage3State();
+    return _HomeItemState();
   }
 }
 
-//使用到[TabBar] 所以要绑定一个Ticker
-//当前页面被装载在[PageView]中，使用KeepAlive使用页面保持状态
-class MainFindPage3State extends State
+///使用到[TabBar] 所以要绑定一个Ticker
+///当前页面被装载在[PageView]中，使用KeepAlive使用页面保持状态
+class _HomeItemState extends State
     with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
   //页面保持状态
   @override
   bool get wantKeepAlive => true;
 
+  ///代码清单 12-24
+  ///lib/src/page/home/home_item_page.dart
+  ///
   ///[TabBar]使用的文本
   List<String> tabTextList = ["关注", "推荐"];
 
@@ -34,7 +36,6 @@ class MainFindPage3State extends State
   @override
   void initState() {
     super.initState();
-
     //构建TabBar中使用的Tab数据
     for (var value in tabTextList) {
       tabWidgetList.add(Tab(
@@ -45,10 +46,13 @@ class MainFindPage3State extends State
     tabController = new TabController(length: tabTextList.length, vsync: this);
   }
 
+  ///代码清单 12-20
+  ///首页面的状态栏背景为黑色，文字为白色
+  ///lib/src/page/home/home_item_page.dart
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    //黑色
+    //状态文字设置为魄
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     //设置状态栏的颜色 有AppBar时，会被覆盖
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -62,13 +66,15 @@ class MainFindPage3State extends State
           systemNavigationBarColor: Colors.white),
     );
   }
-
+  ///代码清单 12-21
+  ///首页面的主体内容
+  ///lib/src/page/home/home_item_page.dart
   Scaffold buildScaffold() {
     return Scaffold(
       //层叠布局
       body: Stack(
         children: <Widget>[
-          //视频列表
+          //视频
           Positioned.fill(
             child: buildTabBarView(),
           ),
@@ -82,8 +88,9 @@ class MainFindPage3State extends State
     );
   }
 
-  //视频列表
-  //构建 TabBarView
+  ///代码清单 12-22
+  ///第一层 构建 TabBarView
+  ///lib/src/page/home/home_item_page.dart
   Widget buildTabBarView() {
     return TabBarView(
       controller: tabController,
@@ -98,7 +105,9 @@ class MainFindPage3State extends State
     );
   }
 
-  //构建顶部标签部分
+  ///代码清单 12-23
+  /// 第二层 构建顶部标签部分
+  ///lib/src/page/home/home_item_page.dart
   Widget buildTabBar() {
     return Container(
       //对齐在顶部中间

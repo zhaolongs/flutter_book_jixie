@@ -12,7 +12,10 @@ import 'video_play_share_page.dart';
 /// 可关注公众号：我的大前端生涯   获取最新技术分享
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
-/// lib/app/page/play/video_play_right.dart
+
+///代码清单 12-30
+///底部的视频说明区域
+///lib/src/page/home/play/video_play_right.dart
 class VideoPlayRightPage extends StatefulWidget {
   final VideoModel videoModel;
 
@@ -64,33 +67,33 @@ class _VideoPlayRightPageState extends State<VideoPlayRightPage> {
     );
   }
 
-  /// lib/app/page/play/video_play_right.dart
-  /// 构建用户的头像区域
-  buildUserItem() {
+  ///代码清单 12-31
+  ///构建用户的头像区域
+  ///lib/src/page/home/play/video_play_right.dart
+  Widget buildUserItem() {
     return Container(
       width: 60,
       height: 60,
       child: Stack(
         children: <Widget>[
           Align(
+            //居中
             alignment: Alignment(0, 0),
-
-            ///裁剪成圆形的头像
+            //裁剪成圆形的头像
             child: ClipOval(
               child: Container(
-                width: 44,
-                height: 44,
+                width: 44, height: 44,
                 color: Colors.grey,
-
-                ///加载头像
+                //加载头像
                 child: CachedNetworkImage(
                   imageUrl: widget.videoModel.videoImag,
+                  //加载中占位
                   placeholder: (context, url) => CircularProgressIndicator(),
                   errorWidget: (
-                      BuildContext context,
-                      String url,
-                      dynamic error,
-                      ) {
+                    BuildContext context,
+                    String url,
+                    dynamic error,
+                  ) {
                     return Image.asset(
                       "assets/images/2.0x/app_icon.png",
                       fit: BoxFit.fill,
@@ -117,8 +120,9 @@ class _VideoPlayRightPageState extends State<VideoPlayRightPage> {
                     width: 18,
                     height: 18,
                     decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.all(Radius.circular(9))),
+                      color: Colors.red,
+                      borderRadius: BorderRadius.all(Radius.circular(9)),
+                    ),
                   ),
                 )
         ],
@@ -126,7 +130,9 @@ class _VideoPlayRightPageState extends State<VideoPlayRightPage> {
     );
   }
 
-  /// lib/app/page/play/video_play_right.dart
+  ///代码清单 12-32
+  ///构建用户的头像区域
+  ///lib/src/page/home/play/video_play_right.dart
   ///[assetImage]图标名称
   ///[msgCount]对应的消息个数
   ///[callBack]点击回调
@@ -136,23 +142,15 @@ class _VideoPlayRightPageState extends State<VideoPlayRightPage> {
       child: Container(
         margin: EdgeInsets.only(top: 20),
         child: Column(
-          ///线性布局包裹子Widget
+          //线性布局包裹子Widget
           mainAxisSize: MainAxisSize.min,
-
-          ///居中对齐
+          //居中对齐
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            ///图标
-            Image.asset(
-              assetImage,
-              width: 33,
-              height: 33,
-            ),
-
-            ///图标与文字之间的间隔
-            SizedBox(
-              height: 4,
-            ),
+            //图标
+            Image.asset(assetImage, width: 33, height: 33),
+            //图标与文字之间的间隔
+            SizedBox(height: 4),
             Text(
               "$msgCount",
               style: TextStyle(color: Colors.white, fontSize: 16),
@@ -162,24 +160,27 @@ class _VideoPlayRightPageState extends State<VideoPlayRightPage> {
       ),
     );
   }
-  /// lib/app/page/play/video_play_right.dart
+
+  ///代码清单 12-33
+  ///lib/src/page/home/play/video_play_right.dart
   ///用来底部弹框
   ///[index]值为1 显示底部评论列表的弹框
   ///       值为2 显示底部分享的宫格的弹框
   void showBottomFoncton(int index) {
     ///显示底部弹框
     showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          if (index == 1) {
-            ///构建列表的弹框
-            return VideoCommontPage(videoModel: widget.videoModel);
-          } else {
-            ///构建窃宫格的分享弹框
-            return SharePage(
-              videoModel: widget.videoModel,
-            );
-          }
-        });
+      context: context,
+      builder: (BuildContext context) {
+        if (index == 1) {
+          //构建列表的弹框
+          return VideoCommontPage(videoModel: widget.videoModel);
+        } else {
+          //构建窃宫格的分享弹框
+          return SharePage(
+            videoModel: widget.videoModel,
+          );
+        }
+      },
+    );
   }
 }

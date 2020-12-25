@@ -6,8 +6,9 @@ import 'video_play_bottom.dart';
 import 'video_play_detailed_page.dart';
 import 'video_play_right.dart';
 
-//lib/app/page/play/find_video_page.dart
-//播放视频的页面
+///代码清单 12-28
+///播放视频的页面
+///lib/src/page/home/play/find_video_page.dart
 class FindVideoItemPage extends StatefulWidget {
   //视频数据模型
   final VideoModel videoModel;
