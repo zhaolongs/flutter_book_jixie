@@ -1,0 +1,328 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_shop/src/auth/face_model.dart';
+import 'package:flutter_shop/src/page/login/login_bottom_widget.dart';
+import 'package:local_auth/local_auth.dart';
+
+/// 创建人： Created by zhaolong
+/// 创建时间：Created by  on 2020/10/31.
+///
+/// 可关注公众号：我的大前端生涯   获取最新技术分享
+/// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
+/// 可关注博客：https://blog.csdn.net/zl18603543572
+///
+
+///启动函数
+void main() {
+  runApp(RootApp());
+}
+
+class RootApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(primaryColor: Colors.white),
+      home: LoginPage(),
+    );
+  }
+}
+
+//定义登录页面
+class LoginPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _LoginPageState();
+  }
+}
+
+class _LoginPageState extends State<LoginPage> with FaceModel {
+  //RichText 富文本中使用的手势识别
+  TapGestureRecognizer _gestureRecognizer;
+  TapGestureRecognizer _gestureRecognizer2;
+
+  @override
+  void initState() {
+    super.initState();
+    _gestureRecognizer = TapGestureRecognizer();
+    _gestureRecognizer2 = TapGestureRecognizer();
+    initBiometrics();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _gestureRecognizer.dispose();
+    _gestureRecognizer.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      //背景颜色
+      backgroundColor: Colors.white,
+      //构建APPBar
+      appBar: buildAppBar(),
+      //内容主体
+      body: Container(
+        //填充屏幕空间
+        width: double.infinity,
+        height: double.infinity,
+        child: buildColumn(),
+      ),
+    );
+  }
+
+  Column buildColumn() {
+    return Column(
+      children: [
+        SizedBox(
+          height: 44,
+        ),
+        Hero(
+          tag: "loginTag",
+          child: Material(
+            color: Colors.transparent,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+              child: Image.asset(
+                "assets/images/2.0x/app_icon.png",
+                width: 60,
+                height: 60,
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 24,
+        ),
+        Text(
+          "欢迎登录 精彩每一天",
+          style: TextStyle(fontSize: 22),
+        ),
+
+        //登录按钮
+        buildLoginButton(),
+
+        SizedBox(height: 22),
+        //隐私协议
+        buildRichText(),
+        //填充空白
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.only(bottom: 34),
+            //水平方向排开
+            child: buildRow(),
+          ),
+        )
+      ],
+    );
+  }
+
+  ///是否支持生物识别登录
+  bool _isBiometrics = false;
+  List<BiometricType> _biometricList;
+
+  void initBiometrics() async {
+    //第一步检测是否支持指纹等生物识别技术
+    _isBiometrics = await checkBiometrics();
+    if (_isBiometrics) {
+      //第二步获取生物识别技术支持列表
+      _biometricList = await getAvailableBiometrics();
+      if (mounted) {
+        setState(() {});
+      }
+      Future.delayed(Duration(milliseconds: 1000),(){
+        //自动弹出
+        authenticate();
+      });
+
+    }
+  }
+
+  Row buildRow() {
+    List<Widget> _rowWidgetList = [
+      SizedBox(
+        width: 22,
+      ),
+      CustumOvalButton(
+        assetPath: "assets/images/2.0x/more.png",
+        clickCallBack: () {
+          print("点击 更多");
+          showBottomSheet();
+        },
+      ),
+    ];
+    if (_isBiometrics && _biometricList != null) {
+      //支持生物识别
+      _biometricList.forEach((element) {
+        if (element == BiometricType.face) {
+          _rowWidgetList.insert(
+            0,
+            CustumOvalButton(
+              assetPath: "assets/images/2.0x/scan_icon.png",
+              clickCallBack: () {
+                print("点击 了面容登录");
+              },
+            ),
+          );
+        } else if (element == BiometricType.fingerprint) {
+          _rowWidgetList.insert(
+              0,
+              CustumOvalButton(
+                assetPath: "assets/images/2.0x/zhiwen_icon.png",
+                clickCallBack: () {
+                  print("点击 了指纹登录");
+                  authenticate();
+                },
+              ));
+        }
+        _rowWidgetList.insert(
+          0,
+          SizedBox(
+            width: 22,
+          ),
+        );
+      });
+    }
+    return Row(
+      //水平方向居中
+      mainAxisAlignment: MainAxisAlignment.center,
+      //竖直方向底部对齐
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: _rowWidgetList,
+    );
+  }
+
+  //显示底部弹框的功能
+  void showBottomSheet() {
+    //用于在底部打开弹框的效果
+    showModalBottomSheet(
+        builder: (BuildContext context) {
+          //构建弹框中的内容
+          return LoginBottomWidget();
+        },
+        context: context);
+  }
+
+  Container buildLoginButton() {
+    return Container(
+      margin: EdgeInsets.only(top: 64),
+      width: 220,
+      height: 44,
+      child: RaisedButton(
+        //按钮背景颜色
+        color: Colors.blue,
+        //按钮上的颜色
+        textColor: Colors.white,
+        onPressed: () {
+          print("点击了手机号登录");
+        },
+        child: Text("手机号一键登录"),
+      ),
+    );
+  }
+
+  //封装方法
+  RichText buildRichText() {
+    return RichText(
+      text: TextSpan(
+          text: "登录同意",
+          style: TextStyle(color: Colors.grey),
+          children: [
+            TextSpan(
+                text: "用户协议",
+                style: TextStyle(
+                  color: Colors.orange,
+                ),
+                //点击事件
+                recognizer: _gestureRecognizer
+                  ..onTap = () {
+                    print("用户协议点击");
+                  }),
+            TextSpan(
+              text: "和",
+              style: TextStyle(color: Colors.grey),
+            ),
+            TextSpan(
+                text: "隐私协议",
+                style: TextStyle(
+                  color: Colors.orange,
+                ),
+                //点击事件
+                recognizer: _gestureRecognizer2
+                  ..onTap = () {
+                    print("隐私协议点击");
+                  }),
+          ]),
+    );
+  }
+
+  /// 识别结果
+  String _authorized = '验证失败';
+
+  AppBar buildAppBar() {
+    return AppBar(
+      //阴影高度
+      elevation: 0.0,
+      //左侧的按钮
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios_outlined),
+        onPressed: () {
+          print("返回键点击 ");
+        },
+      ),
+      //右侧的按钮
+      actions: [
+        FlatButton(
+          child: Text("登录遇到问题"),
+          onPressed: () {},
+        )
+      ],
+    );
+  }
+}
+
+class CustumOvalButton extends StatefulWidget {
+  //图标
+  final String assetPath;
+
+  //点击事件回调
+  final Function() clickCallBack;
+
+  CustumOvalButton({@required this.assetPath, this.clickCallBack, Key key})
+      : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return _CustumOvalButtonState();
+  }
+}
+
+class _CustumOvalButtonState extends State<CustumOvalButton> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      //点击事件的响应范围
+      borderRadius: BorderRadius.all(Radius.circular(30)),
+      //点击事件
+      onTap: widget.clickCallBack,
+      child: Container(
+        width: 50,
+        height: 50,
+        padding: EdgeInsets.all(10),
+        //自定义边框
+        decoration: BoxDecoration(
+            //边框
+            border: Border.all(color: Colors.grey),
+            //边框圆角
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+        child: Image.asset(
+          widget.assetPath,
+          //图标颜色
+          color: Colors.black87,
+        ),
+      ),
+    );
+  }
+}
