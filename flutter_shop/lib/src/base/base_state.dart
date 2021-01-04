@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_shop/src/utils/navigator_utils.dart';
 
 /// 创建人： Created by zhaolong

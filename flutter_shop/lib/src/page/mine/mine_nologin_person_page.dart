@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/src/page/login/bubble_login_page.dart';
 import 'package:flutter_shop/src/page/login/login_page.dart';
 import 'package:flutter_shop/src/page/mine/settings_page.dart';
 import 'package:flutter_shop/src/utils/navigator_utils.dart';
-
-import 'oval_transit_rect_widget.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/12/4.

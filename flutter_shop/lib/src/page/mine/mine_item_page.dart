@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/bean/bean_article.dart';
+import 'package:flutter_shop/src/net/dio_utils.dart';
+import 'package:flutter_shop/src/net/loading_statues.dart';
 import 'package:flutter_shop/src/page/common/common_err_loading_widget.dart';
 import 'package:flutter_shop/src/page/common/common_loading_dialog.dart';
 import 'package:flutter_shop/src/page/common/common_nodata_widget.dart';
 import 'package:flutter_shop/src/page/common/webview_page.dart';
-import 'package:flutter_shop/src/net/dio_utils.dart';
-import 'package:flutter_shop/src/net/loading_statues.dart';
 
 
 /// 创建人： Created by zhaolong

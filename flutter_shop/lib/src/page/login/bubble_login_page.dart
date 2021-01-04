@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -10,7 +8,6 @@ import 'package:flutter_shop/src/common/user_helper.dart';
 import 'package:flutter_shop/src/net/dio_utils.dart';
 import 'package:flutter_shop/src/utils/toast_utils.dart';
 
-import '../mine/oval_transit_rect_widget.dart';
 import 'bg/bubble_widget.dart';
 
 /// 创建人： Created by zhaolong

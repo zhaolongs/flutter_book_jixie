@@ -3,9 +3,10 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_shop/src/utils/navigator_utils.dart';
 import 'package:flutter_shop/src/utils/log_util.dart';
+import 'package:flutter_shop/src/utils/navigator_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
+
 import 'common_dialog.dart';
 
 /// 创建人： Created by zhaolong

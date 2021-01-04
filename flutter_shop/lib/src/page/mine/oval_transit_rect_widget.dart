@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/12/4.

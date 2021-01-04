@@ -1,22 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/src/page/common/user_protocol_page.dart';
+import 'package:flutter_fai_umeng/flutter_fai_umeng.dart';
 import 'package:flutter_shop/src/page/common/permission_request_page.dart';
+import 'package:flutter_shop/src/page/common/user_protocol_page.dart';
 import 'package:flutter_shop/src/splash_page.dart';
 import 'package:flutter_shop/src/utils/navigator_utils.dart';
 import 'package:flutter_shop/src/utils/sp_utils.dart';
 import 'package:flutter_shop/src/welcome_page.dart';
-import 'package:flutter_fai_umeng/flutter_fai_umeng.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'app_root_page.dart';
 import 'base/pop_base_state.dart';
-import 'bean/bean_app_setting.dart';
-import 'bean/bean_global.dart';
-import 'common/global.dart';
 import 'common/sp_key.dart';
 import 'common/user_helper.dart';
-import 'net/dio_utils.dart';
 import 'utils/log_util.dart';
 
 /// 创建人： Created by zhaolong

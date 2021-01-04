@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_life_state/flutter_life_state.dart';
 import 'package:flutter_shop/src/utils/log_util.dart';
+
 import 'mine_item_page.dart';
 import 'mine_sliver_header_widget.dart';
 

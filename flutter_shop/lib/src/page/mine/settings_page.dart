@@ -6,7 +6,6 @@ import 'package:flutter_shop/src/common/user_helper.dart';
 import 'package:flutter_shop/src/net/dio_utils.dart';
 import 'package:flutter_shop/src/page/common/app_upgrade.dart';
 import 'package:flutter_shop/src/page/common/user_protocol_page.dart';
-import 'package:flutter_shop/src/page/login/bubble_login_page.dart';
 import 'package:flutter_shop/src/page/login/login_page.dart';
 import 'package:flutter_shop/src/utils/log_util.dart';
 import 'package:flutter_shop/src/utils/navigator_utils.dart';

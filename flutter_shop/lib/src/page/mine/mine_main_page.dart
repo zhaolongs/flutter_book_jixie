@@ -1,10 +1,9 @@
-import 'dart:async';
-import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_life_state/flutter_life_state.dart';
 import 'package:flutter_shop/src/common/user_helper.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import 'mine_main_person_page.dart';
 import 'mine_nologin_person_page.dart';

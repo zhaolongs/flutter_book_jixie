@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_shop/src/utils/sp_utils.dart';
 import 'package:local_auth/auth_strings.dart';

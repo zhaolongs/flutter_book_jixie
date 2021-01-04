@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/src/common/global.dart';
 
 
 ///Flutter 实现的Toast
