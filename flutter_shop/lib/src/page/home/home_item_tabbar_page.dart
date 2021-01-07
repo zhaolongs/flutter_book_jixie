@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/common/banner.dart';
 
+import 'home_good_class_widget.dart';
 import 'home_good_seckill_widget.dart';
+import 'home_staggered_list_widget.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2021/1/4.
@@ -16,7 +20,10 @@ import 'home_good_seckill_widget.dart';
 class HomeItemTabbarPage extends StatefulWidget {
   final int categoryId;
 
-  HomeItemTabbarPage({this.categoryId});
+  final ScrollController scrollController;
+
+  HomeItemTabbarPage(
+      {this.categoryId,  this.scrollController});
 
   @override
   _HomeItemTabbarPageState createState() => _HomeItemTabbarPageState();
@@ -24,22 +31,37 @@ class HomeItemTabbarPage extends StatefulWidget {
 
 class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  double lastDownY = 0.0;
+  double downY = 0.0;
+  double offset = 0.0;
+  double offset2 = 0.0;
+  DateTime downDateTime;
+
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: NeverScrollableScrollPhysics(),
-      child: Container(
-          width: double.infinity,
-          color: Color(0xfff2f2f2),
-          child: Column(
-            children: [
-              BannerWidget(),
-              Container(height: 170, child: buildGridView()),
-              GoodsSeckillWidget(),
-              Container(
-                height: 300,
-              )
-            ],
-          )),
+    return NestedScrollView(
+      controller: widget.scrollController,
+      key: ValueKey("scroll"),
+      body: HomeStaggeredWidget(),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return [
+          SliverToBoxAdapter(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                BannerWidget(),
+                Container(height: 170, child: buildGridView()),
+                GoodsSeckillWidget(),
+                GoodsClassWidget(),
+              ],
+            ),
+          ),
+        ];
+      },
     );
   }
 

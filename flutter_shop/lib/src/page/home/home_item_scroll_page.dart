@@ -1,12 +1,19 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/bean/bean_goods_categore.dart';
+import 'package:flutter_shop/src/common/banner.dart';
 import 'package:flutter_shop/src/net/dio_utils.dart';
 import 'package:flutter_shop/src/page/common/common_nodata_widget.dart';
+import 'package:flutter_shop/src/utils/log_util.dart';
 
+import 'home_custom_appbar.dart';
+import 'home_good_class_widget.dart';
+import 'home_good_seckill_widget.dart';
 import 'home_item_tabbar_page.dart';
+import 'image_text_widget.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2021/1/4.
@@ -15,13 +22,10 @@ import 'home_item_tabbar_page.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-/// 代码清单
-///代码清单
+///代码清单 13-6
+///lib/src/page/home/home_item_scroll_page.dart
+///首页面
 class HomeItmeScrollPage extends StatefulWidget {
-  final StreamController streamController;
-
-  HomeItmeScrollPage(this.streamController);
-
   @override
   _HomeItmeScrollPageState createState() => _HomeItmeScrollPageState();
 }
@@ -34,56 +38,40 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
   List<Tab> _tabList;
   List<Widget> _tabBarViewList;
 
+  //滑动监听
   ScrollController _scrollController = new ScrollController();
+
+  double _value = 0.0;
+  double _value2 = 0.0;
+
+  //局部更新
+  StreamController<double> _headStreamController = new StreamController();
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
-      widget.streamController.add(_scrollController.offset);
+      double pixels = _scrollController.offset;
+      if (pixels <= 44) {
+        _value2 = 0.0;
+        _value = pixels / 44.0;
+        _headStreamController.add(1.0);
+      } else if (pixels > 44 && pixels <= 88) {
+        _value2 = (pixels - 44) / 44.0;
+        _headStreamController.add(1.0);
+      } else {
+        if (_value2 != 1.0) {
+          _value = 1.0;
+          _value2 = 1.0;
+          _headStreamController.add(1.0);
+        }
+      }
     });
-
     loadingData();
   }
 
   @override
   Widget build(BuildContext context) {
-    return NestedScrollView(
-      controller: _scrollController,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: buildBody(),
-      ),
-      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-        return [
-          SliverToBoxAdapter(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 34,),
-                TabBar(
-                  isScrollable: true,
-                  unselectedLabelStyle: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  labelStyle: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  controller: _tabController,
-                  tabs: _tabList,
-                )
-              ],
-            ),
-          ),
-        ];
-      },
-    );
-  }
-
-  Widget buildBody() {
     if (_tabController == null) {
       return Center(
         child: NoDataWidget(
@@ -92,13 +80,41 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
           },
         ),
       );
-    } else {
-      return TabBarView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _tabController,
-        children: _tabBarViewList,
-      );
     }
+    return Scaffold(
+      backgroundColor: Colors.red,
+      body: buildBody(),
+    );
+  }
+
+  Widget buildBody() {
+    return Column(
+      children: [
+        StreamBuilder<double>(
+          stream: _headStreamController.stream,
+          initialData: 0.0,
+          builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
+            return Container(
+              width: MediaQuery.of(context).size.width,
+              height: 160 - 50 * _value2,
+              child: HomeCustomAppBar(
+                value: _value,
+                value2: _value2,
+                tabController: _tabController,
+                tabList: _tabList,
+              ),
+            );
+          },
+        ),
+        Expanded(
+          child: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _tabController,
+            children: _tabBarViewList,
+          ),
+        )
+      ],
+    );
   }
 
   Future<bool> loadingData() async {
@@ -143,7 +159,10 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
         _tabList.add(Tab(
           text: element.title,
         ));
-        _tabBarViewList.add(HomeItemTabbarPage(categoryId: element.id));
+        _tabBarViewList.add(HomeItemTabbarPage(
+          categoryId: element.id,
+          scrollController: _scrollController,
+        ));
       });
       //添加到队列中刷新
       Future.delayed(Duration.zero, () {
@@ -151,5 +170,11 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
       });
     }
     return true;
+  }
+
+  @override
+  void dispose() {
+    _headStreamController.close();
+    super.dispose();
   }
 }

@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/utils/date_utils.dart';
 
+import 'home_good_seckill_item_widget.dart';
+import 'home_staggered_list_widget.dart';
+
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2021/1/4.
 ///
@@ -54,17 +57,30 @@ class _GoodsSeckillWidgetState extends State<GoodsSeckillWidget> {
                 "商品秒杀",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
-              SizedBox(width: 10,),
+              SizedBox(
+                width: 10,
+              ),
               buildTimeWidget(),
             ],
-          )
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              SeckillGoodsWidget(),
+              SeckillGoodsWidget(),
+              SeckillGoodsWidget(),
+              SeckillGoodsWidget(),
+            ],
+          ),
         ],
       ),
     );
   }
 
   Widget buildTimeWidget() {
-    String endTimeString = "2021-01-04 17:00:00";
+    String endTimeString = "2021-03-06 20:00:00";
     DateTime endDateTime = DateUtils.getDateTime(endTimeString);
     DateTime now = DateTime.now();
     Duration flagDuration = endDateTime.difference(now);

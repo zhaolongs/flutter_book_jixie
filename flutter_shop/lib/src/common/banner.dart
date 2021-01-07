@@ -72,16 +72,21 @@ class _BannerWidgetState extends State<BannerWidget> {
   //使用层叠布局将图片与自定义的指示器组装在一起
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 160,
-      width: double.infinity,
-      child: Stack(
-        children: [
-          //第一部分 轮播图片
-          buildBannerWidget(),
-          //第二部分 指示器
-          buildTipsWidget(),
-        ],
+    return NotificationListener(
+      onNotification: (value){
+        return true;
+      },
+      child: Container(
+        height: 160,
+        width: double.infinity,
+        child: Stack(
+          children: [
+            //第一部分 轮播图片
+            buildBannerWidget(),
+            //第二部分 指示器
+            buildTipsWidget(),
+          ],
+        ),
       ),
     );
   }

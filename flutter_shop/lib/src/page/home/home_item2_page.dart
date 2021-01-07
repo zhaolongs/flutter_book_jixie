@@ -14,12 +14,14 @@ import 'image_text_widget.dart';
 ///代码清单 12-19
 ///首页面视频播放页面
 ///lib/src/page/home/home_item_page.dart
-class HomeItemMainPage extends StatefulWidget {
+class HomeItemMainPage2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _HomeItemState();
   }
 }
+
+StreamController<double> _streamController = StreamController.broadcast();
 
 ///使用到[TabBar] 所以要绑定一个Ticker
 ///当前页面被装载在[PageView]中，使用KeepAlive使用页面保持状态
@@ -28,11 +30,6 @@ class _HomeItemState extends State
   //页面保持状态
   @override
   bool get wantKeepAlive => true;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +50,11 @@ class _HomeItemState extends State
   }
 
   buildScaffold() {
-    return Scaffold();
+    return NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return [];
+      },
+      body: HomeItmeScrollPage(),
+    );
   }
 }

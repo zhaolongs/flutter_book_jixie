@@ -13,6 +13,8 @@ dependencies:
   #Flutter 生命周期兼听库、Flutter组件生命周期、Widget生命周期
   flutter_life_state: ^1.0.1
   fluwx: ^2.5.0+1
+  #瀑布流
+  flutter_staggered_grid_view: ^0.3.3
   #App版本信息
   package_info: ^0.4.3+2
   # 权限请求框架

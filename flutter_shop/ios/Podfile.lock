@@ -11,6 +11,9 @@ PODS:
   - fluttertoast (0.0.2):
     - Flutter
     - Toast
+  - fluwx (0.0.1):
+    - Flutter
+    - WechatOpenSDK (= 1.8.7.1)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -38,12 +41,14 @@ PODS:
     - UMCCommon
   - video_player (0.0.1):
     - Flutter
+  - WechatOpenSDK (1.8.7.1)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_fai_umeng (from `.symlinks/plugins/flutter_fai_umeng/ios`)
   - flutter_fai_webview (from `.symlinks/plugins/flutter_fai_webview/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - fluwx (from `.symlinks/plugins/fluwx/ios`)
   - install_plugin_custom (from `.symlinks/plugins/install_plugin_custom/ios`)
   - local_auth (from `.symlinks/plugins/local_auth/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
@@ -61,6 +66,7 @@ SPEC REPOS:
     - UMCCommon
     - UMCCommonLog
     - UMCPush
+    - WechatOpenSDK
 
 EXTERNAL SOURCES:
   Flutter:
@@ -71,6 +77,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_fai_webview/ios"
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  fluwx:
+    :path: ".symlinks/plugins/fluwx/ios"
   install_plugin_custom:
     :path: ".symlinks/plugins/install_plugin_custom/ios"
   local_auth:
@@ -93,6 +101,7 @@ SPEC CHECKSUMS:
   flutter_fai_umeng: 9f604fb85dde9be81059cff5d6806b04f2566e24
   flutter_fai_webview: 7ecaa35047fd557c12e86a698e05fba18f5b25eb
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
+  fluwx: 07a55ed66bf3a4961e836a2a411b02dcada32902
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   install_plugin_custom: cf04211b6d2f57b1d77a8eaf5c0c4073744f4028
   local_auth: 25938960984c3a7f6e3253e3f8d962fdd16852bd
@@ -107,6 +116,7 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   UMCPush: af977ec99bbf34558825e907c58f6b76f6c7f897
   video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
+  WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
 
 PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 
