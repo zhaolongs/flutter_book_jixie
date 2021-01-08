@@ -57,9 +57,10 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   @override
   void dispose() {
-    super.dispose();
     //停止计时
     _timer.cancel();
+    super.dispose();
+
   }
 
   void stopTimer() {

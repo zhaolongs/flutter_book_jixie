@@ -13,7 +13,7 @@ import 'image_text_widget.dart';
 
 ///代码清单 12-19
 ///首页面视频播放页面
-///lib/src/page/home/home_item_page.dart
+///lib/src/page/home/home_item_catalogue_page.dart
 class HomeItemMainPage2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

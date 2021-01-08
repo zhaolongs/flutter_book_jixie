@@ -13,7 +13,7 @@ import 'package:flutter_shop/src/utils/toast_utils.dart';
 
 import '../mine/mine_main_page.dart';
 import 'home_item2_page.dart';
-import 'home_item_page.dart';
+import '../catalogue/home_item_catalogue_page.dart';
 import 'home_item_scroll_page.dart';
 
 ///代码清单 13-1

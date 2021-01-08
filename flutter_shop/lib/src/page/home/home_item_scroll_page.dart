@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/bean/bean_goods_categore.dart';
 import 'package:flutter_shop/src/net/dio_utils.dart';
 import 'package:flutter_shop/src/page/common/common_loading_dialog.dart';
-
 import 'home_custom_appbar.dart';
 import 'home_item_tabbar_page.dart';
 
@@ -25,7 +24,11 @@ class HomeItmeScrollPage extends StatefulWidget {
 }
 
 class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  //页面保持状态
+  @override
+  bool get wantKeepAlive => true;
+
   ///商品分类
   List<GoodsCategoryBean> _categoryList = [];
   TabController _tabController;
@@ -77,6 +80,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     //初次进入显示加载中
     //加载失败时 可考虑使用占位UI
     if (_tabController == null) {
@@ -97,7 +101,9 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
             child: buildHeaderBg(),
           ),
           //第二层的内容主体
-          Positioned.fill(child: buildBody(),)
+          Positioned.fill(
+            child: buildBody(),
+          )
         ],
       ),
     );

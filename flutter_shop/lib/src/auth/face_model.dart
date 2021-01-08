@@ -10,7 +10,8 @@ import 'package:local_auth/local_auth.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-/// 代码清单
+///代码清单 13-7
+///指纹等生物识别功能封装
 /// lib/src/auth/face_model.dart
 class FaceModel {
   /// 本地认证框架

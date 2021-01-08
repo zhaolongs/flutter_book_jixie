@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/src/page/common/search_widget.dart';
 
 import 'image_text_widget.dart';
 
@@ -74,40 +75,7 @@ class _HomeCustomAppBarState extends State<HomeCustomAppBar> {
           right: 0,
           height: 38,
           left: 12,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                margin: EdgeInsets.only(right: 20 * widget.value),
-                height: 34,
-                width: MediaQuery.of(context).size.width - 20 - 120 * widget.value,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/images/2.0x/search_icon2.png',
-                      width: 16,
-                      height: 16,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Expanded(
-                      child: Text("搜索"),
-                    ),
-                    Image.asset(
-                      'assets/images/2.0x/camera_icon2.png',
-                      width: 22,
-                      height: 22,
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+          child: SearchWidget(value: widget.value,),
         ),
         Positioned(
           left: 0,

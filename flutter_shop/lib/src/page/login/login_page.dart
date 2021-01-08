@@ -28,6 +28,9 @@ class RootApp extends StatelessWidget {
   }
 }
 
+///代码清单 13-1
+///登录页面
+///lib/src/page/login/login_page.dart
 //定义登录页面
 class LoginPage extends StatefulWidget {
   @override
@@ -36,32 +39,38 @@ class LoginPage extends StatefulWidget {
   }
 }
 
+/// FaceModel 是封装的指纹识别功能
 class _LoginPageState extends State<LoginPage> with FaceModel {
-  //RichText 富文本中使用的手势识别
+  //用户协议 富文本中使用的手势识别
   TapGestureRecognizer _gestureRecognizer;
+  //隐私协议 富文本中使用的手势识别
   TapGestureRecognizer _gestureRecognizer2;
 
   @override
   void initState() {
     super.initState();
+    //初始化创建
     _gestureRecognizer = TapGestureRecognizer();
     _gestureRecognizer2 = TapGestureRecognizer();
+    //检验是否开支持以及开启了指纹登录功能
+    //封装在 FaceModel 中的方法
     initBiometrics();
   }
 
   @override
   void dispose() {
+    _gestureRecognizer.dispose();
+    _gestureRecognizer.dispose();
     super.dispose();
-    _gestureRecognizer.dispose();
-    _gestureRecognizer.dispose();
   }
 
+  //页面的主体
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //背景颜色
       backgroundColor: Colors.white,
-      //构建APPBar
+      //构建APPBar 返回按钮与右侧的按钮
       appBar: buildAppBar(),
       //内容主体
       body: Container(
@@ -73,6 +82,9 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
     );
   }
 
+  ///代码清单 13-3
+  ///登录页面 LoginPage 中的方法
+  ///lib/src/page/login/login_page.dart
   Column buildColumn() {
     return Column(
       children: [
@@ -100,10 +112,9 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
           "欢迎登录 精彩每一天",
           style: TextStyle(fontSize: 22),
         ),
-
         //登录按钮
         buildLoginButton(),
-
+        //间距
         SizedBox(height: 22),
         //隐私协议
         buildRichText(),
@@ -119,9 +130,7 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
     );
   }
 
-  ///是否支持生物识别登录
-  bool _isBiometrics = false;
-  List<BiometricType> _biometricList;
+
 
   void initBiometrics() async {
     //第一步检测是否支持指纹等生物识别技术
@@ -132,13 +141,19 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
       if (mounted) {
         setState(() {});
       }
-      Future.delayed(Duration(milliseconds: 1000),(){
+      Future.delayed(Duration(milliseconds: 1000), () {
         //自动弹出
         authenticate();
       });
-
     }
   }
+  ///代码清单 13-6
+  ///登录页面 LoginPage 中的方法 底部的按钮
+  ///lib/src/page/login/login_page.dart
+  ///是否支持生物识别登录
+  bool _isBiometrics = false;
+  ///生物识别的列表
+  List<BiometricType> _biometricList;
 
   Row buildRow() {
     List<Widget> _rowWidgetList = [
@@ -163,6 +178,7 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
               assetPath: "assets/images/2.0x/scan_icon.png",
               clickCallBack: () {
                 print("点击 了面容登录");
+                authenticate();
               },
             ),
           );
@@ -194,7 +210,9 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
     );
   }
 
-  //显示底部弹框的功能
+  ///代码清单 13-6
+  ///登录页面 LoginPage 中的方法 显示底部弹框的功能
+  ///lib/src/page/login/login_page.dart
   void showBottomSheet() {
     //用于在底部打开弹框的效果
     showModalBottomSheet(
@@ -204,6 +222,9 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
         },
         context: context);
   }
+  ///代码清单 13-4
+  ///登录页面 LoginPage 中的方法 登录按钮
+  ///lib/src/page/login/login_page.dart
 
   Container buildLoginButton() {
     return Container(
@@ -223,7 +244,9 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
     );
   }
 
-  //封装方法
+  ///代码清单 13-5
+  ///登录页面 LoginPage 中的方法 隐私协议
+  ///lib/src/page/login/login_page.dart
   RichText buildRichText() {
     return RichText(
       text: TextSpan(
@@ -258,18 +281,28 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
     );
   }
 
-  /// 识别结果
-  String _authorized = '验证失败';
 
+
+  ///代码清单 13-2
+  ///登录页面 LoginPage 中的方法
+  ///lib/src/page/login/login_page.dart
   AppBar buildAppBar() {
     return AppBar(
+      //AppBar的背景色为白色
+      backgroundColor: Colors.white,
+      //状态栏的文字颜色为黑色
+      brightness: Brightness.light,
       //阴影高度
       elevation: 0.0,
       //左侧的按钮
       leading: IconButton(
-        icon: Icon(Icons.arrow_back_ios_outlined),
+        icon: Icon(
+          Icons.close,
+          color: Colors.blueGrey,
+        ),
         onPressed: () {
           print("返回键点击 ");
+          Navigator.of(context).pop();
         },
       ),
       //右侧的按钮
