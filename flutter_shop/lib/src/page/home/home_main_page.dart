@@ -9,6 +9,7 @@ import 'package:flutter_shop/src/common/global.dart';
 import 'package:flutter_shop/src/page/catalogue/catalogue_main_page.dart';
 import 'package:flutter_shop/src/page/custom_bottom_appbar.dart';
 import 'package:flutter_shop/src/utils/log_util.dart';
+import 'package:flutter_shop/src/utils/toast_utils.dart';
 
 import '../mine/mine_main_page.dart';
 import 'home_item2_page.dart';
@@ -48,8 +49,36 @@ class _HomeMainState extends State<HomeMainPage> {
     _homeSubscription.cancel();
   }
 
+  DateTime _lastQuitTime;
+
   @override
   Widget build(BuildContext context) {
+    //点击Android手机的物理返回键
+    //或者全面屏的手势退出功能
+    return WillPopScope(
+      child: buildScaffold(),
+      //此方法会接收到监听
+      onWillPop: () async {
+        //计算时间差
+        Duration flagDuration = DateTime.now().difference(_lastQuitTime);
+        //两次点击间隔小于1秒时退出
+        if (_lastQuitTime == null || flagDuration.inSeconds > 1) {
+          ToastUtils.showToast("连续返回两次 退出应用");
+          //获取当前的时间
+          _lastQuitTime = DateTime.now();
+          //拦截事件响应
+          return false;
+        } else {
+          //退出
+          Navigator.of(context).pop(true);
+          //不拦截事件响应
+          return true;
+        }
+      },
+    );
+  }
+
+  Scaffold buildScaffold() {
     //Scaffold 用来搭建页面的主体结构
     return Scaffold(
       //页面的主内容区

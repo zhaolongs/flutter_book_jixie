@@ -36,9 +36,9 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         buildBotomItem(_tabIndex, 0, Icons.home, "首页"),
-        buildBotomItem(_tabIndex, 1, Icons.library_music, "发现"),
-        buildBotomItem(_tabIndex, -1, null, "发现"),
-        buildBotomItem(_tabIndex, 2, Icons.email, "消息"),
+        buildBotomItem(_tabIndex, 1, Icons.menu, "分类"),
+        buildBotomItem(_tabIndex, -1, null, ""),
+        buildBotomItem(_tabIndex, 2, Icons.email, "发现"),
         buildBotomItem(_tabIndex, 3, Icons.person, "我的"),
       ],
     );

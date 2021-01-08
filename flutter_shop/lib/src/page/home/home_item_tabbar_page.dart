@@ -18,8 +18,9 @@ import 'home_staggered_list_widget.dart';
 /// 代码清单
 ///代码清单
 class HomeItemTabbarPage extends StatefulWidget {
+  ///分类的标识
   final int categoryId;
-
+  ///滑动控制器
   final ScrollController scrollController;
 
   HomeItemTabbarPage(
@@ -35,27 +36,32 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     super.initState();
   }
 
-  double lastDownY = 0.0;
-  double downY = 0.0;
-  double offset = 0.0;
-  double offset2 = 0.0;
-  DateTime downDateTime;
+
 
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
+      //滑动控制器
       controller: widget.scrollController,
-      key: ValueKey("scroll"),
+      //瀑布流
       body: HomeStaggeredWidget(),
+      //头布局
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
+          //Sliver 适配
           SliverToBoxAdapter(
+            //线性布局
             child: Column(
+              //包裹子Widget
               mainAxisSize: MainAxisSize.min,
               children: [
-                BannerWidget(),
+                //轮播图 每次刷新都会重新创建
+                BannerWidget(globalKey: GlobalKey(),),
+                //宫格
                 Container(height: 170, child: buildGridView()),
+                //秒杀
                 GoodsSeckillWidget(),
+                //分类
                 GoodsClassWidget(),
               ],
             ),
@@ -77,20 +83,6 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     "领补贴",
     "会员"
   ];
-
-  List _classImageList = [
-    "小超市",
-    "数码电器",
-    "服饰",
-    "免费水果",
-    "小店到家",
-    "充值缴费",
-    "签到",
-    "领卷",
-    "领补贴",
-    "会员"
-  ];
-
   Widget buildGridView() {
     return GridView.builder(
       physics: NeverScrollableScrollPhysics(),

@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/src/utils/log_util.dart';
+import 'package:flutter_shop/src/utils/size_utils.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/11/12.
@@ -14,6 +16,10 @@ import 'package:flutter/material.dart';
 ///代码清单 5-27 一个轮播图的实现
 ///lib/code/code5/example_504_CustomScrollView.dart
 class BannerWidget extends StatefulWidget {
+  final GlobalKey globalKey;
+
+  BannerWidget({this.globalKey}) : super(key: globalKey);
+
   @override
   _BannerWidgetState createState() => _BannerWidgetState();
 }
@@ -56,7 +62,16 @@ class _BannerWidgetState extends State<BannerWidget> {
     _timer.cancel();
   }
 
+  void stopTimer() {
+    if (_timer.isActive) {
+      _timer.cancel();
+    }
+  }
+
   void startTimer() {
+    Offset offset = SizeUtils.getWidgetOffsetByContext(context, flag: 0);
+    if (offset.dy != -160) {}
+
     //间隔两秒时间
     _timer = new Timer.periodic(Duration(milliseconds: 2000), (value) {
       print("定时器");
@@ -73,19 +88,33 @@ class _BannerWidgetState extends State<BannerWidget> {
   @override
   Widget build(BuildContext context) {
     return NotificationListener(
-      onNotification: (value){
+      onNotification: (value) {
         return true;
       },
-      child: Container(
-        height: 160,
-        width: double.infinity,
-        child: Stack(
-          children: [
-            //第一部分 轮播图片
-            buildBannerWidget(),
-            //第二部分 指示器
-            buildTipsWidget(),
-          ],
+      child: GestureDetector(
+        //手指移动出去时回调
+        onTapCancel: () {
+          stopTimer();
+        },
+        //手指按下时回调
+        onTapDown: (TapDownDetails details) {
+          stopTimer();
+        },
+        //手指抬起时回调
+        onTap: () {
+          startTimer();
+        },
+        child: Container(
+          height: 160,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              //第一部分 轮播图片
+              buildBannerWidget(),
+              //第二部分 指示器
+              buildTipsWidget(),
+            ],
+          ),
         ),
       ),
     );
@@ -143,7 +172,8 @@ class _BannerWidgetState extends State<BannerWidget> {
     }
     return Positioned(
       bottom: 20,
-      left: 0,right: 0,
+      left: 0,
+      right: 0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: list,

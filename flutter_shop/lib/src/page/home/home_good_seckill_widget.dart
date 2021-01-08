@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/utils/date_utils.dart';
 
 import 'home_good_seckill_item_widget.dart';
-import 'home_staggered_list_widget.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2021/1/4.
@@ -26,7 +25,6 @@ class _GoodsSeckillWidgetState extends State<GoodsSeckillWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {});
@@ -35,7 +33,7 @@ class _GoodsSeckillWidgetState extends State<GoodsSeckillWidget> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+
     super.dispose();
     _timer.cancel();
   }

@@ -39,4 +39,22 @@ class SizeUtils{
   }
 
 
+  static Offset  getWidgetOffsetByContext(BuildContext stackContext,{int flag =1}){
+    Offset offset = Offset.zero;
+    ///获取Stack的大小
+    if(stackContext!=null){
+      RenderBox renderBox = stackContext.findRenderObject();
+      if(renderBox!=null){
+        if(flag==1){
+          offset = renderBox.localToGlobal(Offset.zero);
+        }else{
+          offset = renderBox.globalToLocal(Offset.zero);
+        }
+
+      }
+    }
+    return offset;
+  }
+
+
 }

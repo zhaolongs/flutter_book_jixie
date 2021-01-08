@@ -20,19 +20,6 @@ class HomeStaggeredWidget extends StatefulWidget {
 }
 
 class _HomeStaggeredWidgetState extends State<HomeStaggeredWidget> {
-  bool _isScroll = false;
-
-  ScrollController _scrollController = new ScrollController();
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController.addListener(() {});
-  }
-
-  double lastDownY = 0.0;
-  double downY = 0.0;
-
   @override
   Widget build(BuildContext context) {
     return new StaggeredGridView.countBuilder(
@@ -43,10 +30,8 @@ class _HomeStaggeredWidgetState extends State<HomeStaggeredWidget> {
       itemBuilder: (context, i) {
         return itemWidget(i);
       },
-      //  staggeredTileBuilder: (index) => new StaggeredTile.fit(2),
       staggeredTileBuilder: (int index) =>
           new StaggeredTile.count(2, index == 0 ? 2.5 : 3),
-      //
       mainAxisSpacing: 8.0,
       crossAxisSpacing: 8.0,
     );
@@ -60,11 +45,104 @@ class _HomeStaggeredWidgetState extends State<HomeStaggeredWidget> {
       ),
       child: new InkWell(
         onTap: () {},
-        child: new Hero(
-          tag: "$index",
-          child: Image.asset(
-            "assets/images/2.0x/s01.jpeg",
-            fit: BoxFit.fitWidth,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Expanded(
+                child: new Hero(
+                  tag: "$index",
+                  child: Image.asset(
+                    "assets/images/2.0x/s01.jpeg",
+                    width: MediaQuery.of(context).size.width - 20,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                child: Stack(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          width: 26,
+                          height: 16,
+                          child: Text(
+                            "商品",
+                            style: TextStyle(color: Colors.white, fontSize: 9),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.blueGrey[700],
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(4),
+                              bottomLeft: Radius.circular(4),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.center,
+                          width: 26,
+                          height: 16,
+                          child: Text(
+                            "精选",
+                            style: TextStyle(color: Colors.white, fontSize: 9),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.redAccent,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(4),
+                              bottomRight: Radius.circular(4),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Text(
+                      "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 极品运动服装 挑战冬日的严寒 1折处理 大家快来抢购吧",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.blueGrey,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 4,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "￥135",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.redAccent,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 14,
+                  ),
+                  Text(
+                    "￥145",
+                    style: TextStyle(
+                      //中间删除线 TextDecoration.lineThrough
+                      //底部下划线TextDecoration.underline
+                      //顶部上划线 TextDecoration.overline
+                      decoration: TextDecoration.lineThrough,
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  )
+                ],
+              )
+            ],
           ),
         ),
       ),
