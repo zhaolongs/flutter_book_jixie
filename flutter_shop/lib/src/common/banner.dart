@@ -12,9 +12,10 @@ import 'package:flutter_shop/src/utils/size_utils.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-///
-///代码清单 5-27 一个轮播图的实现
-///lib/code/code5/example_504_CustomScrollView.dart
+
+///代码清单 13-39
+///轮播图的实现
+///lib/src/common/banner.dart
 class BannerWidget extends StatefulWidget {
   final GlobalKey globalKey;
 
@@ -48,7 +49,6 @@ class _BannerWidgetState extends State<BannerWidget> {
     //初始化控制器
     // initialPage 为初始化显示的子Item
     _pageController = new PageController(initialPage: currentIndex);
-
     ///当前页面绘制完第一帧后回调
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       startTimer();
@@ -63,16 +63,18 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   }
 
+  ///代码清单 13-40
+  ///轮播图 [BannerWidget] 中的方法
+  ///lib/src/common/banner.dart
+  ///停止计时
   void stopTimer() {
     if (_timer.isActive) {
       _timer.cancel();
     }
   }
 
+  //开始倒计时
   void startTimer() {
-    Offset offset = SizeUtils.getWidgetOffsetByContext(context, flag: 0);
-    if (offset.dy != -160) {}
-
     //间隔两秒时间
     _timer = new Timer.periodic(Duration(milliseconds: 2000), (value) {
       print("定时器");
@@ -85,11 +87,15 @@ class _BannerWidgetState extends State<BannerWidget> {
     });
   }
 
-  //使用层叠布局将图片与自定义的指示器组装在一起
+
+  ///代码清单 13-41
+  ///轮播图 [BannerWidget] 使用层叠布局将图片与自定义的指示器组装在一起
+  ///lib/src/common/banner.dart
   @override
   Widget build(BuildContext context) {
     return NotificationListener(
       onNotification: (value) {
+        //拦截轮播图的滑动向上传递
         return true;
       },
       child: GestureDetector(
@@ -120,8 +126,9 @@ class _BannerWidgetState extends State<BannerWidget> {
       ),
     );
   }
-
-  //第一部分的实现 PageView来装载图片
+  ///代码清单 13-42
+  ///轮播图 [BannerWidget] 第一部分的实现 PageView来装载图片
+  ///lib/src/common/banner.dart
   buildBannerWidget() {
     //懒加载方式构建
     return PageView.builder(
@@ -142,10 +149,13 @@ class _BannerWidgetState extends State<BannerWidget> {
     );
   }
 
-  //轮播显示图片
+  ///代码清单 13-43
+  ///轮播图 [BannerWidget] 第一部分 轮播显示图片
+  ///lib/src/common/banner.dart
   Widget buildPageViewItemWidget(int index) {
     return Container(
       margin: EdgeInsets.all(10),
+      //圆角矩形裁剪
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(8)),
         child: Image.asset(
@@ -156,7 +166,9 @@ class _BannerWidgetState extends State<BannerWidget> {
     );
   }
 
-  //第二部分的实现 指示器
+  ///代码清单 13-44
+  ///轮播图 [BannerWidget] 第二部分的实现 指示器
+  ///lib/src/common/banner.dart
   Widget buildTipsWidget() {
     List<Widget> list = [];
     for (int i = 0; i < 10; i++) {
