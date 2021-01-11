@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/auth/face_model.dart';
+import 'package:flutter_shop/src/common/custom_oval_button.dart';
 import 'package:flutter_shop/src/page/login/login_bottom_widget.dart';
 import 'package:local_auth/local_auth.dart';
 
@@ -43,6 +44,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> with FaceModel {
   //用户协议 富文本中使用的手势识别
   TapGestureRecognizer _gestureRecognizer;
+
   //隐私协议 富文本中使用的手势识别
   TapGestureRecognizer _gestureRecognizer2;
 
@@ -130,8 +132,9 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
     );
   }
 
-
-
+  ///代码清单 13-7
+  ///登录页面 LoginPage 中的方法 校验是否调用指纹识别
+  ///自动弹出 [FaceModel] 中的功能组合
   void initBiometrics() async {
     //第一步检测是否支持指纹等生物识别技术
     _isBiometrics = await checkBiometrics();
@@ -142,16 +145,18 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
         setState(() {});
       }
       Future.delayed(Duration(milliseconds: 1000), () {
-        //自动弹出
+        //第三步调用认证功能
         authenticate();
       });
     }
   }
+
   ///代码清单 13-6
   ///登录页面 LoginPage 中的方法 底部的按钮
   ///lib/src/page/login/login_page.dart
   ///是否支持生物识别登录
   bool _isBiometrics = false;
+
   ///生物识别的列表
   List<BiometricType> _biometricList;
 
@@ -222,6 +227,7 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
         },
         context: context);
   }
+
   ///代码清单 13-4
   ///登录页面 LoginPage 中的方法 登录按钮
   ///lib/src/page/login/login_page.dart
@@ -281,8 +287,6 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
     );
   }
 
-
-
   ///代码清单 13-2
   ///登录页面 LoginPage 中的方法
   ///lib/src/page/login/login_page.dart
@@ -312,50 +316,6 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
           onPressed: () {},
         )
       ],
-    );
-  }
-}
-
-class CustumOvalButton extends StatefulWidget {
-  //图标
-  final String assetPath;
-
-  //点击事件回调
-  final Function() clickCallBack;
-
-  CustumOvalButton({@required this.assetPath, this.clickCallBack, Key key})
-      : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() {
-    return _CustumOvalButtonState();
-  }
-}
-
-class _CustumOvalButtonState extends State<CustumOvalButton> {
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      //点击事件的响应范围
-      borderRadius: BorderRadius.all(Radius.circular(30)),
-      //点击事件
-      onTap: widget.clickCallBack,
-      child: Container(
-        width: 50,
-        height: 50,
-        padding: EdgeInsets.all(10),
-        //自定义边框
-        decoration: BoxDecoration(
-            //边框
-            border: Border.all(color: Colors.grey),
-            //边框圆角
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        child: Image.asset(
-          widget.assetPath,
-          //图标颜色
-          color: Colors.black87,
-        ),
-      ),
     );
   }
 }

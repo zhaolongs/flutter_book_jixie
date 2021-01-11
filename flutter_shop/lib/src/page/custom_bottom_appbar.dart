@@ -9,16 +9,14 @@ import 'package:flutter/material.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
-///代码清单 13-2
+///代码清单 13-19
 ///lib/src/page/custom_bottom_appbar.dart
 ///首页面底部菜单栏
 class CustomBottomAppBar extends StatefulWidget {
   ///菜单点击回调
   final Function(int index) clickCallBack;
-
-  ///小红点提示的索引
+  ///小红点提示的索引 用于消息提示
   final int tipsIndex;
-
   CustomBottomAppBar({this.clickCallBack, this.tipsIndex});
 
   @override
@@ -44,7 +42,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
     );
   }
 
-  ///代码清单 13-3
+  ///代码清单 13-20
   ///lib/src/page/custom_bottom_appbar.dart
   /// _CustomBottomAppBarState 中方法定义 点击事件构建
   /// [selectIndex] 当前选中的页面
@@ -76,7 +74,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
     );
   }
 
-  ///代码清单 13-4
+  ///代码清单 13-21
   ///lib/src/page/custom_bottom_appbar.dart
   /// _CustomBottomAppBarState 中方法定义 图标按钮
   buildPadItem(int selectIndex, int index, IconData iconData, String title) {
@@ -129,7 +127,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
     );
   }
 
-  ///代码清单 13-5
+  ///代码清单 13-22
   ///lib/src/page/custom_bottom_appbar.dart
   /// _CustomBottomAppBarState 中方法定义 圆红点
   Widget buildPointTips(bool show) {

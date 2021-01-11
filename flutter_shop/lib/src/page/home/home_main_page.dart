@@ -4,19 +4,18 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_shop/src/bean/bean_global.dart';
 import 'package:flutter_shop/src/common/global.dart';
-import 'package:flutter_shop/src/page/catalogue/catalogue_main_page.dart';
 import 'package:flutter_shop/src/page/custom_bottom_appbar.dart';
 import 'package:flutter_shop/src/utils/log_util.dart';
 import 'package:flutter_shop/src/utils/toast_utils.dart';
 
-import '../mine/mine_main_page.dart';
-import 'home_item2_page.dart';
 import '../catalogue/home_item_catalogue_page.dart';
+import '../mine/mine_main_page.dart';
 import 'home_item_scroll_page.dart';
 
-///代码清单 13-1
+///代码清单 13-13
 ///lib/src/page/home/home_main_page.dart
 ///主页面的根布局
 class HomeMainPage extends StatefulWidget {
@@ -27,19 +26,39 @@ class HomeMainPage extends StatefulWidget {
 }
 
 class _HomeMainState extends State<HomeMainPage> {
-  //[PageView]使用的控制器
-  PageController _pageController = PageController();
 
+
+  //全局通信监听对象
   StreamSubscription _homeSubscription;
 
   @override
   void initState() {
     super.initState();
+    //设置全局通信监听 Stream 跨组件Widget通信
     _homeSubscription =
         rootStreamController.stream.listen((GlobalBean globalBean) {
-      //刷新消息
+      //消息
       LogUtil.e("消息传递 刷新消息 ${globalBean.data.toString()}");
     });
+
+    Future.delayed(Duration.zero, () {
+      //设置焦点监听
+      FocusScope.of(context).addListener(() {
+        // 获取当前焦点
+        bool isFirstFocus = FocusScope.of(context).isFirstFocus;
+        LogUtil.e("焦点 isFirstFocus $isFirstFocus");
+        //如果可见时 读取剪切版数据
+        readClipboard();
+      });
+    });
+
+    //第一次进入时需要读取一下剪切板
+    readClipboard();
+  }
+
+  void readClipboard(){
+    //在这里可以解析指定格式的数据来弹出对应的功能操作
+    var text = Clipboard.getData(Clipboard.kTextPlain);
   }
 
   @override
@@ -48,7 +67,10 @@ class _HomeMainState extends State<HomeMainPage> {
     //移除监听
     _homeSubscription.cancel();
   }
-
+  ///代码清单 13-14
+  ///lib/src/page/home/home_main_page.dart
+  ///[HomeMainPage]中定义方法
+  //上一次点击的时间
   DateTime _lastQuitTime;
 
   @override
@@ -77,7 +99,11 @@ class _HomeMainState extends State<HomeMainPage> {
       },
     );
   }
-
+  ///代码清单 13-18
+  ///lib/src/page/home/home_main_page.dart
+  ///[HomeMainPage]中定义方法
+  //[PageView]使用的控制器
+  PageController _pageController = PageController();
   Scaffold buildScaffold() {
     //Scaffold 用来搭建页面的主体结构
     return Scaffold(
@@ -94,6 +120,7 @@ class _HomeMainState extends State<HomeMainPage> {
           HomeItmeScrollPage(),
           //第二个页面
           HomeItemMainPage(),
+          //第三个页面
           HomeItemMainPage(),
           //个人中心
           MineMainPage(),
@@ -107,7 +134,9 @@ class _HomeMainState extends State<HomeMainPage> {
         notchMargin: 6.0,
         //背景颜色
         color: Colors.white,
+        //自定义底部菜单栏
         child: CustomBottomAppBar(
+          tipsIndex: 1,
           clickCallBack: (int index) {
             _pageController.jumpToPage(index);
           },

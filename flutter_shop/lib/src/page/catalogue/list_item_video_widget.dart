@@ -25,10 +25,18 @@ class ListItemVideoWidget extends StatefulWidget {
 }
 class _ListItemVideoWidgetState extends State<ListItemVideoWidget> {
   @override
+  void initState() {
+    super.initState();
+    widget.streamController.stream.listen((event) {
+      
+    });
+  }
+  @override
   Widget build(BuildContext context) {
     return Container(
       //外边距
       margin: EdgeInsets.only(top: 8),
+      child: Text("${widget.videoModel.videoName}"),
     );
   }
 }

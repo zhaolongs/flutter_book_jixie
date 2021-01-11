@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -19,7 +18,8 @@ import 'image_text_widget.dart';
 class HomeCustomAppBar extends StatefulWidget {
   final List<Tab> tabList;
   final TabController tabController;
-  final double value ;
+  final double value;
+
   final double value2;
 
   HomeCustomAppBar({
@@ -34,12 +34,9 @@ class HomeCustomAppBar extends StatefulWidget {
 }
 
 class _HomeCustomAppBarState extends State<HomeCustomAppBar> {
-
-
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -55,7 +52,11 @@ class _HomeCustomAppBarState extends State<HomeCustomAppBar> {
             padding: EdgeInsets.only(left: 12),
             child: Row(
               children: [
-                Expanded(child: Text("早起的年轻人")),
+                Expanded(
+                    child: Text(
+                  "早起的年轻人",
+                  style: TextStyle(color: Colors.white),
+                )),
                 ImageTextWidget(
                   image: 'assets/images/2.0x/header_icon1.png',
                 ),
@@ -75,7 +76,9 @@ class _HomeCustomAppBarState extends State<HomeCustomAppBar> {
           right: 0,
           height: 38,
           left: 12,
-          child: SearchWidget(value: widget.value,),
+          child: SearchWidget(
+            value: widget.value,
+          ),
         ),
         Positioned(
           left: 0,

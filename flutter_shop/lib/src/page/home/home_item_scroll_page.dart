@@ -142,7 +142,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
               //宽度
               width: MediaQuery.of(context).size.width,
               //高度
-              height: 160 - 50 * _value2,
+              height: 188 - 56 * _value2,
               //内容区域
               child: HomeCustomAppBar(
                 value: _value,

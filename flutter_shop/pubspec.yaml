@@ -22,6 +22,7 @@ dependencies:
   #用来加载网络数据
   dio: 3.0.9
   flutter_spinkit: ^4.1.2+1
+  #生物识别插件
   local_auth: ^0.6.3+4
   #获取手机存储目录
   path_provider: ^1.6.9
