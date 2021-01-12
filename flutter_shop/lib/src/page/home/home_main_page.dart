@@ -119,9 +119,9 @@ class _HomeMainState extends State<HomeMainPage> {
           //第一个页面
           HomeItmeScrollPage(),
           //第二个页面
-          HomeItemMainPage(),
+          HomeItemCataloguePage(),
           //第三个页面
-          HomeItemMainPage(),
+          HomeItemCataloguePage(),
           //个人中心
           MineMainPage(),
         ],

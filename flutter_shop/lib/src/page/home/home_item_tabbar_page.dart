@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/common/banner.dart';
@@ -15,29 +13,22 @@ import 'home_staggered_list_widget.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-/// 代码清单
-///代码清单
+///代码清单 13-34
+///滑动的子页面
+///lib/src/page/home/home_item_tabbar_page.dart
 class HomeItemTabbarPage extends StatefulWidget {
   ///分类的标识
   final int categoryId;
   ///滑动控制器
   final ScrollController scrollController;
 
-  HomeItemTabbarPage(
-      {this.categoryId,  this.scrollController});
+  HomeItemTabbarPage({this.categoryId, this.scrollController});
 
   @override
   _HomeItemTabbarPageState createState() => _HomeItemTabbarPageState();
 }
 
 class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-
-
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
@@ -56,7 +47,9 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 //轮播图 每次刷新都会重新创建
-                BannerWidget(globalKey: GlobalKey(),),
+                BannerWidget(
+                  globalKey: GlobalKey(),
+                ),
                 //宫格
                 Container(height: 170, child: buildGridView()),
                 //秒杀
@@ -71,6 +64,8 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     );
   }
 
+
+
   List _classList = [
     "小超市",
     "数码电器",
@@ -83,8 +78,13 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     "领补贴",
     "会员"
   ];
+
+  ///代码清单 13-45
+  ///滑动的子页面
+  ///lib/src/page/home/home_item_tabbar_page.dart
   Widget buildGridView() {
     return GridView.builder(
+      //禁止滑动
       physics: NeverScrollableScrollPhysics(),
       //缓存区域
       cacheExtent: 00,
@@ -109,8 +109,11 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
       },
     );
   }
-
+  ///代码清单 13-46
+  ///滑动的子页面 - 分类子Item构建
+  ///lib/src/page/home/home_item_tabbar_page.dart
   Widget buildListViewItemWidget(int index) {
+    //取出分类数据
     String title = _classList[index];
     return new Container(
       child: Column(
@@ -132,4 +135,20 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
       ),
     );
   }
+}
+
+
+
+test() {
+  return SingleChildScrollView(
+    child: Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+            shrinkWrap: true,
+          ),
+        )
+      ],
+    ),
+  );
 }

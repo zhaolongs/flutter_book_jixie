@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-///代码清单 13-31
+///代码清单 13-32
 ///lib/src/page/home/image_text_widget.dart
 ///文字与图标在竖直方向线性排列
 class ImageTextWidget extends StatelessWidget {

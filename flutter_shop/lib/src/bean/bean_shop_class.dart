@@ -8,20 +8,26 @@ import 'package:flutter/material.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-/// 代码清单
-///代码清单
+///代码清单 13-53
+///分类选择页面 使用数据模型
+///lib/src/bean/bean_shop_class.dart
 class ShopClassBean {
+  //是否选中
   bool isSelect;
+  //标题
   String classTitle;
+  //唯一标识
   int classId;
 
   ShopClassBean({this.isSelect = false, this.classTitle, this.classId});
 }
 
+//右侧分类一级数据模型
 class RightListBean{
   String title;
   List<RightClassBean> classList;
 }
+//右侧分类二级数据模型
 class RightClassBean {
   String classTitle;
   String imagePath;

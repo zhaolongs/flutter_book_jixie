@@ -8,30 +8,31 @@ import 'package:flutter_shop/src/bean/bean_shop_class.dart';
 import 'package:flutter_shop/src/page/catalogue/right_class_widget.dart';
 import 'package:flutter_shop/src/page/common/search_widget.dart';
 
-///代码清单 12-19
-///首页面视频播放页面
-///lib/src/page/home/home_item_catalogue_page.dart
-class HomeItemMainPage extends StatefulWidget {
+///代码清单 13-54
+///分类选择页面
+///lib/src/page/home/home_good_class_widget.dart
+class HomeItemCataloguePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _HomeItemState();
   }
 }
 
-///使用到[TabBar] 所以要绑定一个Ticker
 ///当前页面被装载在[PageView]中，使用KeepAlive使用页面保持状态
-class _HomeItemState extends State
-    with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
+class _HomeItemState extends State with AutomaticKeepAliveClientMixin {
   //页面保持状态
   @override
   bool get wantKeepAlive => true;
 
+  //左侧分类
   List<ShopClassBean> _leftClassList = [];
+  //当前选中的左侧分类
+  ShopClassBean _currentLeftBean;
 
   @override
   void initState() {
     super.initState();
-
+    //模拟左侧分类数据
     for (int i = 0; i < 20; i++) {
       _leftClassList.add(
         ShopClassBean(
@@ -41,10 +42,13 @@ class _HomeItemState extends State
         ),
       );
     }
-
+    //默认选中第一个分类
     _currentLeftBean = _leftClassList[0];
   }
 
+  ///代码清单 13-55
+  ///分类选择页面 状态栏相关设置
+  ///lib/src/page/home/home_good_class_widget.dart
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -64,11 +68,15 @@ class _HomeItemState extends State
     );
   }
 
+  ///代码清单 13-56
+  ///分类选择页面 页面主体
+  ///lib/src/page/home/home_good_class_widget.dart
   buildScaffold() {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: Column(
         children: [
+          //标题部分
           Container(
             padding: EdgeInsets.only(top: 12),
             color: Colors.deepPurple,
@@ -76,6 +84,7 @@ class _HomeItemState extends State
             height: MediaQuery.of(context).viewPadding.top + 64,
             child: Row(
               children: [
+                //左侧图标
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: Icon(
@@ -83,9 +92,11 @@ class _HomeItemState extends State
                     color: Colors.white,
                   ),
                 ),
-                SearchWidget(
-                  value: 0.7,
+                //搜索框
+                Expanded(
+                  child: SearchWidget(),
                 ),
+                //消息图标
                 Padding(
                     padding: EdgeInsets.all(10),
                     child: Icon(
@@ -95,41 +106,53 @@ class _HomeItemState extends State
               ],
             ),
           ),
+          //分类列表部分
           Expanded(
             child: Container(
               padding: EdgeInsets.only(top: 12),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        top: 8,
-                      ),
-                      child: buildLeftListView(),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      child: RightClassWidget(
-                        currentLeftBean: _currentLeftBean,
-                        key: ValueKey("${_currentLeftBean.classId}"),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+              child: buildClassListRow(),
             ),
           )
         ],
       ),
     );
   }
+  ///代码清单 13-57
+  ///分类选择页面 左右列表 1:3 比例适配
+  ///lib/src/page/home/home_good_class_widget.dart
+  Row buildClassListRow() {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: 8,
+            ),
+            //左侧列表
+            child: buildLeftListView(),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          //圆角
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            //右侧列表
+            child: RightClassWidget(
+              currentLeftBean: _currentLeftBean,
+              key: ValueKey("${_currentLeftBean.classId}"),
+            ),
+          ),
+        )
+      ],
+    );
+  }
 
-  ShopClassBean _currentLeftBean;
 
+  ///代码清单 13-58
+  ///分类选择页面 左侧分类列表
+  ///lib/src/page/home/home_good_class_widget.dart
   buildLeftListView() {
     return ListView.builder(
       padding: EdgeInsets.zero,

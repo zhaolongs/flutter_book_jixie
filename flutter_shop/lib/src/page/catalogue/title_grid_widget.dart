@@ -9,10 +9,13 @@ import 'package:flutter_shop/src/bean/bean_shop_class.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-/// 代码清单
-///代码清单
+///代码清单 13-61
+///分类选择页面 右侧分类列表 中 三级分类数据
+///lib/src/page/catalogue/right_class_widget.dart
 class TitleAndGridWidget extends StatefulWidget {
+  //二级分类标题
   final String title;
+  //二级分类中的三级分类数据
   final List<RightClassBean> gridImageList;
 
   TitleAndGridWidget({@required this.title, @required this.gridImageList});
@@ -65,6 +68,7 @@ class _TitleAndGridWidgetState extends State<TitleAndGridWidget> {
                 padding: EdgeInsets.all(4),
                 child: Container(
                   padding: EdgeInsets.all(4),
+                  //圆角背景
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(4)),
                     color: Colors.grey[200],

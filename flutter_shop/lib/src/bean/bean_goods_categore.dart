@@ -11,7 +11,9 @@
 /// https://blog.csdn.net/zl18603543572
 /// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
 
-
+///代码清单 13-28
+///商品分类数据模型
+///lib/src/bean/bean_goods_categore.dart
 class GoodsCategoryBean{
   int id;
   String title;
@@ -22,5 +24,4 @@ class GoodsCategoryBean{
    this.title = map["title"];
    this.id = map["id"];
   }
-
 }
