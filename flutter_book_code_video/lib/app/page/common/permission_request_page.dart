@@ -3,9 +3,10 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterbookcode/utils/navigator_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
+import 'package:flutterbookcode/utils/navigator_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
+
 import 'common_dialog.dart';
 
 /// 创建人： Created by zhaolong
@@ -15,9 +16,11 @@ import 'common_dialog.dart';
 /// 创建时间：Created by  on 2020/9/25.
 ///
 /// gongzhonghao biglead
-/// https://study.163.com/instructor/1021406098.htm
-/// https://blog.csdn.net/zl18603543572
-/// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
+/// github https://github.com/zhaolongs
+/// bili https://space.bilibili.com/513480210
+/// zhihu https://www.zhihu.com/people/zhao-long-90-89
+/// csdn https://blog.csdn.net/zl18603543572
+/// 西瓜视频 https://www.ixigua.com/home/3662978423
 ///
 
 ///lib/app/page/common/permission_request_page.dart

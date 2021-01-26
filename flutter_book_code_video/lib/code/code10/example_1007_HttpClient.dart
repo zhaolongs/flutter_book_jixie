@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:http/http.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/9/25.
@@ -13,9 +12,11 @@ import 'package:sqflite/sqflite.dart';
 /// 创建时间：Created by  on 2020/9/25.
 ///
 /// gongzhonghao biglead
-/// https://study.163.com/instructor/1021406098.htm
-/// https://blog.csdn.net/zl18603543572
-/// https://www.toutiao.com/c/user/token/MS4wLjABAAAAYMrKikomuQJ4d-cPaeBqtAK2cQY697Pv9xIyyDhtwIM/
+/// github https://github.com/zhaolongs
+/// bili https://space.bilibili.com/513480210
+/// zhihu https://www.zhihu.com/people/zhao-long-90-89
+/// csdn https://blog.csdn.net/zl18603543572
+/// 西瓜视频 https://www.ixigua.com/home/3662978423
 ///
 ///
 
