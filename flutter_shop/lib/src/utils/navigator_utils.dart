@@ -5,7 +5,14 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/src/utils/route/circle/circle_path.dart';
-
+/// gongzhonghao biglead
+/// github https://github.com/zhaolongs
+/// bili https://space.bilibili.com/513480210
+/// zhihu https://www.zhihu.com/people/zhao-long-90-89
+/// csdn https://blog.csdn.net/zl18603543572
+/// 西瓜视频 https://www.ixigua.com/home/3662978423
+///
+///
 ///lib/utils/navigator_utils.dart
 ///路由工具类
 class NavigatorUtils {

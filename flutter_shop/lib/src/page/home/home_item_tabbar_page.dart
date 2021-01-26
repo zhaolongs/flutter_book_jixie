@@ -12,7 +12,12 @@ import 'home_staggered_list_widget.dart';
 /// 可关注公众号：我的大前端生涯   获取最新技术分享
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
-///
+/// gongzhonghao biglead
+/// github https://github.com/zhaolongs
+/// bili https://space.bilibili.com/513480210
+/// zhihu https://www.zhihu.com/people/zhao-long-90-89
+/// csdn https://blog.csdn.net/zl18603543572
+/// 西瓜视频 https://www.ixigua.com/home/3662978423
 ///代码清单 13-34
 ///滑动的子页面
 ///lib/src/page/home/home_item_tabbar_page.dart
