@@ -15,15 +15,11 @@ class Example201 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //安卓任务栏中的应用标题
-      title: 'Flutter Demo',
-
-      //使用的应用主题
-      theme: ThemeData(
+      title: 'Flutter Demo',//安卓任务栏中的应用标题
+      theme: ThemeData(//使用的应用主题
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-
       //默认显示的首页面
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
