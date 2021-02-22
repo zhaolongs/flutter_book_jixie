@@ -6,20 +6,19 @@ import 'package:flutter/material.dart';
 ///启动函数配置
 void main() => runApp(MyApp2());
 
-//定义根目录Widget
 class MyApp2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       //配制路由规则
       routes: {
-        //默认显示页面
-        "/": (BuildContext context) => Example202A(),
+        "/": (BuildContext context) => Example202A(), //默认显示页面
         "/second": (BuildContext context) => Example202B(), //自定义的页面
       },
     );
   }
 }
+
 
 ///代码清单2-4 A页面的定义
 ///lib/code/code2/example_203_MaterialApp_page.dart
@@ -37,16 +36,12 @@ class _ExampleAState extends State<Example202A> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("A页面"),
-      ),
+      appBar: AppBar(title: Text("A页面"),),
       body: Column(
         children: [
           ElevatedButton(
             child: Text("点击打开B页面"),
-            onPressed: () {
-              openBFunction();
-            },
+            onPressed: () {openBFunction(); },
           ),
           ElevatedButton(
             child: Text("点击打开B页面 并获取B页面回传的参数"),
