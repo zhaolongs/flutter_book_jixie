@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-///代码清单2-7
+///代码清单2-7  启动默认页面配置方式二
 ///lib/code/code2/example_204_MaterialApp_page.dart
-///启动默认页面配置方式二
 void main() => runApp(MyApp2());
 //定义根目录Widget
 class MyApp2 extends StatelessWidget {
@@ -35,8 +34,7 @@ class MyApp3 extends StatelessWidget {
   }
 }
 
-///代码清单2-9
-///lib/code/code2/example_204_MaterialApp_page.dart
+
 class MyApp4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
