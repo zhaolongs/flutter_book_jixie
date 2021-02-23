@@ -25,7 +25,7 @@ void main() {
   ));
 }
 
-///代码清单 2-33 顶部标签栏
+///代码清单 2-20 顶部标签栏
 ///lib/code/code2/example_217_appbar_page.dart
 class Example217 extends StatefulWidget {
   @override
@@ -66,7 +66,7 @@ class _ExampleState extends State<Example217>
     _tabController =
         TabController(initialIndex: 0, length: tabs.length, vsync: this);
   }
-  ///代码清单 2-34 顶部标签栏
+  ///代码清单 2-21 顶部标签栏
   ///lib/code/code2/example_217_appbar_page.dart
   @override
   Widget build(BuildContext context) {
