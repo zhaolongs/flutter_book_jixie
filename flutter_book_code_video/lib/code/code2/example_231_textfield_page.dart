@@ -59,7 +59,7 @@ class _ExampleState extends State<Example294> {
     );
   }
 
-  ///代码清单 2-51
+  ///代码清单 2-29 文本控制的基本使用
   ///lib/code/code2/example_231_textfield_page.dart
   // 设置TextField中显示的内容并保持输入光标在文本最后面
   void setEditeInputTextAndSelectionFunction(String flagText) {
@@ -81,7 +81,7 @@ class _ExampleState extends State<Example294> {
     );
   }
 
-  ///代码清单 2-52
+  ///代码清单 2-30 文本控制的基本使用
   ///lib/code/code2/example_231_textfield_page.dart
   ///在页面初始化时调用
   @override
