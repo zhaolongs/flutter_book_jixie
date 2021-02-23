@@ -54,7 +54,7 @@ class _ExampleState extends State<Example221> {
       ),
     );
   }
-  ///代码清单 2-39  常用文本样式配置描述
+  ///代码清单 2-22  常用文本样式配置描述
   ///lib/code/code2/example_221_text_page.dart
   Widget buildText() {
     return Container(
