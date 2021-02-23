@@ -55,7 +55,7 @@ class _ExampleState extends State<Example407> {
     );
   }
 
-  ///代码清单 4-10
+  ///代码清单 4-10 开关Switch的基本使用
   ///lib/code/code4/example_407_switch_page.dart
   ///记录开关的状态
   bool switchValue = false;
