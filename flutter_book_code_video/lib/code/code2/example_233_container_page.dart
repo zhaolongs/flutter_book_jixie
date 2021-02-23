@@ -25,7 +25,7 @@ void main() {
   ));
 }
 
-///代码清单 2-54
+///代码清单 2-32 Container 容器的基本使用
 ///lib/code/code2/example_233_container_page.dart
 class Example233 extends StatefulWidget {
   @override
