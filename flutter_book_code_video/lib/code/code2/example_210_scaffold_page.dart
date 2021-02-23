@@ -25,7 +25,7 @@ void main() {
   ));
 }
 
-///代码清单 2-18
+///代码清单 2-14 侧拉页面的基本使用
 ///lib/code/code2/example_210_scaffold_page.dart
 class Example210 extends StatefulWidget {
   @override
