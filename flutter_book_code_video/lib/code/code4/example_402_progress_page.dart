@@ -22,23 +22,22 @@ void main() {
   ));
 }
 
-///代码清单 4-4 RefreshIndicator 下拉刷新
-///lib/code/code4/example_402_progress_page.dart
+
 class Example402 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example402State();
   }
 }
-
-class _ExampleState extends State<Example402> {
+///代码清单 4-4 Material风格的滑动刷新Widget
+///lib/code/code4/example_402_progress_page.dart
+class _Example402State extends State<Example402> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("下拉刷新"),
       ),
-      //垂直排列
       body: RefreshIndicator(
         //圆圈进度颜色
         color: Colors.blue,
