@@ -1,4 +1,4 @@
-///代码清单 2-10
+///代码清单 2-9 配置中文语言环境设置
 ///lib/code/code2/example_205_MaterialApp_page.dart
 ///配置日期组件显示为中文 MaterialApp配置中文语言环境设置
 import 'package:flutter/cupertino.dart';
@@ -49,8 +49,6 @@ MaterialApp themDataFunction() {
     ],);
 }
 
-///代码清单 2-11
-///lib/code/code2/example_205_MaterialApp_page.dart
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
