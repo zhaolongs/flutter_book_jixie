@@ -118,8 +118,7 @@ class _ExampleBState extends State<Example202B> {
   void initState() {
     super.initState();
   }
-  ///代码清单2-5
-  ///lib/code/code2/example_203_MaterialApp_page.dart
+
   ///页面创建执行的第二个方法
   ///页面 State、Context已绑定
   @override
