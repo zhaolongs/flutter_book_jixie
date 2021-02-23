@@ -26,7 +26,7 @@ void main() {
   ));
 }
 
-///代码清单 2-50
+///代码清单 2-28 TextField 中labelText提示语设置
 ///lib/code/code2/example_230_textfield_page.dart
 class Example230 extends StatefulWidget {
   @override
