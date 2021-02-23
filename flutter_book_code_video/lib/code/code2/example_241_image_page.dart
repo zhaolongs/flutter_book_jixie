@@ -46,7 +46,7 @@ class _ExampleState extends State<Example241> {
     );
   }
 
-  ///代码清单 2-88 Image.network 加载网络图片
+  ///代码清单 2-40 Image.network 加载网络图片
   ///lib/code/code2/example_241_image_page.dart
   String imageUrl = "https://img-blog.csdnimg.cn/20201031094959816.gif";
 
@@ -88,7 +88,7 @@ class _ExampleState extends State<Example241> {
     );
   }
 
-  ///代码清单 2-90 Image.asset 加载资源目录图片
+  ///代码清单 2-41 Image.asset 加载资源目录图片
   ///lib/code/code2/example_241_image_page.dart
   Widget buildImage3() {
     return Image.asset(
