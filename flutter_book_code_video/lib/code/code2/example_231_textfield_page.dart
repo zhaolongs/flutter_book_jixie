@@ -81,7 +81,7 @@ class _ExampleState extends State<Example294> {
     );
   }
 
-  ///代码清单 2-30 文本控制的基本使用
+  ///代码清单 2-30 文本输入兼听
   ///lib/code/code2/example_231_textfield_page.dart
   ///在页面初始化时调用
   @override
