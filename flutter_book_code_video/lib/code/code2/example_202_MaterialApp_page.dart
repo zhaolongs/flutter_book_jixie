@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-///代码清单2-2
+///代码清单2-2 静态路由配置
 ///lib/code/code2/example_202_MaterialApp_page.dart
-//静态路由配置
 void main() => runApp(MyApp2());
 //定义根目录Widget
 class MyApp2 extends StatelessWidget {
