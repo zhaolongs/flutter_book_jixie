@@ -24,8 +24,7 @@ void main() {
   ));
 }
 
-///代码清单 2-69
-///lib/code/code2/example_237_button_page.dart
+
 class Example237 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -97,7 +96,7 @@ class _ExampleState extends State<Example237> {
     );
   }
 
-  ///代码清单 2-69
+  ///代码清单 2-38 Material Design风格按钮的基本使用
   ///lib/code/code2/example_237_button_page.dart
   ///Material Design风格按钮的基本使用
   Widget buildMaterialButton() {
@@ -318,7 +317,7 @@ class _ExampleState extends State<Example237> {
       onPressed: () {},
     );
   }
-  ///代码清单 2-84
+  ///代码清单 2-39 向下弹出框按钮
   ///lib/code/code2/example_237_button_page.dart
   Widget dividerPopMenu() {
     return new PopupMenuButton<String>(
