@@ -50,7 +50,7 @@ class _ExampleState extends State<Example225> {
     );
   }
 
-  ///代码清单 2-43
+  ///代码清单 2-24 RichText的基本使用 运行效果如图2-33所示。
   ///lib/code/code2/example_225_text_page.dart
   Widget buildRichText() {
     return RichText(
