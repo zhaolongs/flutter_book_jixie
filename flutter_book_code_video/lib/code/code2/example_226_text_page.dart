@@ -52,7 +52,7 @@ class _ExampleState extends State<Example226> {
     );
   }
 
-  ///代码清单 2-44
+  ///代码清单 2-25
   ///lib/code/code2/example_226_text_page.dart
   Widget buildRichText() {
     //参数一为显示的文本段落
