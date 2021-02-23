@@ -55,7 +55,7 @@ class _ExampleState extends State<Example222> {
       ),
     );
   }
-  ///代码清单 2-40 删除线配置
+  ///代码清单 2-23 删除线配置
   ///lib/code/code2/example_222_text_page.dart
   Widget buildText() {
     return Container(
