@@ -16,7 +16,6 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-
 //应用入口
 void main() {
   ///启动根目录
@@ -24,7 +23,6 @@ void main() {
     home: Example234(),
   ));
 }
-
 
 class Example234 extends StatefulWidget {
   @override
@@ -56,7 +54,7 @@ class _ExampleState extends State<Example234> {
     );
   }
 
-  ///代码清单 2-55
+  ///代码清单 2-33 Container 圆角边框
   ///lib/code/code2/example_234_container_page.dart
   ///  Container BoxDecoration配置边框与填充色样式
   Container buildBorderAndColor() {
@@ -78,8 +76,7 @@ class _ExampleState extends State<Example234> {
       child: Text("配置边框与填充色"),
     );
   }
-
-  ///代码清单 2-56
+  ///代码清单 2-34 Container 阴影 boxShadow 基本使用
   ///lib/code/code2/example_234_container_page.dart
   ///  Container BoxDecoration boxShadow 阴影
   Container buildBoxShadow() {
@@ -109,7 +106,7 @@ class _ExampleState extends State<Example234> {
     );
   }
 
-  ///代码清单 2-57
+  ///代码清单 2-35 Container  线性渐变颜色过渡
   ///lib/code/code2/example_234_container_page.dart
   ///  Container  gradient 线性渐变颜色过渡
   Container buildBorder5() {
@@ -133,7 +130,7 @@ class _ExampleState extends State<Example234> {
     );
   }
 
-  ///代码清单 2-58
+  ///代码清单 2-36 Container SweepGradient扫描渐变
   ///lib/code/code2/example_234_container_page.dart
   ///   Sweep 扫描渐变颜色过渡
   Container buildSweep() {
@@ -161,7 +158,7 @@ class _ExampleState extends State<Example234> {
     );
   }
 
-  ///代码清单 2-59
+  ///代码清单 2-37 RadialGradient 环形渐变过度
   ///lib/code/code2/example_234_container_page.dart
   /// Container BoxDecoration  Radial 环形渐变颜色过渡
   Container buildRadial() {
@@ -175,7 +172,11 @@ class _ExampleState extends State<Example234> {
         // 环形渐变
         gradient: RadialGradient(
           //渐变过渡的颜色体系
-          colors: [Colors.red,Colors.yellow, Colors.black, ],
+          colors: [
+            Colors.red,
+            Colors.yellow,
+            Colors.black,
+          ],
           //渐变颜色的过渡半径
           //由Container的短边决定
           radius: 0.5,
@@ -191,5 +192,4 @@ class _ExampleState extends State<Example234> {
       child: Text("配置渐变颜色"),
     );
   }
-
 }
