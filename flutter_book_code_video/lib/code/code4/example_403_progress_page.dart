@@ -22,16 +22,16 @@ void main() {
   ));
 }
 
-///代码清单 4-5 CupertinoSliverRefreshControl  下拉刷新
-///lib/code/code4/example_403_progress_page.dart
+
 class Example403 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example403State();
   }
 }
-
-class _ExampleState extends State<Example403> {
+///代码清单 4-5 CupertinoSliverRefreshControl  下拉刷新
+///lib/code/code4/example_403_progress_page.dart
+class _Example403State extends State<Example403> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
