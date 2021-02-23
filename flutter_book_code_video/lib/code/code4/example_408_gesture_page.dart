@@ -58,9 +58,8 @@ class _ExampleState extends State<Example408> {
     );
   }
 
-  ///代码清单 4-13
+  ///代码清单 4-13 手势识别[GestureDetector]的基本使用
   ///lib/code/code4/example_408_gesture_page.dart
-  ///手势识别[GestureDetector]的基本使用
   Widget buildGestureDetector() {
     return GestureDetector(
       //手指抬起时的回调

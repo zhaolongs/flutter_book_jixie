@@ -102,9 +102,8 @@ class _ExampleState extends State<Example407> {
     );
   }
 
-  ///代码清单 4-12
+  ///代码清单 4-12 开关[SwitchListTile]的基本使用
   ///lib/code/code4/example_407_switch_page.dart
-  ///开关[SwitchListTile]的基本使用
   Widget buildSwitchListTile() {
     return SwitchListTile(
       title: Text(
