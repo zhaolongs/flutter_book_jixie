@@ -26,7 +26,7 @@ void main() {
   ));
 }
 
-///代码清单 2-14
+///代码清单 2-12  Scaffold 基本页面构建
 ///lib/code/code2/example_208_scaffold_page.dart
 class Example208 extends StatefulWidget {
   @override
