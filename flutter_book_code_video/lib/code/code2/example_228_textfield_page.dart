@@ -50,8 +50,7 @@ class _ExampleState extends State<Example228> {
     );
   }
 
-  ///代码清单 2-46
-  ///lib/code/code2/example_228_textfield_page.dart
+
   ///
   ///设置无边框
   Widget buildTextField() {
@@ -81,7 +80,7 @@ class _ExampleState extends State<Example228> {
     );
   }
 
-  ///代码清单 2-48 文本输入框
+  ///代码清单 2-27 文本输入框 InputDecoration 各种状态下的边框样式
   ///lib/code/code2/example_228_textfield_page.dart
   // 只有下边框  配置自定义的边框颜色
   Widget buildTextField3() {
