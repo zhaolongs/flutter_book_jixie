@@ -53,8 +53,7 @@ class _ExampleState extends State<Example307> {
       delegate: TestFlowDelegate(),
     );
   }
-  ///代码清单 3-16 Flow 中使用的子Widget构建
-  ///lib/code/code3/example_307_flow_page.dart
+
   List<Widget>  buildTestChildWidget(){
     List<Widget> childWidthList = [];
     ///构建不同宽度的测试数据
@@ -83,7 +82,7 @@ class _ExampleState extends State<Example307> {
 
  
 }
-///代码清单 3-17 FlowDelegate 的基本使用
+///代码清单 3-16 自定义FlowDelegate
 ///计算自适应换行功能
 ///lib/code/code3/example_307_flow_page.dart
 class TestFlowDelegate extends FlowDelegate {

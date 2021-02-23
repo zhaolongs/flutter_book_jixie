@@ -23,16 +23,16 @@ void main() {
 }
 
 
-///代码清单 3-12 Stack 的基本使用
-///lib/code/code3/example_305_column_page.dart
+
 class Example305 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example305State();
   }
 }
-
-class _ExampleState extends State<Example305> {
+///代码清单 3-12 Stack 的基本使用
+///lib/code/code3/example_305_column_page.dart
+class _Example305State extends State<Example305> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

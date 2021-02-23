@@ -100,8 +100,7 @@ class _ExampleState extends State<Example304> {
 
   ///代码清单 3-6 Row 中子Widget中心对齐
   ///lib/code/code3/example_304_column_page.dart
-  Row buildRow2() {
-    //垂直方向的线性排列
+  Row buildRow2() {  //垂直方向的线性排列
     return Row(
       //主轴方向居中对齐（对于Row来讲就是水平方向）
       mainAxisAlignment: MainAxisAlignment.center,

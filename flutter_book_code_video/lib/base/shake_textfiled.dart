@@ -12,7 +12,7 @@ import 'package:shake_animation_widget/shake_animation_widget.dart';
 /// 
 /// 代码清单 
 ///代码清单
-///代码清单 3-32 抖动的输入框
+///代码清单 3-28 抖动的输入框
 ///lib/base/shake_textfiled.dart
 class ShakeTextFiled extends StatefulWidget {
   final String labelText;

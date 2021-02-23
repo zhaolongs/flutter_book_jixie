@@ -22,16 +22,16 @@ void main() {
   ));
 }
 
-///代码清单 3-3 Column Row 父布局大小限制
-///lib/code/code3/example_303_column_page.dart
+
 class Example303 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example303State();
   }
 }
-
-class _ExampleState extends State<Example303> {
+///代码清单 3-3 Column Row 父布局大小限制
+///lib/code/code3/example_303_column_page.dart
+class _Example303State extends State<Example303> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

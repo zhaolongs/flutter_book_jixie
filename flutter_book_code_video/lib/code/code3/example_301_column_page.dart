@@ -27,11 +27,13 @@ void main() {
 class Example301 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example301();
   }
 }
 
-class _ExampleState extends State<Example301> {
+///代码清单 3-1 Column 的基本使用
+///lib/code/code3/example_301_column_page.dart
+class _Example301 extends State<Example301> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

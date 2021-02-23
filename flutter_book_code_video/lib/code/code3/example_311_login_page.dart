@@ -29,7 +29,7 @@ void main() {
   ));
 }
 
-///代码清单 3-21 登录页面 Stack 层叠
+///代码清单 3-17 登录页面 Stack 层叠
 ///lib/code/code3/example_311_login_page.dart
 class Example311 extends StatefulWidget {
   @override
@@ -88,14 +88,14 @@ class _ExampleState extends State<Example311> {
   }
 }
 
-///代码清单 3-22 登录页面 输入层
+///代码清单 3-18 登录页面 输入层
 ///lib/code/code3/example_311_login_page.dart
 class LoginInputLayout extends StatefulWidget {
   @override
-  _TestPageState createState() => _TestPageState();
+  _LoginInputLayoutState createState() => _LoginInputLayoutState();
 }
 
-class _TestPageState extends State<LoginInputLayout> {
+class _LoginInputLayoutState extends State<LoginInputLayout> {
   //用户名输入框的焦点控制
   FocusNode _userNameFocusNode = new FocusNode();
   FocusNode _passwordFocusNode = new FocusNode();
@@ -113,7 +113,7 @@ class _TestPageState extends State<LoginInputLayout> {
   StreamController<String> _userNameStream = new StreamController();
   StreamController<String> _userPasswordStream = new StreamController();
 
-  ///代码清单 3-23 输入层build方法
+  ///代码清单 3-19 输入层build方法
   ///lib/code/code3/example_311_login_page.dart
   @override
   Widget build(BuildContext context) {
@@ -137,7 +137,7 @@ class _TestPageState extends State<LoginInputLayout> {
     );
   }
 
-  ///代码清单 3-24
+  ///代码清单 3-20
   ///lib/code/code3/example_311_login_page.dart
   Widget buildLoginWidget() {
     return Column(
@@ -171,7 +171,7 @@ class _TestPageState extends State<LoginInputLayout> {
     );
   }
 
-  ///代码清单 3-25
+  ///代码清单 3-21 竖直方向排开的用户名、密码、登录按钮
   ///lib/code/code3/example_311_login_page.dart
   Column buildColumn() {
     return Column(
@@ -205,7 +205,7 @@ class _TestPageState extends State<LoginInputLayout> {
 
 
 
-  ///代码清单 3-26 抖动用户名输入框构建
+  ///代码清单 3-22 抖动用户名输入框构建
   ///lib/code/code3/example_311_login_page.dart
   Widget buildUserNameWidget() {
     return ShakeTextFiled(
@@ -226,7 +226,7 @@ class _TestPageState extends State<LoginInputLayout> {
     );
   }
 
-  ///代码清单 3-27 抖动密码输入框构建
+  ///代码清单 3-23 抖动密码输入框构建
   ///lib/code/code3/example_311_login_page.dart
   Widget buildUserPasswordWidget() {
     return ShakeTextFiled(
@@ -247,7 +247,7 @@ class _TestPageState extends State<LoginInputLayout> {
 
 
 
-  ///代码清单 3-28 隐藏键盘操作
+  ///代码清单 3-24 隐藏键盘操作
   ///lib/code/code3/example_311_login_page.dart
   void hindKeyBoarder() {
     //输入框失去焦点
@@ -259,7 +259,7 @@ class _TestPageState extends State<LoginInputLayout> {
   }
 
 
-  ///代码清单 3-29 校验输入用户名操作
+  ///代码清单 3-25 校验输入用户名操作
   ///lib/code/code3/example_311_login_page.dart
 
   bool checkUserName() {
@@ -278,7 +278,7 @@ class _TestPageState extends State<LoginInputLayout> {
     }
   }
 
-  ///代码清单 3-30 校验输入密码操作
+  ///代码清单 3-26 校验输入密码操作
   ///lib/code/code3/example_311_login_page.dart
   bool checkUserPassword() {
     String userPassrowe = _passwordController.text;
@@ -291,7 +291,7 @@ class _TestPageState extends State<LoginInputLayout> {
       return true;
     }
   }
-  ///代码清单 3-31 登录校验
+  ///代码清单 3-27 登录校验
   ///lib/code/code3/example_311_login_page.dart
   void checkLoginFunction() {
     //隐藏键盘

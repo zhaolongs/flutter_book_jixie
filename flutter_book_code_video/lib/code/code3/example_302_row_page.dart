@@ -22,16 +22,17 @@ void main() {
   ));
 }
 
-///代码清单 3-2 Row 的基本使用
-///lib/code/code3/example_302_column_page.dart
+
 class Example302 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example302();
   }
 }
 
-class _ExampleState extends State<Example302> {
+///代码清单 3-2 Row 的基本使用
+///lib/code/code3/example_302_row_page.dart
+class _Example302 extends State<Example302> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
