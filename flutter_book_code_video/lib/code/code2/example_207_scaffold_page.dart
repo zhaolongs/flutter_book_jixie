@@ -16,10 +16,8 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-13
+///代码清单 2-11 Scaffold的基本使用
 ///lib/code/code2/example_207_scaffold_page.dart
-///Scaffold的基本使用 内容主体页面
-
 //应用入口 
 void main() {
   ///启动根目录
