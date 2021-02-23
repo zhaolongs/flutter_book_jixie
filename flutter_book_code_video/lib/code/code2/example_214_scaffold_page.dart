@@ -26,7 +26,7 @@ void main() {
   ));
 }
 
-///代码清单 2-26
+///代码清单 2-17 自定义底部菜单导航栏
 ///lib/code/code2/example_214_scaffold_page.dart
 class Example214 extends StatefulWidget {
   @override
@@ -92,7 +92,7 @@ class _ExampleState extends State<Example214>
       bottomNavigationBar: buildBottomAppBar(),
     );
   }
-  ///代码清单 2-27
+  ///代码清单 2-18 BottomAppBar 的基本使用
   ///lib/code/code2/example_214_scaffold_page.dart
   //构建底部导航栏
   BottomAppBar buildBottomAppBar() {
