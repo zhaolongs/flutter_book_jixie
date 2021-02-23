@@ -26,7 +26,7 @@ void main() {
   ));
 }
 
-///代码清单 2-22
+///代码清单 2-15 底部导航栏页面基本结构
 ///lib/code/code2/example_212_scaffold_page.dart
 class Example212 extends StatefulWidget {
   @override
@@ -54,7 +54,7 @@ class _ExampleState extends State<Example212> {
     );
   }
 
-  ///代码清单 2-23
+  ///代码清单 2-16 导航栏构建
   ///lib/code/code2/example_212_scaffold_page.dart
   //选中的当前的标签的索引
   int _tabIndex = 0;
