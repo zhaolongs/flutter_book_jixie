@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-///代码清单2-3
+///代码清单2-3  两个路由页面之间的传值
 ///lib/code/code2/example_203_MaterialApp_page.dart
 ///启动函数配置
 void main() => runApp(MyApp2());
@@ -86,14 +86,14 @@ class _ExampleAState extends State<Example202A> {
     });
   }
 
-  //动态路由方式打开B页面
-  void openB() {
+  //动态路由方式打开C页面
+  void openC() {
     //跳转第二个页面
     Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
-      ///直接通过构建函数来传参数
-      return new Example202B(title: "这是传递的参数");
+      //直接通过构建函数来传参数
+      return new Example202C(title: "这是传递的参数");
     })).then((value) {
-      if (value) {
+      if (value) {//获取C页面回传的数据 C页面关闭时回调此处
         Map<String, String> resultMap = value;
         print("页面二回传的数据是 ${resultMap['result']}");
       }
@@ -101,13 +101,9 @@ class _ExampleAState extends State<Example202A> {
   }
 }
 
-///代码清单2-4 B页面的定义
+///代码清单2-5 B页面的定义
 ///lib/code/code2/example_203_MaterialApp_page.dart
 class Example202B extends StatefulWidget {
-  final String title;
-
-  Example202B({this.title});
-
   @override
   State<StatefulWidget> createState() {
     return _ExampleBState();
@@ -117,13 +113,11 @@ class Example202B extends StatefulWidget {
 class _ExampleBState extends State<Example202B> {
   //记录传过来的参数
   String _message = "";
-
   //页面创建时执行的第一个方法
   @override
   void initState() {
     super.initState();
   }
-
   ///代码清单2-5
   ///lib/code/code2/example_203_MaterialApp_page.dart
   ///页面创建执行的第二个方法
@@ -134,10 +128,8 @@ class _ExampleBState extends State<Example202B> {
 
     //是否是路由栈中的第一个页面
     bool isFirst = ModalRoute.of(context).isFirst;
-
     //当前手机屏幕上显示的是否是这个页面Widget
     bool isCurrent = ModalRoute.of(context).isCurrent;
-
     //当前Widget是否是活跃可用的
     //当调用 pop 或者是关闭当前Widget时 isActive 为false
     bool isActive = ModalRoute.of(context).isActive;
@@ -147,24 +139,16 @@ class _ExampleBState extends State<Example202B> {
       RouteSettings routeSettings = ModalRoute.of(context).settings;
       //获取传递的参数
       Map<String, String> arguments = routeSettings.arguments;
-      print(
-          "接收到参数 ${arguments["title"]} isCurrent$isCurrent isFirst$isFirst  isActive$isActive");
-
       //变量赋值
       _message = arguments.toString();
     }
   }
 
-  ///代码清单2-6
-  ///lib/code/code2/example_203_MaterialApp_page.dart
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      ///通过widget来调用
-      appBar: AppBar(
-        ///这里是通过插值表达式的方式来直接引用的
-        title: Text("B页面 ${widget.title}"),
-      ),
+      appBar: AppBar( title: Text("B页面"),),
       body: Column(
         children: [
           FlatButton(
@@ -187,7 +171,51 @@ class _ExampleBState extends State<Example202B> {
     //这里是向上一个页面回传的数据
     Map<String, String> resultMap = new Map();
     resultMap["result"] = "AESC";
+    //回传数据
+    Navigator.of(context).pop(resultMap);
+  }
+}
 
+
+
+///代码清单2-6  C页面的定义
+///lib/code/code2/example_203_MaterialApp_page.dart
+class Example202C extends StatefulWidget {
+  final String title;//定义变量接收参数
+  Example202C({this.title});
+  @override
+  State<StatefulWidget> createState() {
+    return _Example202CState();
+  }
+}
+
+class _Example202CState extends State<Example202C> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("C页面"),),
+      body: Column(
+        children: [
+          FlatButton(
+            child: Text("关闭当前页面"),
+            onPressed: () {
+              closeCFunction();
+            },
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text("接收到的数据是 ${widget.title}")
+        ],
+      ),
+    );
+  }
+
+  //关闭B页面
+  void closeCFunction() {
+    //这里是向上一个页面回传的数据
+    Map<String, String> resultMap = new Map();
+    resultMap["result"] = "AESC";
     ///回传数据
     Navigator.of(context).pop(resultMap);
   }
