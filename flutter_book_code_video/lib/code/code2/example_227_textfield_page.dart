@@ -52,7 +52,7 @@ class _ExampleState extends State<Example227> {
     );
   }
 
-  ///代码清单 2-45 文本输入框
+  ///代码清单 2-26 文本输入框
   ///lib/code/code2/example_227_textfield_page.dart
   Widget buildTextField() {
     return TextField(

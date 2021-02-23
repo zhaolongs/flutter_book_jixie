@@ -25,8 +25,7 @@ void main() {
   ));
 }
 
-///代码清单 2-37  AppBar 结合 PreferredSize
-///lib/code/code2/example_219_appbar_page.dart
+
 class Example219 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

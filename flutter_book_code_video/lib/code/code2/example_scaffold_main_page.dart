@@ -15,9 +15,6 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-16
-///lib/code/code2/example_scaffold_Main_page.dart
-///Scaffold的基本使用 内容主体页面
 import 'package:flutterbookcode/base/list/colors.dart';
 import 'package:flutterbookcode/base/list/header_icon.dart';
 import 'package:flutterbookcode/base/list/list_title.dart';

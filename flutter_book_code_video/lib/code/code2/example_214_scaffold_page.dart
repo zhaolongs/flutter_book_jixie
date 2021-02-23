@@ -128,8 +128,7 @@ class _ExampleState extends State<Example214>
   }
 }
 
-///代码清单 2-35
-///lib/code/code2/example_214_scaffold_page.dart
+
 class ScffoldHomeItemPage extends StatefulWidget {
   //页面标识
   final int pageIndex;

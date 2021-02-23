@@ -25,8 +25,7 @@ void main() {
   ));
 }
 
-///代码清单 2-19
-///lib/code/code2/example_211_scaffold_page.dart
+
 class Example211 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -67,8 +66,7 @@ class _ExampleState extends State<Example211> {
     );
   }
 
-  ///代码清单 2-20
-  ///lib/code/code2/example_211_scaffold_page.dart
+
   AppBar buildAppBar2() {
     return AppBar(
       title: Text("测试"),
@@ -91,8 +89,7 @@ class _ExampleState extends State<Example211> {
       ),
     );
   }
-  ///代码清单 2-21
-  ///lib/code/code2/example_211_scaffold_page.dart
+
   UserAccountsDrawerHeader buildDrawerHeader() {
     ///通用用户信息组件
     return UserAccountsDrawerHeader(

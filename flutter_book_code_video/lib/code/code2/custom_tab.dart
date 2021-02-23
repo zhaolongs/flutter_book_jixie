@@ -15,8 +15,6 @@ import 'package:flutter/material.dart';
 /// 西瓜视频 https://www.ixigua.com/home/3662978423
 ///
 
-///代码清单 2-31
-///lib/code/code2/custom_tab.dart
 class CustomTab extends StatefulWidget {
   final Function() clickCallBack;
   final IconData iconData;

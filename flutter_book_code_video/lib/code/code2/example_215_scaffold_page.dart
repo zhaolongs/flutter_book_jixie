@@ -58,8 +58,7 @@ class _ExampleState extends State<Example215>
         vsync: this);
   }
 
-  ///代码清单 2-28
-  ///lib/code/code2/example_215_scaffold_page.dart
+
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
@@ -88,8 +87,6 @@ class _ExampleState extends State<Example215>
     );
   }
 
-  ///代码清单 2-29
-  ///lib/code/code2/example_215_scaffold_page.dart
   //构建底部导航栏
   //BottomAppBar结合悬浮按钮使用
   BottomAppBar buildBottomAppBar() {
@@ -107,8 +104,7 @@ class _ExampleState extends State<Example215>
       ),
     );
   }
-  ///代码清单 2-30
-  ///lib/code/code2/example_215_scaffold_page.dart
+
   Row buildRow() {
     return Row(
       //使用每一个子Widget平均分配Row的宽度

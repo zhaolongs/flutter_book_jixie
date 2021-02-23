@@ -46,8 +46,6 @@ class _ExampleState extends State<Example218>
   @override
   void initState() {
     super.initState();
-    //代码清单 2-35
-    //lib/code/code2/example_218_appbar_page.dart
     //初始化Tab 如新闻资讯类型的APP的分类
     tabs = <Tab>[
       Tab(text: "Tab0",icon: Icon(Icons.add),),
@@ -69,8 +67,7 @@ class _ExampleState extends State<Example218>
         TabController(initialIndex: 0, length: tabs.length, vsync: this);
   }
 
-  ///代码清单 2-36 AppBar bottom 属性配置TabBar标签栏
-  ///lib/code/code2/example_218_appbar_page.dart
+
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构

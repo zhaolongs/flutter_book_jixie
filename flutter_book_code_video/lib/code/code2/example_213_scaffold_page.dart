@@ -25,8 +25,7 @@ void main() {
   ));
 }
 
-///代码清单 2-35
-///lib/code/code2/example_213_scaffold_page.dart
+
 class Example213 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -38,8 +37,7 @@ class _ExampleState extends State<Example213> {
 
 
 
-  ///代码清单 2-25
-  ///lib/code/code2/example_213_scaffold_page.dart
+
   List<Widget> bodyWidgetList=[
     ScffoldHomeItemPage(0),
     ScffoldHomeItemPage(1),
@@ -116,8 +114,7 @@ class _ExampleState extends State<Example213> {
 
 }
 
-///代码清单 2-24
-///lib/code/code2/example_213_scaffold_page.dart
+
 class ScffoldHomeItemPage extends StatefulWidget {
   //页面标识
   final int pageIndex;

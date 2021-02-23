@@ -25,8 +25,7 @@ void main() {
   ));
 }
 
-///代码清单 2-38
-///lib/code/code2/example_220_text_page.dart
+
 class Example220 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
