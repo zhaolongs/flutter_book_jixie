@@ -17,8 +17,6 @@ import 'package:flutter/services.dart';
 ///
 ///
 
-
-
 //应用入口
 void main() {
   ///启动根目录
@@ -35,10 +33,11 @@ class Example232 extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example232> {
-  ///代码清单 2-53
+  ///代码清单 2-31 FocusNode 输入框焦点事件的捕捉与监听
   ///lib/code/code2/example_232_textfield_page.dart
   // 第一步 创建FocusNode对象实例
   FocusNode focusNode = FocusNode();
+
   // 输入框焦点事件的捕捉与监听
   @override
   void initState() {
@@ -64,7 +63,7 @@ class _ExampleState extends State<Example232> {
       ),
       //手势识别 用来监听点击背景
       body: GestureDetector(
-        onTap: (){
+        onTap: () {
           //失去焦点
           //隐藏键盘
         },
@@ -102,20 +101,18 @@ class _ExampleState extends State<Example232> {
     focusNode.dispose();
   }
 
-
   //获取焦点
-  void getFocusFunction(BuildContext context){
+  void getFocusFunction(BuildContext context) {
     FocusScope.of(context).requestFocus(focusNode);
   }
 
- //失去焦点
-  void unFocusFunction(){
+  //失去焦点
+  void unFocusFunction() {
     focusNode.unfocus();
   }
 
- //隐藏键盘而不丢失文本字段焦点：
-  void hideKeyBoard(){
+  //隐藏键盘而不丢失文本字段焦点：
+  void hideKeyBoard() {
     SystemChannels.textInput.invokeMethod('TextInput.hide');
   }
-
 }
