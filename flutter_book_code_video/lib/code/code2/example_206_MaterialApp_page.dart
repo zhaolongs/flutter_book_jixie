@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
 ///
 ///
 
-///代码清单 2-12
+///代码清单 2-10 ThemeData 的基本使用
 ///lib/code/code2/example_206_MaterialApp_page.dart
 //应用入口
 main() => runApp(themDataFunction());
