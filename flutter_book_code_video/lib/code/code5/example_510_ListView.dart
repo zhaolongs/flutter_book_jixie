@@ -24,16 +24,16 @@ void main() {
   ));
 }
 
-///代码清单 5-37 ListView 的基本使用
-///lib/code/code5/example_510_ListView.dart
+
 class Example509 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example509State();
   }
 }
-
-class _ExampleState extends State<Example509> {
+///代码清单 5-21 ListView 的基本使用
+///lib/code/code5/example_510_ListView.dart
+class _Example509State extends State<Example509> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +68,7 @@ class _ExampleState extends State<Example509> {
     );
   }
 
-  ///代码清单 5-38 ListView 通过builder来构建
+  ///代码清单 5-22 ListView 通过builder来构建
   ///lib/code/code5/example_510_ListView.dart
   Widget buildListView1() {
     return ListView.builder(
@@ -85,7 +85,7 @@ class _ExampleState extends State<Example509> {
     );
   }
 
-  ///代码清单 5-39  创建ListView使用的子布局
+  ///代码清单 5-23  创建ListView使用的子布局
   ///lib/code/code5/example_510_ListView.dart
   Widget buildListViewItemWidget(int index) {
     return new Container(
@@ -99,7 +99,7 @@ class _ExampleState extends State<Example509> {
     );
   }
 
-  ///代码清单 5-40  通过separated来构建
+  ///代码清单 5-24  通过separated来构建
   ///lib/code/code5/example_510_ListView.dart
   Widget buildListView2() {
     return ListView.separated(
@@ -122,7 +122,7 @@ class _ExampleState extends State<Example509> {
     );
   }
 
-  ///代码清单 5-41  通过custom来构建
+  ///代码清单 5-25  通过custom来构建
   /// 与通过构造函数 代码清单 5-37 中的原理一致
   ///lib/code/code5/example_510_ListView.dart
   Widget buildListView3() {
@@ -138,7 +138,7 @@ class _ExampleState extends State<Example509> {
     );
   }
 
-  ///代码清单 5-42  适用于构建大量数据
+  ///代码清单 5-26  适用于构建大量数据
   ///lib/code/code5/example_510_ListView.dart
   Widget buildListView4() {
     return ListView.custom(
