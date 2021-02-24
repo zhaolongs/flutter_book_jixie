@@ -24,16 +24,16 @@ void main() {
     home: Example512(),
   ));
 }
-///代码清单 5-49 GridView 下拉刷新
+///代码清单 5-33 GridView RefreshIndicator 下拉刷新
 ///lib/code/code5/example_512_GridView_RefreshIndicator.dart
 class Example512 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example512State();
   }
 }
 
-class _ExampleState extends State<Example512> {
+class _Example512State extends State<Example512> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

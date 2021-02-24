@@ -21,20 +21,20 @@ void main() {
   ///启动根目录
   runApp(MaterialApp(
     theme: ThemeData(primaryColor: Colors.grey[200]),
-    home: Example512(),
+    home: Example513(),
   ));
 }
 
-///代码清单 5-49 ListView 下拉刷新、上拉加载更多
+///代码清单 5-34 ListView 下拉刷新、上拉加载更多
 ///lib/code/code5/example_513_ListView_RefreshIndicator.dart
-class Example512 extends StatefulWidget {
+class Example513 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example513State();
   }
 }
 
-class _ExampleState extends State<Example512> {
+class _Example513State extends State<Example513> {
   //ListView 中使用到的数据集合
   List<String> _list = [];
   //ListView 中使用的滑动控制器
@@ -76,7 +76,7 @@ class _ExampleState extends State<Example512> {
     });
   }
 
-  ///代码清单 5-50
+  ///代码清单 5-35
   ///lib/code/code5/example_513_ListView_RefreshIndicator.dart
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,7 @@ class _ExampleState extends State<Example512> {
     );
   }
 
-  ///代码清单 5-51  页面显示的列表 ListView
+  ///代码清单 5-36  页面显示的列表 ListView
   ///lib/code/code5/example_513_ListView_RefreshIndicator.dart
   Widget buildListView() {
     return ListView.builder(

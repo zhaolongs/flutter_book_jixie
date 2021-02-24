@@ -43,7 +43,7 @@ class _ExampleState extends State<Example511> {
     );
   }
 
-  ///代码清单 5-43 GridView 通过构造函数来创建
+  ///代码清单 5-27 GridView 的基本使用 固定列数
   ///lib/code/code5/example_511_GridView.dart
   Widget buildGridView1() {
     return GridView(
@@ -70,7 +70,7 @@ class _ExampleState extends State<Example511> {
     );
   }
 
-  ///代码清单 5-44 GridView 子Item视图构建
+  ///代码清单 5-28 GridView 子Item视图构建
   ///lib/code/code5/example_511_GridView.dart
   Widget buildListViewItemWidget(int index) {
     return new Container(
@@ -84,7 +84,7 @@ class _ExampleState extends State<Example511> {
     );
   }
 
-  ///代码清单 5-45 GridView 通过构造函数来创建
+  ///代码清单 5-28 GridView 固定宽度
   ///lib/code/code5/example_511_GridView.dart
   Widget buildGridView2() {
     return GridView(
@@ -112,7 +112,7 @@ class _ExampleState extends State<Example511> {
     );
   }
 
-  ///代码清单 5-46 GridView count 方式来创建 适用于少量数据
+  ///代码清单 5-30 GridView.coun 方式来创建 适用于少量数据
   ///lib/code/code5/example_511_GridView.dart
   Widget buildGridView3() {
     return GridView.count(
@@ -135,7 +135,7 @@ class _ExampleState extends State<Example511> {
     );
   }
 
-  ///代码清单 5-47 GridView extent 方式来创建 适用于少量数据
+  ///代码清单 5-31 GridView.extent 方式来创建 适用于少量数据
   ///lib/code/code5/example_511_GridView.dart
   Widget buildGridView4() {
     return GridView.extent(
@@ -158,8 +158,7 @@ class _ExampleState extends State<Example511> {
     );
   }
 
-  ///代码清单 5-48 GridView builder 方式来创建
-  ///懒加载模式 适用于大量数据
+  ///代码清单 5-32 GridView.builder 方式来创建 懒加载模式 适用于大量数据
   ///lib/code/code5/example_511_GridView.dart
   Widget buildGridView5() {
     return GridView.builder(
