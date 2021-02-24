@@ -68,7 +68,7 @@ class Example628 extends StatelessWidget {
   }
 }
 
-/// 代码清单 6-39 弹框中显示的内容
+/// 代码清单 6-31 弹框中显示的内容
 /// lib/code/code6/example_627_PageTransitionSwitcher.dart
 class DetailsPage extends StatelessWidget {
   @override

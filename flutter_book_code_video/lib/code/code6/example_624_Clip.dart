@@ -84,7 +84,7 @@ class _PageState extends State with TickerProviderStateMixin {
     );
   }
 
-  /// 代码清单 6-32 Clip 裁剪动画
+  /// 代码清单 6-25 Clip 裁剪动画
   ///lib/code/code6/example_624_Clip.dart
   Container buildClipContainer(BuildContext context) {
     return Container(

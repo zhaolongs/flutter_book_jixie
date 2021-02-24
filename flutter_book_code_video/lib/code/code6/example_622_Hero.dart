@@ -26,7 +26,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-24 Hero 动画
+/// 代码清单 6-19 Hero 动画
 ///lib/code/code6/example_622_Hero.dart
 class Example622 extends StatelessWidget {
   @override
@@ -89,7 +89,7 @@ class Example622 extends StatelessWidget {
     }));
   }
 
-  /// 代码清单 6-26 Hero 动画
+  /// 代码清单 6-20 Hero 动画 自定义路由功能
   ///lib/code/code6/example_622_Hero.dart
   //透明渐变动画方式打开新的页面
   void openPage2(BuildContext context, String heroTag) {
@@ -135,10 +135,10 @@ class Example622 extends StatelessWidget {
   }
 }
 
-/// 代码清单 6-25 Hero 动画 目标页面
+/// 代码清单 6-19 Hero 动画 目标页面
 ///lib/code/code6/example_622_Hero.dart
 class ItemDetailsPage extends StatelessWidget {
-  String heroTag;
+  final String heroTag;
 
   ItemDetailsPage(this.heroTag);
 

@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-18 [BorderRadiusTween] 的基本使用
+/// 代码清单 6-14 [BorderRadiusTween] 的基本使用
 ///lib/code/code6/example_615_BorderRadiusTween.dart
 class Example615 extends StatefulWidget {
   @override

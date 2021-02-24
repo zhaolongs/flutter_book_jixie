@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-14 [ColorTween] 的基本使用
+/// 代码清单 6-10 [ColorTween] 的基本使用
 ///lib/code/code6/example_611_Tween.dart
 class Example611 extends StatefulWidget {
   @override

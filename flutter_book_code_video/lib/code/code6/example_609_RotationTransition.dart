@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-12 [RotationTransition] 旋转动画
+/// 代码清单 6-8 [RotationTransition] 旋转动画
 ///lib/code/code6/example_609_RotationTransition.dart
 class Example609 extends StatefulWidget {
   @override

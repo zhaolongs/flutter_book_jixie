@@ -25,7 +25,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-22
+/// 代码清单 6-17 TweenSequence 串行动画
 ///lib/code/code6/example_620_TweenSequence.dart
 class Example620 extends StatefulWidget {
   @override

@@ -26,8 +26,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-27 Path 动画
-/// 动态画线动画方式绘制矩形
+/// 代码清单 6-21 Path 动画 动态画线动画方式绘制矩形
 ///lib/code/code6/example_623_Path.dart
 class Example623 extends StatefulWidget {
   @override
@@ -69,7 +68,7 @@ class _PageState extends State with TickerProviderStateMixin {
     super.dispose();
   }
 
-  /// 代码清单 6-28
+  /// 代码清单 6-21 Path 绘制动画 绘图构建
   ///lib/code/code6/example_623_Path.dart
   @override
   Widget build(BuildContext context) {
@@ -97,7 +96,7 @@ class _PageState extends State with TickerProviderStateMixin {
       ),
     );
   }
-  /// 代码清单 6-29
+  /// 代码清单 6-22 控制动画按钮
   ///lib/code/code6/example_623_Path.dart
   Container buildContainer() {
     return Container(
@@ -128,7 +127,7 @@ class _PageState extends State with TickerProviderStateMixin {
   }
 }
 
-/// 代码清单 6-30
+/// 代码清单 6-23 自定义CustomPainter
 ///lib/code/code6/example_623_Path.dart
 class PathAnimationPainter extends CustomPainter {
   //[定义画笔]
@@ -154,7 +153,7 @@ class PathAnimationPainter extends CustomPainter {
     return true;
   }
 
-  /// 代码清单 6-31
+  /// 代码清单 6-24 PathMetrics 测量实现画线动画
   ///lib/code/code6/example_623_Path.dart
   void canvasFunction(Canvas canvas) {
     //创建一个路径

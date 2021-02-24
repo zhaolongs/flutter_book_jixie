@@ -29,14 +29,14 @@ void main() {
   ));
 }
 
-/// 代码清单 6-33 容器过渡动画
+/// 代码清单 6-26 容器过渡动画
 /// lib/code/code6/example_625_OpenContainer.dart
 class Example625 extends StatefulWidget {
   @override
-  _PageState createState() => _PageState();
+  _Example625State createState() => _Example625State();
 }
 
-class _PageState extends State with TickerProviderStateMixin {
+class _Example625State extends State with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +57,7 @@ class _PageState extends State with TickerProviderStateMixin {
     );
   }
 
-  /// 代码清单 6-34 OpenContainer 核心
+  /// 代码清单 6-27 OpenContainer 核心
   /// lib/code/code6/example_625_OpenContainer.dart
   Widget buildOpenContainer(int index) {
     //容器转换路由
@@ -106,7 +106,7 @@ class _PageState extends State with TickerProviderStateMixin {
   }
 }
 
-/// 代码清单 6-35 一个展示图片的详情页面
+/// 代码清单 6-28 一个展示图片的详情页面
 /// lib/code/code6/example_625_OpenContainer.dart
 class DetailsPage extends StatelessWidget {
   @override

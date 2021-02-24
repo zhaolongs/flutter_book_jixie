@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-9 [ScaleTransition]
+/// 代码清单 6-5 [ScaleTransition]缩放动画效果 运行效果如图6-3所示
 ///lib/code/code6/example_607_ScaleTransition.dart
 class Example607 extends StatefulWidget {
   @override

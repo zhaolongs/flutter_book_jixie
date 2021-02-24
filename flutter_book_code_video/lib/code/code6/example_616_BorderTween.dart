@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-18 [BorderTween] 的基本使用
+/// 代码清单 6-13 [BorderTween] 的基本使用
 ///lib/code/code6/example_616_BorderTween.dart
 class Example616 extends StatefulWidget {
   @override

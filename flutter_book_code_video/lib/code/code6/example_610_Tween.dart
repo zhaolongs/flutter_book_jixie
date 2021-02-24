@@ -24,13 +24,13 @@ void main() {
   ));
 }
 
-/// 代码清单 6-13 [Tween] 的基本使用
-///lib/code/code6/example_610_Tween.dart
+
 class Example610 extends StatefulWidget {
   @override
   _Example610State createState() => _Example610State();
 }
-
+/// 代码清单 6-9 [Tween] 的基本使用
+///lib/code/code6/example_610_Tween.dart
 class _Example610State extends State<Example610>
     with SingleTickerProviderStateMixin {
   //动画控制器

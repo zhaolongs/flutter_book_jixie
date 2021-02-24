@@ -44,7 +44,7 @@ class _PageState extends State with TickerProviderStateMixin {
         children: [
           //第一部分 效果区域
           buildClipContainer(context),
-          //第二部分 按钮区域 与代码清单 代码清单 6-29 中的一致
+          //第二部分 按钮区域
           buildContainer()
         ],
       ),
@@ -53,7 +53,7 @@ class _PageState extends State with TickerProviderStateMixin {
 
 
 
-  /// 代码清单 6-36 共享轴切换动画
+  /// 代码清单 6-29 共享轴切换动画
   /// lib/code/code6/example_626_PageTransitionSwitcher.dart
   /// 切换页面显示标识
   bool isSelect = false;
@@ -72,7 +72,7 @@ class _PageState extends State with TickerProviderStateMixin {
           child: child,
           animation: animation,
           //缩放形式
-          transitionType: SharedAxisTransitionType.horizontal,
+          transitionType: SharedAxisTransitionType.vertical,
           secondaryAnimation: secondaryAnimation,
         );
       },

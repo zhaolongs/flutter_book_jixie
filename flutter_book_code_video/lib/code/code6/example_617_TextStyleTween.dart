@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-19 [TextStyleTween] 的基本使用
+/// 代码清单 6-14 [TextStyleTween] 文本样式过渡动画的基本使用
 ///lib/code/code6/example_617_TextStyleTween.dart
 class Example617 extends StatefulWidget {
   @override

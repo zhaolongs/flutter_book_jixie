@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-20
+/// 代码清单 6-15
 ///lib/code/code6/example_618_CurvedAnimation.dart
 class Example618 extends StatefulWidget {
   @override

@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-17 [EdgeInsetsTween] 的基本使用
+/// 代码清单 6-13 [EdgeInsetsTween] 的基本使用
 ///lib/code/code6/example_614_EdgeInsetsTween.dart
 class Example614 extends StatefulWidget {
   @override

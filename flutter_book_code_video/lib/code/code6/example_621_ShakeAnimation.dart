@@ -26,7 +26,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-23 按钮抖动
+/// 代码清单 6-18 按钮抖动
 ///lib/code/code6/example_621_ShakeAnimation.dart
 class Example621 extends StatefulWidget {
   @override

@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-15 [BoxConstraintsTween] 的基本使用
+/// 代码清单 6-11 [BoxConstraintsTween] 的基本使用 容器动画控制
 ///lib/code/code6/example_612_Tween.dart
 class Example612 extends StatefulWidget {
   @override
