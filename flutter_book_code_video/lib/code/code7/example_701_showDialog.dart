@@ -394,7 +394,7 @@ class _Example701State extends State<Example701> {
     );
   }
 
-  ///代码清单 7-9 showBottomSheet 自定义底部弹框
+  ///代码清单 7-8 showBottomSheet 自定义底部弹框
   ///lib/code/code7/example_701_showDialog.dart
   Container buildContainer(BuildContext context) {
     return Container(
@@ -452,7 +452,7 @@ class _Example701State extends State<Example701> {
     );
   }
 
-  ///代码清单 7-10 showModalBottomSheet
+  ///代码清单 7-9 showModalBottomSheet
   ///lib/code/code7/example_701_showDialog.dart
   void showModalBottomSheetFunction(BuildContext context) async {
     showModalBottomSheet(
@@ -472,7 +472,7 @@ class _Example701State extends State<Example701> {
     );
   }
 
-  ///代码清单 7-11 showCupertinoModalPopup
+  ///代码清单 7-10 showCupertinoModalPopup
   ///lib/code/code7/example_701_showDialog.dart
   void showCupertinoModalFunction(BuildContext context) async {
     showCupertinoModalPopup<int>(

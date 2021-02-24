@@ -50,9 +50,9 @@ class Example801 extends StatelessWidget {
   }
 }
 
-/// 代码清单 8-2
+/// 代码清单 8-2 自定义绘图者
 ///lib/code/code8/example_801_baseUse.dart
-//自定义绘图者
+
 class LinePainter extends CustomPainter {
   //[定义画笔]
   Paint _paint = Paint()

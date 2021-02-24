@@ -69,7 +69,7 @@ class _Example702State extends State<Example702> {
     );
   }
 
-  ///代码清单 7-12
+  ///代码清单 7-11 Dialog中的状态更新
   ///lib/code/code7/example_702_showDialog.dart
 
   int _groupValue = 0;
@@ -131,7 +131,7 @@ class _Example702State extends State<Example702> {
     print("弹框关闭 $isSelect");
   }
 
-  ///代码清单 7-15
+  ///代码清单 7-14 StatefulBuilder 实现 Dialog 中状态更新
   ///lib/code/code7/example_702_showDialog.dart
   void showDialogFunction2() async {
     bool isSelect = await showDialog<bool>(
@@ -192,7 +192,7 @@ class _Example702State extends State<Example702> {
     print("弹框关闭 $isSelect");
   }
 
-  ///代码清单 7-13
+  ///代码清单 7-12
   ///lib/code/code7/example_702_showDialog.dart
   void showDialogFunction3() async {
     bool isSelect = await showDialog<bool>(
@@ -228,7 +228,7 @@ class _Example702State extends State<Example702> {
     print("弹框关闭 $isSelect");
   }
 }
-///代码清单 7-14
+///代码清单 7-13
 ///lib/code/code7/example_702_showDialog.dart
 class DialogRadioWidget extends StatefulWidget {
   final Function(int value) callBack;

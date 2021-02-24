@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/utils/navigator_utils.dart';
@@ -25,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 7-16
+/// 代码清单 7-15
 ///lib/code/code7/example_703_customDialog.dart
 class Example703 extends StatefulWidget {
   @override
@@ -33,7 +32,6 @@ class Example703 extends StatefulWidget {
 }
 
 class _Example703State extends State<Example703> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +43,6 @@ class _Example703State extends State<Example703> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-
             //点击一个按钮
             ElevatedButton(
               child: Text("显示自定义弹框"),
@@ -60,7 +57,6 @@ class _Example703State extends State<Example703> {
                 );
               },
             ),
-
           ],
         ),
       ),
@@ -68,7 +64,7 @@ class _Example703State extends State<Example703> {
   }
 }
 
-///代码清单 7-17
+///代码清单 7-16
 ///lib/code/code7/example_703_showDialog.dart
 class CustomDialogWidget extends StatefulWidget {
   //点击单选框的回调
@@ -83,10 +79,8 @@ class CustomDialogWidget extends StatefulWidget {
 }
 
 class _CustomDialogWidgetState extends State<CustomDialogWidget> {
-
   //当前单选框选择的值
   int _groupValue = 0;
-
   @override
   Widget build(BuildContext context) {
     //手势识别，点击空留区域 弹框消失功能
@@ -94,40 +88,35 @@ class _CustomDialogWidgetState extends State<CustomDialogWidget> {
       onTap: () {
         Navigator.of(context).pop();
       },
-      child: buildScaffold(context),
-    );
-  }
-  ///代码清单 7-18
-  ///lib/code/code7/example_703_showDialog.dart
-  ///页面主体内容
-  Scaffold buildScaffold(BuildContext context) {
-    return Scaffold(
-      //背景透明
-      backgroundColor: Color(0x30000000),
-      body: Container(
-        //填充当前视图
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        //层叠布局
-        child: Stack(
-          //子Widget居中
-          alignment: Alignment.center,
-          children: [
-            //中间显示的白色圆角背景的选择区域
-            Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  //圆角背景
-                  borderRadius: BorderRadius.all(Radius.circular(8))),
-              child: buildColumn(context),
-            )
-          ],
+      child: Scaffold(
+        //背景透明
+        backgroundColor: Color(0x30000000),
+        body: Container(
+          //填充当前视图
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          //层叠布局
+          child: Stack(
+            //子Widget居中
+            alignment: Alignment.center,
+            children: [
+              //中间显示的白色圆角背景的选择区域
+              Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    //圆角背景
+                    borderRadius: BorderRadius.all(Radius.circular(8))),
+                child: buildColumn(context),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
+
   ///代码清单 7-19
   ///lib/code/code7/example_703_showDialog.dart
   ///线性排列
