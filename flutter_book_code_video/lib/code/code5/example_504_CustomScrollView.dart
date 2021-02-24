@@ -17,20 +17,20 @@ import 'package:flutter/material.dart';
 void main() {
   ///启动根目录
   runApp(MaterialApp(
-    home: Example503(),
+    home: Example504(),
   ));
 }
 
-///代码清单 5-11 CustomScrollView 的基本使用
-///lib/code/code5/example_504_CustomScrollView.dart
-class Example503 extends StatefulWidget {
+
+class Example504 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example504State();
   }
 }
-
-class _ExampleState extends State<Example503> {
+///代码清单 5-11 CustomScrollView 的基本使用
+///lib/code/code5/example_504_CustomScrollView.dart
+class _Example504State extends State<Example504> {
 
   ScrollController _scrollController = new ScrollController();
 
