@@ -24,16 +24,16 @@ void main() {
   ));
 }
 
-///代码清单 5-34 PageView的基本使用
-///lib/code/code5/example_508_PageView.dart
+
 class Example508 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example508State();
   }
 }
-
-class _ExampleState extends State<Example508> {
+///代码清单 5-18 PageView的基本使用
+///lib/code/code5/example_508_PageView.dart
+class _Example508State extends State<Example508> {
   /// 初始化控制器
   PageController pageController;
 
@@ -115,7 +115,7 @@ class _ExampleState extends State<Example508> {
     );
   }
 
-  ///代码清单 5-35 PageView 控制器的常用方法描述
+  ///代码清单 5-19 PageView 控制器的常用方法描述
   ///lib/code/code5/example_508_PageView.dart
   void pageViewController() {
     //动画的方式滚动到指定的页面

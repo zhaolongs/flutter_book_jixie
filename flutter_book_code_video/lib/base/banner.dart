@@ -26,10 +26,10 @@ class _BannerWidgetState extends State<BannerWidget> {
   Timer _timer;
   //本地资源图片
   List<String> imageList = [
-    "assets/images/2.0x/banner1.webp",
-    "assets/images/2.0x/banner2.webp",
     "assets/images/2.0x/banner3.webp",
-    "assets/images/2.0x/banner4.webp",
+    "assets/images/2.0x/banner3.webp",
+    "assets/images/2.0x/banner3.webp",
+    "assets/images/2.0x/banner3.webp",
   ];
   //当前显示的索引
   int currentIndex = 1000;

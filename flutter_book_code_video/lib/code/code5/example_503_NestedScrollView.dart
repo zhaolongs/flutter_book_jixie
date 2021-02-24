@@ -21,16 +21,16 @@ void main() {
   ));
 }
 
-///代码清单 5-7 NestedScrollView 的基本使用
+///5-7 NestedScrollView 实现折叠头部的标签页面
 ///lib/code/code5/example_503_NestedScrollView.dart
 class Example503 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example503State();
   }
 }
 
-class _ExampleState extends State<Example503>
+class _Example503State extends State<Example503>
     with SingleTickerProviderStateMixin {
   //因为页面主体使用到了TabBar 所以用到了控制器
   TabController tabController;
@@ -127,7 +127,7 @@ class _ExampleState extends State<Example503>
         //背景
         //在这里直接使用的是一个图片
         background: Image.asset(
-          "assets/images/2.0x/banner4.webp",
+          "assets/images/2.0x/banner3.webp",
           height: 200,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.fill,

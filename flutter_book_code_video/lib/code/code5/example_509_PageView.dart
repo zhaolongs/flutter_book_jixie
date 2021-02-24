@@ -24,16 +24,16 @@ void main() {
   ));
 }
 
-///代码清单 5-36 PageView 的切换动画
+///代码清单 5-20 PageView 的切换动画
 ///lib/code/code5/example_509_PageView.dart
 class Example509 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example509State();
   }
 }
 
-class _ExampleState extends State<Example509> {
+class _Example509State extends State<Example509> {
   /// 初始化控制器
   PageController pageController;
 

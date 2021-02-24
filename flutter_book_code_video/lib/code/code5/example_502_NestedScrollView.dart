@@ -21,16 +21,16 @@ void main() {
   ));
 }
 
-///代码清单 5-6 NestedScrollView 的基本使用
-///lib/code/code5/example_502_NestedScrollView.dart
+
 class Example502 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example502State();
   }
 }
-
-class _ExampleState extends State<Example502> {
+///代码清单 5-6 NestedScrollView 的基本使用
+///lib/code/code5/example_502_NestedScrollView.dart
+class _Example502State extends State<Example502> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

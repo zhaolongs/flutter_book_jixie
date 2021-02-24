@@ -23,16 +23,16 @@ void main() {
   ));
 }
 
-///代码清单 5-1 SingleChildScrollView 的基本使用
-///lib/code/code5/example_501_SingleChildScrollView.dart
 class Example501 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example501State();
   }
 }
 
-class _ExampleState extends State<Example501> {
+///代码清单 5-1 SingleChildScrollView 的基本使用
+///lib/code/code5/example_501_SingleChildScrollView.dart
+class _Example501State extends State<Example501> {
   //滑动控制器
   ScrollController _scrollController = new ScrollController();
 
@@ -59,7 +59,10 @@ class _ExampleState extends State<Example501> {
           alignment: Alignment.center,
           color: Colors.grey,
           height: 1600,
-          child: Text("测试数据",key: _globalKey,),
+          child: Text(
+            "测试数据",
+            key: _globalKey,
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -103,7 +106,7 @@ class _ExampleState extends State<Example501> {
     _scrollController.dispose();
   }
 
-  ///代码清单 5-3 ScrollController 的监听
+  ///代码清单 5-3 ScrollController 滚动到指定的位置
   ///lib/code/code5/example_501_SingleChildScrollView.dart
   ///滚动到指定的位置
   void scrollOffset(double offset) {

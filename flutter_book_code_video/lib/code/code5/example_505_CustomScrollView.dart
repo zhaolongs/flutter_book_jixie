@@ -45,8 +45,8 @@ class _ExampleState extends State<Example505> {
     );
   }
 
-  ///代码清单 5-12 九宫格 通过构造函数来创建
-  ///lib/code/code5/example_504_CustomScrollView.dart
+  ///代码清单 5-12 九宫格 SliverGrid的基本使用 限制固定列数
+  ///lib/code/code5/example_505_CustomScrollView.dart
   SliverGrid buildSliverGrid() {
     //使用构建方法来构建
     return new SliverGrid(
@@ -79,8 +79,8 @@ class _ExampleState extends State<Example505> {
     );
   }
 
-  ///代码清单 5-13 九宫格 通过构造函数来创建
-  ///lib/code/code5/example_504_CustomScrollView.dart
+  ///代码清单 5-13 九宫格 SliverGrid 限制子Item固定宽度
+  ///lib/code/code5/example_505_CustomScrollView.dart
   SliverGrid buildSliverGrid2() {
     //使用构建方法来构建
     return new SliverGrid(
@@ -109,7 +109,7 @@ class _ExampleState extends State<Example505> {
   }
 
   ///代码清单 5-14 SliverList 列表
-  ///lib/code/code5/example_504_CustomScrollView.dart
+  ///lib/code/code5/example_505_CustomScrollView.dart
   Widget buildSliverList() {
     return SliverList(
       delegate: new SliverChildBuilderDelegate(
@@ -131,7 +131,7 @@ class _ExampleState extends State<Example505> {
   }
 
   ///代码清单 5-15 SliverFixedExtentList 列表
-  ///lib/code/code5/example_504_CustomScrollView.dart
+  ///lib/code/code5/example_505_CustomScrollView.dart
   Widget buildSliverList2() {
     return SliverFixedExtentList(
       //子条目的高度
@@ -155,8 +155,8 @@ class _ExampleState extends State<Example505> {
     );
   }
 
-  ///代码清单 5-16 SliverToBoxAdapter
-  ///lib/code/code5/example_504_CustomScrollView.dart
+  ///代码清单 5-16 SliverToBoxAdapter 基本使用
+  ///lib/code/code5/example_505_CustomScrollView.dart
   Widget buildCustomScrollView() {
     return CustomScrollView(
       slivers: [
@@ -175,7 +175,7 @@ class _ExampleState extends State<Example505> {
   }
 
   ///代码清单 5-17 SliverToBoxAdapter
-  ///lib/code/code5/example_504_CustomScrollView.dart
+  ///lib/code/code5/example_505_CustomScrollView.dart
   Widget buildCustomScrollView7() {
     return CustomScrollView(
       slivers: [
