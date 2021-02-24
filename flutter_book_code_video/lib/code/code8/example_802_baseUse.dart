@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 8-3
+/// 代码清单 8-3 RepaintBoundary 基本使用
 ///lib/code/code8/example_802_baseUse.dart
 class Example801 extends StatelessWidget {
   @override
