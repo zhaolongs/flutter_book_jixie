@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-10 [SlideTransition]
+/// 代码清单 6-6 [SlideTransition] 平移动画 运行效果如图6-4所示
 ///lib/code/code6/example_608_ScaleTransition.dart
 class Example608 extends StatefulWidget {
   @override
@@ -66,7 +66,7 @@ class _Example608State extends State<Example608>
     ).animate(_animationController);
   }
 
-  /// 代码清单 6-11 [SlideTransition]
+  /// 代码清单 6-7 [SlideTransition]
   ///lib/code/code6/example_608_ScaleTransition.dart
   @override
   Widget build(BuildContext context) {
