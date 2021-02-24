@@ -23,16 +23,16 @@ void main() {
   ));
 }
 
-///代码清单 5-18 SliverAppBar 综合案例
-///lib/code/code5/example_504_CustomScrollView.dart
+///代码清单 5-17 SliverAppBar 综合案例
+///lib/code/code5/example_506_NestScrollView.dart
 class Example506 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example506State();
   }
 }
 
-class _ExampleState extends State<Example506>
+class _Example506State extends State<Example506>
     with SingleTickerProviderStateMixin {
   //在这里标签页面使用的是TabView所以需要创建一个控制器
   TabController _tabController;
@@ -52,8 +52,6 @@ class _ExampleState extends State<Example506>
     _tabController.dispose();
   }
 
-  ///代码清单 5-19 NestedScrollView 下拉刷新
-  ///lib/code/code5/example_504_CustomScrollView.dart
   @override
   Widget build(BuildContext context) {
     //构建页面的主体
@@ -82,8 +80,6 @@ class _ExampleState extends State<Example506>
     );
   }
 
-  ///代码清单 5-20 NestedScrollView 的创建
-  ///lib/code/code5/example_504_CustomScrollView.dart
   Widget buildNestedScrollView() {
     //滑动视图
     return NestedScrollView(
@@ -96,8 +92,6 @@ class _ExampleState extends State<Example506>
     );
   }
 
-  ///代码清单 5-21 NestedScrollView 的创建
-  ///lib/code/code5/example_504_CustomScrollView.dart
   //通常在用到 PageView + BottomNavigationBar 或者 TabBarView + TabBar 的时候
   //大家会发现当切换到另一页面的时候, 前一个页面就会被销毁, 再返回前一页时, 页面会被重建,
   //随之数据会重新加载, 控件会重新渲染 带来了极不好的用户体验.
@@ -114,8 +108,6 @@ class _ExampleState extends State<Example506>
     );
   }
 
-  ///代码清单 5-22 SliverAppBar 的创建
-  ///lib/code/code5/example_504_CustomScrollView.dart
   Widget buildSliverAppBar() {
     return SliverAppBar(
       //第一部分 标题 这里是搜索框
@@ -141,8 +133,6 @@ class _ExampleState extends State<Example506>
       bottom: buildFlexibleTooBarWidget(),
     );
   }
-  ///代码清单 5-23 构建SliverAppBar的标题title
-  ///lib/code/code5/example_504_CustomScrollView.dart
   Widget buildHeader() {
     return Container(
       //宽度填充
@@ -183,8 +173,6 @@ class _ExampleState extends State<Example506>
       ),
     );
   }
-  ///代码清单 5-24 FlexibleSpaceBar 中的内容
-  ///lib/code/code5/example_504_CustomScrollView.dart
  Widget buildFlexibleSpaceWidget() {
     //上下排列的线性布局
     return Column(
@@ -199,8 +187,6 @@ class _ExampleState extends State<Example506>
       ],
     );
   }
-  ///代码清单 5-25 FlexibleSpaceBar 中的内容
-  ///lib/code/code5/example_504_CustomScrollView.dart
   Widget buildRightClassWidget(){
     return Container(
       height: 120,
@@ -243,8 +229,6 @@ class _ExampleState extends State<Example506>
     );
   }
 
-  ///代码清单 5-26 [SliverAppBar]的bottom属性配制
-  ///lib/code/code5/example_504_CustomScrollView.dart
   Widget buildFlexibleTooBarWidget() {
     //[PreferredSize]用于配置在AppBar或者是SliverAppBar
     //的bottom中 实现 PreferredSizeWidget
@@ -289,8 +273,6 @@ class _ExampleState extends State<Example506>
 
 
 }
-///代码清单 5-27 TabBarView 中使用的标签页面
-///lib/code/code5/example_504_CustomScrollView.dart
 class ItemPage extends StatefulWidget{
   final int pageFlag;
   ItemPage(this.pageFlag);
