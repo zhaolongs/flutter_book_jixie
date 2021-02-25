@@ -47,7 +47,7 @@ class Example807 extends StatelessWidget {
   }
 }
 
-/// 代码清单 8-10 绘制圆角矩形
+/// 代码清单 8-7 绘制圆角矩形 运行效果如图8-16所示
 /// lib/code/code8/example_807_RRect.dart
 class RRectPainter extends CustomPainter {
   //[定义画笔]
