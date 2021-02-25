@@ -47,7 +47,7 @@ class Example806 extends StatelessWidget {
   }
 }
 
-/// 代码清单 8-9  绘制弧或者饼
+/// 代码清单 8-6  绘制弧或者饼
 /// lib/code/code8/example_806_Arc.dart
 class ArcPainter extends CustomPainter {
   //[定义画笔]

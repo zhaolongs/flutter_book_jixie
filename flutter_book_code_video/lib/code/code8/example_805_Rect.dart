@@ -47,7 +47,7 @@ class Example805 extends StatelessWidget {
   }
 }
 
-/// 代码清单 8-8  矩形
+/// 代码清单 8-5 绘制矩形
 /// lib/code/code8/example_805_Rect.dart
 class RectPainter extends CustomPainter {
   //[定义画笔]
