@@ -130,7 +130,7 @@ class PathPainter extends CustomPainter {
     canvas.drawPath(path, _paint);
   }
 
-  /// 代码清单 8-14 Path  添加弧
+  /// 代码清单 8-11 Path  添加弧
   /// lib/code/code8/example_810_Path.dart
   void buildPath4(Canvas canvas, Size size) {
     //创建Path
