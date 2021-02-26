@@ -48,7 +48,7 @@ class Example810 extends StatelessWidget {
   }
 }
 
-/// 代码清单 8-13 Path 路径相关操作
+/// 代码清单 8-10 Path 路径相关操作
 /// lib/code/code8/example_810_Path.dart
 class PathPainter extends CustomPainter {
   //[定义画笔]
