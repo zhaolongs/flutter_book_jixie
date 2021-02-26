@@ -47,7 +47,7 @@ class Example808 extends StatelessWidget {
   }
 }
 
-/// 代码清单 8-11 绘制圆形
+/// 代码清单 8-8 绘制圆形 运行效果如图8-19
 /// lib/code/code8/example_808_Circl.dart
 class CirclePainter extends CustomPainter {
   //[定义画笔]
