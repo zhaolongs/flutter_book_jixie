@@ -153,7 +153,7 @@ class PathPainter extends CustomPainter {
     canvas.drawPath(path, _paint);
   }
 
-  /// 代码清单 8-15 Path  二阶贝塞尔曲线
+  /// 代码清单 8-12 Path  二阶贝塞尔曲线
   /// lib/code/code8/example_810_Path.dart
   Paint _helpPaint = Paint()
     ..color = Colors.grey
@@ -194,7 +194,7 @@ class PathPainter extends CustomPainter {
         PointMode.points, [startPoint, controllPoint, endPoint], _helpPaint);
   }
 
-  /// 代码清单 8-16 Path  三阶贝塞尔曲线
+  /// 代码清单 8-13 Path  三阶贝塞尔曲线
   /// lib/code/code8/example_810_Path.dart
   void buildPath6(Canvas canvas, Size size) {
     //定义起点

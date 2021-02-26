@@ -12,7 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
-
+/// 代码清单 8-15 绘制文本段落 图片加载工具类
 /// lib/utils/image_loader_utils.dart
 /// 图片加载工具类
 class ImageLoaderUtils {

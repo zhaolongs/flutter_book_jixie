@@ -29,7 +29,7 @@ void main() {
 }
 
 
-/// 代码清单 8-18 绘制图片Image
+/// 代码清单 8-16 绘制图片Image
 /// lib/code/code8/example_812_Image.dart
 class Example812 extends StatefulWidget {
   @override
@@ -84,12 +84,12 @@ class _Example812State extends State {
   }
 }
 
-/// 代码清单 8-19 绘制图片Image
+/// 代码清单 8-17 绘制图片Image 自定义CustomPainter
 /// lib/code/code8/example_812_Image.dart
 class ImagePainter extends CustomPainter {
   //[定义画笔]
   Paint _paint = Paint()
-    //是否启动抗锯齿
+    //启动抗锯齿
     ..isAntiAlias = true;
 
   //将要绘制的图片

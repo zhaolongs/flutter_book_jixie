@@ -48,7 +48,7 @@ class Example811 extends StatelessWidget {
   }
 }
 
-/// 代码清单 8-17 绘制文本段落
+/// 代码清单 8-14 绘制文本段落 Paragraph
 /// lib/code/code8/example_811_Text.dart
 class TextPainter extends CustomPainter {
   @override

@@ -28,7 +28,7 @@ void main() {
   ));
 }
 
-/// 代码清单 8-20 绘制图片Image FutureBuilder
+/// 代码清单 8-18 绘制图片Image FutureBuilder
 /// lib/code/code8/example_813_Image.dart
 class Example813 extends StatefulWidget {
   @override
