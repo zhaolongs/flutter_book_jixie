@@ -29,11 +29,11 @@ void main() {
 class Example1004 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ExampleState();
+    return _Example1004State();
   }
 }
 
-class _ExampleState extends State {
+class _Example1004State extends State {
   Future<String> _testFuture;
 
 
