@@ -47,7 +47,7 @@ class Example809 extends StatelessWidget {
   }
 }
 
-/// 代码清单 8-12 绘制椭圆形
+/// 代码清单 8-9 绘制椭圆形
 /// lib/code/code8/example_809_Oval.dart
 class OvalPainter extends CustomPainter {
   //[定义画笔]
