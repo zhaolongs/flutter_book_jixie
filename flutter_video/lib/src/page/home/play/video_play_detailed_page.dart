@@ -17,8 +17,7 @@ import 'package:video_player/video_player.dart';
 // 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 // 可关注博客：https://blog.csdn.net/zl18603543572
 
-///代码清单 12-11
-/// 播放视频功能
+///代码清单 12-11 播放视频功能
 /// lib/src/page/home/play/video_play_detailed_page.dart
 class VideoPlayDetailedWidget extends StatefulWidget {
   ///视频数据
@@ -48,8 +47,7 @@ class VideoPlayDetailedWidget extends StatefulWidget {
 }
 
 class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
-  ///代码清单 12-12
-  /// 初始化设置功能
+  ///代码清单 12-12 初始化设置功能
   /// lib/src/page/home/play/video_play_detailed_page.dart
   //创建视频播放控制 器
   VideoPlayerController _videoPlayerController;
@@ -134,8 +132,7 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
     LogUtil.e("移除");
     super.dispose();
   }
-  ///代码清单 12-14
-  /// 播放视图构建
+  ///代码清单 12-14 播放视图构建
   /// lib/src/page/home/play/video_play_detailed_page.dart
   @override
   Widget build(BuildContext context) {
@@ -155,8 +152,7 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
       ]),
     );
   }
-  ///代码清单 12-15
-  /// 第一部分 视频播放与占位图选择
+  ///代码清单 12-15 第一部分 视频播放与占位图选择
   /// lib/src/page/home/play/video_play_detailed_page.dart
   Widget buildvideoPlay() {
     //未设置加载视频 未在播放中 显示占位图
@@ -177,8 +173,7 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
     }
   }
 
-  ///代码清单 12-16
-  /// 第一部分 手势识别与 构建视频播放
+  ///代码清单 12-16 第一部分 手势识别与 构建视频播放
   /// lib/src/page/home/play/video_play_detailed_page.dart
   Widget videoVideoPlayer() {
     return GestureDetector(
@@ -204,8 +199,7 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
     );
   }
 
-  ///代码清单 12-13
-  /// 视频控制器的常用方法
+  ///代码清单 12-13 视频控制器的常用方法
   /// lib/src/page/home/play/video_play_detailed_page.dart
   void videoContterFunction() {
     //获取当前视频播放的信息
@@ -246,8 +240,7 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
     //设置音量 0.0~1.0
     _videoPlayerController.setVolume(1.0);
   }
-  ///代码清单 12-17
-  /// 第二部分
+  ///代码清单 12-17 第二部分
   /// lib/src/page/home/play/video_play_detailed_page.dart
   ///是否需要初始化
   bool _isClickInitialize = false;
@@ -282,9 +275,7 @@ class _VideoPlayDetailedWidgetState extends State<VideoPlayDetailedWidget> {
       children: [itemWidget],
     );
   }
-  ///代码清单 12-18
   /// 第二部分  点击播放视频的功能
-  /// lib/src/page/home/play/video_play_detailed_page.dart
   void startPlaying() {
     //重复点击时
     if (_isPlaying) {

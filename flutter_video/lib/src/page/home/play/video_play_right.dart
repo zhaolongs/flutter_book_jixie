@@ -13,8 +13,7 @@ import 'video_play_share_page.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 
-///代码清单 12-30
-///底部的视频说明区域
+///代码清单 12-29 底部的视频说明区域
 ///lib/src/page/home/play/video_play_right.dart
 class VideoPlayRightPage extends StatefulWidget {
   final VideoModel videoModel;
@@ -67,8 +66,7 @@ class _VideoPlayRightPageState extends State<VideoPlayRightPage> {
     );
   }
 
-  ///代码清单 12-31
-  ///构建用户的头像区域
+  ///代码清单 12-30 构建用户的头像区域
   ///lib/src/page/home/play/video_play_right.dart
   Widget buildUserItem() {
     return Container(
@@ -130,8 +128,7 @@ class _VideoPlayRightPageState extends State<VideoPlayRightPage> {
     );
   }
 
-  ///代码清单 12-32
-  ///构建用户的头像区域
+  ///代码清单 12-31 构建用户的头像区域
   ///lib/src/page/home/play/video_play_right.dart
   ///[assetImage]图标名称
   ///[msgCount]对应的消息个数

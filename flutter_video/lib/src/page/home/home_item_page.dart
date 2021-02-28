@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'play/play_list_page.dart';
-///代码清单 12-19
-///首页面视频播放页面
+///代码清单 12-18 首页面视频播放页面
 ///lib/src/page/home/home_item_page.dart
 class HomeItemMainPage extends StatefulWidget {
   @override
@@ -21,7 +20,7 @@ class _HomeItemState extends State
   @override
   bool get wantKeepAlive => true;
 
-  ///代码清单 12-24
+  ///代码清单 12-23
   ///lib/src/page/home/home_item_page.dart
   ///
   ///[TabBar]使用的文本
@@ -46,13 +45,12 @@ class _HomeItemState extends State
     tabController = new TabController(length: tabTextList.length, vsync: this);
   }
 
-  ///代码清单 12-20
-  ///首页面的状态栏背景为黑色，文字为白色
+  ///代码清单 12-19 首页面的状态栏背景为黑色，文字为白色
   ///lib/src/page/home/home_item_page.dart
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    //状态文字设置为魄
+    //状态文字设置为白色
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     //设置状态栏的颜色 有AppBar时，会被覆盖
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -66,8 +64,7 @@ class _HomeItemState extends State
           systemNavigationBarColor: Colors.white),
     );
   }
-  ///代码清单 12-21
-  ///首页面的主体内容
+  ///代码清单 12-20 首页面的主体内容
   ///lib/src/page/home/home_item_page.dart
   Scaffold buildScaffold() {
     return Scaffold(
@@ -88,8 +85,7 @@ class _HomeItemState extends State
     );
   }
 
-  ///代码清单 12-22
-  ///第一层 构建 TabBarView
+  ///代码清单 12-21 第一层 构建 TabBarView
   ///lib/src/page/home/home_item_page.dart
   Widget buildTabBarView() {
     return TabBarView(
@@ -105,8 +101,7 @@ class _HomeItemState extends State
     );
   }
 
-  ///代码清单 12-23
-  /// 第二层 构建顶部标签部分
+  ///代码清单 12-22 第二层 构建顶部标签部分
   ///lib/src/page/home/home_item_page.dart
   Widget buildTabBar() {
     return Container(

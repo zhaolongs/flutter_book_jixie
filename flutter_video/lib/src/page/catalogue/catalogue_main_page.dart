@@ -40,9 +40,8 @@ class _CatalogueMainPageState extends State<CatalogueMainPage>
 
 
 
-  ///代码清单 12-1
+  ///代码清单 12-1 视频列表页面  全局唯一播放使用的Stream
   ///lib/src/page/catalogue/catalogue_main_page.dart
-  //全局唯一播放使用的Stream
   StreamController<VideoPlayerController> _streamController =
       StreamController.broadcast();
 
@@ -129,7 +128,7 @@ class _CatalogueMainPageState extends State<CatalogueMainPage>
       ),
     );
   }
-  ///代码清单 12-5 列表页面
+  ///代码清单 12-5 列表功能
   ///lib/src/page/catalogue/catalogue_main_page.dart
   Widget buildListView() {
     return ListView.builder(
@@ -154,7 +153,7 @@ class _CatalogueMainPageState extends State<CatalogueMainPage>
     );
   }
 
-  ///代码清单 12-4 页面脚手架
+  ///代码清单 12-4 页面脚手架 滚动通知 加载更多数据
   ///lib/src/page/catalogue/catalogue_main_page.dart
   void notificationFunction(ScrollNotification notification) {
     //滑动信息的数据封装体

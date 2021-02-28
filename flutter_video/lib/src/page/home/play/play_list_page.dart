@@ -24,8 +24,7 @@ import 'find_video_page.dart';
 // 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 // 可关注博客：https://blog.csdn.net/zl18603543572
 
-///代码清单 12-25
-/// 视频列表
+///代码清单 12-24 视频列表
 /// lib/src/page/home/play/play_list_page.dart
 
 class PlayListPage extends StatefulWidget {
@@ -62,8 +61,7 @@ class _PlayListPageState extends State<PlayListPage> {
     // refresh();
   }
 
-  ///代码清单 12-26
-  /// 页面主主体
+  ///代码清单 12-25 页面主主体
   /// lib/src/page/home/play/play_list_page.dart
   @override
   Widget build(BuildContext context) {
@@ -88,8 +86,7 @@ class _PlayListPageState extends State<PlayListPage> {
     );
   }
 
-  ///代码清单 12-27
-  /// 页面多状态显示
+  ///代码清单 12-26 页面多状态显示
   /// lib/src/page/home/play/play_list_page.dart
   //默认为加载中
   LoadingStatues _loadingStatues = LoadingStatues.loading;
@@ -117,8 +114,7 @@ class _PlayListPageState extends State<PlayListPage> {
     return itemWidget;
   }
 
-  ///代码清单 12-28
-  /// PageView 构建上下切换的视图功能
+  ///代码清单 12-27 PageView 构建上下切换的视图功能
   /// lib/src/page/home/play/play_list_page.dart
   PageView buildPageView() {
     //懶加载方式构建
