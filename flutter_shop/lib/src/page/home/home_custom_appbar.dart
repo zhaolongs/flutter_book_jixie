@@ -13,7 +13,7 @@ import 'image_text_widget.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-///代码清单 13-29
+///代码清单 13-21
 ///lib/src/page/home/home_custom_appbar.dart
 class HomeCustomAppBar extends StatefulWidget {
   //标签栏集合
@@ -71,7 +71,7 @@ class _HomeCustomAppBarState extends State<HomeCustomAppBar> {
       ],
     );
   }
-  ///代码清单 13-31
+  ///代码清单 13-23 [HomeCustomAppBar]第一部分的文字区域
   ///lib/src/page/home/home_custom_appbar.dart
   ///[HomeCustomAppBar]第一部分的文字区域
   Container buildHeaderText() {
@@ -97,8 +97,7 @@ class _HomeCustomAppBarState extends State<HomeCustomAppBar> {
       ),
     );
   }
-  ///代码清单 13-30
-  /// TabBar 标签栏
+  ///代码清单 13-30 TabBar 标签栏
   ///  ///lib/src/page/home/home_custom_appbar.dart
   Widget buildTabBar() {
     if (widget.tabController == null) {

@@ -9,8 +9,7 @@ import 'package:flutter/material.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
-///代码清单 13-7
-///登录页面 中使用到的底部弹框
+///代码清单 13- 登录页面中使用到的底部弹框
 ///lib/src/page/login/login_bottom_widget.dart
 class LoginBottomWidget extends StatefulWidget {
   @override

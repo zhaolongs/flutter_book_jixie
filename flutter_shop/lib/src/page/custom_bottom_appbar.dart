@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
-///代码清单 13-19
+///代码清单 13-9 自定义首页面底部菜单栏
 ///lib/src/page/custom_bottom_appbar.dart
-///首页面底部菜单栏
+///
 class CustomBottomAppBar extends StatefulWidget {
   ///菜单点击回调
   final Function(int index) clickCallBack;
@@ -42,7 +42,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
     );
   }
 
-  ///代码清单 13-20
+  ///代码清单 13-10
   ///lib/src/page/custom_bottom_appbar.dart
   /// _CustomBottomAppBarState 中方法定义 点击事件构建
   /// [selectIndex] 当前选中的页面
@@ -74,9 +74,8 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
     );
   }
 
-  ///代码清单 13-21
+  ///代码清单 13-11 _CustomBottomAppBarState 中方法定义 图标按钮
   ///lib/src/page/custom_bottom_appbar.dart
-  /// _CustomBottomAppBarState 中方法定义 图标按钮
   buildPadItem(int selectIndex, int index, IconData iconData, String title) {
     if (iconData == null) {
       return SizedBox();
@@ -127,9 +126,9 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
     );
   }
 
-  ///代码清单 13-22
+  ///代码清单 13-12 _CustomBottomAppBarState 中方法定义 圆红点
   ///lib/src/page/custom_bottom_appbar.dart
-  /// _CustomBottomAppBarState 中方法定义 圆红点
+  ///
   Widget buildPointTips(bool show) {
     if (!show) {
       return Container();

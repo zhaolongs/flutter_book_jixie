@@ -18,8 +18,8 @@ import 'home_staggered_list_widget.dart';
 /// zhihu https://www.zhihu.com/people/zhao-long-90-89
 /// csdn https://blog.csdn.net/zl18603543572
 /// 西瓜视频 https://www.ixigua.com/home/3662978423
-///代码清单 13-34
-///滑动的子页面
+///
+///代码清单 13-26 滑动的子页面
 ///lib/src/page/home/home_item_tabbar_page.dart
 class HomeItemTabbarPage extends StatefulWidget {
   ///分类的标识
@@ -52,8 +52,11 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 //轮播图 每次刷新都会重新创建
-                BannerWidget(
-                  globalKey: GlobalKey(),
+                Opacity(
+                  opacity: 0.0,
+                  child: BannerWidget(
+                    globalKey: GlobalKey(),
+                  ),
                 ),
                 //宫格
                 Container(height: 170, child: buildGridView()),
@@ -84,8 +87,7 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     "会员"
   ];
 
-  ///代码清单 13-45
-  ///滑动的子页面
+  ///代码清单 13-38 滑动的子页面中的宫格分类
   ///lib/src/page/home/home_item_tabbar_page.dart
   Widget buildGridView() {
     return GridView.builder(
@@ -114,8 +116,7 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
       },
     );
   }
-  ///代码清单 13-46
-  ///滑动的子页面 - 分类子Item构建
+  ///代码清单 13-39 滑动的子页面中分类子Item构建
   ///lib/src/page/home/home_item_tabbar_page.dart
   Widget buildListViewItemWidget(int index) {
     //取出分类数据

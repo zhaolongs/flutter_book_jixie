@@ -9,8 +9,7 @@ import 'package:flutter/material.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
-///代码清单 13-33
-///搜索框
+///代码清单 13-33 搜索框
 ///src/page/common/search_widget.dart
 class SearchWidget extends StatelessWidget {
   @override

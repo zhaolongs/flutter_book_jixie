@@ -13,8 +13,7 @@ import 'package:flutter_shop/src/utils/size_utils.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
-///代码清单 13-39
-///轮播图的实现
+///代码清单 13-32 轮播图的实现
 ///lib/src/common/banner.dart
 class BannerWidget extends StatefulWidget {
   final GlobalKey globalKey;
@@ -63,7 +62,7 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   }
 
-  ///代码清单 13-40
+  ///代码清单 13-33 轮播图 [BannerWidget] 中的方法
   ///轮播图 [BannerWidget] 中的方法
   ///lib/src/common/banner.dart
   ///停止计时
@@ -76,7 +75,7 @@ class _BannerWidgetState extends State<BannerWidget> {
   //开始倒计时
   void startTimer() {
     //间隔两秒时间
-    _timer = new Timer.periodic(Duration(milliseconds: 2000), (value) {
+    _timer = new Timer.periodic(Duration(milliseconds: 12000), (value) {
       print("定时器");
       currentIndex++;
       //触发轮播切换
@@ -88,7 +87,7 @@ class _BannerWidgetState extends State<BannerWidget> {
   }
 
 
-  ///代码清单 13-41
+  ///代码清单 13-34
   ///轮播图 [BannerWidget] 使用层叠布局将图片与自定义的指示器组装在一起
   ///lib/src/common/banner.dart
   @override
@@ -126,7 +125,7 @@ class _BannerWidgetState extends State<BannerWidget> {
       ),
     );
   }
-  ///代码清单 13-42
+  ///代码清单 13-35 轮播图 [BannerWidget] 第一部分的实现 PageView来装载图片
   ///轮播图 [BannerWidget] 第一部分的实现 PageView来装载图片
   ///lib/src/common/banner.dart
   buildBannerWidget() {
@@ -149,8 +148,7 @@ class _BannerWidgetState extends State<BannerWidget> {
     );
   }
 
-  ///代码清单 13-43
-  ///轮播图 [BannerWidget] 第一部分 轮播显示图片
+  ///代码清单 13-36 轮播图 [BannerWidget] 第一部分 轮播显示图片
   ///lib/src/common/banner.dart
   Widget buildPageViewItemWidget(int index) {
     return Container(
@@ -166,8 +164,7 @@ class _BannerWidgetState extends State<BannerWidget> {
     );
   }
 
-  ///代码清单 13-44
-  ///轮播图 [BannerWidget] 第二部分的实现 指示器
+  ///代码清单 13-37 轮播图 [BannerWidget] 第二部分的实现 指示器
   ///lib/src/common/banner.dart
   Widget buildTipsWidget() {
     List<Widget> list = [];

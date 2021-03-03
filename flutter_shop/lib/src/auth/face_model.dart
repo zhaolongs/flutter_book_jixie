@@ -10,8 +10,7 @@ import 'package:flutter_shop/src/utils/sp_utils.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-///代码清单 13-8
-///指纹等生物识别功能封装
+///代码清单 13-2 指纹等生物识别功能封装
 /// lib/src/auth/face_model.dart
 class FaceModel {
   /// 本地认证框架
@@ -39,8 +38,7 @@ class FaceModel {
     }
   }
 
-  ///代码清单 13-9
-  ///[FaceModel]中定义的方法 获取生物识别技术列表
+  ///代码清单 13-3 [FaceModel]中定义的方法 获取生物识别技术列表
   /// lib/src/auth/face_model.dart
   Future<List<BiometricType>> getAvailableBiometrics() async {
     //用于保存生物识别功能列表
@@ -54,8 +52,7 @@ class FaceModel {
     return availableBiometrics;
   }
 
-  ///代码清单 13-10
-  ///[FaceModel]中定义的方法 获取生物识别技术列表
+  ///代码清单 13-4 [FaceModel]中定义的方法 获取生物识别技术列表
   /// lib/src/auth/face_model.dart
   static const andStrings = const AndroidAuthMessages(
     cancelButton: '取消',
@@ -74,8 +71,7 @@ class FaceModel {
     goToSettingsButton: '去设置',
     goToSettingsDescription: '请设置指纹.',
   );
-  ///代码清单 13-11
-  ///[FaceModel]中定义的方法 调用生物识别功能
+  ///代码清单 13-5 [FaceModel]中定义的方法 调用生物识别功能
   /// lib/src/auth/face_model.dart
   Future<bool> authenticate() async {
     bool authenticated = false;

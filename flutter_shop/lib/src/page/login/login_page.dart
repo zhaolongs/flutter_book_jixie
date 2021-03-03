@@ -29,7 +29,7 @@ class RootApp extends StatelessWidget {
   }
 }
 
-///代码清单 13-1
+
 ///登录页面
 ///lib/src/page/login/login_page.dart
 //定义登录页面
@@ -132,8 +132,7 @@ class _LoginPageState extends State<LoginPage> with FaceModel {
     );
   }
 
-  ///代码清单 13-7
-  ///登录页面 LoginPage 中的方法 校验是否调用指纹识别
+  ///代码清单 13-1 登录页面 LoginPage 中的方法 校验是否调用指纹识别
   ///自动弹出 [FaceModel] 中的功能组合
   void initBiometrics() async {
     //第一步检测是否支持指纹等生物识别技术

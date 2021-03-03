@@ -15,9 +15,8 @@ import '../catalogue/home_item_catalogue_page.dart';
 import '../mine/mine_main_page.dart';
 import 'home_item_scroll_page.dart';
 
-///代码清单 13-13
+///代码清单 13-6 主页面的根布局
 ///lib/src/page/home/home_main_page.dart
-///主页面的根布局
 class HomeMainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -67,7 +66,7 @@ class _HomeMainState extends State<HomeMainPage> {
     //移除监听
     _homeSubscription.cancel();
   }
-  ///代码清单 13-14
+  ///代码清单 13-7 [HomeMainPage]中定义方法 双击退出应用
   ///lib/src/page/home/home_main_page.dart
   ///[HomeMainPage]中定义方法
   //上一次点击的时间
@@ -99,7 +98,7 @@ class _HomeMainState extends State<HomeMainPage> {
       },
     );
   }
-  ///代码清单 13-18
+  ///代码清单 13-8 [HomeMainPage]中定义方法 主体页面实现
   ///lib/src/page/home/home_main_page.dart
   ///[HomeMainPage]中定义方法
   //[PageView]使用的控制器

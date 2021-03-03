@@ -13,8 +13,7 @@ import 'home_good_seckill_item_widget.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-///代码清单 13-51
-///首页面 活动分类
+///代码清单 13-44 首页面 活动分类
 ///lib/src/page/home/home_good_class_widget.dart
 class GoodsClassWidget extends StatefulWidget {
   @override
@@ -37,8 +36,7 @@ class _GoodsClassWidgetState extends State<GoodsClassWidget> {
       ),
     );
   }
-  ///代码清单 13-52
-  ///首页面 活动分类 [GoodsClassWidget]中定义
+  ///代码清单 13-45 首页面 活动分类 [GoodsClassWidget]中定义
   ///lib/src/page/home/home_good_class_widget.dart
   Widget classCellWiedget(String title,String header) {
     //权重适配

@@ -17,9 +17,19 @@ import 'home_item_tabbar_page.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-///代码清单 13-23
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///
+///代码清单 13-13 首页面
 ///lib/src/page/home/home_item_scroll_page.dart
-///首页面
 class HomeItmeScrollPage extends StatefulWidget {
   @override
   _HomeItmeScrollPageState createState() => _HomeItmeScrollPageState();
@@ -33,7 +43,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
 
 
 
-  ///代码清单 13-24
+  ///代码清单 13-16 滑动距离相关计算
   ///lib/src/page/home/home_item_scroll_page.dart
   //滑动监听控制器
   ScrollController _scrollController = new ScrollController();
@@ -115,9 +125,8 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
           systemNavigationBarColor: Colors.white),
     );
   }
-  ///代码清单 13-23
+  ///代码清单 13-14 首页面中第一部分的背景层
   ///lib/src/page/home/home_item_scroll_page.dart
-  ///首页面中第一部分的背景层
   StreamBuilder<double> buildHeaderBg() {
     return StreamBuilder<double>(
       //滑动距离控制器
@@ -127,7 +136,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
         return ClipPath(
           //裁剪方式
           clipper: HomeHeaderClipper(
-            value: _value2,
+            value: _value2,//0.0~1.0
           ),
           child: Container(
             height: 290,
@@ -138,7 +147,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
     );
   }
 
-  ///代码清单 13-25
+  ///代码清单 13-17 首页面主体构建
   ///lib/src/page/home/home_item_scroll_page.dart
   Widget buildBody() {
     //初次进入显示加载中
@@ -189,9 +198,8 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
 
 
 
-  ///代码清单 13-26
+  ///代码清单 13-18 网络请求数据获取标签
   ///lib/src/page/home/home_item_scroll_page.dart
-  //网络请求数据
   Future<bool> loadingData() async {
     //通过网络请求接口
     // ResponseInfo responseInfo = await DioUtils.instance
@@ -225,8 +233,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
     return true;
   }
 
-  ///代码清单 13-27
-  ///商品分类
+  ///代码清单 13-19 分类标签 动态生成 Tab与TabBarView
   List<GoodsCategoryBean> _categoryList = [];
   //TabBar与TabBarView结合使用的控制器
   TabController _tabController;
@@ -275,9 +282,8 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
 
 
 
-///代码清单 13-24
+///代码清单 13-15 首页面-背景动态裁剪 如图13-7所示坐标分析
 ///lib/src/page/home/home_item_scroll_page.dart
-///首页面-背景动态裁剪
 class HomeHeaderClipper extends CustomClipper<Path> {
   //值范围 0.0 ~ 1.0
   double value;
