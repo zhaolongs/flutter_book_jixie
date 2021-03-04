@@ -1,0 +1,132 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        //应用的唯一标识
+        applicationId "com.studyyoun.flutter_book_code_hello"
+        //Android 依赖的 SDK版本
+        minSdkVersion 16
+        targetSdkVersion 29
+        //应用的版本信息
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        //65536方法限制 分包打包
+        multiDexEnabled true
+        //  为了减小 apk 体积，只保留 armeabi 和 armeabi-v7a 两个文件夹
+        //  并保证这两个文件夹中 .so 数量一致
+        //  对只提供 armeabi 版本的第三方 .so，原样复制一份到 armeabi-v7a 文件夹
+        //  不要修改这个三个必须有
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "armeabi"
+        }
+    }
+    signingConfigs {
+        // 正式发布使用签名文件 名字自定义
+        app_key {
+            storeFile file('test.jks')
+            storePassword '123456'
+            keyAlias 'test'
+            keyPassword '123456'
+        }
+
+        //      debug调试编译发布使用签名文件 名字自定义
+        debug_app_key {
+            storeFile file('test.jks')
+            storePassword '123456'
+            keyAlias 'test'
+            keyPassword '123456'
+        }
+    }
+    buildTypes {
+        debug {
+            //设置签名信息
+            signingConfig signingConfigs.debug_app_key
+            ////是否对代码进行混淆
+            minifyEnabled false
+            //指定混淆的规则文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //是否在APK中生成伪语言环境，帮助国际化的东西，一般使用的不多
+            pseudoLocalesEnabled false
+            //是否对APK包执行ZIP对齐优化，减小zip体积，增加运行效率
+            zipAlignEnabled false
+            //在applicationId 中添加了一个后缀，一般使用的不多
+            //applicationIdSuffix 'test'
+            //在applicationId 中添加了一个后缀，一般使用的不多
+            //versionNameSuffix 'test'
+            //是否支持断点调试
+            debuggable true
+            //是否可以调试NDK代码
+            jniDebuggable true
+            //是否开启渲染脚本就是一些c写的渲染方法
+            renderscriptDebuggable false
+        }
+        release {
+            signingConfig signingConfigs.app_key
+            ////是否对代码进行混淆
+            minifyEnabled false
+            shrinkResources false
+            //指定混淆的规则文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //是否在APK中生成伪语言环境，帮助国际化的东西，一般使用的不多
+//            pseudoLocalesEnabled false
+            //是否对APK包执行ZIP对齐优化，减小zip体积，增加运行效率
+//            zipAlignEnabled true
+            //在applicationId 中添加了一个后缀，一般使用的不多
+            //applicationIdSuffix 'test'
+            //在applicationId 中添加了一个后缀，一般使用的不多
+            //versionNameSuffix 'test'
+            //是否开启渲染脚本就是一些c写的渲染方法
+//            renderscriptDebuggable false
+        }
+    }
+    //目录指向配置
+    sourceSets {
+        main {
+            //指定lib库目录
+            //可以在Android studio的Android视图下生成jniLibs文件夹
+            //可以方便我们存放jar包和库文件
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    //程序在编译的时候 会执行lint，
+    // 有任何错误提示会停止build，
+    lintOptions {
+        //即使报错也不会停止打包
+        checkReleaseBuilds false
+        //打包release版本的时候进行检测
+        abortOnError false
+        disable 'InvalidPackage'
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.aar'], dir: 'libs')
+}
+flutter {
+    source '../..'
+}
