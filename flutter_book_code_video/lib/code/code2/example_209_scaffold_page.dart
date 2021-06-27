@@ -21,6 +21,7 @@ import 'package:flutter/material.dart';
 void main() {
   ///启动根目录
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: Example209(),
   ));
 }
@@ -44,11 +45,7 @@ class _ExampleState extends State<Example209> {
       //可以是单独的StatefulWidget 也可以是当前页面构建的如Text文本组件
       body: Center(child: Text("显示日期"),),
       //悬浮按钮
-      floatingActionButton: FloatingActionButton(
-        //一般建议使用Icon
-        child: Icon(Icons.add), onPressed: () {
-        print("点击了悬浮按钮");
-      },),);
+      floatingActionButton:buildFAB(),);
   }
 
 

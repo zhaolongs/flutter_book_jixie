@@ -22,6 +22,7 @@ import 'package:flutter/material.dart';
 void main() {
   ///启动根目录
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: Example207(),
   ));
 }

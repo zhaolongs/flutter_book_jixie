@@ -173,7 +173,7 @@ class _PermissionRequestState extends State<PermissionRequestPage>
             cancleText: "退出",
             selectText: "去设置中心",
             selectCallBack: () async {
-              ///请求权限
+              ///打开设置中心
               isOpenSetting = await openAppSettings();
               LogUtil.e("打开设置中心 $isOpenSetting");
               if (!isOpenSetting) {

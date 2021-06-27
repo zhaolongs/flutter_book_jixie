@@ -43,7 +43,6 @@ class _ExampleState extends State<Example311> {
   Widget build(BuildContext context) {
     return Scaffold(
       //键盘弹出布局不移动
-      resizeToAvoidBottomPadding: false,
       //当前显示页面的背景
       backgroundColor: Colors.white,
       body: Container(
@@ -124,7 +123,6 @@ class _LoginInputLayoutState extends State<LoginInputLayout> {
       },
       child: Scaffold(
         //键盘弹出不移动布局
-        resizeToAvoidBottomPadding: false,
         //背景透明
         backgroundColor: Colors.transparent,
         //登录页面的主体

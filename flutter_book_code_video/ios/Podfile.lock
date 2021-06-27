@@ -18,19 +18,9 @@ PODS:
     - Flutter
   - path_provider (0.0.1):
     - Flutter
-  - path_provider_linux (0.0.1):
-    - Flutter
-  - path_provider_macos (0.0.1):
-    - Flutter
   - "permission_handler (5.0.1+1)":
     - Flutter
   - shared_preferences (0.0.1):
-    - Flutter
-  - shared_preferences_linux (0.0.1):
-    - Flutter
-  - shared_preferences_macos (0.0.1):
-    - Flutter
-  - shared_preferences_web (0.0.1):
     - Flutter
   - sqflite (0.0.2):
     - Flutter
@@ -44,8 +34,6 @@ PODS:
     - UMCCommon
   - video_player (0.0.1):
     - Flutter
-  - video_player_web (0.0.1):
-    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -54,16 +42,10 @@ DEPENDENCIES:
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - install_plugin_custom (from `.symlinks/plugins/install_plugin_custom/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
-  - path_provider_linux (from `.symlinks/plugins/path_provider_linux/ios`)
-  - path_provider_macos (from `.symlinks/plugins/path_provider_macos/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
-  - shared_preferences_linux (from `.symlinks/plugins/shared_preferences_linux/ios`)
-  - shared_preferences_macos (from `.symlinks/plugins/shared_preferences_macos/ios`)
-  - shared_preferences_web (from `.symlinks/plugins/shared_preferences_web/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - video_player (from `.symlinks/plugins/video_player/ios`)
-  - video_player_web (from `.symlinks/plugins/video_player_web/ios`)
 
 SPEC REPOS:
   trunk:
@@ -87,42 +69,25 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/install_plugin_custom/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
-  path_provider_linux:
-    :path: ".symlinks/plugins/path_provider_linux/ios"
-  path_provider_macos:
-    :path: ".symlinks/plugins/path_provider_macos/ios"
   permission_handler:
     :path: ".symlinks/plugins/permission_handler/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
-  shared_preferences_linux:
-    :path: ".symlinks/plugins/shared_preferences_linux/ios"
-  shared_preferences_macos:
-    :path: ".symlinks/plugins/shared_preferences_macos/ios"
-  shared_preferences_web:
-    :path: ".symlinks/plugins/shared_preferences_web/ios"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
   video_player:
     :path: ".symlinks/plugins/video_player/ios"
-  video_player_web:
-    :path: ".symlinks/plugins/video_player_web/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   flutter_fai_umeng: 9f604fb85dde9be81059cff5d6806b04f2566e24
   flutter_fai_webview: 7ecaa35047fd557c12e86a698e05fba18f5b25eb
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   install_plugin_custom: cf04211b6d2f57b1d77a8eaf5c0c4073744f4028
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
-  path_provider_linux: 4d630dc393e1f20364f3e3b4a2ff41d9674a84e4
-  path_provider_macos: f760a3c5b04357c380e2fddb6f9db6f3015897e0
   permission_handler: eac8e15b4a1a3fba55b761d19f3f4e6b005d15b6
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
-  shared_preferences_linux: afefbfe8d921e207f01ede8b60373d9e3b566b78
-  shared_preferences_macos: f3f29b71ccbb56bf40c9dd6396c9acf15e214087
-  shared_preferences_web: 141cce0c3ed1a1c5bf2a0e44f52d31eeb66e5ea9
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
@@ -130,8 +95,7 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   UMCPush: 1edd856027dcf905333effb4040ace5d236a7316
   video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
-  video_player_web: da8cadb8274ed4f8dbee8d7171b420dedd437ce7
 
-PODFILE CHECKSUM: 8685ee79ad9489b94b9f1ac3974f4638bb57b02e
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

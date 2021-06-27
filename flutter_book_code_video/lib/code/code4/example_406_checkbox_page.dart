@@ -36,7 +36,7 @@ class _ExampleState extends State<Example406> {
       appBar: AppBar(
         title: Text("复选框Checkbox"),
       ),
-      body: buildCheckBox(),
+      body: Container(margin: EdgeInsets.only(top: 20),child: buildCheckBox()),
     );
   }
 

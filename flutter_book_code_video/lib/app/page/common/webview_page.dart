@@ -116,9 +116,9 @@ class _WebViewPageState extends State<WebViewPage> {
   //lib/app/page/common/webview_page.dart
   //第二层操作栏
   buildControllerPositioned(BuildContext context) {
-    if(!widget.showController){
-      return Container();
-    }
+    // if(!widget.showController){
+    //   return Container();
+    // }
     return Positioned(
       bottom: 24,
       //操作栏的透明度动画过渡

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/common/sp_key.dart';
-import 'package:flutterbookcode/utils/date_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:flutterbookcode/utils/navigator_utils.dart';
 import 'package:flutterbookcode/utils/sp_utils.dart';
@@ -235,10 +234,10 @@ class _IndexPageState extends State<SplashPage> {
     } else {
       ///如果是最后一页
       ///修改显示的文本为当前的时间
-      text1 = "${DateUtils.getNowDateStr()}";
+      // text1 = "${DateUtils.getNowDateStr()}";
 
       ///当前星期几
-      text2 = "${DateUtils.getNowWeekDay()}";
+      // text2 = "${DateUtils.getNowWeekDay()}";
 
       ///修改容器为矩形
       topWidth = 130;

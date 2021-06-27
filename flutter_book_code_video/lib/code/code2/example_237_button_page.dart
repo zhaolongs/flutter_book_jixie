@@ -44,54 +44,58 @@ class _ExampleState extends State<Example237> {
       body: Container(
         padding: EdgeInsets.all(20),
         //容器的高度
-        height: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              dividerPopMenu(),
-              SizedBox(
-                height: 44,
-              ),
-              buildOutlinedButton(),
-              SizedBox(
-                height: 44,
-              ),
-              buildElevatedButton(),
-              SizedBox(
-                height: 44,
-              ),
-              buildTextButton(),
-              SizedBox(
-                height: 44,
-              ),
-              buildRaisedButton(),
-              SizedBox(
-                height: 44,
-              ),
-              buildFlatButton(),
-              SizedBox(
-                height: 44,
-              ),
-              buildOutlineButton(),
-              SizedBox(
-                height: 44,
-              ),
-              buildMaterialButton4(),
-              SizedBox(
-                height: 44,
-              ),
-              buildMaterialButton3(),
-              SizedBox(
-                height: 44,
-              ),
-              buildMaterialButton2(),
-              SizedBox(
-                height: 44,
-              ),
-              buildMaterialButton(),
-            ],
+        width: double.infinity,
+        child: buildMaterialButton(),
+      ),
+    );
+  }
+
+  Widget buildShowAllButton(){
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          dividerPopMenu(),
+          SizedBox(
+            height: 44,
           ),
-        ),
+          buildOutlinedButton(),
+          SizedBox(
+            height: 44,
+          ),
+          buildElevatedButton(),
+          SizedBox(
+            height: 44,
+          ),
+          buildTextButton(),
+          SizedBox(
+            height: 44,
+          ),
+          buildRaisedButton(),
+          SizedBox(
+            height: 44,
+          ),
+          buildFlatButton(),
+          SizedBox(
+            height: 44,
+          ),
+          buildOutlineButton(),
+          SizedBox(
+            height: 44,
+          ),
+          buildMaterialButton4(),
+          SizedBox(
+            height: 44,
+          ),
+          buildMaterialButton3(),
+          SizedBox(
+            height: 44,
+          ),
+          buildMaterialButton2(),
+          SizedBox(
+            height: 44,
+          ),
+          buildMaterialButton(),
+        ],
       ),
     );
   }

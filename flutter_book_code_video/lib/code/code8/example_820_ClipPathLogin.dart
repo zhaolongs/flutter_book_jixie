@@ -69,7 +69,6 @@ class _ExampleState extends State with SingleTickerProviderStateMixin {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       //允许键盘弹出布局文件上移
-      resizeToAvoidBottomPadding: true,
       body: Container(
         //填充
         width: size.width,
