@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,8 +23,9 @@ void main() {
   ));
 }
 
-/// 代码清单 6-15
+/// 代码清单 6-17
 ///lib/code/code6/example_618_CurvedAnimation.dart
+
 class Example618 extends StatefulWidget {
   @override
   _Example618State createState() => _Example618State();
