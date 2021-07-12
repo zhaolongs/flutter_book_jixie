@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +24,9 @@ void main() {
   ));
 }
 
-/// 代码清单 6-16
+/// 代码清单 6-18 文本样式弹性变化
 ///lib/code/code6/example_619_CurvedAnimation.dart
+
 class Example620 extends StatefulWidget {
   @override
   _Example620State createState() => _Example620State();
