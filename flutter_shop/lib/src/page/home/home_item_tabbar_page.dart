@@ -19,11 +19,12 @@ import 'home_staggered_list_widget.dart';
 /// csdn https://blog.csdn.net/zl18603543572
 /// 西瓜视频 https://www.ixigua.com/home/3662978423
 ///
-///代码清单 13-26 滑动的子页面
+///代码清单 13-34
 ///lib/src/page/home/home_item_tabbar_page.dart
 class HomeItemTabbarPage extends StatefulWidget {
   ///分类的标识
   final int categoryId;
+
   ///滑动控制器
   final ScrollController scrollController;
 
@@ -72,8 +73,6 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     );
   }
 
-
-
   List _classList = [
     "小超市",
     "数码电器",
@@ -116,6 +115,7 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
       },
     );
   }
+
   ///代码清单 13-39 滑动的子页面中分类子Item构建
   ///lib/src/page/home/home_item_tabbar_page.dart
   Widget buildListViewItemWidget(int index) {
@@ -142,8 +142,6 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     );
   }
 }
-
-
 
 test() {
   return SingleChildScrollView(

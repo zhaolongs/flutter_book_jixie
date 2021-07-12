@@ -9,7 +9,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-///代码清单 13-27 首页面的瀑布流
+///代码清单 13-35 首页面的瀑布流
 ///lib/src/page/home/home_staggered_list_widget.dart
 class HomeStaggeredWidget extends StatefulWidget {
   @override
@@ -43,7 +43,7 @@ class _HomeStaggeredWidgetState extends State<HomeStaggeredWidget> {
     );
   }
 
-  ///代码清单 13-28
+  ///代码清单 13-36
   ///瀑布流子Item布局 点击事件 阴影  [HomeStaggeredWidget]中的方法
   ///lib/src/page/home/home_staggered_list_widget.dart
   Widget itemWidget(int index) {
@@ -67,7 +67,7 @@ class _HomeStaggeredWidgetState extends State<HomeStaggeredWidget> {
     );
   }
 
-  ///代码清单 13-29
+  ///代码清单 13-37
   ///瀑布流子Item 内容布局 [HomeStaggeredWidget]中的方法
   ///lib/src/page/home/home_staggered_list_widget.dart
   Container buildContainer(int index) {
