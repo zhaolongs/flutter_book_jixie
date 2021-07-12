@@ -16,29 +16,31 @@ import 'package:flutter/material.dart';
 /// csdn https://blog.csdn.net/zl18603543572
 /// 西瓜视频 https://www.ixigua.com/home/3662978423
 /// 延时操作
+/// 代码清单 10-7
 class TimerDelayedTestPage extends StatefulWidget {
   @override
   _TimerDelayedTestPageState createState() => _TimerDelayedTestPageState();
 }
 
 //lib/code/main_data.dart
-class _TimerDelayedTestPageState extends State{
+class _TimerDelayedTestPageState extends State {
   ///声明
   Timer timer;
   @override
   void initState() {
     super.initState();
-    ///延时2秒
-     timer =  new Timer(Duration(milliseconds: 2000), (){
 
-    });
+    ///延时2秒
+    timer = new Timer(Duration(milliseconds: 2000), () {});
   }
+
   @override
   void dispose() {
     ///取消延时任务
     timer.cancel();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,14 +53,10 @@ class _TimerDelayedTestPageState extends State{
       body: ConstrainedBox(
           constraints: BoxConstraints.expand(),
           child: Column(
-            children: [
-            ],
+            children: [],
           )),
     );
   }
 
-
-  void test3(){
-
-  }
+  void test3() {}
 }
