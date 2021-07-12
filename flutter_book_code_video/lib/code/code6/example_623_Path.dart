@@ -34,7 +34,6 @@ class Example623 extends StatefulWidget {
 }
 
 class _PageState extends State with TickerProviderStateMixin {
-
   //创建动画控制器
   AnimationController animationController;
 
@@ -96,6 +95,7 @@ class _PageState extends State with TickerProviderStateMixin {
       ),
     );
   }
+
   /// 代码清单 6-22 控制动画按钮
   ///lib/code/code6/example_623_Path.dart
   Container buildContainer() {
@@ -127,7 +127,7 @@ class _PageState extends State with TickerProviderStateMixin {
   }
 }
 
-/// 代码清单 6-23 自定义CustomPainter
+/// 代码清单 6-27 自定义CustomPainter
 ///lib/code/code6/example_623_Path.dart
 class PathAnimationPainter extends CustomPainter {
   //[定义画笔]
