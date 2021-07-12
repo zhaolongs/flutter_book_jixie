@@ -5,8 +5,9 @@
 //  Created by  androidlongs on 2020/9/16.
 //
 
-//代码清单9-26
-//ios/Runner/FlutterIosTextLabel.m
+//代码清单9-25 创建 UILabel
+//ios/Runner/FlutterIosTextLabel.h
+
 #import "FlutterIosTextLabel.h"
 
 @implementation FlutterIosTextLabel{
