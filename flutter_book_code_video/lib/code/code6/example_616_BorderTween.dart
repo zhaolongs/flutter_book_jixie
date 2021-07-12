@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +23,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-13 [BorderTween] 的基本使用
+/// 代码清单 6-15 [BorderTween] 的基本使用
 ///lib/code/code6/example_616_BorderTween.dart
 class Example616 extends StatefulWidget {
   @override
@@ -33,7 +32,6 @@ class Example616 extends StatefulWidget {
 
 class _Example616State extends State<Example616>
     with SingleTickerProviderStateMixin {
-
   //动画控制器
   AnimationController _animationController;
 
