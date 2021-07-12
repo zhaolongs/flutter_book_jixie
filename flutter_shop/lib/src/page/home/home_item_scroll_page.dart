@@ -41,8 +41,6 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
   @override
   bool get wantKeepAlive => true;
 
-
-
   ///代码清单 13-16 滑动距离相关计算
   ///lib/src/page/home/home_item_scroll_page.dart
   //滑动监听控制器
@@ -125,6 +123,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
           systemNavigationBarColor: Colors.white),
     );
   }
+
   ///代码清单 13-14 首页面中第一部分的背景层
   ///lib/src/page/home/home_item_scroll_page.dart
   StreamBuilder<double> buildHeaderBg() {
@@ -136,7 +135,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
         return ClipPath(
           //裁剪方式
           clipper: HomeHeaderClipper(
-            value: _value2,//0.0~1.0
+            value: _value2, //0.0~1.0
           ),
           child: Container(
             height: 290,
@@ -196,9 +195,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
     );
   }
 
-
-
-  ///代码清单 13-18 网络请求数据获取标签
+  ///代码清单 13-26 网络请求数据获取标签
   ///lib/src/page/home/home_item_scroll_page.dart
   Future<bool> loadingData() async {
     //通过网络请求接口
@@ -241,6 +238,7 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
   List<Tab> _tabList;
   //TabBarView使用到的页面集合
   List<Widget> _tabBarViewList;
+
   ///[data]分类标签数据 根据分类来添加页面数据
   void successFunction(List data) {
     //加载成功有数据时的 JSON 数据解析转换
@@ -280,16 +278,15 @@ class _HomeItmeScrollPageState extends State<HomeItmeScrollPage>
   }
 }
 
-
-
 ///代码清单 13-15 首页面-背景动态裁剪 如图13-7所示坐标分析
 ///lib/src/page/home/home_item_scroll_page.dart
 class HomeHeaderClipper extends CustomClipper<Path> {
   //值范围 0.0 ~ 1.0
   double value;
 
-
-  HomeHeaderClipper({this.value = 0.0,});
+  HomeHeaderClipper({
+    this.value = 0.0,
+  });
 
   @override
   Path getClip(Size size) {
@@ -306,9 +303,9 @@ class HomeHeaderClipper extends CustomClipper<Path> {
     path.lineTo(0, unitHeight * 3);
     //二阶贝赛尔曲线
     path.quadraticBezierTo(
-       //控制点 C
+        //控制点 C
         width / 2,
-        height - value * unitHeight*1.5,
+        height - value * unitHeight * 1.5,
         //终点 D
         width,
         unitHeight * 3);
