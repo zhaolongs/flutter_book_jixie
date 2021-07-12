@@ -45,7 +45,28 @@ class _ExampleState extends State<Example237> {
         padding: EdgeInsets.all(20),
         //容器的高度
         width: double.infinity,
-        child: buildMaterialButton(),
+        child: PopupMenuButton<String>(
+          //设置小弹框的偏移量，x轴方向的偏移量为0，y轴方向的偏移量为向下偏移为100
+            offset: Offset(0, 0),
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                child: Text("文本一"),
+                value: "value1",
+              ),
+              new PopupMenuDivider(height: 1.0),
+              PopupMenuItem<String>(
+                child: Text("文本二"),
+                value: "value2",
+              ),
+              new PopupMenuDivider(height: 1.0),
+              PopupMenuItem<String>(
+                child: Text("文本三"),
+                value: "value3",
+              ),
+            ],
+            //点击子菜单的回调
+            onSelected: (String value) {})
+        ,
       ),
     );
   }
