@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -49,7 +48,6 @@ class _Example608State extends State<Example608>
       duration: Duration(milliseconds: 1000),
     );
 
-
     //通过 animate 方法将Animation与动画控制器AnimationController结合在一起
     _animation = Tween(
       //begin: Offset.zero, end: Offset(1, 0)
@@ -67,7 +65,7 @@ class _Example608State extends State<Example608>
   }
 
   /// 代码清单 6-7 [SlideTransition]
-  ///lib/code/code6/example_608_ScaleTransition.dart
+  ///lib/code/code6/example_608_SlideTransition.dart
   @override
   Widget build(BuildContext context) {
     return Scaffold(
