@@ -86,7 +86,8 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     "会员"
   ];
 
-  ///代码清单 13-38 滑动的子页面中的宫格分类
+  ///代码清单 13-45
+  ///滑动的子页面
   ///lib/src/page/home/home_item_tabbar_page.dart
   Widget buildGridView() {
     return GridView.builder(
@@ -116,7 +117,8 @@ class _HomeItemTabbarPageState extends State<HomeItemTabbarPage> {
     );
   }
 
-  ///代码清单 13-39 滑动的子页面中分类子Item构建
+  ///代码清单 13-46
+  ///滑动的子页面 - 分类子Item构建
   ///lib/src/page/home/home_item_tabbar_page.dart
   Widget buildListViewItemWidget(int index) {
     //取出分类数据

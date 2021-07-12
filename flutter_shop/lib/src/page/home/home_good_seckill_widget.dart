@@ -14,15 +14,16 @@ import 'home_good_seckill_item_widget.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
-///代码清单 13-40首页面 计时分类
+///代码清单 13-47
+///首页面 计时分类
 ///lib/src/page/home/home_good_seckill_widget.dart
+
 class GoodsSeckillWidget extends StatefulWidget {
   @override
   _GoodsSeckillWidgetState createState() => _GoodsSeckillWidgetState();
 }
 
 class _GoodsSeckillWidgetState extends State<GoodsSeckillWidget> {
-
   //计时器
   Timer _timer;
 
@@ -56,6 +57,7 @@ class _GoodsSeckillWidgetState extends State<GoodsSeckillWidget> {
       child: buildColumn(),
     );
   }
+
   ///代码清单 13-41首页面 计时分类 [GoodsSeckillWidget]中定义
   ///lib/src/page/home/home_good_seckill_widget.dart
   Column buildColumn() {
@@ -89,6 +91,7 @@ class _GoodsSeckillWidgetState extends State<GoodsSeckillWidget> {
       ],
     );
   }
+
   ///代码清单 13-42首页面 计时分类 [GoodsSeckillWidget]中定义
   ///lib/src/page/home/home_good_seckill_widget.dart
   Widget buildTimeWidget() {
@@ -133,6 +136,7 @@ class _GoodsSeckillWidgetState extends State<GoodsSeckillWidget> {
     if (n >= 10) return "$n";
     return "0$n";
   }
+
   ///代码清单 13-43 分类圆角背景 计时分类 [GoodsSeckillWidget]中定义
   ///lib/src/page/home/home_good_seckill_widget.dart
   Widget timeCellWiedget(String title) {
