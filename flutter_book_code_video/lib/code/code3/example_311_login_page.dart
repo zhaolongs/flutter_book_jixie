@@ -29,7 +29,7 @@ void main() {
   ));
 }
 
-///代码清单 3-17 登录页面 Stack 层叠
+///代码清单 3-16 登录页面 Stack 层叠
 ///lib/code/code3/example_311_login_page.dart
 class Example311 extends StatefulWidget {
   @override
@@ -158,7 +158,7 @@ class _LoginInputLayoutState extends State<LoginInputLayout> {
           padding: EdgeInsets.all(16),
           //圆角边框
           decoration: BoxDecoration(
-            //透明的白色
+              //透明的白色
               color: Colors.white.withOpacity(0.8),
               //四个圆角
               borderRadius: BorderRadius.all(Radius.circular(12))),
@@ -201,8 +201,6 @@ class _LoginInputLayoutState extends State<LoginInputLayout> {
     );
   }
 
-
-
   ///代码清单 3-22 抖动用户名输入框构建
   ///lib/code/code3/example_311_login_page.dart
   Widget buildUserNameWidget() {
@@ -243,8 +241,6 @@ class _LoginInputLayoutState extends State<LoginInputLayout> {
     );
   }
 
-
-
   ///代码清单 3-24 隐藏键盘操作
   ///lib/code/code3/example_311_login_page.dart
   void hindKeyBoarder() {
@@ -255,7 +251,6 @@ class _LoginInputLayoutState extends State<LoginInputLayout> {
     //隐藏键盘
     SystemChannels.textInput.invokeMethod('TextInput.hide');
   }
-
 
   ///代码清单 3-25 校验输入用户名操作
   ///lib/code/code3/example_311_login_page.dart
@@ -289,6 +284,7 @@ class _LoginInputLayoutState extends State<LoginInputLayout> {
       return true;
     }
   }
+
   ///代码清单 3-27 登录校验
   ///lib/code/code3/example_311_login_page.dart
   void checkLoginFunction() {
