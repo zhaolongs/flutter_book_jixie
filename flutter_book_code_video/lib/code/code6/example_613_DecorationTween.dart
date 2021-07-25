@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +23,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-12 [DecorationTween] 的基本使用
+/// 代码清单 6-11 [DecorationTween] 的基本使用
 ///lib/code/code6/example_613_DecorationTween.dart
 class Example613 extends StatefulWidget {
   @override
