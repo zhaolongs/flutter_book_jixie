@@ -25,7 +25,7 @@ void main() {
   ));
 }
 
-///代码清单 5-34 ListView 下拉刷新、上拉加载更多
+///代码清单 5-33 ListView 下拉刷新、上拉加载更多
 ///lib/code/code5/example_513_ListView_RefreshIndicator.dart
 class Example513 extends StatefulWidget {
   @override
@@ -64,7 +64,7 @@ class _Example513State extends State<Example513> {
       double maxOffset = _scrollController.position.maxScrollExtent;
       //当前视图的一屏高度
       double height = MediaQuery.of(context).size.height;
-      if(offset>=maxOffset-height && !isLoadingMore){
+      if (offset >= maxOffset - height && !isLoadingMore) {
         print("上拉加载更多");
         //更新标识 防止重复调用
         isLoadingMore = true;
@@ -76,7 +76,7 @@ class _Example513State extends State<Example513> {
     });
   }
 
-  ///代码清单 5-35
+  ///代码清单 5-34
   ///lib/code/code5/example_513_ListView_RefreshIndicator.dart
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,7 @@ class _Example513State extends State<Example513> {
     );
   }
 
-  ///代码清单 5-36  页面显示的列表 ListView
+  ///代码清单 5-35  页面显示的列表 ListView
   ///lib/code/code5/example_513_ListView_RefreshIndicator.dart
   Widget buildListView() {
     return ListView.builder(
@@ -139,18 +139,16 @@ class _Example513State extends State<Example513> {
     );
   }
 
-  ///代码清单 5-52 上拉加载更多
+  ///代码清单 5-36 上拉加载更多
   ///实际业务开发中就是网络请求的数据
   ///lib/code/code5/example_513_ListView_RefreshIndicator.dart
-  void loadMoreData() async{
+  void loadMoreData() async {
     //向集合中添加新的元素
     for (var i = 10; i < 30; ++i) {
       _list.add("第 $pageIndex 页数据 $i");
     }
     isLoadingMore = false;
     //当然在这里可以做一步优化就是在滑动停止时再更新
-    setState(() {
-
-    });
+    setState(() {});
   }
 }
