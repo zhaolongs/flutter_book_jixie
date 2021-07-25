@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +23,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-4 动画控制器[AnimationController]
+/// 代码清单 6-3 动画控制器[AnimationController]
 ///lib/code/code6/example_602_FadeTransition.dart
 class Example602 extends StatefulWidget {
   @override
@@ -76,6 +75,7 @@ class _Example602State extends State<Example602>
       }
     });
   }
+
   /// 代码清单 6-3
   ///lib/code/code6/example_602_FadeTransition.dart
   @override
