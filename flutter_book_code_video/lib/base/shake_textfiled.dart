@@ -2,17 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shake_animation_widget/shake_animation_widget.dart';
 
-
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/11/10.
 ///
 /// 可关注公众号：我的大前端生涯   获取最新技术分享
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
-/// 
-/// 代码清单 
+///
+/// 代码清单
 ///代码清单
-///代码清单 3-28 抖动的输入框
+///代码清单 3-27 抖动的输入框
 ///lib/base/shake_textfiled.dart
 class ShakeTextFiled extends StatefulWidget {
   final String labelText;
@@ -24,12 +23,12 @@ class ShakeTextFiled extends StatefulWidget {
 
   ShakeTextFiled(
       {@required this.labelText,
-        @required this.stream,
-        @required this.shakeAnimationController,
-        this.focusNode,
-        @required this.textFieldController,
-        this.onSubmitted,
-        Key key})
+      @required this.stream,
+      @required this.shakeAnimationController,
+      this.focusNode,
+      @required this.textFieldController,
+      this.onSubmitted,
+      Key key})
       : super(key: key);
 
   @override
