@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,14 +23,14 @@ void main() {
   ));
 }
 
-
 class Example508 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _Example508State();
   }
 }
-///代码清单 5-18 PageView的基本使用
+
+///代码清单 5-17 PageView的基本使用
 ///lib/code/code5/example_508_PageView.dart
 class _Example508State extends State<Example508> {
   /// 初始化控制器
