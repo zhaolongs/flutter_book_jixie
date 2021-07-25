@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +23,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-14 [BorderRadiusTween] 的基本使用
+/// 代码清单 6-13 [BorderRadiusTween] 的基本使用
 ///lib/code/code6/example_615_BorderRadiusTween.dart
 class Example615 extends StatefulWidget {
   @override
