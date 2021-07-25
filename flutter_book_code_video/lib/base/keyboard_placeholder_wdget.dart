@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 /// csdn https://blog.csdn.net/zl18603543572
 /// 西瓜视频 https://www.ixigua.com/home/3662978423
 ///
-///代码清单 3-29 键盘占位 3.4.2小节中 代码清单3-20中使用
+///代码清单 3-28 键盘占位 3.4.2小节中 代码清单3-20中使用
 ///lib/base/shake_textfiled.dart
 class KeyboardPlaceholderWidget extends StatefulWidget {
   //最大的占位
