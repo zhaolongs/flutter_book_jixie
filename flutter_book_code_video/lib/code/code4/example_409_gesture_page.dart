@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterdragscalewidget/flutterdragscalewidget.dart';
 
@@ -22,7 +21,7 @@ void main() {
   ));
 }
 
-///代码清单 4-16
+///代码清单 4-15
 ///lib/code/code4/example_409_gesture_page.dart
 ///手势识别  双击放大、双指缩放、拖动图片 依赖库使用
 class Example409 extends StatefulWidget {
@@ -33,7 +32,6 @@ class Example409 extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example409> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
