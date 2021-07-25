@@ -64,7 +64,7 @@ class _Example608State extends State<Example608>
     ).animate(_animationController);
   }
 
-  /// 代码清单 6-7 [SlideTransition]
+  /// 代码清单 6-6 [SlideTransition]
   ///lib/code/code6/example_608_SlideTransition.dart
   @override
   Widget build(BuildContext context) {
