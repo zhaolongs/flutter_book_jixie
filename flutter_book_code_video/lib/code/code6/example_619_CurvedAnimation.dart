@@ -24,7 +24,7 @@ void main() {
   ));
 }
 
-/// 代码清单 6-18 文本样式弹性变化
+/// 代码清单 6-17 文本样式弹性变化
 ///lib/code/code6/example_619_CurvedAnimation.dart
 
 class Example620 extends StatefulWidget {
