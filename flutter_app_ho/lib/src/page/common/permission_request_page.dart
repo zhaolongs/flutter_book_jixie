@@ -3,9 +3,10 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app_ho/src/utils/navigator_utils.dart';
 import 'package:flutter_app_ho/src/utils/log_util.dart';
+import 'package:flutter_app_ho/src/utils/navigator_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
+
 import 'common_dialog.dart';
 
 /// 创建人： Created by zhaolong
@@ -56,14 +57,15 @@ showPermissionRequestPage(
   });
 }
 
-
 ///lib/app/page/common/permission_request_page.dart
 ///通用动态权限申请功能封装
 class PermissionRequestPage extends StatefulWidget {
   ///当前要申请的权限
   final Permission permission;
+
   ///申请权限的提示语
   final List<String> permissionMessageList;
+
   ///不同意权限时 为true触发关闭APP
   final bool isColseApp;
   PermissionRequestPage(
@@ -95,11 +97,12 @@ class _PermissionRequestState extends State<PermissionRequestPage>
 
   ///是否打开发设置中心
   bool isOpenSetting = false;
+
   ///生命周期变化时回调
   //  resumed:应用可见并可响应用户操作
   //  inactive:用户可见，但不可响应用户操作
   //  paused:已经暂停了，用户不可见、不可操作
- //  suspending：应用被挂起，此状态IOS永远不会回调
+  //  suspending：应用被挂起，此状态IOS永远不会回调
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
@@ -112,6 +115,7 @@ class _PermissionRequestState extends State<PermissionRequestPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
+
       ///填充布局
       body: new Material(
           type: MaterialType.transparency,
@@ -128,10 +132,11 @@ class _PermissionRequestState extends State<PermissionRequestPage>
           )),
     );
   }
+
+  ///代码清单 11-6
   ///lib/app/page/common/permission_request_page.dart
   ///检查权限 [status] 当前权限的状态
   void checkPermissonFunction({PermissionStatus status}) async {
-
     if (Platform.isAndroid) {
       ///获取权限状态
       if (status == null) {
@@ -150,7 +155,8 @@ class _PermissionRequestState extends State<PermissionRequestPage>
             },
             cancleCallBack: () {
               closeApp();
-            }, context: context);
+            },
+            context: context);
       } else if (status.isDenied) {
         ///用户拒绝
         showCommonAlertDialog(
@@ -163,7 +169,8 @@ class _PermissionRequestState extends State<PermissionRequestPage>
             },
             cancleCallBack: () {
               closeApp();
-            }, context: context);
+            },
+            context: context);
       } else if (status.isPermanentlyDenied) {
         ///用户拒绝后并选择不再提示
         ///用户拒绝
@@ -182,14 +189,15 @@ class _PermissionRequestState extends State<PermissionRequestPage>
             },
             cancleCallBack: () {
               closeApp();
-            }, context: context);
+            },
+            context: context);
       } else if (status.isGranted) {
         ///权限通过
         Navigator.of(context).pop(true);
-      } else{
+      } else {
         Navigator.of(context).pop(false);
       }
-    }else{
+    } else {
       ///权限通过
       Navigator.of(context).pop(true);
     }
@@ -198,27 +206,29 @@ class _PermissionRequestState extends State<PermissionRequestPage>
   void openSettingFaile() {
     showCommonAlertDialog(
         contentMessag: "暂时无法打开设置中心，请您打开手机设置->应用管理-同意权限",
-        cancleText:  "退出",
+        cancleText: "退出",
         cancleCallBack: () {
           closeApp();
-        }, context: context);
+        },
+        context: context);
   }
+
   ///lib/app/page/common/permission_request_page.dart
   ///请求权限
   void requestStoragePermisson() async {
     ///请求权限
     PermissionStatus status = await widget.permission.request();
+
     ///校验权限申请结果
     checkPermissonFunction(status: status);
   }
 
-
   ///关闭应用程序或者权限请求功能
   Future<void> closeApp() async {
-    if(widget.isColseApp){
+    if (widget.isColseApp) {
       await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-    }else{
-      if(Navigator.of(context).canPop()){
+    } else {
+      if (Navigator.of(context).canPop()) {
         Navigator.of(context).pop(false);
       }
     }
