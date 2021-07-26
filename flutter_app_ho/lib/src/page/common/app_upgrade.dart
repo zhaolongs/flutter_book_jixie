@@ -45,6 +45,7 @@ void showAppUpgradeDialog({
       opaque: false);
 }
 
+///代码清单 11-7
 /// lib/app/page/common/app_upgrade.dart
 class AppUpgradePage extends StatefulWidget {
   //是否强制升级
