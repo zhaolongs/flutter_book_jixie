@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_life_state/flutter_life_state.dart';
@@ -23,6 +21,7 @@ import 'index_page.dart';
 /// csdn https://blog.csdn.net/zl18603543572
 /// 西瓜视频 https://www.ixigua.com/home/3662978423
 /// lib/app/app_root_page.dart
+/// 代码清单 11-10
 class AppRootPage extends StatefulWidget {
   @override
   _AppRootPageState createState() => _AppRootPageState();
@@ -35,10 +34,10 @@ class _AppRootPageState extends State<AppRootPage> {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: rootStreamController.stream,
-      initialData: GlobalBean(100,Colors.transparent),
+      initialData: GlobalBean(100, Colors.transparent),
       builder: (BuildContext context, AsyncSnapshot<GlobalBean> snapshot) {
         //获取数据
-        if(snapshot.data.code==100){
+        if (snapshot.data.code == 100) {
           _defaultFilterColor = snapshot.data.data;
         }
         return ColorFiltered(

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_ho/src/page/common/user_protocol_page.dart';
 import 'package:flutter_app_ho/src/page/common/permission_request_page.dart';
+import 'package:flutter_app_ho/src/page/common/user_protocol_page.dart';
 import 'package:flutter_app_ho/src/splash_page.dart';
 import 'package:flutter_app_ho/src/utils/navigator_utils.dart';
 import 'package:flutter_app_ho/src/utils/sp_utils.dart';
@@ -9,7 +9,6 @@ import 'package:flutter_app_ho/src/welcome_page.dart';
 import 'package:flutter_fai_umeng/flutter_fai_umeng.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'app_root_page.dart';
 import 'base/pop_base_state.dart';
 import 'bean/bean_app_setting.dart';
 import 'bean/bean_global.dart';
@@ -56,6 +55,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     });
   }
 
+  ///代码清单 11-11
   ///lib/app/index_page.dart
   ///常用的第三方的初始功能 如友盟统计
   ///获取保存的用户偏好设置
@@ -155,6 +155,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
         permission: Permission.storage,
         //对应的弹框提示语
         permissionMessageList: messageList,
+
         ///权限请求完成后的回调
         dismissCallback: (value) {
           ///权限请求结束获取权限后进行初始化操作

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fai_webview/flutter_fai_webview.dart';
 import 'package:flutter_app_ho/src/utils/navigator_utils.dart';
+import 'package:flutter_fai_webview/flutter_fai_webview.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/21.
@@ -56,6 +56,7 @@ class WebViewPage extends StatefulWidget {
   _WebViewPageState createState() => _WebViewPageState();
 }
 
+///代码清单 11-9
 ///lib/app/page/common/webview_page.dart
 class _WebViewPageState extends State<WebViewPage> {
   //[FaiWebViewWidget]控制器
@@ -116,7 +117,7 @@ class _WebViewPageState extends State<WebViewPage> {
   //lib/app/page/common/webview_page.dart
   //第二层操作栏
   buildControllerPositioned(BuildContext context) {
-    if(!widget.showController){
+    if (!widget.showController) {
       return Container();
     }
     return Positioned(

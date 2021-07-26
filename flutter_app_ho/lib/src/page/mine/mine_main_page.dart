@@ -1,10 +1,8 @@
-import 'dart:async';
-import 'dart:math';
-import 'package:flutter/services.dart';
-import 'package:flutter_life_state/flutter_life_state.dart';
-import 'package:flutter_app_ho/src/common/user_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_app_ho/src/common/user_helper.dart';
+import 'package:flutter_life_state/flutter_life_state.dart';
 
 import 'mine_main_person_page.dart';
 import 'mine_nologin_person_page.dart';
@@ -22,7 +20,7 @@ import 'mine_nologin_person_page.dart';
 /// zhihu https://www.zhihu.com/people/zhao-long-90-89
 /// csdn https://blog.csdn.net/zl18603543572
 /// 西瓜视频 https://www.ixigua.com/home/3662978423///
-
+///代码清单 11-12
 /// lib/app/page/mine/mine_main_page.dart
 /// 我的页面
 class MineMainPage extends StatefulWidget {

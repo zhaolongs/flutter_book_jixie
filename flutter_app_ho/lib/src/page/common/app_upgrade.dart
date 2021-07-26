@@ -265,6 +265,7 @@ class _AppUpgradeState extends State<AppUpgradePage> {
     }
   }
 
+  ///代码清单 11-8
   StreamController<double> _streamController = new StreamController();
 
   //当前状态
