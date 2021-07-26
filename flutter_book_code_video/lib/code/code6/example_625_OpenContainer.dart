@@ -57,7 +57,7 @@ class _Example625State extends State with TickerProviderStateMixin {
     );
   }
 
-  /// 代码清单 6-27 OpenContainer 核心
+  /// 代码清单 6-30 OpenContainer 核心
   /// lib/code/code6/example_625_OpenContainer.dart
   Widget buildOpenContainer(int index) {
     //容器转换路由
