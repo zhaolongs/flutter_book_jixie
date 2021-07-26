@@ -8,12 +8,11 @@ import 'package:flutter/material.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-/// 代码清单
+/// 代码清单 11-2
 /// 日期时间处理工具类  TimeDateUtils类名调用
 /// 基本格式 [DEFAULT_FORMAT] YYYY-MM-DD hh:mm:ss
 /// lib/utils/time_date_utils.dart
 class TimeDateUtils {
-
   static const String DEFAULT_FORMAT = "YYYY-MM-DD hh:mm:ss";
 
   ///将字符串类型的数据转为 Dart 对象类型 [DateTime]
@@ -40,8 +39,6 @@ class TimeDateUtils {
     }
     return DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
   }
-
-
 
   ///获取当前日期的时间毫秒
   ///如 1606438828697
