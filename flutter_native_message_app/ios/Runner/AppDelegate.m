@@ -1,5 +1,6 @@
 
-///代码清单9-8
+///代码清单 9-8  FlutterMethodChannel
+///代码清单 9-15 FlutterBasicMessageChannel
 #import "AppDelegate.h"
 #import "GeneratedPluginRegistrant.h"
 #import "TestViewController.h"

@@ -6,7 +6,7 @@
 //
 
 
-//代码清单9-25 iOS中 创建UILabel
+//代码清单9-26 iOS中 创建UILabel
 #import <Foundation/Foundation.h>
 #import <Flutter/Flutter.h>
 

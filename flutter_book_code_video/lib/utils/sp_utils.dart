@@ -1,7 +1,9 @@
 ///lib/utils/sp_utils.dart
 import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
+///代码清单10-20
 class SPUtil {
   ///静态实例
   static SharedPreferences _sharedPreferences;
