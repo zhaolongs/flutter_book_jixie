@@ -19,7 +19,7 @@ import 'home_staggered_list_widget.dart';
 /// csdn https://blog.csdn.net/zl18603543572
 /// 西瓜视频 https://www.ixigua.com/home/3662978423
 ///
-///代码清单 13-34
+///代码清单 13-26 滑动的子页面
 ///lib/src/page/home/home_item_tabbar_page.dart
 class HomeItemTabbarPage extends StatefulWidget {
   ///分类的标识

@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/src/utils/log_util.dart';
-import 'package:flutter_shop/src/utils/size_utils.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/11/12.
@@ -48,6 +46,7 @@ class _BannerWidgetState extends State<BannerWidget> {
     //初始化控制器
     // initialPage 为初始化显示的子Item
     _pageController = new PageController(initialPage: currentIndex);
+
     ///当前页面绘制完第一帧后回调
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       startTimer();
@@ -59,7 +58,6 @@ class _BannerWidgetState extends State<BannerWidget> {
     //停止计时
     _timer.cancel();
     super.dispose();
-
   }
 
   ///代码清单 13-33 轮播图 [BannerWidget] 中的方法
@@ -85,7 +83,6 @@ class _BannerWidgetState extends State<BannerWidget> {
       setState(() {});
     });
   }
-
 
   ///代码清单 13-34
   ///轮播图 [BannerWidget] 使用层叠布局将图片与自定义的指示器组装在一起
@@ -125,6 +122,7 @@ class _BannerWidgetState extends State<BannerWidget> {
       ),
     );
   }
+
   ///代码清单 13-35 轮播图 [BannerWidget] 第一部分的实现 PageView来装载图片
   ///轮播图 [BannerWidget] 第一部分的实现 PageView来装载图片
   ///lib/src/common/banner.dart
